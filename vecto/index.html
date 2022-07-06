@@ -39,17 +39,105 @@
             background: rgb(255, 255, 255);
             background: linear-gradient(180deg, rgba(255, 255, 255, 1) 50%, rgba(33, 37, 41, 1) 50%);
         }
+
         .title-bg-style {
             background-image: url(./res/Security-amico.jpg);
             background-size: auto;
             background-repeat: no-repeat;
             background-position: top right;
         }
+
         .card-bg-style {
             background-image: url(./res/blob-scene-haikei.png);
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
+        }
+
+        .bg-anime {
+            position: absolute;
+            /* z-index: -1; */
+            right: 140px;
+            top: 50px;
+        }
+
+        .bg-anime div {
+            width: fit-content;
+        }
+
+        .bg-anime div i {
+            text-shadow: #4a4a4a 0px 0px 10px;
+        }
+
+        div.gear-1 {
+            position: absolute;
+            font-size: 5em;
+            left: 45px;
+            top: 10px;
+        }
+
+        div.gear-2 {
+            position: absolute;
+            font-size: 3.5em;
+            top: 85px;
+            left: 20px;
+        }
+
+        div.gear-3 {
+            position: absolute;
+            font-size: 2.5em;
+            top: 56px;
+            left: 0px;
+        }
+
+        .spin-clock {
+            -webkit-animation: spin 10s linear infinite;
+            animation: spin 2s linear infinite;
+        }
+
+        .spin-anti-clock {
+            -webkit-animation: spin-rev 10s linear infinite;
+            animation: spin-rev 2s linear infinite;
+        }
+
+        @-webkit-keyframes spin {
+            0% {
+                -webkit-transform: rotate(0deg);
+            }
+
+            100% {
+                -webkit-transform: rotate(360deg);
+            }
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @-webkit-keyframes spin-rev {
+            0% {
+                -webkit-transform: rotate(360deg);
+            }
+
+            100% {
+                -webkit-transform: rotate(0deg);
+            }
+        }
+
+        @keyframes spin-rev {
+            0% {
+                transform: rotate(360deg);
+            }
+
+            100% {
+                transform: rotate(0deg);
+            }
         }
     </style>
 
@@ -97,17 +185,23 @@
                             editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will
                             uncover many web sites still in their infancy.
                         </p>
-                        <a href="#" class="btn btn-outline-light btn-lg rounded-0 me-2 mb-2">Our Services</a>
+                        <a href="#" class="btn btn-outline-light btn-lg shadow-none rounded-0 me-2 mb-2">Our
+                            Services</a>
                     </div>
                 </div>
                 <div class="col-lg-6 col-12 grd-3">
                     <img src="res/Online_campaign_Isometric-1.png" class="img-fluid" alt="">
+                    <div class="bg-anime m-5">
+                        <div class="text-white spin-anti-clock gear-1"><i class="bi bi-gear-fill"></i></div>
+                        <div class="text-white spin-clock gear-2"><i class="bi bi-gear-fill"></i></div>
+                        <div class="text-white spin-anti-clock gear-3"><i class="bi bi-gear-fill"></i></div>
+                    </div>
                 </div>
             </div>
         </div>
     </header>
     <section class="mb-5">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
                     <div class="my-5">
@@ -117,65 +211,57 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-6 col-12 px-0">
-                    <div class="card card-bg-style border-0 rounded-0 mb-2">
+                <div class="col-lg-3 col-md-6 col-12">
+                    <div class="card shadow border-0 rounded-0 my-4">
                         <div class="card-body">
-                            <h3 class="h3 my-5">Service One</h3>
-                            <p class="lead fs-6 my-5">
+                            <h3 class="h3 my-4">Service One</h3>
+                            <p class="lead fs-6 my-4">
                                 It is a long established fact that a reader will be distracted by the readable content
                                 of a page when looking at its layout. The point of using Lorem Ipsum is that it has a
                                 more-or-less normal distribution of letters, as opposed to using 'Content here, content
-                                here', making it look like readable English. Many desktop publishing packages and web
-                                page editors now use Lorem Ipsum as their default model text, and a search for 'lorem
-                                ipsum' will uncover many web sites still in their infancy.
+                                here', making it look like readable English.
                             </p>
                             <a href="#" class="card-link float-end">Card link</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-12 px-0">
-                    <div class="card title-bg-style border-0 rounded-0 mb-2">
+                <div class="col-lg-3 col-md-6 col-12">
+                    <div class="card shadow border-0 rounded-0 mb-2 py-4">
                         <div class="card-body">
-                            <h3 class="h3 my-5">Service Two</h3>
-                            <p class="lead fs-6 my-5">
+                            <h3 class="h3 my-4">Service Two</h3>
+                            <p class="lead fs-6 my-4">
                                 It is a long established fact that a reader will be distracted by the readable content
                                 of a page when looking at its layout. The point of using Lorem Ipsum is that it has a
                                 more-or-less normal distribution of letters, as opposed to using 'Content here, content
-                                here', making it look like readable English. Many desktop publishing packages and web
-                                page editors now use Lorem Ipsum as their default model text, and a search for 'lorem
-                                ipsum' will uncover many web sites still in their infancy.
+                                here', making it look like readable English.
                             </p>
                             <a href="#" class="card-link float-end">Card link</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-12 px-0">
-                    <div class="card title-bg-style border-0 rounded-0 mb-2">
+                <div class="col-lg-3 col-md-6 col-12">
+                    <div class="card shadow border-0 rounded-0 mb-2 py-4">
                         <div class="card-body">
-                            <h3 class="h3 my-5">Service Three</h3>
-                            <p class="lead fs-6 my-5">
+                            <h3 class="h3 my-4">Service Three</h3>
+                            <p class="lead fs-6 my-4">
                                 It is a long established fact that a reader will be distracted by the readable content
                                 of a page when looking at its layout. The point of using Lorem Ipsum is that it has a
                                 more-or-less normal distribution of letters, as opposed to using 'Content here, content
-                                here', making it look like readable English. Many desktop publishing packages and web
-                                page editors now use Lorem Ipsum as their default model text, and a search for 'lorem
-                                ipsum' will uncover many web sites still in their infancy.
+                                here', making it look like readable English.
                             </p>
                             <a href="#" class="card-link float-end">Card link</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-12 px-0">
-                    <div class="card card-bg-style border-0 rounded-0 mb-2">
+                <div class="col-lg-3 col-md-6 col-12">
+                    <div class="card shadow border-0 rounded-0 my-4">
                         <div class="card-body">
-                            <h3 class="h3 my-5">Service Four</h3>
-                            <p class="lead fs-6 my-5">
+                            <h3 class="h3 my-4">Service Four</h3>
+                            <p class="lead fs-6 my-4">
                                 It is a long established fact that a reader will be distracted by the readable content
                                 of a page when looking at its layout. The point of using Lorem Ipsum is that it has a
                                 more-or-less normal distribution of letters, as opposed to using 'Content here, content
-                                here', making it look like readable English. Many desktop publishing packages and web
-                                page editors now use Lorem Ipsum as their default model text, and a search for 'lorem
-                                ipsum' will uncover many web sites still in their infancy.
+                                here', making it look like readable English.
                             </p>
                             <a href="#" class="card-link float-end">Card link</a>
                         </div>
@@ -251,8 +337,8 @@
                 </div>
             </div>
             <div class="row">
-                <div class="text-center mt-5">
-                    <a href="#" class="btn btn-outline-light btn-lg rounded-0 me-2 mb-2">Contact VECTO</a>
+                <div class="text-center my-5">
+                    <a href="#" class="btn btn-outline-light btn-lg shadow-none rounded-0 me-2 mb-2">Contact VECTO</a>
                 </div>
             </div>
         </div>
@@ -264,15 +350,7 @@
                     <div class="my-5">
                         <h2 class="text-center fw-bold h1 pt-5 display-4">VECTO</h2>
                         <h3 class="text-center h3">For World class Services</h3>
-                        <p class="lead mt-5">
-                            It is a long established fact that a reader will be distracted by the readable content of a
-                            page when looking at its layout. The point of using Lorem Ipsum is that it has a
-                            more-or-less normal distribution of letters, as opposed to using 'Content here, content
-                            here', making it look like readable English. Many desktop publishing packages and web page
-                            editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will
-                            uncover many web sites still in their infancy.
-                        </p>
-                        <ul class="nav justify-content-center">
+                        <ul class="nav justify-content-center my-4">
                             <li class="nav-item">
                                 <a class="nav-link h1" href="#">
                                     <i class="bi bi-facebook"></i>
@@ -289,8 +367,17 @@
                                 </a>
                             </li>
                         </ul>
+                        <p class="lead my-5">
+                            It is a long established fact that a reader will be distracted by the readable content of a
+                            page when looking at its layout. The point of using Lorem Ipsum is that it has a
+                            more-or-less normal distribution of letters, as opposed to using 'Content here, content
+                            here', making it look like readable English. Many desktop publishing packages and web page
+                            editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will
+                            uncover many web sites still in their infancy.
+                        </p>
                         <div class="text-center">
-                            <a href="#" class="btn btn-outline-dark btn-lg shadow-none rounded-0 me-2 mb-2">About VECTO</a>
+                            <a href="#" class="btn btn-outline-dark btn-lg shadow-none rounded-0 me-2 mb-2">About
+                                VECTO</a>
                         </div>
                     </div>
                 </div>
@@ -354,19 +441,19 @@
                     <div class="card bg-dark border-0 rounded-0">
                         <div class="card-body">
                             <div class="d-grid gap-2 ps-5">
-                                <a class="btn btn-outline-light rounded-0" href="#">
+                                <a class="btn btn-outline-light shadow-none rounded-0" href="#">
                                     <i class="bi bi-whatsapp"></i> with VECTO
                                 </a>
-                                <a class="btn btn-outline-light rounded-0" href="#">
+                                <a class="btn btn-outline-light shadow-none rounded-0" href="#">
                                     <i class="bi bi-messenger"></i> with VECTO
                                 </a>
-                                <a class="btn btn-outline-light rounded-0" href="#">
+                                <a class="btn btn-outline-light shadow-none rounded-0" href="#">
                                     VECTO on <i class="bi bi-facebook"></i>
                                 </a>
-                                <a class="btn btn-outline-light rounded-0" href="#">
+                                <a class="btn btn-outline-light shadow-none rounded-0" href="#">
                                     VECTO on <i class="bi bi-linkedin"></i>
                                 </a>
-                                <a class="btn btn-outline-light rounded-0" href="#">
+                                <a class="btn btn-outline-light shadow-none rounded-0" href="#">
                                     VECTO on <i class="bi bi-google"></i>
                                 </a>
                             </div>
