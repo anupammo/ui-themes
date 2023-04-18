@@ -19,9 +19,20 @@
     }
 
     .bg-1 {
-      background-image: url(https://images.pexels.com/photos/1843717/pexels-photo-1843717.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
-      background-size: cover;
+      background: rgb(255, 255, 255);
+      background: linear-gradient(0deg, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0) 50%);
+    }
+
+    .bg-2 {
+      background-image: url(https://images.pexels.com/photos/159806/meeting-modern-room-conference-159806.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+      background-attachment: fixed;
       background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .bg-overlay {
+      background-color: #ffffff33;
     }
   </style>
 
@@ -29,91 +40,105 @@
 </head>
 
 <body>
-  <header class="bg-light">
-    <nav class="navbar navbar-expand-lg navbar-light">
-      <div class="container">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-          aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a href="./" class="nav-link active">Home</a>
-            </li>
-            <li class="nav-item">
-              <a href="about.html" class="nav-link active">About</a>
-            </li>
-            <li class="nav-item">
-              <a href="services.html" class="nav-link active">Services</a>
-            </li>
-            <li class="nav-item">
-              <a href="contact.html" class="nav-link active">Contact</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <h1 class="text-center text-primary fw-bold display-2 my-5">Hello world</h1>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6 col-12">
-          <p class="text-justify">A card is a flexible and extensible content container. It includes options for
-            headers and footers, a wide variety of content, contextual background colors, and powerful display
-            options. If you're familiar with Bootstrap 3, cards replace our old panels, wells, and thumbnails. Similar
-            functionality to those components is available as modifier classes for cards. A card is a flexible and
-            extensible content container. It includes options for headers and footers, a wide variety of content,
-            contextual background colors, and powerful display options. If you're familiar with Bootstrap 3, cards
-            replace our old panels, wells, and thumbnails. Similar functionality to those components is available as
-            modifier classes for cards.</p>
-        </div>
-        <div class="col-md-6 col-12">
-          <p class="text-justify">A card is a flexible and extensible content container. It includes options for
-            headers and footers, a wide variety of content, contextual background colors, and powerful display
-            options. If you're familiar with Bootstrap 3, cards replace our old panels, wells, and thumbnails. Similar
-            functionality to those components is available as modifier classes for cards. A card is a flexible and
-            extensible content container. It includes options for headers and footers, a wide variety of content,
-            contextual background colors, and powerful display options. If you're familiar with Bootstrap 3, cards
-            replace our old panels, wells, and thumbnails. Similar functionality to those components is available as
-            modifier classes for cards.</p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-12">
-          <div class="my-5">
-            <ul class="nav justify-content-center h1">
-              <li class="nav-item bg-light">
-                <a class="nav-link active" href="#">
-                  <i class="bi bi-facebook"></i>
-                </a>
+  <header class="bg-2">
+    <div class="bg-overlay">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+          <a class="navbar-brand" href="#">Navbar</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a href="./" class="nav-link active">Home</a>
               </li>
-              <li class="nav-item bg-light">
-                <a class="nav-link active" href="#">
-                  <i class="bi bi-google"></i>
-                </a>
+              <li class="nav-item">
+                <a href="about.html" class="nav-link active">About</a>
               </li>
-              <li class="nav-item bg-light">
-                <a class="nav-link active" href="#">
-                  <i class="bi bi-stack-overflow"></i>
-                </a>
+              <li class="nav-item">
+                <a href="services.html" class="nav-link active">Services</a>
               </li>
-              <li class="nav-item bg-light">
-                <a class="nav-link active" href="#">
-                  <i class="bi bi-quora"></i>
-                </a>
-              </li>
-              <li class="nav-item bg-light">
-                <a class="nav-link active" href="#">
-                  <i class="bi bi-linkedin"></i>
-                </a>
+              <li class="nav-item">
+                <a href="contact.html" class="nav-link active">Contact</a>
               </li>
             </ul>
+          </div>
+        </div>
+      </nav>
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h1 class="text-center fw-bold display-2 my-5">Hello world</h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 col-12 px-0">
+            <div class="card rounded-0 border-0">
+              <div class="card-body p-5">
+                <p class="text-justify">A card is a flexible and extensible content container. It includes options for
+                  headers and footers, a wide variety of content, contextual background colors, and powerful display
+                  options. If you're familiar with Bootstrap 3, cards replace our old panels, wells, and thumbnails.
+                  Similar
+                  functionality to those components is available as modifier classes for cards. A card is a flexible and
+                  extensible content container. It includes options for headers and footers, a wide variety of content,
+                  contextual background colors, and powerful display options. If you're familiar with Bootstrap 3, cards
+                  replace our old panels, wells, and thumbnails. Similar functionality to those components is available
+                  as
+                  modifier classes for cards.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-12 px-0 pt-5">
+            <div class="card bg-warning rounded-0 border-0">
+              <div class="card-body p-5">
+                <p class="text-justify">A card is a flexible and extensible content container. It includes options for
+                  headers and footers, a wide variety of content, contextual background colors, and powerful display
+                  options. If you're familiar with Bootstrap 3, cards replace our old panels, wells, and thumbnails.
+                  Similar
+                  functionality to those components is available as modifier classes for cards. A card is a flexible and
+                  extensible content container. It includes options for headers and footers, a wide variety of content,
+                  contextual background colors, and powerful display options. If you're familiar with Bootstrap 3, cards
+                  replace our old panels, wells, and thumbnails. Similar functionality to those components is available
+                  as
+                  modifier classes for cards.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div class="my-5">
+              <ul class="nav justify-content-center h1">
+                <li class="nav-item bg-white">
+                  <a class="nav-link active" href="#">
+                    <i class="bi bi-facebook"></i>
+                  </a>
+                </li>
+                <li class="nav-item bg-white">
+                  <a class="nav-link active" href="#">
+                    <i class="bi bi-google"></i>
+                  </a>
+                </li>
+                <li class="nav-item bg-white">
+                  <a class="nav-link active" href="#">
+                    <i class="bi bi-stack-overflow"></i>
+                  </a>
+                </li>
+                <li class="nav-item bg-white">
+                  <a class="nav-link active" href="#">
+                    <i class="bi bi-quora"></i>
+                  </a>
+                </li>
+                <li class="nav-item bg-white">
+                  <a class="nav-link active" href="#">
+                    <i class="bi bi-linkedin"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -122,18 +147,18 @@
   <section class="my-5">
     <div class="container">
       <div class="row">
-        <div class="col-md-6 col-12">
-          <img class="img-fluid float-end" src="res/pexels-photo-7875889-removebg-preview.png" alt="">
+        <div class="col-md-5 col-12">
+          <img class="img-fluid float-end my-4" src="res/pexels-photo-3760810-removebg-preview.png" alt="">
         </div>
-        <div class="col-md-6 col-12">
+        <div class="col-md-7 col-12">
           <div class="my-3">
             <h2 class="fw-bold display-2 mb-4">Hello world</h2>
             <p class="text-justify">A card is a flexible and extensible content container. It includes options for
               headers and footers, a wide variety of content, contextual background colors, and powerful display
-              options. If you’re familiar with Bootstrap 3, cards replace our old panels, wells, and thumbnails. Similar
+              options. If you're familiar with Bootstrap 3, cards replace our old panels, wells, and thumbnails. Similar
               functionality to those components is available as modifier classes for cards. A card is a flexible and
               extensible content container. It includes options for headers and footers, a wide variety of content,
-              contextual background colors, and powerful display options. If you’re familiar with Bootstrap 3, cards
+              contextual background colors, and powerful display options. If you're familiar with Bootstrap 3, cards
               replace our old panels, wells, and thumbnails. Similar functionality to those components is available as
               modifier classes for cards.</p>
           </div>
@@ -144,21 +169,21 @@
   <section class="py-5" style="background-color: #f3f3f3;">
     <div class="container">
       <div class="row">
-        <div class="col-md-6 col-12">
+        <div class="col-md-7 col-12">
           <div class="my-3">
             <h1 class="fw-bold display-2 mb-4">Hello world</h1>
             <p class="text-justify">A card is a flexible and extensible content container. It includes options for
               headers and footers, a wide variety of content, contextual background colors, and powerful display
-              options. If you’re familiar with Bootstrap 3, cards replace our old panels, wells, and thumbnails. Similar
+              options. If you're familiar with Bootstrap 3, cards replace our old panels, wells, and thumbnails. Similar
               functionality to those components is available as modifier classes for cards. A card is a flexible and
               extensible content container. It includes options for headers and footers, a wide variety of content,
-              contextual background colors, and powerful display options. If you’re familiar with Bootstrap 3, cards
+              contextual background colors, and powerful display options. If you're familiar with Bootstrap 3, cards
               replace our old panels, wells, and thumbnails. Similar functionality to those components is available as
               modifier classes for cards.</p>
           </div>
         </div>
-        <div class="col-md-6 col-12">
-          <img class="img-fluid d-block mx-auto"
+        <div class="col-md-5 col-12">
+          <img class="img-fluid d-block mx-auto my-4"
             src="https://images.pexels.com/photos/5561912/pexels-photo-5561912.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
             alt="">
         </div>
@@ -168,18 +193,18 @@
   <section class="my-5">
     <div class="container">
       <div class="row">
-        <div class="col-md-6 col-12 py-5">
+        <div class="col-md-5 col-12 py-5">
           <img class="img-fluid my-5" src="res/pexels-photo-1181438-removebg-preview.webp" alt="">
         </div>
-        <div class="col-md-6 col-12">
+        <div class="col-md-7 col-12">
           <div class="my-3">
             <h2 class="fw-bold display-2 mb-4">Hello world</h2>
             <p class="text-justify">A card is a flexible and extensible content container. It includes options for
               headers and footers, a wide variety of content, contextual background colors, and powerful display
-              options. If you’re familiar with Bootstrap 3, cards replace our old panels, wells, and thumbnails. Similar
+              options. If you're familiar with Bootstrap 3, cards replace our old panels, wells, and thumbnails. Similar
               functionality to those components is available as modifier classes for cards. A card is a flexible and
               extensible content container. It includes options for headers and footers, a wide variety of content,
-              contextual background colors, and powerful display options. If you’re familiar with Bootstrap 3, cards
+              contextual background colors, and powerful display options. If you're familiar with Bootstrap 3, cards
               replace our old panels, wells, and thumbnails. Similar functionality to those components is available as
               modifier classes for cards.</p>
           </div>
@@ -190,21 +215,21 @@
   <section class="pt-5" style="background-color: #fff;">
     <div class="container">
       <div class="row">
-        <div class="col-md-6 col-12">
+        <div class="col-md-7 col-12">
           <div class="my-3">
             <h2 class="fw-bold display-2 mb-4">Hello world</h2>
             <p class="text-justify">A card is a flexible and extensible content container. It includes options for
               headers and footers, a wide variety of content, contextual background colors, and powerful display
-              options. If you’re familiar with Bootstrap 3, cards replace our old panels, wells, and thumbnails. Similar
+              options. If you're familiar with Bootstrap 3, cards replace our old panels, wells, and thumbnails. Similar
               functionality to those components is available as modifier classes for cards. A card is a flexible and
               extensible content container. It includes options for headers and footers, a wide variety of content,
-              contextual background colors, and powerful display options. If you’re familiar with Bootstrap 3, cards
+              contextual background colors, and powerful display options. If you're familiar with Bootstrap 3, cards
               replace our old panels, wells, and thumbnails. Similar functionality to those components is available as
               modifier classes for cards.</p>
           </div>
         </div>
-        <div class="col-md-6 col-12">
-          <img class="img-fluid"
+        <div class="col-md-5 col-12">
+          <img class="img-fluid my-5"
             src="https://images.pexels.com/photos/9660/business-money-pink-coins.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
             alt="">
         </div>
