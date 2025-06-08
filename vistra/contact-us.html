@@ -3,84 +3,588 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Meta Title (Max 60 Characters) -->
     <title>Contact Us | Corporate Business Hub - Get in Touch</title>
-
-    <!-- Meta Description (Max 160 Characters) -->
     <meta name="description" content="Contact Corporate Business Hub for expert business consulting, strategy, and growth solutions. Send inquiries or visit our office today.">
-
-    <!-- Keywords (SEO Optimization) -->
     <meta name="keywords" content="contact corporate business hub, business consulting inquiries, corporate strategy solutions, office location, business consulting contact">
-
-    <!-- Robots Meta Tag -->
     <meta name="robots" content="index, follow">
-
-    <!-- Open Graph (Social Media Optimization) -->
     <meta property="og:title" content="Contact Us | Corporate Business Hub - Get in Touch">
     <meta property="og:description" content="Reach out to Corporate Business Hub for business consulting and market strategy. Inquire today and visit our office.">
     <meta property="og:type" content="website">
-
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --navy: #001f3f;
+            --gold: #ffd700;
+            --white: #ffffff;
+            --light-gray: #f8f9fa;
+            --dark-gray: #343a40;
+        }
+        
+        body {
+            font-family: 'Lato', sans-serif;
+            color: var(--dark-gray);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--navy);
+        }
+        
+        .navbar {
+            background-color: var(--navy);
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--white) !important;
+            font-size: 1.8rem;
+        }
+        
+        .navbar-brand span {
+            color: var(--gold);
+        }
+        
+        .navbar-nav .nav-link {
+            color: rgba(255, 255, 255, 0.85) !important;
+            font-weight: 500;
+            margin: 0 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            color: var(--gold) !important;
+        }
+        
+        .btn-primary {
+            background-color: var(--navy);
+            border-color: var(--navy);
+            padding: 0.7rem 1.8rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: #00152e;
+            border-color: #00152e;
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline-primary {
+            border-color: var(--navy);
+            color: var(--navy);
+            padding: 0.7rem 1.8rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline-primary:hover {
+            background-color: var(--navy);
+            border-color: var(--navy);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+        
+        .contact-hero {
+            background: linear-gradient(rgba(0, 31, 63, 0.85), rgba(0, 31, 63, 0.9)), url('https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 8rem 0 6rem;
+            position: relative;
+        }
+        
+        .contact-hero h1 {
+            color: var(--white);
+            font-size: 3.2rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .contact-hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 700px;
+        }
+        
+        .slogan {
+            color: var(--gold);
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .section {
+            padding: 6rem 0;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: var(--gold);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .contact-form {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 3rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .form-control {
+            padding: 1rem;
+            border-radius: 4px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-control:focus {
+            border-color: var(--gold);
+            box-shadow: 0 0 0 0.25rem rgba(255, 215, 0, 0.25);
+        }
+        
+        .contact-info-card {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            height: 100%;
+            border-top: 4px solid var(--gold);
+        }
+        
+        .contact-icon {
+            font-size: 1.8rem;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+        
+        .office-hours {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .office-hours li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .office-hours li:last-child {
+            border-bottom: none;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(0, 31, 63, 0.1);
+            border-radius: 50%;
+            color: var(--navy);
+            margin-right: 0.8rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--gold);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+        
+        .map-container {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            height: 100%;
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            min-height: 300px;
+            border: none;
+        }
+        
+        .footer {
+            background: var(--navy);
+            color: rgba(255, 255, 255, 0.8);
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer-title {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .footer-title:after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            background: var(--gold);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-links a {
+            display: block;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 0.8rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--gold);
+            padding-left: 5px;
+        }
+        
+        .footer-social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--white);
+            margin-right: 0.8rem;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-social-links a:hover {
+            background: var(--gold);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1.5rem;
+            margin-top: 3rem;
+            text-align: center;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        
+        .delay-1 {
+            animation-delay: 0.1s;
+        }
+        
+        .delay-2 {
+            animation-delay: 0.2s;
+        }
+        
+        .delay-3 {
+            animation-delay: 0.3s;
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .contact-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section {
+                padding: 4rem 0;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .contact-hero {
+                padding: 6rem 0 4rem;
+            }
+            
+            .contact-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .contact-hero p {
+                font-size: 1.1rem;
+            }
+            
+            .contact-form {
+                padding: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                Vist<span>ra</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Case Studies</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#">Contact</a></li>
+                </ul>
+                <div class="ms-3">
+                    <a href="#" class="btn btn-outline-light">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </nav>
 
-    <!-- H1 Tag (Primary Title) -->
-    <h1>Contact Corporate Business Hub</h1>
+    <!-- Hero Section -->
+    <section class="contact-hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="hero-content animate">
+                        <h1>Contact Corporate Business Hub</h1>
+                        <p>Have questions about <strong>business consulting, strategy development, or market analysis?</strong> Reach out to <strong>Corporate Business Hub</strong> for expert guidance. Whether you're seeking tailored solutions or professional insights, we're here to help.</p>
+                        <span class="slogan">Your Vision, Our Strategy</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- Introduction -->
-    <p>Have questions about <strong>business consulting, strategy development, or market analysis?</strong> Reach out to <strong>Corporate Business Hub</strong> for expert guidance. Whether you're seeking tailored solutions or professional insights, we're here to help.</p>
+    <!-- Contact Form Section -->
+    <section class="section">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-6">
+                    <div class="animate">
+                        <h2 class="mb-4">Send Us Your Inquiry</h2>
+                        <p class="mb-5">Fill out the form below, and our team will get back to you promptly:</p>
+                        
+                        <div class="contact-form">
+                            <form action="submit_form.php" method="post">
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">Full Name</label>
+                                    <input type="text" class="form-control" id="name" name="name" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email Address</label>
+                                    <input type="email" class="form-control" id="email" name="email" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="subject" class="form-label">Subject</label>
+                                    <input type="text" class="form-control" id="subject" name="subject" required>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="message" class="form-label">Your Message</label>
+                                    <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100 py-3">Submit Inquiry</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="animate delay-1">
+                        <h2 class="mb-4">Visit Our Office</h2>
+                        <p class="mb-5"><strong>Corporate Business Hub Headquarters:</strong></p>
+                        
+                        <div class="map-container mb-5">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.215209179329!2d-73.98784492416467!3d40.7484409713896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9b3117469%3A0xd134e199a405a163!2sEmpire%20State%20Building!5e0!3m2!1sen!2sus!4v1689879993123!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                        
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="contact-info-card">
+                                    <div class="contact-icon">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </div>
+                                    <h3>Address</h3>
+                                    <p>123 Business Lane, Suite 400<br>
+                                    New York, NY 10001</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="contact-info-card">
+                                    <div class="contact-icon">
+                                        <i class="fas fa-clock"></i>
+                                    </div>
+                                    <h3>Office Hours</h3>
+                                    <ul class="office-hours">
+                                        <li><strong>Mon-Fri:</strong> 9:00 AM - 6:00 PM</li>
+                                        <li><strong>Sat:</strong> 10:00 AM - 4:00 PM</li>
+                                        <li><strong>Sun:</strong> Closed</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- H2 Tag: Inquiry Form -->
-    <h2>Send Us Your Inquiry</h2>
+    <!-- Additional Contact Methods -->
+    <section class="section bg-light">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="section-title">Other Ways to Reach Us</h2>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="contact-info-card animate">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <h3>Phone</h3>
+                        <p>+1 (555) 123-4567</p>
+                        <p class="text-muted">Monday to Friday, 9am-6pm EST</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="contact-info-card animate delay-1">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3>Email</h3>
+                        <p>info@corporatehub.com</p>
+                        <p class="text-muted">Response within 24 hours</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="contact-info-card animate delay-2">
+                        <div class="contact-icon">
+                            <i class="fas fa-hashtag"></i>
+                        </div>
+                        <h3>Social Media</h3>
+                        <p>Follow us for updates and insights</p>
+                        <div class="social-links mt-3">
+                            <a href="https://www.linkedin.com/company/corporatehub"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://twitter.com/corporatehub"><i class="fab fa-twitter"></i></a>
+                            <a href="https://www.facebook.com/corporatehub"><i class="fab fa-facebook-f"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <p>Fill out the form below, and our team will get back to you promptly:</p>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <h3 class="navbar-brand mb-3">Vist<span>ra</span></h3>
+                    <p class="mb-4">Your trusted partner in business strategy, consulting, and market analysis. We help enterprises maximize their potential with tailored solutions.</p>
+                    <div class="footer-social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="footer-title">Quick Links</h5>
+                    <div class="footer-links">
+                        <a href="#">Home</a>
+                        <a href="#">About Us</a>
+                        <a href="#">Services</a>
+                        <a href="#">Case Studies</a>
+                        <a href="#">Blog</a>
+                        <a href="#">Contact</a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="footer-title">Services</h5>
+                    <div class="footer-links">
+                        <a href="#">Business Consulting</a>
+                        <a href="#">Market Analysis</a>
+                        <a href="#">Growth Strategy</a>
+                        <a href="#">Digital Transformation</a>
+                        <a href="#">Leadership Coaching</a>
+                        <a href="#">Financial Planning</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <h5 class="footer-title">Newsletter</h5>
+                    <p class="mb-3">Subscribe to our newsletter for the latest industry insights and strategies.</p>
+                    <form>
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="Your Email">
+                            <button class="btn btn-outline-light" type="button">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Vistra Corporate Business Hub. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
 
-    <form action="submit_form.php" method="post">
-        <label for="name">Full Name:</label><br>
-        <input type="text" id="name" name="name" required><br><br>
-
-        <label for="email">Email Address:</label><br>
-        <input type="email" id="email" name="email" required><br><br>
-
-        <label for="subject">Subject:</label><br>
-        <input type="text" id="subject" name="subject" required><br><br>
-
-        <label for="message">Your Message:</label><br>
-        <textarea id="message" name="message" rows="5" required></textarea><br><br>
-
-        <button type="submit">Submit Inquiry</button>
-    </form>
-
-    <!-- H2 Tag: Location & Office Hours -->
-    <h2>Visit Our Office</h2>
-
-    <p><strong>Corporate Business Hub Headquarters:</strong></p>
-    <p>123 Business Lane, Suite 400<br>
-       City, State, ZIP Code</p>
-
-    <h3>Office Hours</h3>
-    <ul>
-        <li><strong>Monday - Friday:</strong> 9:00 AM - 6:00 PM</li>
-        <li><strong>Saturday:</strong> 10:00 AM - 4:00 PM</li>
-        <li><strong>Sunday:</strong> Closed</li>
-    </ul>
-
-    <!-- H2 Tag: Additional Contact Methods -->
-    <h2>Other Ways to Reach Us</h2>
-
-    <h3>Phone</h3>
-    <p>+1 (555) 123-4567</p>
-
-    <h3>Email</h3>
-    <p><a href="mailto:info@corporatehub.com">info@corporatehub.com</a></p>
-
-    <h3>Social Media</h3>
-    <p>Follow us for updates and insights:</p>
-    <ul>
-        <li><a href="https://www.linkedin.com/company/corporatehub">LinkedIn</a></li>
-        <li><a href="https://twitter.com/corporatehub">Twitter</a></li>
-        <li><a href="https://www.facebook.com/corporatehub">Facebook</a></li>
-    </ul>
-
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS for animations -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add animation classes when elements come into view
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            document.querySelectorAll('.animate').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
 </body>
 </html>

@@ -3,79 +3,636 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Meta Title (Max 60 Characters) -->
-    <title>Business Consulting, Market Analysis & Growth Strategy</title>
-
-    <!-- Meta Description (Max 160 Characters) -->
+    <title>Business Consulting, Market Analysis & Growth Strategy | Vistra</title>
     <meta name="description" content="Expert business consulting, market analysis & growth strategies. Unlock potential with data-driven insights and corporate leadership solutions.">
-
-    <!-- Keywords (SEO Optimization) -->
     <meta name="keywords" content="business consulting, corporate growth, market analysis, competitive intelligence, business strategy, leadership solutions">
-
-    <!-- Robots Meta Tag -->
     <meta name="robots" content="index, follow">
-
-    <!-- Open Graph (Social Media Optimization) -->
     <meta property="og:title" content="Business Consulting, Market Analysis & Growth Strategy">
-    <meta property="og:description" content="Corporate Business Hub - Empowering businesses with strategic consulting, market insights, and scalable growth solutions.">
+    <meta property="og:description" content="Vistra - Empowering businesses with strategic consulting, market insights, and scalable growth solutions.">
     <meta property="og:type" content="website">
-
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --navy: #001f3f;
+            --gold: #ffd700;
+            --white: #ffffff;
+            --light-gray: #f8f9fa;
+            --dark-gray: #343a40;
+        }
+        
+        body {
+            font-family: 'Lato', sans-serif;
+            color: var(--dark-gray);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--navy);
+        }
+        
+        .navbar {
+            background-color: var(--navy);
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--white) !important;
+            font-size: 1.8rem;
+        }
+        
+        .navbar-brand span {
+            color: var(--gold);
+        }
+        
+        .navbar-nav .nav-link {
+            color: rgba(255, 255, 255, 0.85) !important;
+            font-weight: 500;
+            margin: 0 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            color: var(--gold) !important;
+        }
+        
+        .btn-primary {
+            background-color: var(--navy);
+            border-color: var(--navy);
+            padding: 0.7rem 1.8rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: #00152e;
+            border-color: #00152e;
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline-primary {
+            border-color: var(--navy);
+            color: var(--navy);
+            padding: 0.7rem 1.8rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline-primary:hover {
+            background-color: var(--navy);
+            border-color: var(--navy);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+        
+        .services-hero {
+            background: linear-gradient(rgba(0, 31, 63, 0.85), rgba(0, 31, 63, 0.9)), url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 8rem 0 6rem;
+            position: relative;
+        }
+        
+        .services-hero h1 {
+            color: var(--white);
+            font-size: 3.2rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .services-hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 700px;
+        }
+        
+        .slogan {
+            color: var(--gold);
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .section {
+            padding: 6rem 0;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: var(--gold);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .service-card {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 3rem 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            height: 100%;
+            border-top: 4px solid var(--gold);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+        
+        .service-card h3 {
+            margin-bottom: 1.5rem;
+        }
+        
+        .service-highlight {
+            background-color: var(--light-gray);
+            border-left: 4px solid var(--gold);
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .service-highlight p {
+            margin-bottom: 0;
+            font-size: 1.1rem;
+        }
+        
+        .cta-section {
+            background: linear-gradient(rgba(0, 31, 63, 0.9), rgba(0, 31, 63, 0.95)), url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 5rem 0;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta-section p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+        
+        .contact-info {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .contact-info h3 {
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-info i {
+            color: var(--gold);
+            margin-right: 10px;
+            width: 20px;
+        }
+        
+        .footer {
+            background: var(--navy);
+            color: rgba(255, 255, 255, 0.8);
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer-title {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .footer-title:after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            background: var(--gold);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-links a {
+            display: block;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 0.8rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--gold);
+            padding-left: 5px;
+        }
+        
+        .footer-social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--white);
+            margin-right: 0.8rem;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-social-links a:hover {
+            background: var(--gold);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1.5rem;
+            margin-top: 3rem;
+            text-align: center;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        
+        .delay-1 {
+            animation-delay: 0.1s;
+        }
+        
+        .delay-2 {
+            animation-delay: 0.2s;
+        }
+        
+        .delay-3 {
+            animation-delay: 0.3s;
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .services-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section {
+                padding: 4rem 0;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .services-hero {
+                padding: 6rem 0 4rem;
+            }
+            
+            .services-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .services-hero p {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                VIS<span>TRA</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            About Us
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
+                            <li><a class="dropdown-item" href="about-us/mission-vision.html">Mission & Vision</a></li>
+                            <li><a class="dropdown-item" href="about-us/our-team.html">Our Team</a></li>
+                            <li><a class="dropdown-item" href="about-us/career-opportunities.html">Career Opportunities</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link active" href="services.html">Services</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="caseStudiesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Case Studies
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="caseStudiesDropdown">
+                            <li><a class="dropdown-item" href="case-studies/client-success-stories.html">Client Success Stories</a></li>
+                            <li><a class="dropdown-item" href="case-studies/industry-insights.html">Industry Insights</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="blogDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Blog
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="blogDropdown">
+                            <li><a class="dropdown-item" href="blog/business-trends.html">Business Trends</a></li>
+                            <li><a class="dropdown-item" href="blog/leadership-strategies.html">Leadership Strategies</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="contact-us.html">Contact Us</a></li>
+                </ul>
+                <div class="ms-3">
+                    <a href="contact-us.html" class="btn btn-outline-light">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </nav>
 
-    <!-- H1 Tag (Primary Title) -->
-    <h1>Our Services: Driving Business Success Through Strategy</h1>
+    <!-- Hero Section -->
+    <section class="services-hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="hero-content animate">
+                        <h1>Our Services: Driving Business Success Through Strategy</h1>
+                        <p>At <strong>Vistra</strong>, we specialize in guiding businesses toward <strong>sustainable growth, market dominance, and strategic innovation</strong>. Our expert solutions empower leaders to make informed decisions, enhance operations, and drive measurable success.</p>
+                        <span class="slogan">Your Vision, Our Strategy</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- Introduction -->
-    <p>At <strong>Corporate Business Hub</strong>, we specialize in guiding businesses toward <strong>sustainable growth, market dominance, and strategic innovation</strong>. Our expert solutions empower leaders to make informed decisions, enhance operations, and drive measurable success.</p>
+    <!-- Services Content -->
+    <section class="section">
+        <div class="container">
+            <!-- Business Consulting Section -->
+            <div class="row mb-5 animate">
+                <div class="col-12">
+                    <h2 class="section-title">Business Consulting: Strategic Solutions for Enterprise Success</h2>
+                </div>
+            </div>
+            
+            <div class="row g-4 mb-5">
+                <div class="col-md-4">
+                    <div class="service-card animate delay-1">
+                        <div class="service-icon">
+                            <i class="fas fa-chess-king"></i>
+                        </div>
+                        <h3>Leadership & Executive Advisory</h3>
+                        <p>We provide <strong>leadership coaching, executive mentorship, and strategic decision-making support</strong> to help corporate leaders refine their vision and maximize organizational effectiveness.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="service-card animate delay-2">
+                        <div class="service-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3>Operational Excellence & Process Optimization</h3>
+                        <p>Through customized consulting, we streamline operations and enhance efficiency, ensuring <strong>cost savings, improved productivity, and long-term profitability</strong>.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="service-card animate delay-3">
+                        <div class="service-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Financial Strategy & Risk Management</h3>
+                        <p>Our experts help businesses develop strong <strong>financial strategies, risk mitigation plans, and budget optimization techniques</strong> for scalable success.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Market Analysis Section -->
+            <div class="row mb-5 animate">
+                <div class="col-12">
+                    <h2 class="section-title">Market Analysis: Informed Insights for Competitive Edge</h2>
+                </div>
+            </div>
+            
+            <div class="row g-4 mb-5">
+                <div class="col-md-4">
+                    <div class="service-card animate delay-1">
+                        <div class="service-icon">
+                            <i class="fas fa-search-dollar"></i>
+                        </div>
+                        <h3>Industry & Competitor Research</h3>
+                        <p>Stay ahead of the competition with our <strong>data-driven market research, competitor benchmarking, and trend forecasting</strong>.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="service-card animate delay-2">
+                        <div class="service-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Consumer Behavior & Target Audience Strategy</h3>
+                        <p>Understand customer preferences with in-depth <strong>consumer behavior analytics</strong>, ensuring more impactful marketing efforts and higher ROI.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="service-card animate delay-3">
+                        <div class="service-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3>Data-Driven Business Intelligence</h3>
+                        <p>Our market intelligence solutions help businesses analyze trends, anticipate changes, and develop <strong>data-backed strategies</strong>.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Growth Strategy Section -->
+            <div class="row mb-5 animate">
+                <div class="col-12">
+                    <h2 class="section-title">Growth Strategy: Scalable Expansion & Business Transformation</h2>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="service-card animate delay-1">
+                        <div class="service-icon">
+                            <i class="fas fa-expand"></i>
+                        </div>
+                        <h3>Business Scaling & Market Expansion</h3>
+                        <p>We help businesses expand into <strong>new markets, optimize sales funnels, and develop revenue-driving growth strategies</strong>.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="service-card animate delay-2">
+                        <div class="service-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3>Digital Transformation & Innovation</h3>
+                        <p>Embrace innovation with our <strong>AI-driven solutions, automation strategies, and digital adoption frameworks</strong>.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="service-card animate delay-3">
+                        <div class="service-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <h3>Brand Development & Positioning</h3>
+                        <p>We craft brand narratives that resonate, helping businesses establish strong brand identity, trust, and market differentiation.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="service-highlight mt-5 animate">
+                <p class="lead mb-0">Our strategies help businesses <strong>optimize operations, strengthen market presence, and accelerate growth</strong>. Let's build a future-ready enterprise together!</p>
+            </div>
+        </div>
+    </section>
 
-    <!-- H2 Tag: Business Consulting -->
-    <h2>Business Consulting: Strategic Solutions for Enterprise Success</h2>
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 animate">
+                    <h2>Ready to Transform Your Business?</h2>
+                    <p>Partner with Vistra to develop customized solutions that drive measurable results and sustainable growth for your organization.</p>
+                    <a href="contact-us.html" class="btn btn-primary btn-lg">Get Started Today</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <h3>Leadership & Executive Advisory</h3>
-    <p>We provide <strong>leadership coaching, executive mentorship, and strategic decision-making support</strong> to help corporate leaders refine their vision and maximize organizational effectiveness.</p>
+    <!-- Contact Info Section -->
+    <section class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto animate">
+                    <div class="contact-info text-center">
+                        <h3>Contact Information</h3>
+                        <p><i class="fas fa-envelope"></i> Email: <a href="mailto:info@vistra.com">info@vistra.com</a></p>
+                        <p><i class="fas fa-phone"></i> Phone: +1 (555) 123-4567</p>
+                        <p><i class="fas fa-globe"></i> Visit: <a href="https://www.vistra.com">www.vistra.com</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <h3>Operational Excellence & Process Optimization</h3>
-    <p>Through customized consulting, we streamline operations and enhance efficiency, ensuring <strong>cost savings, improved productivity, and long-term profitability</strong>.</p>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <h3 class="navbar-brand mb-3">VIS<span>TRA</span></h3>
+                    <p class="mb-4">"Your Vision, Our Strategy." Empowering businesses with strategic consulting, market insights, and scalable growth solutions.</p>
+                    <div class="footer-social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="footer-title">Quick Links</h5>
+                    <div class="footer-links">
+                        <a href="index.html">Home</a>
+                        <a href="about-us.html">About Us</a>
+                        <a href="services.html">Services</a>
+                        <a href="case-studies.html">Case Studies</a>
+                        <a href="blog.html">Blog</a>
+                        <a href="contact-us.html">Contact</a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="footer-title">Services</h5>
+                    <div class="footer-links">
+                        <a href="services/business-consulting.html">Business Consulting</a>
+                        <a href="services/market-analysis.html">Market Analysis</a>
+                        <a href="services/growth-strategy.html">Growth Strategy</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <h5 class="footer-title">Newsletter</h5>
+                    <p class="mb-3">Subscribe to our newsletter for the latest industry insights and strategies.</p>
+                    <form>
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="Your Email">
+                            <button class="btn btn-outline-light" type="button">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Vistra Corporate Business Hub. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
 
-    <h3>Financial Strategy & Risk Management</h3>
-    <p>Our experts help businesses develop strong <strong>financial strategies, risk mitigation plans, and budget optimization techniques</strong> for scalable success.</p>
-
-    <!-- H2 Tag: Market Analysis -->
-    <h2>Market Analysis: Informed Insights for Competitive Edge</h2>
-
-    <h3>Industry & Competitor Research</h3>
-    <p>Stay ahead of the competition with our <strong>data-driven market research, competitor benchmarking, and trend forecasting</strong>.</p>
-
-    <h3>Consumer Behavior & Target Audience Strategy</h3>
-    <p>Understand customer preferences with in-depth **consumer behavior analytics**, ensuring more impactful marketing efforts and higher ROI.</p>
-
-    <h3>Data-Driven Business Intelligence</h3>
-    <p>Our market intelligence solutions help businesses analyze trends, anticipate changes, and develop <strong>data-backed strategies</strong>.</p>
-
-    <!-- H2 Tag: Growth Strategy -->
-    <h2>Growth Strategy: Scalable Expansion & Business Transformation</h2>
-
-    <h3>Business Scaling & Market Expansion</h3>
-    <p>We help businesses expand into **new markets, optimize sales funnels, and develop revenue-driving growth strategies**.</p>
-
-    <h3>Digital Transformation & Innovation</h3>
-    <p>Embrace innovation with our **AI-driven solutions, automation strategies, and digital adoption frameworks**.</p>
-
-    <h3>Brand Development & Positioning</h3>
-    <p>We craft brand narratives that resonate, helping businesses establish strong brand identity, trust, and market differentiation.</p>
-
-    <!-- H2 Tag: Contact Us -->
-    <h2>Unlock Business Potential with Corporate Business Hub</h2>
-
-    <p>Our strategies help businesses **optimize operations, strengthen market presence, and accelerate growth**. Let’s build a future-ready enterprise together!</p>
-
-    <!-- CTA (Call-To-Action) -->
-    <h3>Contact Information</h3>
-    <p>Email: <a href="mailto:info@corporatehub.com">info@corporatehub.com</a></p>
-    <p>Phone: +1 (555) 123-4567</p>
-    <p>Visit: <a href="https://www.corporatehub.com">www.corporatehub.com</a></p>
-
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS for animations -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add animation classes when elements come into view
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            document.querySelectorAll('.animate').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
 </body>
 </html>

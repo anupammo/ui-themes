@@ -3,80 +3,770 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Meta Title (Max 60 Characters) -->
     <title>About Us | Corporate Business Hub - Vision & Strategy</title>
-
-    <!-- Meta Description (Max 160 Characters) -->
     <meta name="description" content="Discover Corporate Business Hub - a leader in business strategy and consulting. We empower businesses with growth-driven insights.">
-
-    <!-- Keywords (SEO Optimization) -->
     <meta name="keywords" content="corporate strategy, business consulting, growth solutions, leadership coaching, market analysis, digital transformation">
-
-    <!-- Robots Meta Tag -->
     <meta name="robots" content="index, follow">
-
-    <!-- Open Graph (Social Media Optimization) -->
     <meta property="og:title" content="About Corporate Business Hub | Vision & Strategy">
     <meta property="og:description" content="Corporate Business Hub - Your trusted partner in business strategy, leadership, and market growth.">
     <meta property="og:type" content="website">
-
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --navy: #001f3f;
+            --gold: #ffd700;
+            --white: #ffffff;
+            --light-gray: #f8f9fa;
+            --dark-gray: #343a40;
+        }
+        
+        body {
+            font-family: 'Lato', sans-serif;
+            color: var(--dark-gray);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--navy);
+        }
+        
+        .navbar {
+            background-color: var(--navy);
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--white) !important;
+            font-size: 1.8rem;
+        }
+        
+        .navbar-brand span {
+            color: var(--gold);
+        }
+        
+        .navbar-nav .nav-link {
+            color: rgba(255, 255, 255, 0.85) !important;
+            font-weight: 500;
+            margin: 0 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            color: var(--gold) !important;
+        }
+        
+        .btn-primary {
+            background-color: var(--navy);
+            border-color: var(--navy);
+            padding: 0.7rem 1.8rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: #00152e;
+            border-color: #00152e;
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline-primary {
+            border-color: var(--navy);
+            color: var(--navy);
+            padding: 0.7rem 1.8rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline-primary:hover {
+            background-color: var(--navy);
+            border-color: var(--navy);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+        
+        .about-hero {
+            background: linear-gradient(rgba(0, 31, 63, 0.85), rgba(0, 31, 63, 0.9)), url('https://images.pexels.com/photos/3183153/pexels-photo-3183153.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 8rem 0 6rem;
+            position: relative;
+        }
+        
+        .about-hero h1 {
+            color: var(--white);
+            font-size: 3.2rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .about-hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 700px;
+        }
+        
+        .slogan {
+            color: var(--gold);
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .section {
+            padding: 6rem 0;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: var(--gold);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .mission-section {
+            background-color: var(--light-gray);
+        }
+        
+        .values-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .values-list li {
+            padding: 1.5rem;
+            background: var(--white);
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--gold);
+        }
+        
+        .values-list li:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .value-icon {
+            font-size: 2rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+        
+        .team-member {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .team-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--white);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            margin: 0 auto 1.5rem;
+        }
+        
+        .team-name {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .team-position {
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-card {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 3rem 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            height: 100%;
+            border-top: 4px solid var(--gold);
+            text-align: center;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+        
+        .testimonial-card {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            height: 100%;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .testimonial-text {
+            position: relative;
+            font-style: italic;
+            padding: 0 1.5rem;
+        }
+        
+        .testimonial-text:before,
+        .testimonial-text:after {
+            content: '"';
+            font-size: 4rem;
+            position: absolute;
+            color: rgba(0, 31, 63, 0.1);
+            font-family: Georgia, serif;
+        }
+        
+        .testimonial-text:before {
+            top: -20px;
+            left: -10px;
+        }
+        
+        .testimonial-text:after {
+            bottom: -50px;
+            right: -10px;
+        }
+        
+        .testimonial-author {
+            margin-top: 2rem;
+            font-weight: 600;
+            color: var(--navy);
+        }
+        
+        .contact-section {
+            background: linear-gradient(rgba(0, 31, 63, 0.95), rgba(0, 31, 63, 0.95)), url('https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+        }
+        
+        .contact-info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--gold);
+            margin-right: 1rem;
+            min-width: 30px;
+        }
+        
+        .footer {
+            background: var(--navy);
+            color: rgba(255, 255, 255, 0.8);
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer-title {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .footer-title:after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            background: var(--gold);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-links a {
+            display: block;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 0.8rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--gold);
+            padding-left: 5px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--white);
+            margin-right: 0.8rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--gold);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1.5rem;
+            margin-top: 3rem;
+            text-align: center;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        
+        .delay-1 {
+            animation-delay: 0.1s;
+        }
+        
+        .delay-2 {
+            animation-delay: 0.2s;
+        }
+        
+        .delay-3 {
+            animation-delay: 0.3s;
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .about-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section {
+                padding: 4rem 0;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .about-hero {
+                padding: 6rem 0 4rem;
+            }
+            
+            .about-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .about-hero p {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                Vist<span>ra</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Case Studies</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                </ul>
+                <div class="ms-3">
+                    <a href="#" class="btn btn-outline-light">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </nav>
 
-    <!-- H1 Tag (Primary Title) -->
-    <h1>About Corporate Business Hub</h1>
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="hero-content animate">
+                        <h1>About Corporate Business Hub</h1>
+                        <p><strong>Corporate Business Hub</strong> is a powerhouse of <strong>business strategy, consulting, and market intelligence</strong>. With a proven track record of empowering enterprises, we craft high-impact solutions that drive <strong>sustainable growth, leadership excellence, and market dominance</strong>.</p>
+                        <span class="slogan">Your Vision, Our Strategy</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- Introduction -->
-    <p><strong>Corporate Business Hub</strong> is a powerhouse of <strong>business strategy, consulting, and market intelligence</strong>. With a proven track record of empowering enterprises, we craft high-impact solutions that drive <strong>sustainable growth, leadership excellence, and market dominance</strong>.</p>
+    <!-- Mission Section -->
+    <section class="section mission-section">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="section-title">Our Mission: Shaping Business Success</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <p class="lead animate">We exist to guide businesses toward <strong>strategic expansion, digital transformation, and operational excellence</strong>. Every organization has untapped potential—our mission is to unlock it through informed strategy and leadership development.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- H2 Tag: Our Mission -->
-    <h2>Our Mission: Shaping Business Success</h2>
+    <!-- Core Values Section -->
+    <section class="section">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="section-title">Our Core Values</h2>
+                    <p class="lead">The principles that guide everything we do</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <ul class="values-list">
+                        <li class="animate">
+                            <div class="d-flex align-items-center">
+                                <div class="me-4">
+                                    <div class="value-icon">
+                                        <i class="fas fa-shield-alt"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h3>Integrity</h3>
+                                    <p>Ethical business solutions that inspire trust and build lasting relationships with our clients.</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="animate delay-1">
+                            <div class="d-flex align-items-center">
+                                <div class="me-4">
+                                    <div class="value-icon">
+                                        <i class="fas fa-lightbulb"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h3>Innovation</h3>
+                                    <p>Forward-thinking strategies for continuous growth, embracing new technologies and methodologies.</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="animate delay-2">
+                            <div class="d-flex align-items-center">
+                                <div class="me-4">
+                                    <div class="value-icon">
+                                        <i class="fas fa-users"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h3>Collaboration</h3>
+                                    <p>Client-focused solutions driven by teamwork, both within our organization and with our partners.</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="animate delay-3">
+                            <div class="d-flex align-items-center">
+                                <div class="me-4">
+                                    <div class="value-icon">
+                                        <i class="fas fa-chart-line"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h3>Data-Driven Decisions</h3>
+                                    <p>Market insights that fuel success, ensuring every recommendation is backed by comprehensive analysis.</p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <p>We exist to guide businesses toward <strong>strategic expansion, digital transformation, and operational excellence</strong>. Every organization has untapped potential—our mission is to unlock it through informed strategy and leadership development.</p>
+    <!-- Leadership Team Section -->
+    <section class="section bg-light">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="section-title">Meet Our Leadership Team</h2>
+                    <p class="lead">Industry experts driving your success</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-10 mx-auto text-center mb-5">
+                    <p class="animate">Our team comprises industry experts, seasoned strategists, and business growth professionals. With extensive experience in <strong>corporate consulting, financial planning, and digital transformation</strong>, we deliver actionable solutions that ensure competitive advantage.</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="team-member animate">
+                        <img src="https://images.pexels.com/photos/3785077/pexels-photo-3785077.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Sarah Johnson" class="team-img">
+                        <h3 class="team-name">Sarah Johnson</h3>
+                        <p class="team-position">Chief Executive Officer</p>
+                        <p>20+ years in corporate strategy and business transformation</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="team-member animate delay-1">
+                        <img src="https://images.pexels.com/photos/3771089/pexels-photo-3771089.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Michael Chen" class="team-img">
+                        <h3 class="team-name">Michael Chen</h3>
+                        <p class="team-position">Chief Strategy Officer</p>
+                        <p>Expert in market analysis and competitive intelligence</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="team-member animate delay-2">
+                        <img src="https://images.pexels.com/photos/3769021/pexels-photo-3769021.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Emily Rodriguez" class="team-img">
+                        <h3 class="team-name">Emily Rodriguez</h3>
+                        <p class="team-position">Director of Consulting</p>
+                        <p>Specialist in digital transformation and innovation</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- H2 Tag: Core Values -->
-    <h2>Our Core Values</h2>
+    <!-- Why Choose Us Section -->
+    <section class="section">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="section-title">Why Choose Corporate Business Hub?</h2>
+                    <p class="lead">The competitive advantages we bring to your business</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="feature-card animate">
+                        <div class="feature-icon">
+                            <i class="fas fa-chess-king"></i>
+                        </div>
+                        <h3>Strategic Expertise & Leadership Coaching</h3>
+                        <p>We don't offer one-size-fits-all strategies. Instead, we analyze your business needs and provide customized solutions that drive long-term success.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card animate delay-1">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-pie"></i>
+                        </div>
+                        <h3>Data-Driven Market Analysis</h3>
+                        <p>We turn insights into results. Our deep market research enables businesses to make informed decisions and gain a competitive edge.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card animate delay-2">
+                        <div class="feature-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h3>Proven Growth Solutions</h3>
+                        <p>From startups to enterprise-level corporations, our expertise has helped businesses <strong>scale, improve operations, and maximize profitability</strong>.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <ul>
-        <li><strong>Integrity:</strong> Ethical business solutions that inspire trust.</li>
-        <li><strong>Innovation:</strong> Forward-thinking strategies for continuous growth.</li>
-        <li><strong>Collaboration:</strong> Client-focused solutions driven by teamwork.</li>
-        <li><strong>Data-Driven Decisions:</strong> Market insights that fuel success.</li>
-    </ul>
+    <!-- Testimonials Section -->
+    <section class="section bg-light">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="section-title">What Our Clients Say</h2>
+                    <p class="lead">Success stories from industry leaders</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="testimonial-card animate">
+                        <div class="testimonial-text">
+                            <p>"Corporate Business Hub transformed our approach to business strategy. Their insights helped us navigate challenges and achieve exponential growth! The team's expertise in market analysis gave us a competitive edge we didn't know was possible."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <p>John Doe, CEO<br><span class="text-muted">Innovate Solutions Inc.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- H2 Tag: Meet Our Leadership Team -->
-    <h2>Meet Our Leadership Team</h2>
+    <!-- CTA Section -->
+    <section class="section contact-section">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="section-title text-white">Ready to Elevate Your Business?</h2>
+                    <p class="lead text-light">Join industry leaders who trust <strong>Corporate Business Hub</strong> for expert consulting and growth-driven strategy. Let's collaborate to build your success story.</p>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center animate">
+                    <div class="d-flex flex-wrap justify-content-center gap-3">
+                        <a href="#" class="btn btn-light btn-lg">Explore Our Services</a>
+                        <a href="#" class="btn btn-outline-light btn-lg">Schedule Consultation</a>
+                    </div>
+                    
+                    <div class="mt-5">
+                        <h3 class="text-white mb-4">Contact Information</h3>
+                        <div class="d-flex flex-wrap justify-content-center gap-4">
+                            <div class="contact-info-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h5 class="text-white">Email</h5>
+                                    <p class="text-light">info@corporatehub.com</p>
+                                </div>
+                            </div>
+                            <div class="contact-info-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div>
+                                    <h5 class="text-white">Phone</h5>
+                                    <p class="text-light">+1 (555) 123-4567</p>
+                                </div>
+                            </div>
+                            <div class="contact-info-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-globe"></i>
+                                </div>
+                                <div>
+                                    <h5 class="text-white">Website</h5>
+                                    <p class="text-light">www.corporatehub.com</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <p>Our team comprises industry experts, seasoned strategists, and business growth professionals. With extensive experience in <strong>corporate consulting, financial planning, and digital transformation</strong>, we deliver actionable solutions that ensure competitive advantage.</p>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <h3 class="navbar-brand mb-3">Vist<span>ra</span></h3>
+                    <p class="mb-4">Your trusted partner in business strategy, consulting, and market analysis. We help enterprises maximize their potential with tailored solutions.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="footer-title">Quick Links</h5>
+                    <div class="footer-links">
+                        <a href="#">Home</a>
+                        <a href="#">About Us</a>
+                        <a href="#">Services</a>
+                        <a href="#">Case Studies</a>
+                        <a href="#">Blog</a>
+                        <a href="#">Contact</a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="footer-title">Services</h5>
+                    <div class="footer-links">
+                        <a href="#">Business Consulting</a>
+                        <a href="#">Market Analysis</a>
+                        <a href="#">Growth Strategy</a>
+                        <a href="#">Digital Transformation</a>
+                        <a href="#">Leadership Coaching</a>
+                        <a href="#">Financial Planning</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <h5 class="footer-title">Newsletter</h5>
+                    <p class="mb-3">Subscribe to our newsletter for the latest industry insights and strategies.</p>
+                    <form>
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="Your Email">
+                            <button class="btn btn-outline-light" type="button">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Vistra Corporate Business Hub. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
 
-    <!-- H2 Tag: Why Choose Us -->
-    <h2>Why Choose Corporate Business Hub?</h2>
-
-    <h3>Strategic Expertise & Leadership Coaching</h3>
-    <p>We don’t offer one-size-fits-all strategies. Instead, we analyze your business needs and provide customized solutions that drive long-term success.</p>
-
-    <h3>Data-Driven Market Analysis</h3>
-    <p>We turn insights into results. Our deep market research enables businesses to make informed decisions and gain a competitive edge.</p>
-
-    <h3>Proven Growth Solutions</h3>
-    <p>From startups to enterprise-level corporations, our expertise has helped businesses <strong>scale, improve operations, and maximize profitability</strong>.</p>
-
-    <!-- H2 Tag: Client Testimonials -->
-    <h2>What Our Clients Say</h2>
-
-    <p><strong>"Corporate Business Hub transformed our approach to business strategy. Their insights helped us navigate challenges and achieve exponential growth!"</strong> - John Doe, CEO</p>
-
-    <!-- H2 Tag: Contact Us -->
-    <h2>Ready to Elevate Your Business?</h2>
-
-    <p>Join industry leaders who trust <strong>Corporate Business Hub</strong> for expert consulting and growth-driven strategy. Let’s collaborate to build your success story.</p>
-
-    <!-- CTA (Call-To-Action) -->
-    <h3>Contact Information</h3>
-    <p>Email: <a href="mailto:info@corporatehub.com">info@corporatehub.com</a></p>
-    <p>Phone: +1 (555) 123-4567</p>
-    <p>Visit: <a href="https://www.corporatehub.com">www.corporatehub.com</a></p>
-
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS for animations -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add animation classes when elements come into view
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            document.querySelectorAll('.animate').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
 </body>
 </html>

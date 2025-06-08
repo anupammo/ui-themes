@@ -4,15 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Template Hub</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
     <style>
-        .card {
-            height: 100%;
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
         }
-        .card-body {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+        .container {
+            max-width: 1100px;
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+        .card:hover {
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .card-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #007bff;
+        }
+        .card-text {
+            font-size: 14px;
+            color: #666;
+        }
+        .btn-small {
+            font-size: 12px;
+            padding: 6px 10px;
+            border-radius: 5px;
         }
     </style>
 </head>
@@ -22,26 +50,26 @@
         <div class="row row-cols-1 row-cols-md-3 g-4">
             <script>
                 const templates = [
-                    { name: "Corporate Business Hub", brand: "Vistra", slogan: "Empowering Enterprises", link: "corporate.html" },
-                    { name: "Creative Agency Portfolio", brand: "Creatix", slogan: "Design Beyond Limits", link: "creative.html" },
-                    { name: "E-commerce Storefront", brand: "ShopifyPro", slogan: "Your Digital Marketplace", link: "ecommerce.html" },
-                    { name: "Health & Wellness Clinic", brand: "VitalCare", slogan: "Healing With Care", link: "health.html" },
-                    { name: "Real Estate Showcase", brand: "Horizon Realty", slogan: "Find Your Dream Home", link: "realestate.html" },
-                    { name: "Education & E-learning Platform", brand: "EduLift", slogan: "Learn, Grow, Succeed", link: "education.html" },
-                    { name: "Legal Advisory Firm", brand: "LexPoint", slogan: "Justice, Simplified", link: "legal.html" },
-                    { name: "Finance & Investment Consulting", brand: "Finovate", slogan: "Smart Wealth Solutions", link: "finance.html" },
-                    { name: "Restaurant & Café Experience", brand: "TasteBites", slogan: "Savor The Flavor", link: "restaurant.html" },
-                    { name: "Event Planning & Management", brand: "Eventoria", slogan: "Memories, Perfectly Planned", link: "event.html" },
-                    { name: "Tech Startup Landing Page", brand: "Innovix", slogan: "Technology That Evolves", link: "startup.html" },
-                    { name: "Personal Portfolio & Resume", brand: "CareerCraft", slogan: "Showcase Your Brilliance", link: "portfolio.html" },
-                    { name: "Construction & Architecture Firm", brand: "BuildVision", slogan: "Structures With Purpose", link: "construction.html" },
-                    { name: "Automobile Dealership & Services", brand: "AutoVibe", slogan: "Drive Your Passion", link: "automobile.html" },
-                    { name: "Travel & Tourism Agency", brand: "Globetrek", slogan: "Explore The World", link: "travel.html" },
-                    { name: "Photography & Videography Studio", brand: "CaptureX", slogan: "Moments That Matter", link: "photography.html" },
-                    { name: "Fitness & Gym Membership", brand: "FitPlus", slogan: "Stronger Every Day", link: "fitness.html" },
-                    { name: "Non-Profit & Charity Organization", brand: "HopeFund", slogan: "Change Starts Here", link: "nonprofit.html" },
-                    { name: "Beauty & Salon Services", brand: "GlowSpa", slogan: "Beauty, Redefined", link: "beauty.html" },
-                    { name: "Home Services & Repair", brand: "FixItPro", slogan: "Reliable Repairs, Anytime", link: "home.html" }
+                    { name: "Corporate Business Hub", brand: "Vistra", slogan: "Empowering Enterprises", color: "#007bff", link: "./vistra/" },
+                    { name: "Creative Agency Portfolio", brand: "Creatix", slogan: "Design Beyond Limits", color: "#ff5722", link: "creative.html" },
+                    { name: "E-commerce Storefront", brand: "ShopifyPro", slogan: "Your Digital Marketplace", color: "#28a745", link: "ecommerce.html" },
+                    { name: "Health & Wellness Clinic", brand: "VitalCare", slogan: "Healing With Care", color: "#6f42c1", link: "health.html" },
+                    { name: "Real Estate Showcase", brand: "Horizon Realty", slogan: "Find Your Dream Home", color: "#fd7e14", link: "realestate.html" },
+                    { name: "Education & E-learning Platform", brand: "EduLift", slogan: "Learn, Grow, Succeed", color: "#17a2b8", link: "education.html" },
+                    { name: "Legal Advisory Firm", brand: "LexPoint", slogan: "Justice, Simplified", color: "#dc3545", link: "legal.html" },
+                    { name: "Finance & Investment Consulting", brand: "Finovate", slogan: "Smart Wealth Solutions", color: "#6c757d", link: "finance.html" },
+                    { name: "Restaurant & Café Experience", brand: "TasteBites", slogan: "Savor The Flavor", color: "#d63384", link: "restaurant.html" },
+                    { name: "Event Planning & Management", brand: "Eventoria", slogan: "Memories, Perfectly Planned", color: "#20c997", link: "event.html" },
+                    { name: "Tech Startup Landing Page", brand: "Innovix", slogan: "Technology That Evolves", color: "#6610f2", link: "startup.html" },
+                    { name: "Personal Portfolio & Resume", brand: "CareerCraft", slogan: "Showcase Your Brilliance", color: "#e83e8c", link: "portfolio.html" },
+                    { name: "Construction & Architecture Firm", brand: "BuildVision", slogan: "Structures With Purpose", color: "#138496", link: "construction.html" },
+                    { name: "Automobile Dealership & Services", brand: "AutoVibe", slogan: "Drive Your Passion", color: "#343a40", link: "automobile.html" },
+                    { name: "Travel & Tourism Agency", brand: "Globetrek", slogan: "Explore The World", color: "#28a745", link: "travel.html" },
+                    { name: "Photography & Videography Studio", brand: "CaptureX", slogan: "Moments That Matter", color: "#007bff", link: "photography.html" },
+                    { name: "Fitness & Gym Membership", brand: "FitPlus", slogan: "Stronger Every Day", color: "#fd7e14", link: "fitness.html" },
+                    { name: "Non-Profit & Charity Organization", brand: "HopeFund", slogan: "Change Starts Here", color: "#6f42c1", link: "nonprofit.html" },
+                    { name: "Beauty & Salon Services", brand: "GlowSpa", slogan: "Beauty, Redefined", color: "#d63384", link: "beauty.html" },
+                    { name: "Home Services & Repair", brand: "FixItPro", slogan: "Reliable Repairs, Anytime", color: "#17a2b8", link: "home.html" }
                 ];
 
                 document.addEventListener("DOMContentLoaded", () => {
@@ -52,10 +80,10 @@
                         col.className = "col";
                         col.innerHTML = `
                             <div class="card shadow-sm">
-                                <div class="card-body">
-                                    <h5 class="card-title">${template.brand}</h5>
+                                <div class="card-body" style="border-left: 5px solid ${template.color};">
+                                    <h5 class="card-title" style="color:${template.color};">${template.brand}</h5>
                                     <p class="card-text">${template.slogan}</p>
-                                    <a href="${template.link}" class="btn btn-primary mt-3">View Template</a>
+                                    <a href="${template.link}" class="btn btn-small text-white mt-3" style="background:${template.color};">View</a>
                                 </div>
                             </div>
                         `;
