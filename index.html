@@ -20,29 +20,28 @@
     <div class="container mt-5">
         <h2 class="text-center mb-4">Template Hub</h2>
         <div class="row row-cols-1 row-cols-md-3 g-4">
-            <!-- Card Template -->
             <script>
                 const templates = [
-                    { name: "Corporate Business Hub", link: "corporate.html" },
-                    { name: "Creative Agency Portfolio", link: "creative.html" },
-                    { name: "E-commerce Storefront", link: "ecommerce.html" },
-                    { name: "Health & Wellness Clinic", link: "health.html" },
-                    { name: "Real Estate Showcase", link: "realestate.html" },
-                    { name: "Education & E-learning Platform", link: "education.html" },
-                    { name: "Legal Advisory Firm", link: "legal.html" },
-                    { name: "Finance & Investment Consulting", link: "finance.html" },
-                    { name: "Restaurant & Café Experience", link: "restaurant.html" },
-                    { name: "Event Planning & Management", link: "event.html" },
-                    { name: "Tech Startup Landing Page", link: "startup.html" },
-                    { name: "Personal Portfolio & Resume", link: "portfolio.html" },
-                    { name: "Construction & Architecture Firm", link: "construction.html" },
-                    { name: "Automobile Dealership & Services", link: "automobile.html" },
-                    { name: "Travel & Tourism Agency", link: "travel.html" },
-                    { name: "Photography & Videography Studio", link: "photography.html" },
-                    { name: "Fitness & Gym Membership", link: "fitness.html" },
-                    { name: "Non-Profit & Charity Organization", link: "nonprofit.html" },
-                    { name: "Beauty & Salon Services", link: "beauty.html" },
-                    { name: "Home Services & Repair", link: "home.html" }
+                    { name: "Corporate Business Hub", brand: "Vistra", slogan: "Empowering Enterprises", link: "corporate.html" },
+                    { name: "Creative Agency Portfolio", brand: "Creatix", slogan: "Design Beyond Limits", link: "creative.html" },
+                    { name: "E-commerce Storefront", brand: "ShopifyPro", slogan: "Your Digital Marketplace", link: "ecommerce.html" },
+                    { name: "Health & Wellness Clinic", brand: "VitalCare", slogan: "Healing With Care", link: "health.html" },
+                    { name: "Real Estate Showcase", brand: "Horizon Realty", slogan: "Find Your Dream Home", link: "realestate.html" },
+                    { name: "Education & E-learning Platform", brand: "EduLift", slogan: "Learn, Grow, Succeed", link: "education.html" },
+                    { name: "Legal Advisory Firm", brand: "LexPoint", slogan: "Justice, Simplified", link: "legal.html" },
+                    { name: "Finance & Investment Consulting", brand: "Finovate", slogan: "Smart Wealth Solutions", link: "finance.html" },
+                    { name: "Restaurant & Café Experience", brand: "TasteBites", slogan: "Savor The Flavor", link: "restaurant.html" },
+                    { name: "Event Planning & Management", brand: "Eventoria", slogan: "Memories, Perfectly Planned", link: "event.html" },
+                    { name: "Tech Startup Landing Page", brand: "Innovix", slogan: "Technology That Evolves", link: "startup.html" },
+                    { name: "Personal Portfolio & Resume", brand: "CareerCraft", slogan: "Showcase Your Brilliance", link: "portfolio.html" },
+                    { name: "Construction & Architecture Firm", brand: "BuildVision", slogan: "Structures With Purpose", link: "construction.html" },
+                    { name: "Automobile Dealership & Services", brand: "AutoVibe", slogan: "Drive Your Passion", link: "automobile.html" },
+                    { name: "Travel & Tourism Agency", brand: "Globetrek", slogan: "Explore The World", link: "travel.html" },
+                    { name: "Photography & Videography Studio", brand: "CaptureX", slogan: "Moments That Matter", link: "photography.html" },
+                    { name: "Fitness & Gym Membership", brand: "FitPlus", slogan: "Stronger Every Day", link: "fitness.html" },
+                    { name: "Non-Profit & Charity Organization", brand: "HopeFund", slogan: "Change Starts Here", link: "nonprofit.html" },
+                    { name: "Beauty & Salon Services", brand: "GlowSpa", slogan: "Beauty, Redefined", link: "beauty.html" },
+                    { name: "Home Services & Repair", brand: "FixItPro", slogan: "Reliable Repairs, Anytime", link: "home.html" }
                 ];
 
                 document.addEventListener("DOMContentLoaded", () => {
@@ -54,7 +53,8 @@
                         col.innerHTML = `
                             <div class="card shadow-sm">
                                 <div class="card-body">
-                                    <h5 class="card-title">${template.name}</h5>
+                                    <h5 class="card-title">${template.brand}</h5>
+                                    <p class="card-text">${template.slogan}</p>
                                     <a href="${template.link}" class="btn btn-primary mt-3">View Template</a>
                                 </div>
                             </div>
