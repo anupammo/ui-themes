@@ -9,7 +9,7 @@ This repository features optimally designed themes—each with its own unique sl
 
 - [Overview](#overview)
 - [Themes](#themes)
-  - [1. Corporate Business Hub](#1-corporate-business-hub)
+  - [1. Vistra | Corporate Business Hub](#1-corporate-business-hub)
   - [2. Creative Agency Portfolio](#2-creative-agency-portfolio)
   - [3. E-commerce Storefront](#3-e-commerce-storefront)
   - [4. Health--Wellness Clinic](#4-health--wellness-clinic)
