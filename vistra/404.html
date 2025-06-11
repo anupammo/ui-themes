@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Google Fonts for Lato and Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom CSS variables */
+        :root {
+            --navy: #001f3f;
+            --gold: #ffd700;
+            --white: #ffffff;
+            --light-gray: #f0f4f8; /* Slightly softer light gray */
+            --dark-gray: #343a40;
+            --accent-blue: #007bff; /* Bootstrap primary blue */
+            --darker-navy: #001a35;
+        }
+        
+        /* Keyframe animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes scaleIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* General body styling */
+        body {
+            font-family: 'Lato', sans-serif;
+            color: var(--dark-gray);
+            line-height: 1.7;
+            overflow: hidden; /* Prevent scrollbars from gradient animation */
+            background: linear-gradient(135deg, var(--light-gray) 0%, var(--white) 100%);
+            background-size: 200% 200%; /* For gradient animation */
+            animation: gradientShift 15s ease infinite; /* Subtle background animation */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Full viewport height */
+            margin: 0;
+            position: relative; /* For decorative elements */
+        }
+
+        /* Decorative shapes in background */
+        body::before, body::after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--gold) 0%, rgba(255, 215, 0, 0) 70%);
+            opacity: 0.1;
+            filter: blur(80px);
+            z-index: -1;
+        }
+
+        body::before {
+            top: 10%;
+            left: 5%;
+        }
+
+        body::after {
+            bottom: 10%;
+            right: 5%;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, var(--navy) 0%, rgba(0, 31, 63, 0) 70%);
+        }
+        
+        /* Heading styling */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        /* Styling for the 404 container */
+        .error-container {
+            text-align: center;
+            padding: 3rem; /* Increased padding */
+            background-color: var(--white);
+            border-radius: 1.5rem; /* More rounded corners */
+            box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.15); /* More prominent shadow */
+            max-width: 90%; /* Max width on smaller screens */
+            width: 550px; /* Slightly wider */
+            animation: scaleIn 0.8s ease-out forwards; /* Container entrance animation */
+            position: relative;
+            z-index: 1; /* Ensure it's above background elements */
+        }
+
+        .error-code {
+            font-size: 9rem; /* Even larger font size for 404 */
+            font-weight: 800; /* Bolder */
+            color: var(--gold); /* Gold color for the error code */
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.1); /* Text shadow for depth */
+            animation: fadeIn 1s ease-out forwards; /* Entrance animation */
+            animation-delay: 0.2s; /* Delayed animation */
+            opacity: 0; /* Start invisible for animation */
+        }
+
+        .error-message {
+            font-size: 1.7rem; /* Larger message font */
+            margin-bottom: 2rem; /* More space */
+            color: var(--dark-gray);
+            animation: fadeIn 1s ease-out forwards;
+            animation-delay: 0.4s;
+            opacity: 0;
+        }
+
+        /* Custom button styling */
+        .btn-home {
+            background-color: var(--navy);
+            color: var(--white);
+            border: none;
+            padding: 0.9rem 2.5rem; /* Larger button */
+            font-size: 1.2rem;
+            font-weight: 600;
+            border-radius: 0.75rem; /* More rounded button */
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-out forwards;
+            animation-delay: 0.6s;
+            opacity: 0;
+        }
+
+        .btn-home:hover {
+            background-color: var(--darker-navy); /* Darker navy on hover */
+            color: var(--white);
+            transform: translateY(-3px) scale(1.02); /* Lift and slightly scale on hover */
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-home:active {
+            transform: translateY(0);
+            box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+        }
+
+        /* Responsive adjustments for smaller screens */
+        @media (max-width: 768px) {
+            .error-code {
+                font-size: 7rem;
+            }
+            .error-message {
+                font-size: 1.4rem;
+            }
+            .error-container {
+                padding: 2rem;
+            }
+            .btn-home {
+                padding: 0.8rem 2rem;
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .error-code {
+                font-size: 5rem;
+            }
+            .error-message {
+                font-size: 1.2rem;
+            }
+            .error-container {
+                padding: 1.5rem;
+                border-radius: 1rem;
+            }
+            body::before, body::after {
+                width: 100px;
+                height: 100px;
+                filter: blur(50px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <h1 class="error-code">404</h1>
+        <p class="error-message">Oops! The page you're looking for doesn't exist.</p>
+        <a href="/" class="btn btn-home">Go to Homepage</a>
+    </div>
+
+    <!-- Bootstrap JS (optional, for components that need JS) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
