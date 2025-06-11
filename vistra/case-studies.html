@@ -4,66 +4,556 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Meta Title (Max 60 Characters) -->
     <title>Case Studies | Client Success & Industry Insights</title>
 
-    <!-- Meta Description (Max 160 Characters) -->
     <meta name="description" content="Explore business case studies on client success stories & industry insights. Learn how Corporate Business Hub drives transformative growth.">
 
-    <!-- Keywords (SEO Optimization) -->
     <meta name="keywords" content="business case studies, client success stories, industry insights, corporate growth, strategy consulting, market intelligence">
 
-    <!-- Robots Meta Tag -->
     <meta name="robots" content="index, follow">
 
-    <!-- Open Graph (Social Media Optimization) -->
     <meta property="og:title" content="Case Studies | Client Success & Industry Insights">
     <meta property="og:description" content="Corporate Business Hub delivers transformative business growth. Read case studies on corporate strategy, consulting, and market expansion.">
     <meta property="og:type" content="website">
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --navy: #001f3f;
+            --gold: #ffd700;
+            --white: #ffffff;
+            --light-gray: #f8f9fa;
+            --dark-gray: #343a40;
+        }
+        
+        body {
+            font-family: 'Lato', sans-serif;
+            color: var(--dark-gray);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--navy);
+        }
+        
+        .navbar {
+            background-color: var(--navy);
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--white) !important;
+            font-size: 1.8rem;
+        }
+        
+        .navbar-brand span {
+            color: var(--gold);
+        }
+        
+        .navbar-nav .nav-link {
+            color: rgba(255, 255, 255, 0.85) !important;
+            font-weight: 500;
+            margin: 0 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            color: var(--gold) !important;
+        }
+        
+        .btn-primary {
+            background-color: var(--navy);
+            border-color: var(--navy);
+            padding: 0.7rem 1.8rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: #00152e;
+            border-color: #00152e;
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline-primary {
+            border-color: var(--navy);
+            color: var(--navy);
+            padding: 0.7rem 1.8rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline-primary:hover {
+            background-color: var(--navy);
+            border-color: var(--navy);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(0, 31, 63, 0.85), rgba(0, 31, 63, 0.9)), url('https://images.pexels.com/photos/3184296/pexels-photo-3184296.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 8rem 0 6rem;
+            position: relative;
+        }
+        
+        .hero-content h1 {
+            color: var(--white);
+            font-size: 3.2rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .slogan {
+            color: var(--gold);
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .section {
+            padding: 6rem 0;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: var(--gold);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .case-study-card {
+            border: none;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            height: 100%;
+            background: var(--white);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .case-study-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .case-study-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+
+        .case-study-card .card-body {
+            padding: 2rem;
+        }
+
+        .case-study-card .card-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .case-study-card .card-text {
+            font-size: 0.95rem;
+            color: var(--dark-gray);
+        }
+
+        .case-study-card .btn {
+            margin-top: 1.5rem;
+        }
+        
+        .contact-section {
+            background: linear-gradient(rgba(0, 31, 63, 0.95), rgba(0, 31, 63, 0.95)), url('https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+        }
+        
+        .contact-info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--gold);
+            margin-right: 1rem;
+            min-width: 30px;
+        }
+        
+        .footer {
+            background: var(--navy);
+            color: rgba(255, 255, 255, 0.8);
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer-title {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .footer-title:after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            background: var(--gold);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-links a {
+            display: block;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 0.8rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--gold);
+            padding-left: 5px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--white);
+            margin-right: 0.8rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--gold);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1.5rem;
+            margin-top: 3rem;
+            text-align: center;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        
+        .delay-1 {
+            animation-delay: 0.1s;
+        }
+        
+        .delay-2 {
+            animation-delay: 0.2s;
+        }
+        
+        .delay-3 {
+            animation-delay: 0.3s;
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section {
+                padding: 4rem 0;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 6rem 0 4rem;
+            }
+            
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
 </head>
 <body>
 
-    <!-- H1 Tag (Primary Title) -->
-    <h1>Case Studies: Real Success, Proven Strategies</h1>
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                Corporate Business <span>Hub</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#">Case Studies</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                </ul>
+                <div class="ms-3">
+                    <a href="#" class="btn btn-outline-light">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </nav>
 
-    <!-- Introduction -->
-    <p>At <strong>Corporate Business Hub</strong>, we specialize in crafting transformative solutions that help businesses <strong>scale, innovate, and dominate their markets</strong>. Below are case studies showcasing our impact in <strong>business consulting, market analysis, and growth strategy</strong>.</p>
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content text-center animate">
+                <span class="slogan">Your Vision, Our Strategy</span>
+                <h1>Case Studies: Real Success, Proven Strategies</h1>
+                <p class="mx-auto" style="max-width: 800px;">At <strong>Corporate Business Hub</strong>, we specialize in crafting transformative solutions that help businesses <strong>scale, innovate, and dominate their markets</strong>. Below are case studies showcasing our impact in <strong>business consulting, market analysis, and growth strategy</strong>.</p>
+            </div>
+        </div>
+    </section>
 
-    <!-- H2 Tag: Client Success Stories -->
-    <h2>Client Success Stories: Empowering Enterprises</h2>
+    <section class="section">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="section-title">Client Success Stories: Empowering Enterprises</h2>
+                    <p class="lead">Discover how our tailored strategies have led to remarkable client achievements.</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="case-study-card animate delay-1">
+                        <img src="https://images.pexels.com/photos/3184428/pexels-photo-3184428.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Scaling a Tech Startup">
+                        <div class="card-body">
+                            <h3 class="card-title">Scaling a Tech Startup to $50M Revenue</h3>
+                            <p class="card-text">A leading SaaS company partnered with Corporate Business Hub to refine their business model. Through our <strong>growth-driven strategy</strong>, they achieved a <strong>300% increase in user acquisition</strong> and expanded to global markets.</p>
+                            <a href="#" class="btn btn-primary btn-sm">Read Full Case Study <i class="fas fa-arrow-right ms-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="case-study-card animate delay-2">
+                        <img src="https://images.pexels.com/photos/5668473/pexels-photo-5668473.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Transforming Retail">
+                        <div class="card-body">
+                            <h3 class="card-title">Transforming a Traditional Retail Business</h3>
+                            <p class="card-text">We helped a regional retail chain transition into <strong>an e-commerce powerhouse</strong> by implementing digital transformation solutions, leading to a <strong>250% boost in online sales</strong> within a year.</p>
+                            <a href="#" class="btn btn-primary btn-sm">Read Full Case Study <i class="fas fa-arrow-right ms-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="case-study-card animate delay-3">
+                        <img src="https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Optimizing Operations">
+                        <div class="card-body">
+                            <h3 class="card-title">Optimizing Operations for a Fortune 500 Firm</h3>
+                            <p class="card-text">A multinational corporation struggled with operational inefficiencies. Our <strong>business process optimization strategies</strong> saved them <strong>$10M annually</strong> by streamlining workflows and enhancing productivity.</p>
+                            <a href="#" class="btn btn-primary btn-sm">Read Full Case Study <i class="fas fa-arrow-right ms-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <h3>Scaling a Tech Startup to $50M Revenue</h3>
-    <p>A leading SaaS company partnered with <strong>Corporate Business Hub</strong> to refine their business model. Through our <strong>growth-driven strategy</strong>, they achieved a <strong>300% increase in user acquisition</strong> and expanded to global markets.</p>
+    <section class="section bg-light">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="section-title">Industry Insights: Business Trends & Market Evolution</h2>
+                    <p class="lead">Stay ahead with our expert analysis of current and future market dynamics.</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="case-study-card animate">
+                        <img src="https://images.pexels.com/photos/3183172/pexels-photo-3183172.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Digital Transformation">
+                        <div class="card-body">
+                            <h3 class="card-title">The Future of Digital Transformation</h3>
+                            <p class="card-text">Discover how <strong>A.I., automation, and cloud technologies</strong> are shaping the future of business efficiency and innovation.</p>
+                            <a href="#" class="btn btn-outline-primary btn-sm">Read Insight <i class="fas fa-arrow-right ms-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="case-study-card animate delay-1">
+                        <img src="https://images.pexels.com/photos/2653362/pexels-photo-2653362.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Emerging Business Sectors">
+                        <div class="card-body">
+                            <h3 class="card-title">Market Analysis: Emerging Business Sectors</h3>
+                            <p class="card-text">Explore upcoming <strong>high-growth industries</strong>, including <strong>EdTech, FinTech, and sustainable solutions</strong>, and how businesses can position themselves effectively.</p>
+                            <a href="#" class="btn btn-outline-primary btn-sm">Read Insight <i class="fas fa-arrow-right ms-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="case-study-card animate delay-2">
+                        <img src="https://images.pexels.com/photos/3184325/pexels-photo-3184325.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Leadership Strategies">
+                        <div class="card-body">
+                            <h3 class="card-title">Leadership Strategies for a Dynamic Workforce</h3>
+                            <p class="card-text">Understand how <strong>effective leadership frameworks</strong> can improve employee engagement, boost team productivity, and create a culture of excellence.</p>
+                            <a href="#" class="btn btn-outline-primary btn-sm">Read Insight <i class="fas fa-arrow-right ms-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <h3>Transforming a Traditional Retail Business</h3>
-    <p>We helped a regional retail chain transition into <strong>an e-commerce powerhouse</strong> by implementing digital transformation solutions, leading to a <strong>250% boost in online sales</strong> within a year.</p>
+    <section class="section contact-section">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="section-title text-white">Unlock Business Success with Corporate Business Hub</h2>
+                    <p class="lead text-light">Interested in implementing winning strategies for your business? Connect with our experts and start your journey toward <strong>market leadership</strong>.</p>
+                </div>
+            </div>
+            <div class="row g-5">
+                <div class="col-lg-6 offset-lg-3">
+                    <div class="bg-white rounded-3 p-4 shadow animate">
+                        <h3 class="mb-4">Send us a message</h3>
+                        <form>
+                            <div class="mb-3">
+                                <input type="text" class="form-control py-3" placeholder="Your Name">
+                            </div>
+                            <div class="mb-3">
+                                <input type="email" class="form-control py-3" placeholder="Your Email">
+                            </div>
+                            <div class="mb-3">
+                                <input type="text" class="form-control py-3" placeholder="Subject">
+                            </div>
+                            <div class="mb-3">
+                                <textarea class="form-control py-3" rows="5" placeholder="Your Message"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100 py-3">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <h3>Optimizing Operations for a Fortune 500 Firm</h3>
-    <p>A multinational corporation struggled with operational inefficiencies. Our **business process optimization strategies** saved them <strong>$10M annually</strong> by streamlining workflows and enhancing productivity.</p>
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <h3 class="navbar-brand mb-3">Corporate Business <span>Hub</span></h3>
+                    <p class="mb-4">Your trusted partner in business strategy, consulting, and market analysis. We help enterprises maximize their potential with tailored solutions.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="footer-title">Quick Links</h5>
+                    <div class="footer-links">
+                        <a href="index.html">Home</a>
+                        <a href="#">About Us</a>
+                        <a href="#">Services</a>
+                        <a href="#">Case Studies</a>
+                        <a href="#">Blog</a>
+                        <a href="#">Contact</a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="footer-title">Services</h5>
+                    <div class="footer-links">
+                        <a href="#">Business Consulting</a>
+                        <a href="#">Market Analysis</a>
+                        <a href="#">Growth Strategy</a>
+                        <a href="#">Digital Transformation</a>
+                        <a href="#">Leadership Coaching</a>
+                        <a href="#">Financial Planning</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <h5 class="footer-title">Newsletter</h5>
+                    <p class="mb-3">Subscribe to our newsletter for the latest industry insights and strategies.</p>
+                    <form>
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="Your Email">
+                            <button class="btn btn-outline-light" type="button">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Corporate Business Hub. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
 
-    <!-- H2 Tag: Industry Insights -->
-    <h2>Industry Insights: Business Trends & Market Evolution</h2>
-
-    <h3>The Future of Digital Transformation</h3>
-    <p>Discover how <strong>A.I., automation, and cloud technologies</strong> are shaping the future of business efficiency and innovation.</p>
-
-    <h3>Market Analysis: Emerging Business Sectors</h3>
-    <p>Explore upcoming **high-growth industries**, including **EdTech, FinTech, and sustainable solutions**, and how businesses can position themselves effectively.</p>
-
-    <h3>Leadership Strategies for a Dynamic Workforce</h3>
-    <p>Understand how **effective leadership frameworks** can improve employee engagement, boost team productivity, and create a culture of excellence.</p>
-
-    <!-- H2 Tag: Contact Us -->
-    <h2>Unlock Business Success with Corporate Business Hub</h2>
-
-    <p>Interested in implementing winning strategies for your business? Connect with our experts and start your journey toward **market leadership**.</p>
-
-    <!-- CTA (Call-To-Action) -->
-    <h3>Contact Information</h3>
-    <p>Email: <a href="mailto:info@corporatehub.com">info@corporatehub.com</a></p>
-    <p>Phone: +1 (555) 123-4567</p>
-    <p>Visit: <a href="https://www.corporatehub.com">www.corporatehub.com</a></p>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add animation classes when elements come into view
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            document.querySelectorAll('.animate').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
 </body>
 </html>
