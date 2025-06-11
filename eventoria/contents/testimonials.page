@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Meta Title (Max 60 Characters) -->
+    <title>Testimonials | Eventoria - What Our Clients Say</title>
+
+    <!-- Meta Description (Max 160 Characters) -->
+    <meta name="description" content="See why clients love Eventoria! Read testimonials from happy customers who experienced seamless weddings, corporate events, and private celebrations.">
+
+    <!-- Keywords (SEO Optimization) -->
+    <meta name="keywords" content="Eventoria client reviews, event planning testimonials, corporate event feedback, wedding planner praise, private event success stories">
+
+    <!-- Robots Meta Tag -->
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph (Social Media Optimization) -->
+    <meta property="og:title" content="Testimonials | Eventoria - What Our Clients Say">
+    <meta property="og:description" content="Discover why people trust Eventoria! Read real client testimonials about their seamless event experiences, from dream weddings to corporate functions.">
+    <meta property="og:type" content="website">
+
+</head>
+<body>
+
+    <!-- H1 Tag (Primary Title) -->
+    <h1>What Clients Say About Eventoria</h1>
+
+    <!-- Introduction -->
+    <p>At **Eventoria**, we take pride in **creating perfect events tailored to each client’s vision**. Read what our satisfied clients say about their **corporate gatherings, weddings, and private celebrations** planned with us.</p>
+
+    <!-- H2 Tag: Wedding Testimonials -->
+    <h2>Wedding Success Stories</h2>
+
+    <h3>“A Dream Come True”</h3>
+    <p>⭐️⭐️⭐️⭐️⭐️ <br> *"Eventoria made our wedding absolutely magical! From the breathtaking décor to flawless coordination, everything exceeded our expectations."* <br> **- Emily & Mark, Newlyweds**</p>
+
+    <h3>“Stress-Free Planning”</h3>
+    <p>⭐️⭐️⭐️⭐️⭐️ <br> *"Thanks to Eventoria, our wedding planning was effortless. They took care of every detail so we could just enjoy our big day."* <br> **- Sophia & James, Happy Couple**</p>
+
+    <!-- H2 Tag: Corporate Event Testimonials -->
+    <h2>Corporate Event Excellence</h2>
+
+    <h3>“A Seamless Conference”</h3>
+    <p>⭐️⭐️⭐️⭐️⭐️ <br> *"Eventoria organized our annual business conference flawlessly. The venue, catering, and tech support were all perfect!"* <br> **- Robert T., CEO**</p>
+
+    <h3>“Professional & Impactful”</h3>
+    <p>⭐️⭐️⭐️⭐️⭐️ <br> *"From start to finish, Eventoria delivered an exceptional corporate event. Our guests were highly impressed."* <br> **- Maria L., Marketing Director**</p>
+
+    <!-- H2 Tag: Private Party Testimonials -->
+    <h2>Unforgettable Private Celebrations</h2>
+
+    <h3>“Best Birthday Party Ever!”</h3>
+    <p>⭐️⭐️⭐️⭐️⭐️ <br> *"Eventoria planned an incredible birthday event! The theme, entertainment, and catering were amazing. Everyone had a blast!"* <br> **- Jessica B., Birthday Host**</p>
+
+    <h3>“Elegant Anniversary Celebration”</h3>
+    <p>⭐️⭐️⭐️⭐️⭐️ <br> *"We couldn’t have asked for a more beautifully planned anniversary dinner. Eventoria made it a night to remember."* <br> **- David & Linda, Anniversary Guests**</p>
+
+    <!-- H2 Tag: Share Your Eventoria Experience -->
+    <h2>Leave Your Testimonial</h2>
+
+    <p>We’d love to hear about your **event experience with Eventoria**! Share your thoughts below and let others know about your **memorable event**.</p>
+
+    <form action="submit_review.php" method="post">
+        <label for="name">Full Name:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="email">Email Address:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="message">Your Testimonial:</label><br>
+        <textarea id="message" name="message" rows="5" required></textarea><br><br>
+
+        <button type="submit">Submit Your Review</button>
+    </form>
+
+    <!-- CTA (Call-To-Action) -->
+    <h3>Connect with Eventoria</h3>
+    <p>Email: <a href="mailto:support@eventoria.com">support@eventoria.com</a></p>
+    <p>Phone: +1 (555) 789-4561</p>
+    <p>Visit: <a href="https://www.eventoria.com">www.eventoria.com</a></p>
+
+</body>
+</html>
