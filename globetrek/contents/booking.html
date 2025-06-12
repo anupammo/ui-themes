@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Meta Title -->
+  <title>Booking | Globetrek – Secure Your Next Adventure</title>
+
+  <!-- Meta Description -->
+  <meta name="description" content="Plan your next trip with Globetrek. Book domestic tours, international packages, or custom getaways easily and securely. Start your journey now.">
+
+  <!-- Meta Keywords -->
+  <meta name="keywords" content="Globetrek booking, travel reservation, tour booking, vacation planner, secure travel booking, holiday registration, travel confirmation, trip booking page">
+
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Booking | Globetrek" />
+  <meta property="og:description" content="Globetrek makes it easy to book your next domestic or international getaway. Plan with confidence, travel with joy." />
+  <meta property="og:type" content="website" />
+</head>
+<body>
+
+  <!-- H1 -->
+  <h1>Book Your Journey – Start Exploring</h1>
+
+  <!-- Introduction -->
+  <p>Planning your next escape just got easier. With <strong>Globetrek</strong>, you can seamlessly book curated travel packages, custom tours, or even request flexible itineraries — all in a few simple steps. No stress. No guesswork. Just pure wanderlust in motion.</p>
+
+  <!-- H2: Booking Form -->
+  <h2>Secure Your Spot</h2>
+  <form action="submit_booking.php" method="post">
+    <label for="name">Full Name:</label><br />
+    <input type="text" id="name" name="name" required /><br /><br />
+
+    <label for="email">Email Address:</label><br />
+    <input type="email" id="email" name="email" required /><br /><br />
+
+    <label for="phone">Phone Number:</label><br />
+    <input type="tel" id="phone" name="phone" /><br /><br />
+
+    <label for="destination">Preferred Destination:</label><br />
+    <select id="destination" name="destination" required>
+      <option value="">--Select--</option>
+      <option value="domestic">Domestic Trip</option>
+      <option value="international">International Package</option>
+      <option value="custom">Custom Request</option>
+    </select><br /><br />
+
+    <label for="dates">Travel Dates:</label><br />
+    <input type="text" id="dates" name="dates" placeholder="e.g., 12–20 Dec 2025" required /><br /><br />
+
+    <label for="notes">Special Requests or Notes:</label><br />
+    <textarea id="notes" name="notes" rows="4" placeholder="Tell us anything we should know (optional)"></textarea><br /><br />
+
+    <button type="submit">Submit Booking Request</button>
+  </form>
+
+  <!-- H2: What Happens Next -->
+  <h2>What Happens After You Book</h2>
+  <ul>
+    <li>✅ A travel specialist will contact you within 24 hours</li>
+    <li>✅ We’ll confirm dates, availability, and customizations</li>
+    <li>✅ You’ll receive a finalized quote and secure payment link</li>
+  </ul>
+
+  <!-- H2: Need Help? -->
+  <h2>Need Assistance?</h2>
+  <p>Have questions or need help choosing the right trip? Reach out through our <a href="contact-us.html">Contact Us</a> page — we’re happy to assist!</p>
+
+</body>
+</html>
