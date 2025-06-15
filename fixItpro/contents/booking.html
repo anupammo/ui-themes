@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Book a Repair | FixItPro – Schedule Your Service in Minutes</title>
+  <meta name="description" content="Easily book your FixItPro service for plumbing, electrical, or handyman repairs. Choose a date and time that works for you — no delays, no guesswork.">
+  <meta name="keywords" content="FixItPro booking, book repair, schedule plumber, electrician booking, handyman service form, home repair appointment, fix it pro schedule">
+  <meta name="robots" content="index, follow" />
+</head>
+<body>
+
+  <h1>Book Your Repair</h1>
+
+  <p>Need something fixed? You’re one step away. Whether it’s a leaky pipe, faulty switch, or jammed drawer — schedule your FixItPro service now, and we’ll be there <em>right on time.</em></p>
+
+  <h2>Fast. Easy. Reliable.</h2>
+  <p>Select your service, preferred date and time, and a few details. We’ll confirm it in minutes and send a technician your way.</p>
+
+  <form action="submit_booking.php" method="post">
+    <label for="name">Full Name:</label><br />
+    <input type="text" id="name" name="name" required><br /><br />
+
+    <label for="email">Email Address:</label><br />
+    <input type="email" id="email" name="email" required><br /><br />
+
+    <label for="phone">Phone Number:</label><br />
+    <input type="tel" id="phone" name="phone" required><br /><br />
+
+    <label for="service">Service Type:</label><br />
+    <select id="service" name="service" required>
+      <option value="">-- Select --</option>
+      <option value="plumbing">Plumbing</option>
+      <option value="electrical">Electrical</option>
+      <option value="handyman">Handyman</option>
+    </select><br /><br />
+
+    <label for="date">Preferred Date:</label><br />
+    <input type="date" id="date" name="date" required><br /><br />
+
+    <label for="time">Preferred Time:</label><br />
+    <input type="time" id="time" name="time" required><br /><br />
+
+    <label for="description">Problem Description:</label><br />
+    <textarea id="description" name="description" rows="4" required></textarea><br /><br />
+
+    <button type="submit">Book Now</button>
+  </form>
+
+</body>
+</html>
