@@ -3,62 +3,735 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Meta Title (Max 60 Characters) -->
     <title>Horizon Realty | Find Your Dream Home - Trusted Property Experts</title>
-
-    <!-- Meta Description (Max 160 Characters) -->
     <meta name="description" content="Discover your dream home with Horizon Realty. Browse top-rated residential and commercial properties with expert real estate guidance.">
-
-    <!-- Keywords (SEO Optimization) -->
     <meta name="keywords" content="Horizon Realty, real estate listings, buy home, commercial properties, property investment, virtual tours, home buyers">
-
-    <!-- Robots Meta Tag -->
     <meta name="robots" content="index, follow">
-
-    <!-- Open Graph (Social Media Optimization) -->
     <meta property="og:title" content="Horizon Realty | Find Your Dream Home - Trusted Property Experts">
     <meta property="og:description" content="Browse premium residential and commercial properties with Horizon Realty. Find expert real estate guidance today.">
     <meta property="og:type" content="website">
-
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    
+    <style>
+        :root {
+            --brick-red: #b22222;
+            --warm-beige: #f5deb3;
+            --white: #ffffff;
+            --dark-gray: #333333;
+            --light-gray: #f8f9fa;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--dark-gray);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, .navbar-brand {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            min-height: 700px;
+            display: flex;
+            align-items: center;
+            color: var(--white);
+            position: relative;
+        }
+        
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 1.5rem 0;
+            transition: all 0.4s;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .navbar-brand {
+            font-size: 1.8rem;
+            color: var(--brick-red) !important;
+            letter-spacing: 0.5px;
+        }
+        
+        .navbar-brand span {
+            color: var(--dark-gray);
+        }
+        
+        .nav-link {
+            color: var(--dark-gray) !important;
+            font-weight: 500;
+            margin: 0 0.8rem;
+            position: relative;
+            font-size: 1.05rem;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--brick-red);
+            transition: width 0.3s;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        .btn-primary {
+            background-color: var(--brick-red);
+            border-color: var(--brick-red);
+            padding: 0.9rem 2.2rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            border-radius: 30px;
+            font-size: 1.05rem;
+            letter-spacing: 0.5px;
+        }
+        
+        .btn-primary:hover {
+            background-color: #9b1d1d;
+            border-color: #9b1d1d;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(178, 34, 34, 0.25);
+        }
+        
+        .btn-outline-primary {
+            color: var(--brick-red);
+            border-color: var(--brick-red);
+            padding: 0.9rem 2.2rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            border-radius: 30px;
+            font-size: 1.05rem;
+            letter-spacing: 0.5px;
+        }
+        
+        .btn-outline-primary:hover {
+            background-color: var(--brick-red);
+            color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(178, 34, 34, 0.15);
+        }
+        
+        .section {
+            padding: 7rem 0;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 3.5rem;
+            color: var(--dark-gray);
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: var(--brick-red);
+            bottom: -20px;
+            left: 0;
+        }
+        
+        .section-title.text-center:after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .intro-section {
+            background-color: var(--white);
+        }
+        
+        .featured-section {
+            background-color: var(--light-gray);
+        }
+        
+        .benefits-section {
+            background-color: var(--white);
+        }
+        
+        .cta-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            position: relative;
+        }
+        
+        .property-card {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+            transition: transform 0.4s, box-shadow 0.4s;
+            background: var(--white);
+            height: 100%;
+            border: none;
+        }
+        
+        .property-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15);
+        }
+        
+        .property-img {
+            height: 280px;
+            width: 100%;
+            object-fit: cover;
+            transition: transform 0.4s;
+        }
+        
+        .property-card:hover .property-img {
+            transform: scale(1.05);
+        }
+        
+        .property-price {
+            color: var(--brick-red);
+            font-weight: 700;
+            font-size: 1.4rem;
+            margin: 0.5rem 0;
+        }
+        
+        .benefit-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 2.5rem 2rem;
+            height: 100%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            border-color: rgba(178, 34, 34, 0.15);
+        }
+        
+        .benefit-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--warm-beige);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.8rem;
+            transition: all 0.3s;
+        }
+        
+        .benefit-card:hover .benefit-icon {
+            background: var(--brick-red);
+            transform: scale(1.1);
+        }
+        
+        .benefit-icon i {
+            font-size: 2.2rem;
+            color: var(--brick-red);
+            transition: all 0.3s;
+        }
+        
+        .benefit-card:hover .benefit-icon i {
+            color: var(--white);
+        }
+        
+        .testimonial-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            position: relative;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .testimonial-card:before {
+            content: """;
+            font-family: 'Playfair Display', serif;
+            position: absolute;
+            top: -25px;
+            left: 20px;
+            font-size: 7rem;
+            color: var(--warm-beige);
+            opacity: 0.3;
+            line-height: 1;
+        }
+        
+        .client-img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--warm-beige);
+        }
+        
+        footer {
+            background: var(--dark-gray);
+            color: var(--white);
+            padding: 5rem 0 2rem;
+        }
+        
+        .footer-title {
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 1.8rem;
+            font-weight: 600;
+        }
+        
+        .footer-title:after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: var(--brick-red);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--white);
+            margin-right: 12px;
+            transition: all 0.3s;
+            font-size: 1.2rem;
+        }
+        
+        .social-icon:hover {
+            background: var(--brick-red);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 1.8rem 0;
+            margin-top: 4rem;
+        }
+        
+        .highlight {
+            color: var(--brick-red);
+            font-weight: 500;
+        }
+        
+        /* Animation effects */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+        }
+        
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+        
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+        
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+            
+            .section {
+                padding: 5rem 0;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section {
+                padding: 4rem 0;
+            }
+            
+            .navbar {
+                padding: 1rem 0;
+            }
+        }
+        
+        .floating {
+            animation: floating 8s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
 </head>
 <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Horizon<span>Realty</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Properties</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Agents</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+                <div class="ms-3">
+                    <button class="btn btn-outline-primary">Schedule Tour</button>
+                </div>
+            </div>
+        </div>
+    </nav>
 
-    <!-- H1 Tag (Primary Title) -->
-    <h1>Welcome to Horizon Realty - Find Your Dream Home</h1>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="hero-content">
+                        <h1 class="display-3 fw-bold animate">Find Your Perfect Space</h1>
+                        <p class="lead my-4 animate delay-1">Discover your dream home with Horizon Realty. Browse top-rated residential and commercial properties with expert real estate guidance.</p>
+                        <div class="d-flex gap-3 mt-5 animate delay-2">
+                            <a href="#" class="btn btn-primary btn-lg">Browse Properties</a>
+                            <a href="#" class="btn btn-outline-light btn-lg">Virtual Tours</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Floating elements -->
+        <div class="position-absolute bottom-0 end-0 me-5 mb-5 floating d-none d-lg-block">
+            <div class="bg-warm-beige p-3 rounded shadow-sm">
+                <p class="mb-0 text-dark"><i class="bi bi-house-door me-2"></i> 1,200+ Properties</p>
+            </div>
+        </div>
+    </section>
 
-    <!-- Introduction -->
-    <p>At **Horizon Realty**, we make **home buying and real estate investing simple**. Whether you're looking for a **cozy residential space** or **premium commercial properties**, our expert team is here to guide you.</p>
+    <!-- Introduction Section -->
+    <section class="intro-section section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <h2 class="section-title">Welcome to Horizon Realty</h2>
+                    <p class="mb-4">At <span class="highlight">Horizon Realty</span>, we make <span class="highlight">home buying and real estate investing simple</span>. Whether you're looking for a <span class="highlight">cozy residential space</span> or <span class="highlight">premium commercial properties</span>, our expert team is here to guide you.</p>
+                    <p>With over 15 years of experience in the real estate market, we've helped thousands of clients find their perfect properties. Our innovative approach combines market expertise with cutting-edge technology to deliver exceptional results.</p>
+                    <div class="d-flex gap-3 mt-4">
+                        <a href="#" class="btn btn-primary">Our Properties</a>
+                        <a href="#" class="btn btn-outline-primary">Meet Our Team</a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="position-relative">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1050&q=80" alt="Modern Home" class="img-fluid rounded shadow animate" style="max-height: 500px; width: 100%; object-fit: cover;">
+                        <div class="position-absolute top-0 start-0 bg-brick-red text-white p-4 rounded shadow animate delay-1" style="transform: translate(-20px, -20px);">
+                            <h4 class="mb-0">1,200+</h4>
+                            <p class="mb-0">Happy Clients</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- H2 Tag: Featured Listings -->
-    <h2>Explore Top Real Estate Listings</h2>
+    <!-- Featured Listings Section -->
+    <section class="featured-section section">
+        <div class="container">
+            <h2 class="section-title text-center">Explore Top Real Estate Listings</h2>
+            <p class="text-center mb-5">Discover our curated selection of premium properties tailored to your lifestyle and investment goals.</p>
+            
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="property-card animate">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1050&q=80" alt="Luxury Home" class="property-img">
+                        <div class="p-4">
+                            <h3>Premium Residential Homes</h3>
+                            <div class="property-price">$850,000 - $2.5M</div>
+                            <p>Find <span class="highlight">luxury homes, family residences, and apartments</span> tailored to your lifestyle. Each property is carefully selected for quality, location, and unique features.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-4">
+                                <div>
+                                    <span class="me-3"><i class="bi bi-house-door me-1"></i> 4-6 Beds</span>
+                                    <span><i class="bi bi-bath me-1"></i> 3-5 Baths</span>
+                                </div>
+                                <a href="#" class="btn btn-sm btn-outline-primary">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="property-card animate delay-1">
+                        <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=1050&q=80" alt="Commercial Building" class="property-img">
+                        <div class="p-4">
+                            <h3>High-Value Commercial Properties</h3>
+                            <div class="property-price">$1.2M - $8.5M</div>
+                            <p>Invest in <span class="highlight">office spaces, retail outlets, and commercial real estate</span> for long-term growth. Strategic locations with high ROI potential.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-4">
+                                <div>
+                                    <span class="me-3"><i class="bi bi-building me-1"></i> Offices</span>
+                                    <span><i class="bi bi-shop me-1"></i> Retail</span>
+                                </div>
+                                <a href="#" class="btn btn-sm btn-outline-primary">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-5 animate delay-2">
+                <a href="#" class="btn btn-primary">View All Properties</a>
+            </div>
+        </div>
+    </section>
 
-    <h3>Premium Residential Homes</h3>
-    <p>Find **luxury homes, family residences, and apartments** tailored to your lifestyle.</p>
+    <!-- Benefits Section -->
+    <section class="benefits-section section">
+        <div class="container">
+            <h2 class="section-title text-center">Why Work With Horizon Realty?</h2>
+            <p class="text-center mb-5">Our commitment to excellence ensures a seamless real estate experience.</p>
+            
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="benefit-card animate">
+                        <div class="benefit-icon">
+                            <i class="bi bi-people"></i>
+                        </div>
+                        <h4>Expert Guidance</h4>
+                        <p>Trusted real estate agents with deep market expertise and local knowledge.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="benefit-card animate delay-1">
+                        <div class="benefit-icon">
+                            <i class="bi bi-search"></i>
+                        </div>
+                        <h4>Wide Selection</h4>
+                        <p>Residential & commercial listings that match your specific needs and preferences.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="benefit-card animate delay-2">
+                        <div class="benefit-icon">
+                            <i class="bi bi-camera-video"></i>
+                        </div>
+                        <h4>Virtual Tours</h4>
+                        <p>Explore properties conveniently from anywhere with our immersive 3D tours.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="benefit-card animate delay-3">
+                        <div class="benefit-icon">
+                            <i class="bi bi-person-heart"></i>
+                        </div>
+                        <h4>Client-Focused</h4>
+                        <p>We make home buying stress-free and seamless with personalized service.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <h3>High-Value Commercial Properties</h3>
-    <p>Invest in **office spaces, retail outlets, and commercial real estate** for long-term growth.</p>
+    <!-- Testimonials Section -->
+    <section class="featured-section section">
+        <div class="container">
+            <h2 class="section-title text-center">What Our Clients Say</h2>
+            <p class="text-center mb-5">Don't just take our word for it - hear from our satisfied clients.</p>
+            
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="testimonial-card animate">
+                        <p class="mb-4">"Horizon Realty made our home buying experience seamless. Their team's expertise and attention to detail helped us find our dream home within our budget."</p>
+                        <div class="d-flex align-items-center">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Client" class="client-img me-3">
+                            <div>
+                                <h5 class="mb-0">Michael Johnson</h5>
+                                <p class="text-muted mb-0">Home Buyer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4">
+                    <div class="testimonial-card animate delay-1">
+                        <p class="mb-4">"As an investor, I appreciate Horizon Realty's market insights. They helped me identify high-growth commercial properties that have significantly outperformed expectations."</p>
+                        <div class="d-flex align-items-center">
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Client" class="client-img me-3">
+                            <div>
+                                <h5 class="mb-0">Sarah Williams</h5>
+                                <p class="text-muted mb-0">Property Investor</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4">
+                    <div class="testimonial-card animate delay-2">
+                        <p class="mb-4">"The virtual tour technology Horizon Realty uses is incredible. I was able to narrow down choices before visiting, saving me weeks of time in my property search."</p>
+                        <div class="d-flex align-items-center">
+                            <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Client" class="client-img me-3">
+                            <div>
+                                <h5 class="mb-0">David Chen</h5>
+                                <p class="text-muted mb-0">First-time Buyer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- H2 Tag: Why Choose Horizon Realty? -->
-    <h2>Why Work With Horizon Realty?</h2>
+    <!-- CTA Section -->
+    <section class="cta-section section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="mb-4">Find the Perfect Home with Horizon Realty</h2>
+                    <p class="lead mb-5">Start browsing <span class="highlight">exclusive listings</span> and take the first step toward <span class="highlight">your dream property today</span>. Our team is ready to guide you through every step of the process.</p>
+                    <div class="d-flex justify-content-center gap-3">
+                        <a href="#" class="btn btn-primary btn-lg">Start Your Search</a>
+                        <a href="#" class="btn btn-outline-light btn-lg">Schedule Consultation</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <ul>
-        <li><strong>Expert Guidance:</strong> Trusted real estate agents with market expertise.</li>
-        <li><strong>Wide Selection:</strong> Residential & commercial listings that match your needs.</li>
-        <li><strong>Virtual Tours:</strong> Explore properties conveniently from anywhere.</li>
-        <li><strong>Client-Focused Approach:</strong> We make home buying stress-free and seamless.</li>
-    </ul>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <h4 class="footer-title">Horizon Realty</h4>
+                    <p>Your trusted partner in finding the perfect property. We combine market expertise with innovative technology to deliver exceptional real estate experiences.</p>
+                    <div class="mt-4">
+                        <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-white-50">Home</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-white-50">Featured Properties</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-white-50">Commercial Listings</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-white-50">Residential Listings</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-white-50">Our Agents</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-white-50">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-4">
+                    <h4 class="footer-title">Connect With Us</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-3"><i class="bi bi-geo-alt me-2"></i> 123 Horizon Avenue, New York, NY 10001</li>
+                        <li class="mb-3"><i class="bi bi-telephone me-2"></i> +1 (555) 456-7890</li>
+                        <li class="mb-3"><i class="bi bi-envelope me-2"></i> support@horizonrealty.com</li>
+                        <li class="mb-3"><i class="bi bi-clock me-2"></i> Mon-Fri: 9am - 6pm</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright text-center mt-5">
+                <p class="mb-0">&copy; 2025 Horizon Realty. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
-    <!-- H2 Tag: Start Your Property Search Today -->
-    <h2>Find the Perfect Home with Horizon Realty</h2>
-
-    <p>Start browsing **exclusive listings** and take the first step toward **your dream property today**.</p>
-
-    <!-- CTA (Call-To-Action) -->
-    <h3>Connect with Horizon Realty</h3>
-    <p>Email: <a href="mailto:support@horizonrealty.com">support@horizonrealty.com</a></p>
-    <p>Phone: +1 (555) 456-7890</p>
-    <p>Visit: <a href="https://www.horizonrealty.com">www.horizonrealty.com</a></p>
-
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom Script -->
+    <script>
+        // Navbar effect on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-sm');
+                navbar.style.padding = '1rem 0';
+            } else {
+                navbar.classList.remove('shadow-sm');
+                navbar.style.padding = '1.5rem 0';
+            }
+        });
+        
+        // Animation on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+            
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+            
+            document.querySelectorAll('.animate').forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
 </body>
 </html>
