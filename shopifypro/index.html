@@ -1,1 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopifyPro | Your Digital Marketplace - Online Shopping Simplified</title>
+    <meta name="description" content="ShopifyPro – your go-to digital marketplace for electronics, fashion & home essentials. Shop smart with exclusive deals & fast delivery.">
+    <meta name="keywords" content="online shopping, ShopifyPro marketplace, electronics deals, fashion shopping, home essentials, discount offers, fast delivery">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="ShopifyPro | Your Digital Marketplace">
+    <meta property="og:description" content="Discover the best deals on electronics, fashion & home essentials. Enjoy fast delivery & exclusive discounts with ShopifyPro.">
+    <meta property="og:type" content="website">
 
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #ff9800;
+            --dark: #333333;
+            --light: #ffffff;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 600;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            border-color: var(--primary);
+            padding: 12px 32px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border-radius: 30px;
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .btn-primary:hover {
+            background-color: #e68900;
+            border-color: #e68900;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 152, 0, 0.2);
+        }
+        
+        .navbar {
+            background-color: var(--light);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+        }
+        
+        .navbar-brand {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            font-size: 28px;
+            color: var(--primary);
+            letter-spacing: 1px;
+        }
+        
+        .navbar-brand span {
+            color: var(--dark);
+        }
+        
+        .navbar-nav .nav-link {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 500;
+            color: var(--dark);
+            margin: 0 10px;
+            position: relative;
+        }
+        
+        .navbar-nav .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary);
+            transition: width 0.3s;
+        }
+        
+        .navbar-nav .nav-link:hover:after,
+        .navbar-nav .nav-link.active:after {
+            width: 100%;
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1607082350899-7e105aa886ae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80') no-repeat center center/cover;
+            color: var(--light);
+            padding: 120px 0;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 700px;
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+        
+        .section-title {
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 40px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background: var(--primary);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .category-card {
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            height: 100%;
+            border: none;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .category-img {
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .category-card:hover .category-img {
+            transform: scale(1.05);
+        }
+        
+        .category-title {
+            font-size: 1.5rem;
+            margin: 20px 0 10px;
+            color: var(--dark);
+        }
+        
+        .why-us-item {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: 15px;
+            background: rgba(255, 152, 0, 0.05);
+            transition: all 0.3s;
+            height: 100%;
+        }
+        
+        .why-us-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            background: rgba(255, 152, 0, 0.1);
+        }
+        
+        .why-us-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-card {
+            background: var(--light);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            height: 100%;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .testimonial-text {
+            position: relative;
+            padding: 20px 0;
+        }
+        
+        .testimonial-text:before {
+            content: '"';
+            font-size: 5rem;
+            position: absolute;
+            top: -10px;
+            left: -15px;
+            color: rgba(255, 152, 0, 0.1);
+            font-family: serif;
+        }
+        
+        .newsletter-section {
+            background: linear-gradient(rgba(51, 51, 51, 0.9), rgba(51, 51, 51, 0.9)), url('https://images.unsplash.com/photo-1556742205-e10c9486e506?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80') no-repeat center center/cover;
+            color: var(--light);
+            padding: 80px 0;
+        }
+        
+        .newsletter-form .form-control {
+            height: 55px;
+            border-radius: 30px 0 0 30px;
+            border: none;
+            padding: 0 25px;
+        }
+        
+        .newsletter-form .btn {
+            border-radius: 0 30px 30px 0;
+            padding: 0 30px;
+        }
+        
+        .footer {
+            background: var(--dark);
+            color: var(--light);
+            padding: 60px 0 0;
+        }
+        
+        .footer-title {
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+        }
+        
+        .footer-title:after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 2px;
+            background: var(--primary);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+            list-style: none;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--light);
+            margin-right: 10px;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+        
+        /* Animation Effects */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+        
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+        
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .navbar-brand {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <span>Shopify</span>Pro
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Categories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Deals</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+                <div class="d-flex ms-lg-3">
+                    <a href="#" class="btn btn-outline-dark me-2">
+                        <i class="bi bi-person"></i>
+                    </a>
+                    <a href="#" class="btn btn-outline-dark position-relative">
+                        <i class="bi bi-cart"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">
+                            3
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content animate">
+                <h1 class="hero-title">Welcome to ShopifyPro: Your Digital Marketplace</h1>
+                <p class="hero-subtitle">Experience hassle-free online shopping with ShopifyPro, your ultimate destination for electronics, fashion, and home essentials.</p>
+                <div class="d-flex flex-wrap gap-3">
+                    <a href="#" class="btn btn-primary">Shop Now <i class="bi bi-arrow-right ms-2"></i></a>
+                    <a href="#" class="btn btn-outline-light">Explore Deals</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="py-5 my-5">
+        <div class="container">
+            <h2 class="section-title animate">Shop by Category</h2>
+            <div class="row g-4">
+                <!-- Electronics -->
+                <div class="col-md-4">
+                    <div class="category-card animate delay-1">
+                        <img src="https://images.unsplash.com/photo-1550009158-9ebf69173e03?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Electronics" class="category-img w-100">
+                        <div class="p-4">
+                            <h3 class="category-title">Electronics</h3>
+                            <p>Discover the latest smartphones, laptops, accessories, and more at unbeatable prices.</p>
+                            <a href="#" class="btn btn-outline-primary">Shop Electronics</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Fashion -->
+                <div class="col-md-4">
+                    <div class="category-card animate delay-2">
+                        <img src="https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Fashion" class="category-img w-100">
+                        <div class="p-4">
+                            <h3 class="category-title">Fashion</h3>
+                            <p>Stay ahead in style with trendy clothing, footwear, and accessories for every occasion.</p>
+                            <a href="#" class="btn btn-outline-primary">Shop Fashion</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Home Essentials -->
+                <div class="col-md-4">
+                    <div class="category-card animate delay-3">
+                        <img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Home Essentials" class="category-img w-100">
+                        <div class="p-4">
+                            <h3 class="category-title">Home Essentials</h3>
+                            <p>Upgrade your living space with high-quality home decor, kitchenware, and smart gadgets.</p>
+                            <a href="#" class="btn btn-outline-primary">Shop Home</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Deals Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="p-4 animate">
+                        <h2 class="section-title text-start">Exclusive Deals & Discounts</h2>
+                        <p class="fs-5">Enjoy seasonal sales, flash discounts, and limited-time offers to save big on your favorite products.</p>
+                        <p class="fs-5 mb-4">Sign up now and get <span class="text-primary fw-bold">15% OFF</span> your first order!</p>
+                        <a href="#" class="btn btn-primary">View All Deals</a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="position-relative animate delay-1">
+                        <div class="bg-primary text-white p-5 rounded-4 position-relative overflow-hidden" style="height: 300px;">
+                            <div class="position-absolute top-0 end-0 w-100 h-100" style="background: url('https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80') center center/cover; opacity: 0.1;"></div>
+                            <div class="position-relative">
+                                <h3 class="display-4 fw-bold">SUMMER SALE</h3>
+                                <p class="fs-3">Up to 50% OFF</p>
+                                <p class="mb-4">On selected items</p>
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="text-center">
+                                        <div class="fs-1 fw-bold">03</div>
+                                        <div>Days</div>
+                                    </div>
+                                    <div class="text-center">
+                                        <div class="fs-1 fw-bold">18</div>
+                                        <div>Hours</div>
+                                    </div>
+                                    <div class="text-center">
+                                        <div class="fs-1 fw-bold">45</div>
+                                        <div>Mins</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="py-5 my-5">
+        <div class="container">
+            <h2 class="section-title animate">Why Shop With ShopifyPro?</h2>
+            <div class="row g-4 mt-4">
+                <div class="col-md-3">
+                    <div class="why-us-item animate delay-1">
+                        <div class="why-us-icon">
+                            <i class="bi bi-box-seam"></i>
+                        </div>
+                        <h4>Wide Selection</h4>
+                        <p>Top-rated products across multiple categories to meet all your needs.</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="why-us-item animate delay-2">
+                        <div class="why-us-icon">
+                            <i class="bi bi-shield-lock"></i>
+                        </div>
+                        <h4>Secure Payments</h4>
+                        <p>Encrypted transactions for complete peace of mind.</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="why-us-item animate delay-3">
+                        <div class="why-us-icon">
+                            <i class="bi bi-truck"></i>
+                        </div>
+                        <h4>Fast Delivery</h4>
+                        <p>Reliable shipping for a seamless shopping experience.</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="why-us-item animate delay-1">
+                        <div class="why-us-icon">
+                            <i class="bi bi-headset"></i>
+                        </div>
+                        <h4>24/7 Support</h4>
+                        <p>Expert assistance whenever you need it.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title animate">What Our Customers Say</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="testimonial-card animate delay-1">
+                        <div class="d-flex align-items-center mb-4">
+                            <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Customer" class="rounded-circle me-3" width="60">
+                            <div>
+                                <h5 class="mb-0">Sarah Johnson</h5>
+                                <div class="text-warning">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-text">
+                            <p>The shopping experience at ShopifyPro is unmatched. Fast delivery, quality products, and excellent customer service. Highly recommended!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card animate delay-2">
+                        <div class="d-flex align-items-center mb-4">
+                            <img src="https://randomuser.me/api/portraits/men/54.jpg" alt="Customer" class="rounded-circle me-3" width="60">
+                            <div>
+                                <h5 class="mb-0">Michael Chen</h5>
+                                <div class="text-warning">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-half"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-text">
+                            <p>I've been shopping with ShopifyPro for over a year now. Their electronics selection is incredible and the deals are unbeatable.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card animate delay-3">
+                        <div class="d-flex align-items-center mb-4">
+                            <img src="https://randomuser.me/api/portraits/women/67.jpg" alt="Customer" class="rounded-circle me-3" width="60">
+                            <div>
+                                <h5 class="mb-0">Emma Rodriguez</h5>
+                                <div class="text-warning">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-text">
+                            <p>Their fashion collection is always on trend. I've never been disappointed with my purchases. Plus, returns are hassle-free!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="animate">Find the Best Deals Now!</h2>
+                    <p class="fs-5 mb-4 animate delay-1">Join millions of shoppers who trust ShopifyPro for affordable, high-quality products. Start exploring today!</p>
+                    <div class="newsletter-form animate delay-2">
+                        <form class="d-flex">
+                            <input type="email" class="form-control" placeholder="Enter your email">
+                            <button class="btn btn-primary" type="submit">Subscribe</button>
+                        </form>
+                        <p class="mt-3">Subscribe to our newsletter for exclusive offers and updates</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <h3 class="footer-title">ShopifyPro</h3>
+                    <p class="opacity-75">Shop smart, live better with our curated collection of electronics, fashion, and home essentials.</p>
+                    <div class="social-links mt-4">
+                        <a href="#"><i class="bi bi-facebook"></i></a>
+                        <a href="#"><i class="bi bi-twitter"></i></a>
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                        <a href="#"><i class="bi bi-pinterest"></i></a>
+                        <a href="#"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="footer-title">Shop</h5>
+                    <ul class="footer-links p-0">
+                        <li><a href="#">Electronics</a></li>
+                        <li><a href="#">Fashion</a></li>
+                        <li><a href="#">Home & Kitchen</a></li>
+                        <li><a href="#">Health & Beauty</a></li>
+                        <li><a href="#">Sports & Outdoors</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="footer-title">Help</h5>
+                    <ul class="footer-links p-0">
+                        <li><a href="#">Customer Service</a></li>
+                        <li><a href="#">Track Order</a></li>
+                        <li><a href="#">Returns & Exchanges</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">FAQs</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <h5 class="footer-title">Contact Us</h5>
+                    <ul class="footer-links p-0">
+                        <li><i class="bi bi-geo-alt me-2"></i> 123 Commerce St, New York, NY</li>
+                        <li><i class="bi bi-telephone me-2"></i> +1 (555) 789-6543</li>
+                        <li><i class="bi bi-envelope me-2"></i> support@shopifypro.com</li>
+                        <li><i class="bi bi-clock me-2"></i> Mon-Fri: 9AM-9PM, Sat-Sun: 10AM-6PM</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright text-center">
+                <div class="container">
+                    <p class="mb-0">&copy; 2025 ShopifyPro. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Simple animation on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const animateElements = document.querySelectorAll('.animate');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            animateElements.forEach(element => {
+                element.style.opacity = 0;
+                element.style.transition = 'opacity 0.6s ease';
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>
