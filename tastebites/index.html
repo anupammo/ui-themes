@@ -1,1 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TasteBites | Savor The Flavor - Delicious Dining Experience</title>
+    
+    <!-- Meta Description -->
+    <meta name="description" content="Welcome to TasteBites! Enjoy a delightful dining experience with our curated menu of starters, main courses, desserts, and drinks. Reserve your table now.">
+    
+    <!-- Keywords -->
+    <meta name="keywords" content="TasteBites restaurant, best dining experience, delicious starters, main course meals, gourmet desserts, handcrafted drinks, table reservations">
+    
+    <!-- Robots Meta Tag -->
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="TasteBites | Savor The Flavor - Delicious Dining Experience">
+    <meta property="og:description" content="Indulge in exquisite flavors at TasteBites. Browse our menu and reserve a table for an unforgettable culinary experience.">
+    <meta property="og:type" content="website">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --rustic-brown: #8b4513;
+            --cream: #fff8dc;
+            --olive: #808000;
+            --light-olive: #a8a84d;
+            --dark-brown: #5a2d0c;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--cream);
+            color: #333;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, .navbar-brand, .display-title {
+            font-family: 'Great Vibes', cursive;
+            color: var(--rustic-brown);
+        }
+        
+        .btn-primary {
+            background-color: var(--rustic-brown);
+            border-color: var(--dark-brown);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--dark-brown);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .btn-outline-primary {
+            color: var(--rustic-brown);
+            border-color: var(--rustic-brown);
+        }
+        
+        .btn-outline-primary:hover {
+            background-color: var(--rustic-brown);
+            color: white;
+        }
+        
+        .section {
+            padding: 5rem 0;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .navbar {
+            background-color: rgba(139, 69, 19, 0.95) !important;
+            transition: all 0.5s ease;
+        }
+        
+        .navbar.scrolled {
+            background-color: rgba(139, 69, 19, 0.95) !important;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-brand {
+            font-size: 2rem;
+            color: var(--cream) !important;
+        }
+        
+        .nav-link {
+            color: rgba(255, 248, 220, 0.85) !important;
+            font-weight: 600;
+            margin: 0 10px;
+            position: relative;
+        }
+        
+        .nav-link:hover {
+            color: white !important;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--cream);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .display-title {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .slogan {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--cream);
+            font-family: 'Great Vibes', cursive;
+        }
+        
+        .menu-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .menu-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .menu-card img {
+            height: 250px;
+            object-fit: cover;
+            width: 100%;
+        }
+        
+        .menu-card .card-body {
+            padding: 1.5rem;
+        }
+        
+        .reservation-section {
+            background: linear-gradient(rgba(139, 69, 19, 0.9), rgba(128, 128, 0, 0.9)), url('https://images.pexels.com/photos/3186654/pexels-photo-3186654.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+        
+        .contact-info {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background-color: var(--rustic-brown);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+        }
+        
+        .contact-icon i {
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        .footer {
+            background-color: var(--rustic-brown);
+            color: var(--cream);
+            padding: 3rem 0;
+        }
+        
+        .footer a {
+            color: var(--cream);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            background-color: var(--cream);
+            color: var(--rustic-brown);
+            transform: translateY(-5px);
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--rustic-brown);
+        }
+        
+        .reservation-section .section-title::after {
+            background-color: var(--cream);
+        }
+        
+        .testimonial-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin: 1rem;
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: """;
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            font-size: 5rem;
+            color: var(--rustic-brown);
+            opacity: 0.1;
+            font-family: Georgia, serif;
+        }
+        
+        .testimonial-img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--rustic-brown);
+        }
+        
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            position: relative;
+            height: 250px;
+        }
+        
+        .gallery-item img {
+            transition: transform 0.5s ease;
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(139, 69, 19, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        @media (max-width: 768px) {
+            .display-title {
+                font-size: 3.5rem;
+            }
+            
+            .slogan {
+                font-size: 1.5rem;
+            }
+            
+            .section {
+                padding: 3rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">TasteBites</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="reservations.html">Reservations</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact-us.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-10 col-lg-8">
+                    <h1 class="display-title">TasteBites</h1>
+                    <p class="slogan">Taste the Tradition.</p>
+                    <p class="lead mb-4">Savor the flavor of our traditionally crafted dishes in an ambiance that feels like home.</p>
+                    <div class="d-flex justify-content-center gap-3">
+                        <a href="reservations.html" class="btn btn-primary btn-lg px-4">Reserve a Table</a>
+                        <a href="menu.html" class="btn btn-outline-light btn-lg px-4">View Menu</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section class="section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <img src="https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="TasteBites Interior" class="img-fluid rounded shadow">
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="section-title">Welcome to TasteBites</h2>
+                    <h1 class="mb-4">Savor The Flavor</h1>
+                    <p class="lead">At <strong>TasteBites</strong>, we believe in creating <strong>memorable dining experiences</strong> with our <strong>expertly crafted menu</strong>, warm ambiance, and exceptional service.</p>
+                    <p>Whether you're here for a quick bite or a luxurious feast, our <strong>fresh, high-quality ingredients</strong> promise a delightful meal. Our chefs combine time-honored traditions with innovative techniques to bring you dishes that tell a story.</p>
+                    <p>Established in 2010, TasteBites has become a beloved destination for those seeking authentic flavors and a welcoming atmosphere that feels like home.</p>
+                    <a href="contact-us.html" class="btn btn-outline-primary mt-3">Our Story</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Highlights -->
+    <section class="section bg-light">
+        <div class="container">
+            <h2 class="section-title text-center">Indulge in Our Signature Dishes</h2>
+            <p class="text-center mb-5 lead">Experience a culinary journey with our handpicked specialties</p>
+            
+            <div class="row g-4">
+                <!-- Gourmet Starters -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="menu-card">
+                        <img src="https://images.pexels.com/photos/3616956/pexels-photo-3616956.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Gourmet Starters">
+                        <div class="card-body">
+                            <h3>Gourmet Starters</h3>
+                            <p>Begin your meal with <strong>appetizers that awaken your taste buds</strong>, from crispy bites to flavorful soups.</p>
+                            <a href="menu.html#starters" class="btn btn-sm btn-outline-primary">View Selection</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Exquisite Main Course -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="menu-card">
+                        <img src="https://images.pexels.com/photos/699953/pexels-photo-699953.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Exquisite Main Course">
+                        <div class="card-body">
+                            <h3>Exquisite Main Course</h3>
+                            <p>Experience <strong>perfectly prepared entrées</strong>, featuring a blend of classic and contemporary flavors.</p>
+                            <a href="menu.html#mains" class="btn btn-sm btn-outline-primary">View Selection</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Decadent Desserts -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="menu-card">
+                        <img src="https://images.pexels.com/photos/3026804/pexels-photo-3026804.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Decadent Desserts">
+                        <div class="card-body">
+                            <h3>Decadent Desserts</h3>
+                            <p>Finish off with <strong>rich, handcrafted desserts</strong> that offer a sweet end to your meal.</p>
+                            <a href="menu.html#desserts" class="btn btn-sm btn-outline-primary">View Selection</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Signature Drinks -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="menu-card">
+                        <img src="https://images.pexels.com/photos/3171770/pexels-photo-3171770.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Signature Drinks">
+                        <div class="card-body">
+                            <h3>Signature Drinks</h3>
+                            <p>Pair your meal with <strong>refreshing beverages, fine wines, and handcrafted cocktails</strong>.</p>
+                            <a href="menu.html#drinks" class="btn btn-sm btn-outline-primary">View Selection</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reservation Section -->
+    <section class="section reservation-section">
+        <div class="container text-center">
+            <h2 class="section-title">Reserve Your Table Today</h2>
+            <p class="lead mb-5 max-w-800 mx-auto">Book a table at <strong>TasteBites</strong> for a <strong>fantastic culinary experience</strong>. Whether it's a casual dinner or a special celebration, we ensure <strong>a welcoming atmosphere and unforgettable flavors</strong>.</p>
+            <a href="reservations.html" class="btn btn-light btn-lg px-5 py-3">Make a Reservation Now</a>
+        </div>
+    </section>
+
+    <!-- Gallery Preview -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title text-center">A Taste of Our Atmosphere</h2>
+            <p class="text-center mb-5 lead">Experience our warm ambiance through these glimpses</p>
+            
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="gallery-item">
+                        <img src="https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Restaurant Interior">
+                        <div class="gallery-overlay">
+                            <a href="gallery.html" class="btn btn-outline-light">View Gallery</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="gallery-item">
+                        <img src="https://images.pexels.com/photos/1484516/pexels-photo-1484516.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Dining Experience">
+                        <div class="gallery-overlay">
+                            <a href="gallery.html" class="btn btn-outline-light">View Gallery</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="gallery-item">
+                        <img src="https://images.pexels.com/photos/2373520/pexels-photo-2373520.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Culinary Art">
+                        <div class="gallery-overlay">
+                            <a href="gallery.html" class="btn btn-outline-light">View Gallery</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section bg-light">
+        <div class="container">
+            <h2 class="section-title text-center">What Our Guests Say</h2>
+            <p class="text-center mb-5 lead">Hear from our delighted customers</p>
+            
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Sarah Johnson" class="testimonial-img me-3">
+                            <div>
+                                <h5 class="mb-0">Sarah Johnson</h5>
+                                <small>Food Blogger</small>
+                            </div>
+                        </div>
+                        <p class="mb-0">"The flavors at TasteBites are simply extraordinary! Their traditional recipes with a modern twist make every dish a revelation. The ambiance is warm and inviting - perfect for any occasion."</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Thompson" class="testimonial-img me-3">
+                            <div>
+                                <h5 class="mb-0">Michael Thompson</h5>
+                                <small>Regular Guest</small>
+                            </div>
+                        </div>
+                        <p class="mb-0">"I've been coming to TasteBites for years, and it never disappoints. The attention to detail in both food and service is remarkable. Their signature cocktails are the best in town!"</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Jennifer Lee" class="testimonial-img me-3">
+                            <div>
+                                <h5 class="mb-0">Jennifer Lee</h5>
+                                <small>First-time Visitor</small>
+                            </div>
+                        </div>
+                        <p class="mb-0">"We celebrated our anniversary at TasteBites, and it was magical. From the personalized menu to the exceptional service, everything was perfect. The dessert platter was a work of art!"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="contact-info">
+                        <h2 class="section-title text-center">Connect with TasteBites</h2>
+                        <p class="text-center mb-5">We'd love to hear from you. Reach out for reservations or inquiries.</p>
+                        
+                        <div class="row text-center">
+                            <div class="col-md-4 mb-4 mb-md-0">
+                                <div class="contact-icon">
+                                    <i class="bi bi-geo-alt"></i>
+                                </div>
+                                <h4>Visit Us</h4>
+                                <p>123 Culinary Avenue<br>Gourmet District, CA 90210</p>
+                            </div>
+                            
+                            <div class="col-md-4 mb-4 mb-md-0">
+                                <div class="contact-icon">
+                                    <i class="bi bi-telephone"></i>
+                                </div>
+                                <h4>Call Us</h4>
+                                <p>+1 (555) 678-1234<br>Mon-Sun: 9am-10pm</p>
+                            </div>
+                            
+                            <div class="col-md-4">
+                                <div class="contact-icon">
+                                    <i class="bi bi-envelope"></i>
+                                </div>
+                                <h4>Email Us</h4>
+                                <p>support@tastebites.com<br>reservations@tastebites.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="text-center mt-5">
+                            <a href="contact-us.html" class="btn btn-primary px-5">Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h3 class="mb-3">TasteBites</h3>
+                    <p class="mb-4">Savor the tradition of exceptional cuisine in a warm, inviting atmosphere where every meal tells a story.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h4 class="mb-3">Quick Links</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html">Home</a></li>
+                        <li class="mb-2"><a href="menu.html">Our Menu</a></li>
+                        <li class="mb-2"><a href="gallery.html">Gallery</a></li>
+                        <li class="mb-2"><a href="reservations.html">Reservations</a></li>
+                        <li class="mb-2"><a href="contact-us.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-4">
+                    <h4 class="mb-3">Opening Hours</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">Monday - Thursday: 11:00 AM - 10:00 PM</li>
+                        <li class="mb-2">Friday - Saturday: 11:00 AM - 11:00 PM</li>
+                        <li class="mb-2">Sunday: 10:00 AM - 9:00 PM</li>
+                        <li class="mb-2">Brunch: Saturday & Sunday 10:00 AM - 2:00 PM</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <hr class="mt-4 mb-4" style="border-color: rgba(255,255,255,0.1);">
+            
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2025 TasteBites. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="mb-0">Designed with <i class="bi bi-heart-fill text-danger"></i> for food lovers</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Initialize smooth scrolling for all anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Menu card hover effect enhancement
+        document.querySelectorAll('.menu-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>
