@@ -1,1 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finovate | Smart Wealth Solutions - Investment & Financial Growth</title>
+    <meta name="description" content="Discover expert wealth management with Finovate. Investment planning, risk management, and financial strategies for smart wealth growth.">
+    <meta name="keywords" content="Finovate wealth management, investment planning, risk assessment, market strategy, financial success, asset growth">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Finovate | Smart Wealth Solutions - Investment & Financial Growth">
+    <meta property="og:description" content="Explore Finovate’s expert wealth management services. Smart investment strategies, risk mitigation, and financial planning for success.">
+    <meta property="og:type" content="website">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <style>
+        :root {
+            --deep-green: #014421;
+            --gold: #daa520;
+            --light-gold: #f0e6c3;
+            --white: #ffffff;
+            --light-gray: #f8f9fa;
+        }
+        
+        body {
+            font-family: 'Libre Baskerville', serif;
+            color: #333;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Work Sans', sans-serif;
+            font-weight: 600;
+        }
+        
+        .btn-primary {
+            background-color: var(--deep-green);
+            border-color: var(--deep-green);
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: #013319;
+            border-color: #013319;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(1, 68, 33, 0.2);
+        }
+        
+        .btn-outline-primary {
+            color: var(--deep-green);
+            border-color: var(--deep-green);
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+        }
+        
+        .btn-outline-primary:hover {
+            background-color: var(--deep-green);
+            color: var(--white);
+        }
+        
+        .btn-gold {
+            background-color: var(--gold);
+            color: var(--deep-green);
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-gold:hover {
+            background-color: #c6951c;
+            color: var(--deep-green);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(218, 165, 32, 0.2);
+        }
+        
+        .bg-deep-green {
+            background-color: var(--deep-green);
+        }
+        
+        .bg-gold {
+            background-color: var(--gold);
+        }
+        
+        .bg-light-gold {
+            background-color: var(--light-gold);
+        }
+        
+        .text-deep-green {
+            color: var(--deep-green);
+        }
+        
+        .text-gold {
+            color: var(--gold);
+        }
+        
+        .navbar {
+            padding: 20px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-brand {
+            font-family: 'Work Sans', sans-serif;
+            font-weight: 700;
+            font-size: 1.8rem;
+        }
+        
+        .navbar-brand span {
+            color: var(--gold);
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, rgba(1, 68, 33, 0.9) 0%, rgba(1, 68, 33, 0.85) 100%), url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center;
+            background-size: cover;
+            padding: 150px 0 100px;
+            color: var(--white);
+            position: relative;
+        }
+        
+        .hero-section h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 25px;
+        }
+        
+        .hero-section p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            max-width: 700px;
+        }
+        
+        .slogan {
+            color: var(--gold);
+            font-style: italic;
+            font-weight: 500;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+        
+        .card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .approach-section {
+            background-color: var(--light-gray);
+            padding: 100px 0;
+        }
+        
+        .approach-card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 30px;
+            height: 100%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .approach-card:hover {
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+        }
+        
+        .approach-icon {
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, var(--deep-green) 0%, #013319 100%);
+            padding: 100px 0;
+            color: var(--white);
+        }
+        
+        .stat-card {
+            text-align: center;
+            padding: 30px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            margin: 10px;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+        
+        .testimonial-card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+        
+        .testimonial-card:before {
+            content: """;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 5rem;
+            color: var(--light-gold);
+            font-family: serif;
+            line-height: 1;
+        }
+        
+        .client-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--gold);
+        }
+        
+        .footer {
+            background: #111;
+            color: var(--white);
+            padding: 60px 0 30px;
+        }
+        
+        .footer a {
+            color: #aaa;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer a:hover {
+            color: var(--gold);
+        }
+        
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            transition: all 0.3s ease;
+            margin-right: 10px;
+        }
+        
+        .social-icon:hover {
+            background: var(--gold);
+            color: var(--deep-green);
+            transform: translateY(-3px);
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 60px;
+        }
+        
+        .section-title:after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: var(--gold);
+        }
+        
+        .section-title.center:after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .chart-container {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+        
+        .chart-bar {
+            height: 10px;
+            background: #eee;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .chart-fill {
+            position: absolute;
+            height: 100%;
+            background: var(--gold);
+            border-radius: 5px;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-section p {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                Fino<span>vate</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="client-success-stories.html">Success Stories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact-us.html">Contact</a>
+                    </li>
+                </ul>
+                <a href="contact-us.html" class="btn btn-gold ms-3">Free Consultation</a>
+            </div>
+        </div>
+    </nav>
 
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7">
+                    <span class="slogan">Building Wealth, Securely.</span>
+                    <h1>Smart Wealth Solutions for Financial Growth</h1>
+                    <p>At Finovate, we specialize in investment planning, risk management, and financial strategy development to help clients achieve long-term wealth growth. Whether you are an individual investor or a business seeking financial stability, our expertise ensures smart wealth solutions tailored to your needs.</p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="contact-us.html" class="btn btn-gold">Get Started Today</a>
+                        <a href="services.html" class="btn btn-outline-light">Explore Services</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="py-100">
+        <div class="container py-5">
+            <div class="row text-center mb-5">
+                <div class="col-12">
+                    <h2 class="section-title center">Why Choose Finovate?</h2>
+                    <p class="lead">Experience the difference with our client-focused approach</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <div class="card-body text-center p-4">
+                            <i class="bi bi-graph-up feature-icon"></i>
+                            <h3 class="card-title">Strategic Investment Planning</h3>
+                            <p class="card-text">We design personalized investment portfolios to maximize returns while mitigating risks.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <div class="card-body text-center p-4">
+                            <i class="bi bi-shield-check feature-icon"></i>
+                            <h3 class="card-title">Comprehensive Risk Management</h3>
+                            <p class="card-text">Finovate ensures proactive risk assessment, protecting assets against market fluctuations.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <div class="card-body text-center p-4">
+                            <i class="bi bi-lightbulb feature-icon"></i>
+                            <h3 class="card-title">Expert-Led Market Strategy</h3>
+                            <p class="card-text">Stay ahead with data-driven financial insights and real-time market analysis.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Approach -->
+    <section class="approach-section">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12">
+                    <h2 class="section-title">Our Approach to Financial Success</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="approach-card">
+                        <i class="bi bi-person-badge approach-icon"></i>
+                        <h3>Strategic Investment Planning</h3>
+                        <p>We design personalized investment portfolios to maximize returns while mitigating risks. Our team analyzes your financial goals, risk tolerance, and time horizon to create a tailored strategy.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="approach-card">
+                        <i class="bi bi-clipboard-data approach-icon"></i>
+                        <h3>Comprehensive Risk Management</h3>
+                        <p>Finovate ensures proactive risk assessment, protecting assets against market fluctuations. We employ sophisticated tools to identify potential threats and develop effective countermeasures.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="approach-card">
+                        <i class="bi bi-bar-chart approach-icon"></i>
+                        <h3>Expert-Led Market Strategy</h3>
+                        <p>Stay ahead with data-driven financial insights and real-time market analysis. Our experts continuously monitor global markets to identify opportunities and optimize your portfolio.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Performance Visualization -->
+    <section class="py-5">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <h2 class="section-title">Our Investment Performance</h2>
+                    <p class="mb-4">See how our strategies have consistently outperformed market averages over the past decade.</p>
+                    
+                    <div class="chart-container mb-4">
+                        <h4>Portfolio Growth (10 Years)</h4>
+                        <div class="chart-bar">
+                            <div class="chart-fill" style="width: 95%;"></div>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <span>Finovate Strategy</span>
+                            <span>+95%</span>
+                        </div>
+                        
+                        <div class="chart-bar mt-4">
+                            <div class="chart-fill" style="width: 65%; background: #014421;"></div>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <span>Market Average</span>
+                            <span>+65%</span>
+                        </div>
+                    </div>
+                    
+                    <div class="chart-container">
+                        <h4>Risk-Adjusted Returns</h4>
+                        <div class="chart-bar">
+                            <div class="chart-fill" style="width: 90%;"></div>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <span>Finovate Strategy</span>
+                            <span>9.2%</span>
+                        </div>
+                        
+                        <div class="chart-bar mt-4">
+                            <div class="chart-fill" style="width: 70%; background: #014421;"></div>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <span>Industry Average</span>
+                            <span>6.8%</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="position-relative h-100">
+                        <div class="position-absolute top-0 start-0 w-100 h-100 bg-light-gold rounded-3" style="z-index: -1; transform: rotate(-3deg);"></div>
+                        <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Investment Growth" class="img-fluid rounded-3 shadow-lg">
+                        <div class="bg-white p-4 rounded-3 shadow position-absolute bottom-0 end-0 m-4" style="width: 70%;">
+                            <h4 class="text-gold">Consistent Growth</h4>
+                            <p>Our clients have experienced an average annual return of 9.2% over the past decade, with significantly lower volatility than the market average.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7 mb-5 mb-lg-0">
+                    <h2 class="mb-4">Start Your Financial Journey with Finovate</h2>
+                    <p class="lead mb-4">Unlock strategic financial planning for sustainable wealth growth with Finovate. Contact us today to explore the best investment strategies tailored to your goals.</p>
+                    
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="contact-us.html" class="btn btn-gold">Schedule a Consultation</a>
+                        <a href="tel:+15556781234" class="btn btn-outline-light">
+                            <i class="bi bi-telephone me-2"></i> +1 (555) 678-1234
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-5">
+                    <div class="row">
+                        <div class="col-6 mb-4">
+                            <div class="stat-card">
+                                <div class="stat-number">95%</div>
+                                <div>Client Retention</div>
+                            </div>
+                        </div>
+                        <div class="col-6 mb-4">
+                            <div class="stat-card">
+                                <div class="stat-number">$2.5B+</div>
+                                <div>Assets Managed</div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="stat-card">
+                                <div class="stat-number">25+</div>
+                                <div>Years Experience</div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="stat-card">
+                                <div class="stat-number">98%</div>
+                                <div>Client Satisfaction</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-5 bg-light">
+        <div class="container py-5">
+            <div class="row text-center mb-5">
+                <div class="col-12">
+                    <h2 class="section-title center">Client Success Stories</h2>
+                    <p class="lead">Hear from our satisfied clients</p>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="testimonial-card">
+                        <p class="mb-4">"Finovate transformed our financial future. Their strategic approach helped us grow our portfolio by 45% in just three years while minimizing risks."</p>
+                        <div class="d-flex align-items-center">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Client" class="client-image me-3">
+                            <div>
+                                <h5 class="mb-0">Michael Roberts</h5>
+                                <small class="text-muted">Entrepreneur</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 mb-4">
+                    <div class="testimonial-card">
+                        <p class="mb-4">"The team at Finovate provided exceptional guidance during a volatile market period. Their expertise protected our assets and positioned us for growth."</p>
+                        <div class="d-flex align-items-center">
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Client" class="client-image me-3">
+                            <div>
+                                <h5 class="mb-0">Sarah Johnson</h5>
+                                <small class="text-muted">Retiree</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 mb-4">
+                    <div class="testimonial-card">
+                        <p class="mb-4">"As a business owner, Finovate's financial strategies helped us optimize cash flow and make smart investment decisions that fueled our expansion."</p>
+                        <div class="d-flex align-items-center">
+                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Client" class="client-image me-3">
+                            <div>
+                                <h5 class="mb-0">David Chen</h5>
+                                <small class="text-muted">Business Owner</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-4">
+                <a href="client-success-stories.html" class="btn btn-outline-primary">View More Success Stories</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h3 class="mb-4">Finovate</h3>
+                    <p class="mb-4">Building Wealth, Securely. We provide expert financial guidance to help you achieve your long-term financial goals.</p>
+                    <div class="d-flex">
+                        <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h5 class="mb-4">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html">Home</a></li>
+                        <li class="mb-2"><a href="about.html">About Us</a></li>
+                        <li class="mb-2"><a href="services.html">Services</a></li>
+                        <li class="mb-2"><a href="client-success-stories.html">Success Stories</a></li>
+                        <li class="mb-2"><a href="contact-us.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 col-md-4 mb-4 mb-md-0">
+                    <h5 class="mb-4">Our Services</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#">Investment Planning</a></li>
+                        <li class="mb-2"><a href="#">Risk Management</a></li>
+                        <li class="mb-2"><a href="#">Retirement Planning</a></li>
+                        <li class="mb-2"><a href="#">Tax Optimization</a></li>
+                        <li class="mb-2"><a href="#">Estate Planning</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 col-md-4">
+                    <h5 class="mb-4">Contact Us</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="bi bi-geo-alt me-2"></i> 123 Financial District, NY</li>
+                        <li class="mb-2"><i class="bi bi-telephone me-2"></i> +1 (555) 678-1234</li>
+                        <li class="mb-2"><i class="bi bi-envelope me-2"></i> support@finovate.com</li>
+                        <li class="mb-2"><i class="bi bi-clock me-2"></i> Mon-Fri: 9AM - 6PM</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <hr class="my-5" style="border-color: #333;">
+            
+            <div class="row">
+                <div class="col-md-6 mb-3 mb-md-0">
+                    <p class="mb-0">&copy; 2025 Finovate. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0"><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Simple animation for navbar on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-sm');
+                navbar.style.padding = '10px 0';
+            } else {
+                navbar.classList.remove('shadow-sm');
+                navbar.style.padding = '20px 0';
+            }
+        });
+    </script>
+</body>
+</html>
