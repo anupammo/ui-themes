@@ -1,1 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FitPlus | Strong Body, Strong Mind – Your Ultimate Fitness Destination</title>
+  <meta name="description" content="FitPlus offers expert-guided fitness programs, flexible membership plans, and certified trainers to help you achieve your goals. Start building your strongest self today.">
+  <meta name="keywords" content="FitPlus, gym membership, fitness club, personal training, health programs, strength training, group classes, personal fitness coaching">
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="FitPlus | Strong Body, Strong Mind" />
+  <meta property="og:description" content="Join the FitPlus community and unlock your full potential. Explore flexible plans, expert trainers, and a facility built for success." />
+  <meta property="og:type" content="website" />
 
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300;400;500;600;700&family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+  
+  <style>
+    :root {
+      --fiery-red: #ff0000;
+      --black: #000000;
+      --white: #ffffff;
+    }
+    
+    body {
+      font-family: 'Nunito', sans-serif;
+      color: #333;
+      overflow-x: hidden;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Teko', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .btn-primary {
+      background-color: var(--fiery-red);
+      border: none;
+      border-radius: 0;
+      padding: 12px 30px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.3s;
+    }
+    
+    .btn-primary:hover {
+      background-color: #d90000;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(255, 0, 0, 0.2);
+    }
+    
+    .btn-outline-primary {
+      color: var(--fiery-red);
+      border: 2px solid var(--fiery-red);
+      border-radius: 0;
+      padding: 10px 28px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.3s;
+    }
+    
+    .btn-outline-primary:hover {
+      background-color: var(--fiery-red);
+      color: var(--white);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(255, 0, 0, 0.2);
+    }
+    
+    .navbar {
+      background-color: var(--black);
+      padding: 20px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    
+    .navbar-brand {
+      font-family: 'Teko', sans-serif;
+      font-size: 2.5rem;
+      color: var(--white) !important;
+      letter-spacing: 1px;
+    }
+    
+    .navbar-brand span {
+      color: var(--fiery-red);
+    }
+    
+    .nav-link {
+      color: rgba(255, 255, 255, 0.8) !important;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin: 0 10px;
+      font-size: 1.1rem;
+      transition: all 0.3s;
+      position: relative;
+    }
+    
+    .nav-link:hover {
+      color: var(--white) !important;
+    }
+    
+    .nav-link:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 3px;
+      bottom: -5px;
+      left: 0;
+      background-color: var(--fiery-red);
+      transition: width 0.3s;
+    }
+    
+    .nav-link:hover:after {
+      width: 100%;
+    }
+    
+    .hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      color: var(--white);
+      padding: 100px 0;
+    }
+    
+    .hero h1 {
+      font-size: 5rem;
+      font-weight: 700;
+      line-height: 1;
+      margin-bottom: 20px;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    }
+    
+    .hero p {
+      font-size: 1.5rem;
+      max-width: 600px;
+      margin-bottom: 40px;
+      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    }
+    
+    .slogan {
+      color: var(--fiery-red);
+      font-weight: 700;
+      letter-spacing: 3px;
+      font-size: 1.8rem;
+      margin-bottom: 30px;
+      display: block;
+      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    }
+    
+    .section-title {
+      position: relative;
+      margin-bottom: 50px;
+      font-size: 3rem;
+      font-weight: 700;
+    }
+    
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 0;
+      width: 80px;
+      height: 5px;
+      background-color: var(--fiery-red);
+    }
+    
+    .section-title.center:after {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    .features {
+      padding: 100px 0;
+      background-color: var(--white);
+    }
+    
+    .feature-box {
+      background-color: var(--black);
+      color: var(--white);
+      padding: 40px 30px;
+      height: 100%;
+      transition: all 0.3s;
+      border-bottom: 5px solid var(--fiery-red);
+    }
+    
+    .feature-box:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
+    }
+    
+    .feature-icon {
+      font-size: 3rem;
+      color: var(--fiery-red);
+      margin-bottom: 20px;
+    }
+    
+    .feature-box h3 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+    
+    .cta-section {
+      background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      padding: 150px 0;
+      color: var(--white);
+      text-align: center;
+    }
+    
+    .cta-section h2 {
+      font-size: 4rem;
+      margin-bottom: 30px;
+    }
+    
+    .cta-section p {
+      font-size: 1.5rem;
+      max-width: 700px;
+      margin: 0 auto 40px;
+    }
+    
+    .testimonials {
+      padding: 100px 0;
+      background-color: #f8f9fa;
+    }
+    
+    .testimonial-card {
+      background-color: var(--white);
+      padding: 30px;
+      border-radius: 0;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      height: 100%;
+      border-left: 5px solid var(--fiery-red);
+    }
+    
+    .testimonial-text {
+      font-style: italic;
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+    }
+    
+    .testimonial-author {
+      font-weight: 700;
+      color: var(--fiery-red);
+    }
+    
+    .membership {
+      padding: 100px 0;
+      background-color: var(--white);
+    }
+    
+    .membership-card {
+      background-color: var(--black);
+      color: var(--white);
+      padding: 40px;
+      text-align: center;
+      transition: all 0.4s;
+      border: 2px solid #333;
+      height: 100%;
+    }
+    
+    .membership-card.popular {
+      transform: scale(1.05);
+      border: 2px solid var(--fiery-red);
+      position: relative;
+      z-index: 10;
+    }
+    
+    .membership-card.popular:before {
+      content: 'POPULAR';
+      position: absolute;
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: var(--fiery-red);
+      color: var(--white);
+      padding: 5px 20px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+    }
+    
+    .membership-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
+    }
+    
+    .membership-card.popular:hover {
+      transform: scale(1.05) translateY(-10px);
+    }
+    
+    .membership-title {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: var(--fiery-red);
+    }
+    
+    .membership-price {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 30px;
+    }
+    
+    .membership-features {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 30px;
+    }
+    
+    .membership-features li {
+      padding: 10px 0;
+      border-bottom: 1px solid #333;
+    }
+    
+    .membership-features li:last-child {
+      border-bottom: none;
+    }
+    
+    .footer {
+      background-color: var(--black);
+      color: var(--white);
+      padding: 70px 0 30px;
+    }
+    
+    .footer-title {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      color: var(--fiery-red);
+    }
+    
+    .footer-links {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+    
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    
+    .footer-links a:hover {
+      color: var(--fiery-red);
+      padding-left: 5px;
+    }
+    
+    .social-links a {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      background-color: #333;
+      color: var(--white);
+      text-align: center;
+      line-height: 40px;
+      border-radius: 50%;
+      margin-right: 10px;
+      transition: all 0.3s;
+    }
+    
+    .social-links a:hover {
+      background-color: var(--fiery-red);
+      transform: translateY(-5px);
+    }
+    
+    .copyright {
+      border-top: 1px solid #333;
+      padding-top: 20px;
+      margin-top: 50px;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.5);
+    }
+    
+    /* Animations */
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    
+    .pulse {
+      animation: pulse 2s infinite;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 991px) {
+      .hero h1 {
+        font-size: 4rem;
+      }
+      
+      .section-title {
+        font-size: 2.5rem;
+      }
+      
+      .cta-section h2 {
+        font-size: 3rem;
+      }
+    }
+    
+    @media (max-width: 767px) {
+      .hero h1 {
+        font-size: 3rem;
+      }
+      
+      .hero p {
+        font-size: 1.2rem;
+      }
+      
+      .slogan {
+        font-size: 1.5rem;
+      }
+      
+      .section-title {
+        font-size: 2.2rem;
+      }
+      
+      .cta-section h2 {
+        font-size: 2.5rem;
+      }
+      
+      .cta-section p {
+        font-size: 1.2rem;
+      }
+      
+      .membership-card.popular {
+        transform: scale(1);
+        margin: 30px 0;
+      }
+      
+      .membership-card.popular:before {
+        top: -15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Fit<span>Plus</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon text-white"><i class="bi bi-list"></i></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="membership-plans.html">Membership</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="trainers.html">Trainers</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact-us.html">Contact</a>
+          </li>
+          <li class="nav-item ms-lg-3">
+            <a class="btn btn-outline-primary" href="membership-plans.html">Join Now</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <span class="slogan">STRONG BODY, STRONG MIND</span>
+          <h1>Welcome to FitPlus</h1>
+          <p><strong>FitPlus</strong> is where dedication meets transformation. Whether you're just beginning your fitness journey or pushing toward peak performance, our gym community, certified trainers, and purpose-driven programs are designed to fuel your mind and body — every step of the way.</p>
+          <div class="d-flex flex-wrap gap-3">
+            <a href="membership-plans.html" class="btn btn-primary pulse">Start Free Trial</a>
+            <a href="about.html" class="btn btn-outline-primary">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features">
+    <div class="container">
+      <h2 class="section-title">Your Fitness, Your Way</h2>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3">
+          <div class="feature-box">
+            <div class="feature-icon">
+              <i class="bi bi-heart-pulse"></i>
+            </div>
+            <h3>Modern Equipment</h3>
+            <p>State-of-the-art gym equipment and spacious workout zones designed for optimal performance and comfort.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="feature-box">
+            <div class="feature-icon">
+              <i class="bi bi-person-badge"></i>
+            </div>
+            <h3>Certified Trainers</h3>
+            <p>Expert personal trainers and nutritional coaches to guide you towards your fitness goals.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="feature-box">
+            <div class="feature-icon">
+              <i class="bi bi-people"></i>
+            </div>
+            <h3>Group Classes</h3>
+            <p>Diverse classes including Yoga, HIIT, Zumba, and more to keep your workouts exciting.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="feature-box">
+            <div class="feature-icon">
+              <i class="bi bi-arrow-repeat"></i>
+            </div>
+            <h3>Flexible Plans</h3>
+            <p>Membership options with no long-term contracts to fit your lifestyle and commitment level.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Start Your Transformation</h2>
+      <p>Explore our membership plans, meet our expert trainers, or get in touch to book your free trial session. Your best self is just one workout away.</p>
+      <div class="d-flex justify-content-center flex-wrap gap-3">
+        <a href="membership-plans.html" class="btn btn-primary">View Membership Plans</a>
+        <a href="contact-us.html" class="btn btn-outline-primary">Book Free Trial</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials">
+    <div class="container">
+      <h2 class="section-title text-center center">Success Stories</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="testimonial-card">
+            <p class="testimonial-text">"FitPlus transformed my life! The trainers are incredible and the community support kept me motivated. I've lost 30lbs and gained so much confidence."</p>
+            <p class="testimonial-author">- Sarah Johnson</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="testimonial-card">
+            <p class="testimonial-text">"The flexible membership options were perfect for my busy schedule. I've never felt stronger or more energized. Best decision I've made for my health!"</p>
+            <p class="testimonial-author">- Michael Torres</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="testimonial-card">
+            <p class="testimonial-text">"The group classes are amazing! I've made friends and found workout buddies. The HIIT sessions pushed me to limits I never thought possible."</p>
+            <p class="testimonial-author">- Jessica Chen</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Membership Plans -->
+  <section class="membership">
+    <div class="container">
+      <h2 class="section-title text-center center">Membership Options</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="membership-card">
+            <h3 class="membership-title">Basic</h3>
+            <div class="membership-price">$49<span>/mo</span></div>
+            <ul class="membership-features">
+              <li>Access to gym equipment</li>
+              <li>Open gym hours</li>
+              <li>1 free class per week</li>
+              <li>Locker room access</li>
+              <li>No contract</li>
+            </ul>
+            <a href="membership-plans.html" class="btn btn-outline-primary w-100">Choose Plan</a>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="membership-card popular">
+            <h3 class="membership-title">Premium</h3>
+            <div class="membership-price">$79<span>/mo</span></div>
+            <ul class="membership-features">
+              <li>Unlimited gym access</li>
+              <li>Unlimited group classes</li>
+              <li>2 personal training sessions</li>
+              <li>Nutrition consultation</li>
+              <li>No contract</li>
+            </ul>
+            <a href="membership-plans.html" class="btn btn-primary w-100">Choose Plan</a>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="membership-card">
+            <h3 class="membership-title">Elite</h3>
+            <div class="membership-price">$129<span>/mo</span></div>
+            <ul class="membership-features">
+              <li>24/7 gym access</li>
+              <li>All group classes included</li>
+              <li>4 personal training sessions</li>
+              <li>Custom meal plan</li>
+              <li>Recovery sessions</li>
+              <li>No contract</li>
+            </ul>
+            <a href="membership-plans.html" class="btn btn-outline-primary w-100">Choose Plan</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 mb-5 mb-lg-0">
+          <h3 class="navbar-brand mb-4">Fit<span>Plus</span></h3>
+          <p>Transform your body, empower your mind. Join our fitness community and discover your true potential with expert guidance and state-of-the-art facilities.</p>
+          <div class="social-links mt-4">
+            <a href="#"><i class="bi bi-facebook"></i></a>
+            <a href="#"><i class="bi bi-instagram"></i></a>
+            <a href="#"><i class="bi bi-twitter"></i></a>
+            <a href="#"><i class="bi bi-youtube"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-4 mb-5 mb-lg-0">
+          <h4 class="footer-title">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="membership-plans.html">Membership Plans</a></li>
+            <li><a href="trainers.html">Our Trainers</a></li>
+            <li><a href="contact-us.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4">
+          <h4 class="footer-title">Contact Info</h4>
+          <ul class="footer-links">
+            <li><i class="bi bi-geo-alt me-2"></i> 123 Fitness Street, Health City</li>
+            <li><i class="bi bi-telephone me-2"></i> (123) 456-7890</li>
+            <li><i class="bi bi-envelope me-2"></i> info@fitplus.com</li>
+            <li><i class="bi bi-clock me-2"></i> Mon-Fri: 5am-11pm, Sat-Sun: 7am-9pm</li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2025 FitPlus. All Rights Reserved. <strong>Strong Body, Strong Mind.</strong></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    // Simple animation for elements when they enter the viewport
+    document.addEventListener('DOMContentLoaded', function() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate__animated', 'animate__fadeInUp');
+          }
+        });
+      }, {
+        threshold: 0.1
+      });
+      
+      document.querySelectorAll('.feature-box, .testimonial-card, .membership-card').forEach(el => {
+        observer.observe(el);
+      });
+    });
+  </script>
+</body>
+</html>
