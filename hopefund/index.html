@@ -1,1 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HopeFund | Empowering Lives, Together – Non-Profit for Health & Education</title>
+  <meta name="description" content="HopeFund is a non-profit organization dedicated to improving lives through healthcare access and education for underprivileged communities. Join us in making a lasting difference.">
+  <meta name="keywords" content="HopeFund, nonprofit organization, health charity, education for poor, social development, empower communities, volunteer for a cause, support NGO">
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="HopeFund | Empowering Lives, Together" />
+  <meta property="og:description" content="Make a difference with HopeFund. Support our healthcare and education initiatives and help build a future full of hope." />
+  <meta property="og:type" content="website" />
 
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+  
+  <style>
+    :root {
+      --deep-green: #006400;
+      --warm-beige: #f5f5dc;
+      --pure-white: #ffffff;
+    }
+    
+    body {
+      font-family: 'Lato', sans-serif;
+      color: #333;
+      line-height: 1.6;
+      background-color: var(--pure-white);
+    }
+    
+    h1, h2, h3, h4, h5 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      color: var(--deep-green);
+    }
+    
+    .navbar {
+      background-color: var(--deep-green);
+      padding: 20px 0;
+    }
+    
+    .navbar-brand {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1.8rem;
+      color: var(--warm-beige) !important;
+    }
+    
+    .navbar-nav .nav-link {
+      color: rgba(245, 245, 220, 0.85) !important;
+      font-weight: 500;
+      padding: 0.5rem 1.2rem;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    
+    .navbar-nav .nav-link:hover {
+      color: var(--pure-white) !important;
+    }
+    
+    .navbar-nav .nav-link:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: var(--warm-beige);
+      transition: all 0.3s ease;
+    }
+    
+    .navbar-nav .nav-link:hover:after {
+      width: 70%;
+      left: 15%;
+    }
+    
+    .btn-primary {
+      background-color: var(--deep-green);
+      border-color: var(--deep-green);
+      padding: 12px 28px;
+      border-radius: 30px;
+      font-weight: 700;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-primary:hover {
+      background-color: #004d00;
+      border-color: #004d00;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    
+    .btn-outline-primary {
+      color: var(--deep-green);
+      border-color: var(--deep-green);
+      padding: 12px 28px;
+      border-radius: 30px;
+      font-weight: 700;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-outline-primary:hover {
+      background-color: var(--deep-green);
+      color: var(--pure-white);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    
+    .hero-section {
+      background: linear-gradient(rgba(0, 100, 0, 0.7), rgba(0, 100, 0, 0.7)), 
+                  url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      color: var(--pure-white);
+      padding: 100px 0;
+    }
+    
+    .hero-content h1 {
+      color: var(--pure-white);
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+    
+    .hero-content p {
+      font-size: 1.3rem;
+      max-width: 700px;
+      margin-bottom: 2rem;
+      color: rgba(255,255,255,0.9);
+    }
+    
+    .section-title {
+      position: relative;
+      padding-bottom: 20px;
+      margin-bottom: 40px;
+    }
+    
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background-color: var(--deep-green);
+    }
+    
+    .focus-card {
+      background-color: var(--warm-beige);
+      border-radius: 15px;
+      overflow: hidden;
+      transition: all 0.4s ease;
+      height: 100%;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      border: none;
+    }
+    
+    .focus-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    }
+    
+    .focus-card .card-img-top {
+      height: 220px;
+      object-fit: cover;
+    }
+    
+    .stat-card {
+      background-color: var(--warm-beige);
+      border-radius: 15px;
+      padding: 30px;
+      text-align: center;
+      transition: all 0.3s ease;
+      height: 100%;
+    }
+    
+    .stat-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+    
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--deep-green);
+      margin-bottom: 10px;
+    }
+    
+    .impact-section {
+      background: linear-gradient(rgba(0, 100, 0, 0.9), rgba(0, 100, 0, 0.9)), 
+                  url('https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+      color: var(--pure-white);
+      padding: 100px 0;
+    }
+    
+    .impact-section h2 {
+      color: var(--pure-white);
+    }
+    
+    .cta-section {
+      background-color: var(--warm-beige);
+      padding: 80px 0;
+      border-radius: 20px;
+      margin: 100px 0;
+    }
+    
+    .testimonial-card {
+      background-color: var(--pure-white);
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      height: 100%;
+      position: relative;
+    }
+    
+    .testimonial-card:before {
+      content: """;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-family: 'Playfair Display', serif;
+      font-size: 5rem;
+      color: var(--deep-green);
+      opacity: 0.2;
+      line-height: 1;
+    }
+    
+    .footer {
+      background-color: var(--deep-green);
+      color: var(--warm-beige);
+      padding: 60px 0 30px;
+    }
+    
+    .footer-title {
+      color: var(--pure-white);
+      margin-bottom: 25px;
+      font-weight: 700;
+    }
+    
+    .footer-links a {
+      color: rgba(245, 245, 220, 0.8);
+      text-decoration: none;
+      display: block;
+      margin-bottom: 12px;
+      transition: all 0.3s ease;
+    }
+    
+    .footer-links a:hover {
+      color: var(--pure-white);
+      padding-left: 5px;
+    }
+    
+    .social-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 45px;
+      height: 45px;
+      background-color: rgba(245, 245, 220, 0.1);
+      color: var(--warm-beige);
+      border-radius: 50%;
+      margin-right: 12px;
+      transition: all 0.3s ease;
+    }
+    
+    .social-icon:hover {
+      background-color: var(--warm-beige);
+      color: var(--deep-green);
+      transform: translateY(-5px);
+    }
+    
+    .copyright {
+      border-top: 1px solid rgba(245, 245, 220, 0.2);
+      padding-top: 20px;
+      margin-top: 40px;
+      text-align: center;
+      color: rgba(245, 245, 220, 0.6);
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 992px) {
+      .hero-content h1 {
+        font-size: 2.8rem;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .hero-content h1 {
+        font-size: 2.4rem;
+      }
+      
+      .hero-content p {
+        font-size: 1.1rem;
+      }
+      
+      .navbar-brand {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">HopeFund</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about-us.html">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="causes.html">Causes</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="programsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Programs
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="programsDropdown">
+              <li><a class="dropdown-item" href="healthcare-support.html">Healthcare Support</a></li>
+              <li><a class="dropdown-item" href="education-for-all.html">Education for All</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="volunteer.html">Volunteer</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact-us.html">Contact Us</a>
+          </li>
+          <li class="nav-item ms-lg-3">
+            <a class="btn btn-outline-light" href="donate.html">Donate Now</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10">
+          <div class="hero-content">
+            <h1>Empowering Lives, Together</h1>
+            <p>HopeFund is a non-profit organization committed to creating lasting change in vulnerable communities by expanding access to healthcare and education. With your help, we bring hope, dignity, and opportunity where it's needed most.</p>
+            <div class="d-flex flex-wrap gap-3">
+              <a href="donate.html" class="btn btn-primary">Donate Now <i class="bi bi-heart-fill ms-2"></i></a>
+              <a href="volunteer.html" class="btn btn-outline-light">Become a Volunteer</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Focus Areas Section -->
+  <section class="py-5 my-5">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center mb-5">
+          <h2 class="section-title">Our Core Causes</h2>
+          <p class="lead">We focus on two fundamental areas that empower communities and transform lives.</p>
+        </div>
+      </div>
+      
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <div class="focus-card">
+            <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" class="card-img-top" alt="Healthcare Support">
+            <div class="card-body p-4">
+              <h3 class="card-title">Healthcare Support</h3>
+              <p class="card-text">Providing medical access, health camps, and preventive care for underserved populations. We believe health is a fundamental human right, not a privilege.</p>
+              <a href="healthcare-support.html" class="btn btn-outline-primary mt-3">Learn More</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-6">
+          <div class="focus-card">
+            <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" class="card-img-top" alt="Education for All">
+            <div class="card-body p-4">
+              <h3 class="card-title">Education for All</h3>
+              <p class="card-text">Empowering children and youth with access to quality learning, school supplies, and mentorship. Education is the most powerful tool to break the cycle of poverty.</p>
+              <a href="education-for-all.html" class="btn btn-outline-primary mt-3">Learn More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How to Help Section -->
+  <section class="py-5 my-5 bg-light">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center mb-5">
+          <h2 class="section-title">How You Can Help</h2>
+          <p class="lead">Join us in creating a world where everyone has access to healthcare and education.</p>
+        </div>
+      </div>
+      
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="text-center p-4 h-100">
+            <div class="icon-wrapper mb-4">
+              <i class="bi bi-cash-coin display-4 text-primary"></i>
+            </div>
+            <h3>Donate</h3>
+            <p>Every contribution fuels our mission and directly impacts lives. Your donation helps provide medical supplies, educational materials, and essential resources.</p>
+            <a href="donate.html" class="btn btn-sm btn-outline-primary mt-3">Make a Donation</a>
+          </div>
+        </div>
+        
+        <div class="col-md-4">
+          <div class="text-center p-4 h-100">
+            <div class="icon-wrapper mb-4">
+              <i class="bi bi-people-fill display-4 text-primary"></i>
+            </div>
+            <h3>Volunteer</h3>
+            <p>Be part of fieldwork, awareness campaigns, or community training programs. Share your skills and time to make a meaningful difference.</p>
+            <a href="volunteer.html" class="btn btn-sm btn-outline-primary mt-3">Join Our Team</a>
+          </div>
+        </div>
+        
+        <div class="col-md-4">
+          <div class="text-center p-4 h-100">
+            <div class="icon-wrapper mb-4">
+              <i class="bi bi-handshake display-4 text-primary"></i>
+            </div>
+            <h3>Partner With Us</h3>
+            <p>Explore CSR partnerships and cause marketing opportunities. Together we can create larger impact and sustainable change.</p>
+            <a href="contact-us.html" class="btn btn-sm btn-outline-primary mt-3">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Impact Section -->
+  <section class="impact-section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center mb-5">
+          <h2 class="section-title">Hope In Action</h2>
+          <p class="lead">We measure our success by the lives we've touched and the communities we've transformed.</p>
+        </div>
+      </div>
+      
+      <div class="row g-4">
+        <div class="col-md-3 col-6">
+          <div class="stat-card">
+            <div class="stat-number">50,000+</div>
+            <p>Individuals provided with healthcare access</p>
+          </div>
+        </div>
+        
+        <div class="col-md-3 col-6">
+          <div class="stat-card">
+            <div class="stat-number">12,000+</div>
+            <p>Children enrolled in school programs</p>
+          </div>
+        </div>
+        
+        <div class="col-md-3 col-6">
+          <div class="stat-card">
+            <div class="stat-number">350+</div>
+            <p>Medical camps organized annually</p>
+          </div>
+        </div>
+        
+        <div class="col-md-3 col-6">
+          <div class="stat-card">
+            <div class="stat-number">8</div>
+            <p>Years of dedicated service since 2017</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="py-5 my-5">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center mb-5">
+          <h2 class="section-title">Stories of Hope</h2>
+          <p class="lead">Real people, real impact. Hear from those whose lives have been transformed.</p>
+        </div>
+      </div>
+      
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <div class="testimonial-card">
+            <p>"Thanks to HopeFund's education program, my daughter became the first in our family to attend university. Her future is bright because of your support."</p>
+            <div class="d-flex align-items-center mt-4">
+              <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" class="rounded-circle me-3" width="60" height="60" alt="Maria Santos">
+              <div>
+                <h5 class="mb-0">Maria Santos</h5>
+                <p class="text-muted mb-0">Parent, Education Program</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-4">
+          <div class="testimonial-card">
+            <p>"The free medical camp saved my life. I was diagnosed early and received treatment I could never afford. HopeFund gave me a second chance at life."</p>
+            <div class="d-flex align-items-center mt-4">
+              <img src="https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" class="rounded-circle me-3" width="60" height="60" alt="Rajesh Kumar">
+              <div>
+                <h5 class="mb-0">Rajesh Kumar</h5>
+                <p class="text-muted mb-0">Healthcare Recipient</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-4">
+          <div class="testimonial-card">
+            <p>"Volunteering with HopeFund has been the most rewarding experience. Seeing the direct impact of our work in communities keeps me motivated."</p>
+            <div class="d-flex align-items-center mt-4">
+              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" class="rounded-circle me-3" width="60" height="60" alt="Sophie Williams">
+              <div>
+                <h5 class="mb-0">Sophie Williams</h5>
+                <p class="text-muted mb-0">Volunteer, 3 years</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="row justify-content-center text-center">
+        <div class="col-lg-8">
+          <h2 class="mb-4">Join the Movement</h2>
+          <p class="lead mb-4">Hope grows when we work together. Explore our programs, get involved, and let's create brighter futures — one life at a time.</p>
+          <div class="d-flex flex-wrap justify-content-center gap-3">
+            <a href="donate.html" class="btn btn-primary">Make a Donation</a>
+            <a href="volunteer.html" class="btn btn-outline-primary">Become a Volunteer</a>
+            <a href="causes.html" class="btn btn-outline-primary">Explore Our Causes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-4">
+          <h3 class="footer-title">HopeFund</h3>
+          <p class="mb-4">Empowering communities through healthcare and education initiatives since 2017. Together, we're building a future full of hope.</p>
+          <div class="d-flex">
+            <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="social-icon"><i class="bi bi-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+        
+        <div class="col-lg-2 col-md-4">
+          <h5 class="footer-title">Quick Links</h5>
+          <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="about-us.html">About Us</a>
+            <a href="causes.html">Our Causes</a>
+            <a href="healthcare-support.html">Healthcare</a>
+            <a href="education-for-all.html">Education</a>
+          </div>
+        </div>
+        
+        <div class="col-lg-2 col-md-4">
+          <h5 class="footer-title">Get Involved</h5>
+          <div class="footer-links">
+            <a href="donate.html">Donate</a>
+            <a href="volunteer.html">Volunteer</a>
+            <a href="contact-us.html">Partner With Us</a>
+            <a href="contact-us.html">Careers</a>
+            <a href="#">Fundraise</a>
+          </div>
+        </div>
+        
+        <div class="col-lg-4 col-md-4">
+          <h5 class="footer-title">Contact Us</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><i class="bi bi-geo-alt me-2"></i> 123 Hope Street, Community Center, City 10001</li>
+            <li class="mb-2"><i class="bi bi-telephone me-2"></i> +1 (555) 123-4567</li>
+            <li class="mb-2"><i class="bi bi-envelope me-2"></i> info@hopefund.org</li>
+          </ul>
+          <form class="mt-3">
+            <div class="input-group">
+              <input type="email" class="form-control" placeholder="Your Email" aria-label="Your Email">
+              <button class="btn btn-light" type="button">Subscribe</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      
+      <div class="copyright">
+        <p class="mb-0">&copy; 2025 HopeFund. All Rights Reserved. | Empowering Lives, Together.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
