@@ -1,1 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Globetrek | Explore The World – Trusted Travel Experiences</title>
+  <meta name="description" content="Globetrek offers curated travel experiences across domestic and international destinations. Start exploring the world today with seamless booking and expert guidance.">
+  <meta name="keywords" content="Globetrek, travel agency, international tours, domestic trips, travel booking, holiday packages, vacation planning, explore the world">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Globetrek | Explore The World">
+  <meta property="og:description" content="Discover unforgettable destinations and travel packages. Start your journey with Globetrek – where every trip is crafted to inspire.">
+  <meta property="og:type" content="website">
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+  
+  <style>
+    :root {
+      --ocean-blue: #008cba;
+      --sunset-orange: #ff4500;
+      --white: #ffffff;
+    }
+    
+    body {
+      font-family: 'Nunito Sans', sans-serif;
+      color: #333;
+      overflow-x: hidden;
+    }
+    
+    h1, h2, h3, h4, h5, .navbar-brand {
+      font-family: 'Pacifico', cursive;
+    }
+    
+    .hero-section {
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                  url('https://images.unsplash.com/photo-1503220317375-aaad61436b1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      color: var(--white);
+    }
+    
+    .navbar {
+      background-color: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .btn-primary {
+      background-color: var(--ocean-blue);
+      border-color: var(--ocean-blue);
+    }
+    
+    .btn-primary:hover {
+      background-color: #0079a1;
+      border-color: #0079a1;
+    }
+    
+    .btn-secondary {
+      background-color: var(--sunset-orange);
+      border-color: var(--sunset-orange);
+    }
+    
+    .btn-secondary:hover {
+      background-color: #e03e00;
+      border-color: #e03e00;
+    }
+    
+    .section-title {
+      position: relative;
+      margin-bottom: 2.5rem;
+      padding-bottom: 1rem;
+    }
+    
+    .section-title:after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      width: 80px;
+      height: 4px;
+      background: var(--ocean-blue);
+      transform: translateX(-50%);
+    }
+    
+    .feature-card {
+      border-radius: 15px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      height: 100%;
+      border: none;
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    }
+    
+    .feature-icon {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      background-color: rgba(0, 140, 186, 0.1);
+      color: var(--ocean-blue);
+      font-size: 1.8rem;
+    }
+    
+    .testimonial-card {
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+      margin: 1rem;
+      height: 100%;
+    }
+    
+    .destination-card {
+      border-radius: 15px;
+      overflow: hidden;
+      position: relative;
+      height: 300px;
+      margin-bottom: 1.5rem;
+    }
+    
+    .destination-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .destination-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+      padding: 1.5rem;
+      color: white;
+      transition: all 0.3s ease;
+    }
+    
+    .destination-card:hover .destination-img {
+      transform: scale(1.05);
+    }
+    
+    .destination-card:hover .destination-overlay {
+      background: linear-gradient(transparent, var(--ocean-blue));
+    }
+    
+    .stats-container {
+      background: linear-gradient(to right, var(--ocean-blue), var(--sunset-orange));
+      border-radius: 15px;
+      padding: 3rem;
+      color: white;
+      margin: 4rem 0;
+    }
+    
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    
+    .newsletter-section {
+      background-color: #f8f9fa;
+      padding: 4rem 0;
+    }
+    
+    .newsletter-form {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .footer {
+      background-color: #222;
+      color: #fff;
+      padding: 4rem 0 2rem;
+    }
+    
+    .social-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: white;
+      margin-right: 0.5rem;
+      transition: all 0.3s ease;
+    }
+    
+    .social-icon:hover {
+      background-color: var(--ocean-blue);
+      transform: translateY(-5px);
+    }
+    
+    .feature-list li {
+      margin-bottom: 1rem;
+      list-style-type: none;
+      padding-left: 2rem;
+      position: relative;
+    }
+    
+    .feature-list li:before {
+      content: "✓";
+      color: var(--ocean-blue);
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+    
+    .animated {
+      animation-duration: 1s;
+      animation-fill-mode: both;
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .fadeInUp {
+      animation-name: fadeInUp;
+    }
+    
+    .delay-1 {
+      animation-delay: 0.2s;
+    }
+    
+    .delay-2 {
+      animation-delay: 0.4s;
+    }
+    
+    .delay-3 {
+      animation-delay: 0.6s;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html" style="font-size: 2rem; color: var(--ocean-blue);">
+        <i class="bi bi-airplane me-2"></i>Globetrek
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto me-4">
+          <li class="nav-item">
+            <a class="nav-link active" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="destinations.html">Destinations</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="blog.html">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact-us.html">Contact Us</a>
+          </li>
+        </ul>
+        <a href="booking.html" class="btn btn-primary px-4">Book Now</a>
+      </div>
+    </div>
+  </nav>
 
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container text-center">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <h1 class="display-2 mb-4 animated fadeInUp">Adventure Awaits</h1>
+          <p class="lead mb-5 animated fadeInUp delay-1">Discover the world with curated travel experiences that inspire and transform</p>
+          <div class="d-flex justify-content-center gap-3 animated fadeInUp delay-2">
+            <a href="destinations.html" class="btn btn-primary btn-lg px-5 py-3">Explore Destinations</a>
+            <a href="booking.html" class="btn btn-secondary btn-lg px-5 py-3">Plan Your Trip</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Intro Section -->
+  <section class="py-6">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 mb-5 mb-lg-0">
+          <img src="https://images.unsplash.com/photo-1488085061387-422e29b40080?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Travel Adventure" class="img-fluid rounded-3 shadow">
+        </div>
+        <div class="col-lg-6">
+          <h2 class="section-title">Welcome to Globetrek</h2>
+          <p class="lead mb-4"><strong>Globetrek</strong> is your passport to unforgettable journeys. From weekend getaways across India to adventures on every continent, we design trips with purpose, comfort, and cultural depth — so all you need to do is pack your bag and follow your curiosity.</p>
+          <div class="d-flex mt-5">
+            <div class="me-4">
+              <h3 class="text-primary">25K+</h3>
+              <p>Happy Travelers</p>
+            </div>
+            <div class="me-4">
+              <h3 class="text-primary">150+</h3>
+              <p>Destinations</p>
+            </div>
+            <div>
+              <h3 class="text-primary">98%</h3>
+              <p>Positive Reviews</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Top Experiences -->
+  <section class="py-6 bg-light">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title">Where Will You Go Next?</h2>
+        <p class="lead">Discover our handpicked collection of unforgettable journeys</p>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-6 mb-4">
+          <div class="card feature-card h-100">
+            <img src="https://images.unsplash.com/photo-1532664189809-02133fee698d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Domestic Trips">
+            <div class="card-body">
+              <h3 class="card-title">Domestic Trips</h3>
+              <p class="card-text">Handpicked itineraries across India’s best-loved cities, hills, beaches, and heritage sites.</p>
+              <a href="destinations/domestic-trips.html" class="btn btn-outline-primary">Explore India</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-6 mb-4">
+          <div class="card feature-card h-100">
+            <img src="https://images.unsplash.com/photo-1506970845839-2d8e1e9688b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="International Packages">
+            <div class="card-body">
+              <h3 class="card-title">International Packages</h3>
+              <p class="card-text">Explore iconic cities, cultural landmarks, and bucket-list experiences around the world.</p>
+              <a href="destinations/international-packages.html" class="btn btn-outline-primary">Discover the World</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="py-6">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title">Why Choose Globetrek?</h2>
+        <p class="lead">Experience the difference with our premium travel services</p>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-6 col-lg-3 mb-4">
+          <div class="text-center p-4">
+            <div class="feature-icon">
+              <i class="bi bi-stars"></i>
+            </div>
+            <h4>Expert-Curated Experiences</h4>
+            <p>Well-reviewed tours designed by travel experts with local insights</p>
+          </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-3 mb-4">
+          <div class="text-center p-4">
+            <div class="feature-icon">
+              <i class="bi bi-calendar-check"></i>
+            </div>
+            <h4>Seamless Booking</h4>
+            <p>Easy online reservations with real-time support throughout your journey</p>
+          </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-3 mb-4">
+          <div class="text-center p-4">
+            <div class="feature-icon">
+              <i class="bi bi-gear"></i>
+            </div>
+            <h4>Flexible Options</h4>
+            <p>Customizable itineraries tailored to your travel goals and preferences</p>
+          </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-3 mb-4">
+          <div class="text-center p-4">
+            <div class="feature-icon">
+              <i class="bi bi-cash-coin"></i>
+            </div>
+            <h4>Transparent Pricing</h4>
+            <p>No hidden fees with 100% trip assurance for peace of mind</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Popular Destinations -->
+  <section class="py-6 bg-light">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title">Popular Destinations</h2>
+        <p class="lead">Explore our travelers' favorite places around the world</p>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-6 col-lg-3">
+          <div class="destination-card">
+            <img src="https://images.unsplash.com/photo-1565967511849-76a60a516170?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Bali" class="destination-img">
+            <div class="destination-overlay">
+              <h4>Bali, Indonesia</h4>
+              <p>7 Day Packages from $899</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-3">
+          <div class="destination-card">
+            <img src="https://images.unsplash.com/photo-1590523278191-995cbcda646b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Switzerland" class="destination-img">
+            <div class="destination-overlay">
+              <h4>Swiss Alps</h4>
+              <p>10 Day Packages from $1,499</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-3">
+          <div class="destination-card">
+            <img src="https://images.unsplash.com/photo-1580234811497-9df7fd2f357e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Santorini" class="destination-img">
+            <div class="destination-overlay">
+              <h4>Santorini, Greece</h4>
+              <p>6 Day Packages from $1,299</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-3">
+          <div class="destination-card">
+            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Kerala" class="destination-img">
+            <div class="destination-overlay">
+              <h4>Kerala, India</h4>
+              <p>5 Day Packages from $399</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="py-6">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title">Traveler Stories</h2>
+        <p class="lead">Hear from our globetrotting community</p>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="testimonial-card">
+            <div class="d-flex align-items-center mb-3">
+              <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah" class="rounded-circle me-3" width="60">
+              <div>
+                <h5 class="mb-0">Sarah Johnson</h5>
+                <small>Bali Adventure, June 2025</small>
+              </div>
+            </div>
+            <p>"The Bali trip organized by Globetrek was beyond amazing. Every detail was perfect - from the luxurious accommodations to the authentic cultural experiences. Can't wait for my next adventure!"</p>
+            <div class="text-warning">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-4 mb-4">
+          <div class="testimonial-card">
+            <div class="d-flex align-items-center mb-3">
+              <img src="https://randomuser.me/api/portraits/men/54.jpg" alt="Michael" class="rounded-circle me-3" width="60">
+              <div>
+                <h5 class="mb-0">Michael Chen</h5>
+                <small>Swiss Alps Expedition, May 2025</small>
+              </div>
+            </div>
+            <p>"As a solo traveler, I was a bit nervous, but Globetrek made everything so easy. The guides were knowledgeable, and I met wonderful people. The Swiss Alps were breathtaking - a truly transformative experience."</p>
+            <div class="text-warning">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-4 mb-4">
+          <div class="testimonial-card">
+            <div class="d-flex align-items-center mb-3">
+              <img src="https://randomuser.me/api/portraits/women/67.jpg" alt="Priya" class="rounded-circle me-3" width="60">
+              <div>
+                <h5 class="mb-0">Priya Sharma</h5>
+                <small>Kerala Backwaters, April 2025</small>
+              </div>
+            </div>
+            <p>"Our family trip to Kerala was magical. Globetrek arranged everything perfectly - the houseboat stay, the ayurvedic treatments, and the local cuisine experiences. The kids are already asking when we can go back!"</p>
+            <div class="text-warning">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="py-6 bg-primary text-white">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-8 mb-4 mb-lg-0">
+          <h2 class="display-5 mb-3">Ready for Your Next Adventure?</h2>
+          <p class="lead mb-0">Start planning your dream vacation with our travel specialists today</p>
+        </div>
+        <div class="col-lg-4 text-lg-end">
+          <a href="booking.html" class="btn btn-light btn-lg px-5 py-3">Book Your Trip</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Plan Your Journey -->
+  <section class="py-6">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 mb-5 mb-lg-0">
+          <h2 class="section-title">Start Planning Today</h2>
+          <p class="mb-4">Browse our curated trips, check out the <a href="blog.html" class="text-primary fw-bold">Globetrek Blog</a> for travel stories and tips, or <a href="contact-us.html" class="text-primary fw-bold">reach out</a> to speak with a travel specialist.</p>
+          
+          <div class="card border-0 shadow">
+            <div class="card-body p-4">
+              <h4 class="mb-4">Get Inspired</h4>
+              <div class="d-flex mb-4">
+                <div class="flex-shrink-0">
+                  <img src="https://images.unsplash.com/photo-1501555088652-021faa106b9b?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Travel Tips" class="rounded me-3" width="80">
+                </div>
+                <div>
+                  <h5>Top 10 Travel Tips for First-Time Explorers</h5>
+                  <p class="small text-muted">June 15, 2025</p>
+                </div>
+              </div>
+              
+              <div class="d-flex mb-4">
+                <div class="flex-shrink-0">
+                  <img src="https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Hidden Gems" class="rounded me-3" width="80">
+                </div>
+                <div>
+                  <h5>Hidden Gems of Southeast Asia</h5>
+                  <p class="small text-muted">May 28, 2025</p>
+                </div>
+              </div>
+              
+              <a href="blog.html" class="btn btn-outline-primary">Read More on Our Blog</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-6">
+          <div class="bg-light p-5 rounded-3 h-100">
+            <h3 class="mb-4">Have Questions?</h3>
+            <p class="mb-4">Our travel specialists are here to help you plan the perfect getaway. Contact us for personalized recommendations and special offers.</p>
+            
+            <ul class="feature-list">
+              <li>24/7 Customer Support</li>
+              <li>Custom Itinerary Planning</li>
+              <li>Group & Family Discounts</li>
+              <li>Last Minute Deals</li>
+            </ul>
+            
+            <a href="contact-us.html" class="btn btn-primary mt-3 px-4">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="newsletter-section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center">
+          <h3 class="mb-3">Join Our Travel Community</h3>
+          <p class="mb-4">Subscribe to receive exclusive travel deals, destination guides, and insider tips</p>
+          
+          <form class="newsletter-form">
+            <div class="input-group">
+              <input type="email" class="form-control form-control-lg" placeholder="Your email address" aria-label="Email">
+              <button class="btn btn-primary btn-lg px-4" type="submit">Subscribe</button>
+            </div>
+            <small class="text-muted mt-2 d-block">We respect your privacy. Unsubscribe at any time.</small>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 mb-5 mb-lg-0">
+          <h3 class="mb-4"><i class="bi bi-airplane me-2"></i>Globetrek</h3>
+          <p class="mb-4">Crafting unforgettable travel experiences since 2010. Your journey begins with us.</p>
+          <div class="d-flex">
+            <a href="#" class="social-icon me-2"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="social-icon me-2"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="social-icon me-2"><i class="bi bi-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="bi bi-youtube"></i></a>
+          </div>
+        </div>
+        
+        <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+          <h5 class="mb-4">Explore</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="index.html" class="text-white text-decoration-none">Home</a></li>
+            <li class="mb-2"><a href="destinations.html" class="text-white text-decoration-none">Destinations</a></li>
+            <li class="mb-2"><a href="blog.html" class="text-white text-decoration-none">Travel Blog</a></li>
+            <li class="mb-2"><a href="booking.html" class="text-white text-decoration-none">Special Offers</a></li>
+          </ul>
+        </div>
+        
+        <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+          <h5 class="mb-4">Support</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="contact-us.html" class="text-white text-decoration-none">Contact Us</a></li>
+            <li class="mb-2"><a href="#" class="text-white text-decoration-none">FAQs</a></li>
+            <li class="mb-2"><a href="#" class="text-white text-decoration-none">Booking Terms</a></li>
+            <li class="mb-2"><a href="#" class="text-white text-decoration-none">Privacy Policy</a></li>
+          </ul>
+        </div>
+        
+        <div class="col-lg-4 col-md-4">
+          <h5 class="mb-4">Contact Info</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><i class="bi bi-geo-alt me-2"></i>123 Adventure St, Mumbai, India</li>
+            <li class="mb-2"><i class="bi bi-telephone me-2"></i>+91 98765 43210</li>
+            <li class="mb-2"><i class="bi bi-envelope me-2"></i>hello@globetrek.com</li>
+            <li><i class="bi bi-clock me-2"></i>Mon-Fri: 9AM - 6PM</li>
+          </ul>
+        </div>
+      </div>
+      
+      <hr class="mt-5 mb-4">
+      
+      <div class="row">
+        <div class="col-md-6 mb-3 mb-md-0">
+          <p class="mb-0">&copy; 2025 Globetrek Travel Agency. All rights reserved.</p>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <p class="mb-0">Designed with <i class="bi bi-heart-fill text-danger"></i> for travelers</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    // Simple animation on scroll
+    document.addEventListener('DOMContentLoaded', function() {
+      const animatedElements = document.querySelectorAll('.animated');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.visibility = 'visible';
+            entry.target.classList.add('fadeInUp');
+          }
+        });
+      }, {
+        threshold: 0.1
+      });
+      
+      animatedElements.forEach(element => {
+        element.style.visibility = 'hidden';
+        observer.observe(element);
+      });
+    });
+  </script>
+</body>
+</html>
