@@ -1,1 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AutoVibe | Drive Your Passion – New & Used Car Dealership</title>
+  <meta name="description" content="AutoVibe offers an exciting lineup of new and used vehicles with expert auto services. Discover a driving experience that matches your passion.">
+  <meta name="keywords" content="AutoVibe, car dealership, new cars, used cars, vehicle service, auto repair, buy a car, certified pre-owned, auto showroom, drive your passion">
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="AutoVibe | Drive Your Passion" />
+  <meta property="og:description" content="Explore AutoVibe’s collection of new and used vehicles. Book a service, browse inventory, or take a test drive today!" />
+  <meta property="og:type" content="website" />
+  
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --secondary: #0f172a;
+      --accent: #f97316;
+      --light: #f8fafc;
+      --gray: #64748b;
+      --dark: #0f172a;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--dark);
+      background-color: var(--light);
+      overflow-x: hidden;
+      transition: background-color 0.3s ease;
+    }
+    
+    body.dark-mode {
+      background-color: #0c1120;
+      color: #e2e8f0;
+    }
+    
+    .dark-mode .card,
+    .dark-mode .navbar,
+    .dark-mode .testimonial-card,
+    .dark-mode .service-card,
+    .dark-mode .cta-section {
+      background-color: #1e293b;
+      border-color: #334155;
+    }
+    
+    .dark-mode .btn-outline-primary {
+      color: #93c5fd;
+      border-color: #3b82f6;
+    }
+    
+    .dark-mode .btn-outline-primary:hover {
+      background-color: #3b82f6;
+      color: #fff;
+    }
+    
+    h1, h2, h3, h4, h5 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+    }
+    
+    .navbar-brand {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 1.8rem;
+      color: var(--primary);
+    }
+    
+    .navbar {
+      padding: 1.2rem 0;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .navbar.scrolled {
+      padding: 0.8rem 0;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+    }
+    
+    .dark-mode .navbar.scrolled {
+      background: rgba(15, 23, 42, 0.95);
+    }
+    
+    .nav-link {
+      font-weight: 500;
+      margin: 0 0.5rem;
+      position: relative;
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: width 0.3s ease;
+    }
+    
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    
+    .hero-section {
+      position: relative;
+      padding: 9rem 0 7rem;
+      background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.9)), url('https://images.unsplash.com/photo-1494976388531-d1058494cdd8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      overflow: hidden;
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+    
+    .hero-title {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+    
+    .hero-subtitle {
+      font-size: 1.25rem;
+      max-width: 600px;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+    
+    .btn-primary {
+      background-color: var(--primary);
+      border-color: var(--primary);
+      padding: 0.8rem 2rem;
+      font-weight: 600;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-primary:hover {
+      background-color: var(--primary-dark);
+      border-color: var(--primary-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
+    }
+    
+    .btn-outline-primary {
+      color: var(--primary);
+      border-color: var(--primary);
+      padding: 0.8rem 2rem;
+      font-weight: 600;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-outline-primary:hover {
+      background-color: var(--primary);
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
+    }
+    
+    .section-title {
+      position: relative;
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: var(--primary);
+      border-radius: 2px;
+    }
+    
+    .feature-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      transition: all 0.4s ease;
+      height: 100%;
+      border: none;
+    }
+    
+    .dark-mode .feature-card {
+      background: #1e293b;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    }
+    
+    .dark-mode .feature-card:hover {
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    }
+    
+    .feature-img {
+      height: 200px;
+      width: 100%;
+      object-fit: cover;
+    }
+    
+    .feature-icon {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+    
+    .benefit-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 1.5rem;
+    }
+    
+    .benefit-icon {
+      font-size: 1.5rem;
+      color: var(--primary);
+      min-width: 40px;
+      margin-right: 1rem;
+    }
+    
+    .cta-section {
+      background: linear-gradient(120deg, var(--primary), var(--primary-dark));
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      padding: 4rem 2rem;
+      color: white;
+      box-shadow: 0 20px 40px rgba(37, 99, 235, 0.3);
+    }
+    
+    .cta-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.15;
+    }
+    
+    .testimonial-card {
+      background: white;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+      height: 100%;
+      border: none;
+    }
+    
+    .dark-mode .testimonial-card {
+      background: #1e293b;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+    
+    .testimonial-img {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 1.5rem;
+    }
+    
+    .service-card {
+      background: white;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+      height: 100%;
+      border: none;
+    }
+    
+    .dark-mode .service-card {
+      background: #1e293b;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+    
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    }
+    
+    .dark-mode .service-card:hover {
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    }
+    
+    .service-icon {
+      font-size: 3rem;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+    }
+    
+    footer {
+      background: var(--secondary);
+      color: white;
+      padding: 4rem 0 2rem;
+    }
+    
+    .footer-title {
+      position: relative;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.75rem;
+    }
+    
+    .footer-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background: var(--primary);
+    }
+    
+    .social-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      margin-right: 0.5rem;
+      transition: all 0.3s ease;
+    }
+    
+    .social-icon:hover {
+      background: var(--primary);
+      transform: translateY(-3px);
+    }
+    
+    .footer-link {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      margin-bottom: 0.75rem;
+      display: block;
+      transition: all 0.3s ease;
+    }
+    
+    .footer-link:hover {
+      color: white;
+      padding-left: 5px;
+    }
+    
+    .theme-toggle {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 1000;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+    }
+    
+    .theme-toggle:hover {
+      transform: scale(1.1) rotate(15deg);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+    
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    
+    .animate-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 2.5rem;
+      }
+      
+      .navbar-brand {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Theme Toggle -->
+  <div class="theme-toggle" id="themeToggle">
+    <i class="bi bi-moon-fill"></i>
+  </div>
+  
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-white">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Auto<span class="text-primary">Vibe</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="vehicles.html">Vehicles</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="services.html">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about-us.html">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+        </ul>
+        <div class="ms-lg-3 mt-3 mt-lg-0">
+          <a href="contact.html" class="btn btn-outline-primary">Book a Test Drive</a>
+        </div>
+      </div>
+    </div>
+  </nav>
 
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-7 hero-content">
+          <h1 class="hero-title animate-on-scroll">Drive Your Passion</h1>
+          <p class="hero-subtitle animate-on-scroll">AutoVibe is more than just a dealership — we're your trusted partner on the road to performance, reliability, and lifestyle. From brand-new models to certified used vehicles, our collection is curated to match how you move and why you drive.</p>
+          <div class="d-flex flex-wrap gap-3 animate-on-scroll">
+            <a href="vehicles.html" class="btn btn-primary">Browse Inventory</a>
+            <a href="contact.html" class="btn btn-outline-light">Schedule Service</a>
+          </div>
+        </div>
+        <div class="col-lg-5 d-none d-lg-block">
+          <!-- Graphic element -->
+          <div class="position-relative" style="height: 400px;">
+            <div class="position-absolute top-0 start-0" style="width: 300px; height: 300px; border: 3px solid rgba(255,255,255,0.2); border-radius: 50%; transform: translate(-20%, 10%);"></div>
+            <div class="position-absolute top-0 end-0" style="width: 200px; height: 200px; border: 3px solid rgba(255,255,255,0.2); border-radius: 50%; transform: translate(20%, 50%);"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vehicle Categories -->
+  <section class="py-6">
+    <div class="container">
+      <h2 class="section-title animate-on-scroll">Explore Our Vehicles</h2>
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="feature-card animate-on-scroll">
+            <img src="https://images.unsplash.com/photo-1542362567-b07e54358753?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="New Cars" class="feature-img">
+            <div class="p-4">
+              <h3 class="mb-3">New Cars</h3>
+              <p class="text-muted mb-4">Discover the latest models with unbeatable offers and cutting-edge technology.</p>
+              <a href="vehicles/new-cars.html" class="btn btn-outline-primary">View New Inventory</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="feature-card animate-on-scroll">
+            <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Used Cars" class="feature-img">
+            <div class="p-4">
+              <h3 class="mb-3">Used Cars</h3>
+              <p class="text-muted mb-4">Browse high-quality, certified pre-owned vehicles at great value with warranty.</p>
+              <a href="vehicles/used-cars.html" class="btn btn-outline-primary">View Pre-Owned</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="py-6 bg-light">
+    <div class="container">
+      <h2 class="section-title animate-on-scroll">Why Choose AutoVibe?</h2>
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="mb-5 animate-on-scroll">
+            <h3 class="mb-4">Your Journey, Our Commitment</h3>
+            <p>At AutoVibe, we believe that buying a car should be an exciting experience, not a stressful one. Our team is dedicated to providing personalized service that puts your needs first.</p>
+          </div>
+          <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1364&q=80" alt="AutoVibe Dealership" class="img-fluid rounded-3 shadow mb-5 mb-lg-0 animate-on-scroll">
+        </div>
+        <div class="col-lg-6">
+          <div class="benefit-item animate-on-scroll">
+            <div class="benefit-icon">
+              <i class="bi bi-car-front-fill"></i>
+            </div>
+            <div>
+              <h4>Wide Inventory</h4>
+              <p class="text-muted">Reliable vehicles across all price ranges with detailed history reports.</p>
+            </div>
+          </div>
+          <div class="benefit-item animate-on-scroll">
+            <div class="benefit-icon">
+              <i class="bi bi-tools"></i>
+            </div>
+            <div>
+              <h4>Expert Service Center</h4>
+              <p class="text-muted">Certified technicians using state-of-the-art diagnostic equipment.</p>
+            </div>
+          </div>
+          <div class="benefit-item animate-on-scroll">
+            <div class="benefit-icon">
+              <i class="bi bi-currency-exchange"></i>
+            </div>
+            <div>
+              <h4>Transparent Financing</h4>
+              <p class="text-muted">Competitive rates and trade-in support with no hidden fees.</p>
+            </div>
+          </div>
+          <div class="benefit-item animate-on-scroll">
+            <div class="benefit-icon">
+              <i class="bi bi-star-fill"></i>
+            </div>
+            <div>
+              <h4>Customer-First Service</h4>
+              <p class="text-muted">Passionate team dedicated to your complete satisfaction.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="py-6">
+    <div class="container">
+      <h2 class="section-title animate-on-scroll">Our Services</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="service-card animate-on-scroll">
+            <div class="service-icon">
+              <i class="bi bi-wrench-adjustable"></i>
+            </div>
+            <h3>Auto Maintenance</h3>
+            <p class="text-muted">Regular maintenance to keep your vehicle running smoothly and extend its lifespan.</p>
+            <a href="services.html" class="btn btn-link text-primary p-0">Learn more</a>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="service-card animate-on-scroll">
+            <div class="service-icon">
+              <i class="bi bi-gear-fill"></i>
+            </div>
+            <h3>Repairs & Diagnostics</h3>
+            <p class="text-muted">Advanced diagnostics and expert repairs for all makes and models.</p>
+            <a href="services.html" class="btn btn-link text-primary p-0">Learn more</a>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="service-card animate-on-scroll">
+            <div class="service-icon">
+              <i class="bi bi-paint-bucket"></i>
+            </div>
+            <h3>Body & Paint</h3>
+            <p class="text-muted">Professional collision repair and custom paint services.</p>
+            <a href="services.html" class="btn btn-link text-primary p-0">Learn more</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="py-6 bg-light">
+    <div class="container">
+      <h2 class="section-title animate-on-scroll">Customer Experiences</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="testimonial-card animate-on-scroll">
+            <div class="d-flex align-items-center mb-4">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Customer" class="testimonial-img">
+              <div>
+                <h5 class="mb-0">Michael Thompson</h5>
+                <small class="text-primary">Purchased a 2023 Sedan</small>
+              </div>
+            </div>
+            <p>"The team at AutoVibe made my car buying experience exceptional. Their attention to detail and willingness to go the extra mile was impressive!"</p>
+            <div class="mt-3 text-warning">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="testimonial-card animate-on-scroll">
+            <div class="d-flex align-items-center mb-4">
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Customer" class="testimonial-img">
+              <div>
+                <h5 class="mb-0">Sarah Johnson</h5>
+                <small class="text-primary">Serviced her SUV</small>
+              </div>
+            </div>
+            <p>"Honest service and fair pricing. They explained everything clearly and completed the work faster than promised. I'll definitely be back!"</p>
+            <div class="mt-3 text-warning">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="testimonial-card animate-on-scroll">
+            <div class="d-flex align-items-center mb-4">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Customer" class="testimonial-img">
+              <div>
+                <h5 class="mb-0">David Martinez</h5>
+                <small class="text-primary">Leased a luxury vehicle</small>
+              </div>
+            </div>
+            <p>"The financing options were clearly explained and tailored to my budget. I got exactly the car I wanted with terms that worked for me."</p>
+            <div class="mt-3 text-warning">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-half"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="py-6">
+    <div class="container">
+      <div class="cta-section animate-on-scroll">
+        <div class="cta-overlay"></div>
+        <div class="row align-items-center position-relative z-2">
+          <div class="col-lg-8 text-center text-lg-start">
+            <h2 class="text-white mb-3">Ready to Experience AutoVibe?</h2>
+            <p class="text-white-50 mb-4 mb-lg-0">Book a test drive or schedule a service appointment today. Our team is ready to assist you with all your automotive needs.</p>
+          </div>
+          <div class="col-lg-4 text-center">
+            <a href="contact.html" class="btn btn-light btn-lg">Contact Us Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-4">
+          <h4 class="footer-title">Auto<span class="text-primary">Vibe</span></h4>
+          <p class="mb-4">Your trusted partner for new and pre-owned vehicles, expert service, and exceptional customer care.</p>
+          <div class="d-flex">
+            <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="bi bi-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="bi bi-youtube"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-4">
+          <h5 class="footer-title">Quick Links</h5>
+          <a href="index.html" class="footer-link">Home</a>
+          <a href="vehicles.html" class="footer-link">Vehicles</a>
+          <a href="services.html" class="footer-link">Services</a>
+          <a href="about-us.html" class="footer-link">About Us</a>
+          <a href="contact.html" class="footer-link">Contact</a>
+        </div>
+        <div class="col-lg-3 col-md-4">
+          <h5 class="footer-title">Our Services</h5>
+          <a href="services.html" class="footer-link">New Vehicles</a>
+          <a href="services.html" class="footer-link">Pre-Owned Vehicles</a>
+          <a href="services.html" class="footer-link">Auto Financing</a>
+          <a href="services.html" class="footer-link">Maintenance & Repair</a>
+          <a href="services.html" class="footer-link">Parts & Accessories</a>
+        </div>
+        <div class="col-lg-3 col-md-4">
+          <h5 class="footer-title">Contact Us</h5>
+          <p class="mb-2"><i class="bi bi-geo-alt me-2"></i> 123 Auto Drive, Motor City</p>
+          <p class="mb-2"><i class="bi bi-telephone me-2"></i> (555) 123-4567</p>
+          <p class="mb-2"><i class="bi bi-envelope me-2"></i> info@autovibe.com</p>
+          <p><i class="bi bi-clock me-2"></i> Mon-Sat: 9AM - 8PM</p>
+        </div>
+      </div>
+      <hr class="my-5 border-secondary">
+      <div class="text-center py-3">
+        <p class="mb-0">&copy; 2025 AutoVibe. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    // Theme toggle functionality
+    const themeToggle = document.getElementById('themeToggle');
+    const body = document.body;
+    const themeIcon = themeToggle.querySelector('i');
+    
+    // Check for saved theme preference
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme) {
+      body.classList.add(currentTheme);
+      themeIcon.className = currentTheme === 'dark-mode' ? 'bi bi-sun-fill' : 'bi bi-moon-fill';
+    }
+    
+    themeToggle.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      
+      if (body.classList.contains('dark-mode')) {
+        localStorage.setItem('theme', 'dark-mode');
+        themeIcon.className = 'bi bi-sun-fill';
+      } else {
+        localStorage.removeItem('theme');
+        themeIcon.className = 'bi bi-moon-fill';
+      }
+    });
+    
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+    
+    // Animation on scroll
+    function animateOnScroll() {
+      const elements = document.querySelectorAll('.animate-on-scroll');
+      elements.forEach(element => {
+        const elementPosition = element.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.3;
+        
+        if (elementPosition < screenPosition) {
+          element.classList.add('visible');
+        }
+      });
+    }
+    
+    // Initialize animations
+    window.addEventListener('DOMContentLoaded', animateOnScroll);
+    window.addEventListener('scroll', animateOnScroll);
+  </script>
+</body>
+</html>
