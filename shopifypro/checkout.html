@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Checkout | ShopifyPro - Fast & Reliable Payments</title>
+    <meta name="description" content="Complete your purchase with ShopifyPro’s secure checkout. Choose payment options, track delivery, and enjoy fast shipping.">
+    <meta name="keywords" content="secure checkout, online shopping, ShopifyPro payment, fast delivery, digital marketplace, order processing, safe transactions">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Secure Checkout | ShopifyPro - Fast & Reliable Payments">
+    <meta property="og:description" content="Shop securely at ShopifyPro! Choose payment options, track delivery, and enjoy fast shipping with our trusted checkout system.">
+    <meta property="og:type" content="website">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    
+    <style>
+        :root {
+            --brick-red: #b22222;
+            --warm-beige: #f5deb3;
+            --white: #ffffff;
+            --dark-gray: #333333;
+            --light-gray: #f8f9fa;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--dark-gray);
+            line-height: 1.7;
+            background-color: #f9f9f9;
+        }
+        
+        h1, h2, h3, h4, h5, .navbar-brand {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+        
+        .navbar {
+            background-color: var(--white);
+            padding: 1.2rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .navbar-brand {
+            font-size: 1.8rem;
+            color: var(--brick-red) !important;
+            letter-spacing: 0.5px;
+        }
+        
+        .navbar-brand span {
+            color: var(--dark-gray);
+        }
+        
+        .nav-link {
+            color: var(--dark-gray) !important;
+            font-weight: 500;
+            margin: 0 0.8rem;
+            position: relative;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--brick-red);
+            transition: width 0.3s;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        .btn-primary {
+            background-color: var(--brick-red);
+            border-color: var(--brick-red);
+            padding: 1rem 2rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            border-radius: 4px;
+            font-size: 1.1rem;
+        }
+        
+        .btn-primary:hover {
+            background-color: #9b1d1d;
+            border-color: #9b1d1d;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(178, 34, 34, 0.25);
+        }
+        
+        .btn-outline-primary {
+            color: var(--brick-red);
+            border-color: var(--brick-red);
+            padding: 0.9rem 1.8rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            border-radius: 4px;
+        }
+        
+        .btn-outline-primary:hover {
+            background-color: var(--brick-red);
+            color: var(--white);
+        }
+        
+        .checkout-section {
+            padding: 4rem 0;
+        }
+        
+        .checkout-header {
+            position: relative;
+            margin-bottom: 2rem;
+            color: var(--dark-gray);
+            padding-bottom: 15px;
+        }
+        
+        .checkout-header:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: var(--brick-red);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .checkout-card {
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .payment-card {
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .payment-option {
+            display: flex;
+            align-items: center;
+            padding: 1.5rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .payment-option:hover {
+            border-color: var(--brick-red);
+            background: rgba(178, 34, 34, 0.05);
+        }
+        
+        .payment-option.active {
+            border-color: var(--brick-red);
+            background: rgba(178, 34, 34, 0.1);
+        }
+        
+        .payment-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(0, 0, 0, 0.05);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1.5rem;
+            font-size: 1.8rem;
+        }
+        
+        .shipping-card {
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .shipping-option {
+            display: flex;
+            align-items: center;
+            padding: 1.5rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .shipping-option:hover {
+            border-color: var(--brick-red);
+            background: rgba(178, 34, 34, 0.05);
+        }
+        
+        .shipping-option.active {
+            border-color: var(--brick-red);
+            background: rgba(178, 34, 34, 0.1);
+        }
+        
+        .shipping-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(0, 0, 0, 0.05);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1.5rem;
+            font-size: 1.8rem;
+        }
+        
+        .order-summary {
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 2rem;
+            position: sticky;
+            top: 20px;
+        }
+        
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .summary-total {
+            font-weight: 700;
+            font-size: 1.3rem;
+            color: var(--brick-red);
+        }
+        
+        .order-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .order-item-img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-right: 1.5rem;
+        }
+        
+        .address-card {
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .address-card:hover {
+            border-color: var(--brick-red);
+        }
+        
+        .address-card.active {
+            border-color: var(--brick-red);
+            background: rgba(178, 34, 34, 0.05);
+        }
+        
+        .secure-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.03)), var(--warm-beige);
+            padding: 3rem;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        .highlight {
+            color: var(--brick-red);
+            font-weight: 500;
+        }
+        
+        footer {
+            background: var(--dark-gray);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+        }
+        
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--white);
+            margin-right: 10px;
+            transition: all 0.3s;
+        }
+        
+        .social-icon:hover {
+            background: var(--brick-red);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 1.5rem 0;
+            margin-top: 3rem;
+        }
+        
+        .checkout-progress {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .checkout-progress:before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: #eee;
+            z-index: 1;
+        }
+        
+        .progress-step {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            flex: 1;
+        }
+        
+        .progress-step:not(:last-child) {
+            margin-right: 10px;
+        }
+        
+        .step-number {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+            font-weight: 700;
+            color: var(--dark-gray);
+        }
+        
+        .progress-step.active .step-number {
+            background: var(--brick-red);
+            color: white;
+        }
+        
+        .progress-step.completed .step-number {
+            background: #28a745;
+            color: white;
+        }
+        
+        .step-label {
+            font-size: 0.9rem;
+            color: #777;
+        }
+        
+        .progress-step.active .step-label {
+            color: var(--dark-gray);
+            font-weight: 500;
+        }
+        
+        .secure-badge {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(178, 34, 34, 0.1);
+            color: var(--brick-red);
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .checkout-progress {
+                flex-wrap: wrap;
+            }
+            
+            .progress-step {
+                flex: 0 0 33.33%;
+                margin-bottom: 1rem;
+            }
+            
+            .checkout-progress:before {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Shopify<span>Pro</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Categories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Deals</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Help Center</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <a href="#" class="btn btn-outline-dark me-2"><i class="bi bi-heart"></i></a>
+                    <a href="#" class="btn btn-outline-dark position-relative">
+                        <i class="bi bi-cart3"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            3
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Checkout Progress -->
+    <div class="container mt-4">
+        <div class="checkout-progress">
+            <div class="progress-step completed">
+                <div class="step-number"><i class="bi bi-check"></i></div>
+                <div class="step-label">Cart</div>
+            </div>
+            <div class="progress-step completed">
+                <div class="step-number"><i class="bi bi-check"></i></div>
+                <div class="step-label">Information</div>
+            </div>
+            <div class="progress-step active">
+                <div class="step-number">3</div>
+                <div class="step-label">Payment</div>
+            </div>
+            <div class="progress-step">
+                <div class="step-number">4</div>
+                <div class="step-label">Confirmation</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Section -->
+    <section class="checkout-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7">
+                    <h1 class="checkout-header">Complete Your Secure Checkout</h1>
+                    <p class="lead mb-4">Ready to place your order? <span class="highlight">ShopifyPro provides a fast, secure, and hassle-free checkout process</span> so you can complete your purchase with confidence.</p>
+                    
+                    <div class="checkout-card">
+                        <h2 class="mb-4">Choose Your Payment Method</h2>
+                        
+                        <div class="payment-option active">
+                            <div class="payment-icon">
+                                <i class="bi bi-credit-card"></i>
+                            </div>
+                            <div>
+                                <h4>Credit/Debit Cards</h4>
+                                <p class="mb-0">Pay securely using <span class="highlight">Visa, MasterCard, American Express, and more</span>.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="payment-option">
+                            <div class="payment-icon">
+                                <i class="bi bi-wallet2"></i>
+                            </div>
+                            <div>
+                                <h4>PayPal & Digital Wallets</h4>
+                                <p class="mb-0">Enjoy <span class="highlight">one-click payments</span> with <span class="highlight">PayPal, Apple Pay, Google Pay</span>, and other digital wallets.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="payment-option">
+                            <div class="payment-icon">
+                                <i class="bi bi-cash"></i>
+                            </div>
+                            <div>
+                                <h4>Cash on Delivery</h4>
+                                <p class="mb-0">Prefer <span class="highlight">paying after receiving your order</span>? Choose <span class="highlight">Cash on Delivery (COD)</span> where available.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <h4>Card Details</h4>
+                            <div class="row mt-3">
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Card Number</label>
+                                    <input type="text" class="form-control" placeholder="1234 5678 9012 3456">
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label class="form-label">Expiry Date</label>
+                                    <input type="text" class="form-control" placeholder="MM/YY">
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label class="form-label">CVV</label>
+                                    <input type="text" class="form-control" placeholder="123">
+                                </div>
+                                <div class="col-md-12 mb-3">
+                                    <label class="form-label">Cardholder Name</label>
+                                    <input type="text" class="form-control" placeholder="John Doe">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="shipping-card">
+                        <h2 class="mb-4">Track Your Order & Choose Shipping Speed</h2>
+                        
+                        <div class="shipping-option active">
+                            <div class="shipping-icon">
+                                <i class="bi bi-truck"></i>
+                            </div>
+                            <div>
+                                <h4>Standard Shipping</h4>
+                                <p class="mb-0">3-5 business days - <span class="highlight">FREE</span></p>
+                            </div>
+                        </div>
+                        
+                        <div class="shipping-option">
+                            <div class="shipping-icon">
+                                <i class="bi bi-lightning"></i>
+                            </div>
+                            <div>
+                                <h4>Express Shipping</h4>
+                                <p class="mb-0">1-2 business days - <span class="highlight">$9.99</span></p>
+                            </div>
+                        </div>
+                        
+                        <div class="shipping-option">
+                            <div class="shipping-icon">
+                                <i class="bi bi-rocket"></i>
+                            </div>
+                            <div>
+                                <h4>Overnight Delivery</h4>
+                                <p class="mb-0">Next business day - <span class="highlight">$19.99</span></p>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <h4>Order Tracking</h4>
+                            <p class="mb-0">After checkout, <span class="highlight">receive a tracking link</span> to follow your order’s progress in real-time.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="checkout-card">
+                        <h2 class="mb-4">Billing & Shipping Address</h2>
+                        <p>Confirm your <span class="highlight">billing and delivery address</span> to ensure fast and accurate shipping.</p>
+                        
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">First Name</label>
+                                <input type="text" class="form-control" value="John">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Last Name</label>
+                                <input type="text" class="form-control" value="Doe">
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <label class="form-label">Address</label>
+                                <input type="text" class="form-control" value="123 Commerce Street">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">City</label>
+                                <input type="text" class="form-control" value="San Francisco">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">State</label>
+                                <input type="text" class="form-control" value="California">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">ZIP Code</label>
+                                <input type="text" class="form-control" value="94105">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Country</label>
+                                <input type="text" class="form-control" value="United States">
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="saveAddress">
+                                    <label class="form-check-label" for="saveAddress">
+                                        Save this address for future purchases
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-5">
+                    <div class="order-summary">
+                        <h2 class="mb-4">Order Summary</h2>
+                        
+                        <div class="order-item">
+                            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Headphones" class="order-item-img">
+                            <div>
+                                <h5>Premium Wireless Headphones</h5>
+                                <p class="mb-0">Color: Black</p>
+                                <div class="d-flex justify-content-between mt-2">
+                                    <span>1 × $199.99</span>
+                                    <span>$199.99</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="order-item">
+                            <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Smart Watch" class="order-item-img">
+                            <div>
+                                <h5>Smart Fitness Watch</h5>
+                                <p class="mb-0">Color: Midnight Blue</p>
+                                <div class="d-flex justify-content-between mt-2">
+                                    <span>1 × $129.99</span>
+                                    <span>$129.99</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="order-item">
+                            <img src="https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Earbuds" class="order-item-img">
+                            <div>
+                                <h5>True Wireless Earbuds</h5>
+                                <p class="mb-0">Color: White</p>
+                                <div class="d-flex justify-content-between mt-2">
+                                    <span>1 × $89.99</span>
+                                    <span>$89.99</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <div class="summary-item">
+                                <span>Subtotal</span>
+                                <span>$419.97</span>
+                            </div>
+                            <div class="summary-item">
+                                <span>Discount</span>
+                                <span class="text-success">-$25.00</span>
+                            </div>
+                            <div class="summary-item">
+                                <span>Shipping</span>
+                                <span class="text-success">FREE</span>
+                            </div>
+                            <div class="summary-item">
+                                <span>Estimated Tax</span>
+                                <span>$29.40</span>
+                            </div>
+                            <div class="summary-item mt-3 pt-3 border-top">
+                                <span class="summary-total">Total</span>
+                                <span class="summary-total">$424.37</span>
+                            </div>
+                        </div>
+                        
+                        <div class="secure-section">
+                            <span class="secure-badge"><i class="bi bi-shield-lock me-2"></i> Secure Payment</span>
+                            <h3 class="mb-3">Complete Your Purchase</h3>
+                            <p class="mb-4">Click below to <span class="highlight">finalize your payment and receive order confirmation instantly!</span></p>
+                            <button class="btn btn-primary btn-lg w-100 py-3">Place Order & Pay Securely</button>
+                            <div class="mt-3">
+                                <img src="https://www.logo.wine/a/logo/PayPal/PayPal-Logo.wine.svg" alt="Payment Methods" class="img-fluid mt-2" style="max-width: 200px;">
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <h4>Need Help?</h4>
+                            <p>Have questions about your order? <span class="highlight">Visit our <a href="help-center.html">Help Center</a> for FAQs, refunds, and customer support</span>.</p>
+                            <div class="d-flex gap-2">
+                                <a href="#" class="btn btn-outline-primary"><i class="bi bi-chat me-2"></i> Live Chat</a>
+                                <a href="#" class="btn btn-outline-primary"><i class="bi bi-telephone me-2"></i> Call Support</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <h4 class="mb-4">ShopifyPro</h4>
+                    <p>Your trusted online marketplace for quality products at competitive prices. We make online shopping simple and secure.</p>
+                    <div class="mt-4">
+                        <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-pinterest"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2">
+                    <h5>Shop</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-white-50">All Products</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-white-50">Featured</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-white-50">New Arrivals</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-white-50">Deals</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-white-50">Gift Cards</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2">
+                    <h5>Help</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-white-50">Customer Service</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-white-50">Track Order</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-white-50">Returns & Exchanges</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-white-50">Shipping Info</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-white-50">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-4">
+                    <h5>Contact Us</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-3"><i class="bi bi-envelope me-2"></i> support@shopifypro.com</li>
+                        <li class="mb-3"><i class="bi bi-telephone me-2"></i> +1 (555) 789-6543</li>
+                        <li class="mb-3"><i class="bi bi-geo-alt me-2"></i> 123 Commerce Street, San Francisco, CA</li>
+                        <li class="mb-3"><i class="bi bi-clock me-2"></i> Mon-Fri: 9am - 8pm EST</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright text-center mt-5">
+                <p class="mb-0">&copy; 2025 ShopifyPro. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom Script -->
+    <script>
+        // Payment option selection
+        document.querySelectorAll('.payment-option').forEach(option => {
+            option.addEventListener('click', function() {
+                document.querySelectorAll('.payment-option').forEach(item => {
+                    item.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+        
+        // Shipping option selection
+        document.querySelectorAll('.shipping-option').forEach(option => {
+            option.addEventListener('click', function() {
+                document.querySelectorAll('.shipping-option').forEach(item => {
+                    item.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+        
+        // Place order button
+        document.querySelector('.btn-primary.btn-lg').addEventListener('click', function() {
+            const button = this;
+            button.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span> Processing Payment...';
+            button.disabled = true;
+            
+            // Simulate payment processing
+            setTimeout(() => {
+                window.location.href = 'order-confirmation.html';
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
