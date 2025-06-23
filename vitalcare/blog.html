@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VitalCare Blog | Medical Insights, Wellness & Patient Stories</title>
+    <meta name="description" content="Explore expert medical insights, mental health support, and inspiring patient stories on the VitalCare blog. Stay informed for better health.">
+    <meta name="keywords" content="medical blog, health insights, mental wellness, patient stories, VitalCare healthcare, wellness advice, expert medical guidance">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="VitalCare Blog | Medical Insights, Wellness & Patient Stories">
+    <meta property="og:description" content="Discover expert health advice, mental wellness strategies, and patient stories with VitalCare’s informative blog. Stay proactive about your health.">
+    <meta property="og:type" content="website">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <style>
+        :root {
+            --mint-green: #98ff98;
+            --deep-teal: #008080;
+            --light-teal: #e6f7f7;
+            --soft-green: #d1f0e0;
+            --dark-green: #006666;
+        }
+        
+        body {
+            font-family: 'Nunito', sans-serif;
+            color: #333;
+            background-color: #f9fdfb;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Merriweather', serif;
+            color: var(--deep-teal);
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, rgba(152, 255, 152, 0.1) 0%, rgba(0, 128, 128, 0.2) 100%), 
+                        url('https://images.unsplash.com/photo-1586773860418-d37222d8fce3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1953&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 150px 0 100px;
+            position: relative;
+            overflow: hidden;
+            color: white;
+            text-align: center;
+        }
+        
+        .hero-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 80, 80, 0.7);
+            z-index: 0;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .brand-name {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: white;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+        
+        .btn-primary {
+            background-color: var(--deep-teal);
+            border: none;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--dark-green);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--mint-green);
+            margin: 15px auto;
+            border-radius: 2px;
+        }
+        
+        .blog-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: none;
+            margin-bottom: 30px;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 128, 128, 0.1);
+        }
+        
+        .blog-img {
+            height: 220px;
+            object-fit: cover;
+            width: 100%;
+        }
+        
+        .blog-content {
+            padding: 25px;
+        }
+        
+        .blog-category {
+            display: inline-block;
+            background: var(--mint-green);
+            color: var(--dark-green);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .blog-meta {
+            color: #6c757d;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .blog-meta i {
+            margin-right: 5px;
+        }
+        
+        .category-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .category-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .category-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .category-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .category-list a {
+            color: #333;
+            text-decoration: none;
+            display: flex;
+            justify-content: space-between;
+            transition: color 0.3s ease;
+        }
+        
+        .category-list a:hover {
+            color: var(--deep-teal);
+        }
+        
+        .popular-card {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .popular-card:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .popular-img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-right: 15px;
+        }
+        
+        .newsletter-form {
+            background: var(--light-teal);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .navbar {
+            padding: 20px 0;
+            transition: all 0.4s ease;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .navbar-brand {
+            font-family: 'Merriweather', serif;
+            font-weight: 700;
+            color: var(--deep-teal) !important;
+            font-size: 1.8rem;
+        }
+        
+        .nav-link {
+            font-weight: 600;
+            color: var(--dark-green) !important;
+            margin: 0 10px;
+            position: relative;
+            padding: 8px 0 !important;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--mint-green);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .navbar .btn {
+            margin-left: 15px;
+        }
+        
+        footer {
+            background-color: var(--dark-green);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        /* Animation effects */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+        
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+        
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 100px 0 60px;
+            }
+            
+            .brand-name {
+                font-size: 2.5rem;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .navbar .btn {
+                margin: 10px 0 0;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">VitalCare</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about-us.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="patient-resources.html">Patient Resources</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="appointments.html">Appointments</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact-us.html">Contact</a>
+                    </li>
+                </ul>
+                <a href="appointments.html" class="btn btn-primary">Book Appointment</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container hero-content">
+            <h1 class="brand-name animate">VitalCare Blog</h1>
+            <p class="lead mb-4 animate delay-1">Stay Informed, Stay Healthy</p>
+            <div class="d-flex justify-content-center animate delay-2">
+                <a href="#medical-insights" class="btn btn-light me-3">Medical Insights</a>
+                <a href="#patient-stories" class="btn btn-outline-light">Patient Stories</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section class="section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <p class="lead mb-4">At <strong class="text-teal">VitalCare</strong>, we believe that knowledge is essential for <strong>maintaining a healthy life</strong>. Read our expert health insights, mental wellness advice, and inspiring patient stories to make informed healthcare decisions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Content -->
+    <section class="section">
+        <div class="container">
+            <div class="row">
+                <!-- Main Content -->
+                <div class="col-lg-8 mb-5 mb-lg-0">
+                    <!-- Medical Insights Section -->
+                    <div id="medical-insights" class="mb-5">
+                        <h2 class="section-title">Expert Medical Insights & Healthcare Trends</h2>
+                        
+                        <div class="row">
+                            <div class="col-md-6 mb-4 animate">
+                                <div class="blog-card">
+                                    <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Medical Innovations" class="blog-img">
+                                    <div class="blog-content">
+                                        <span class="blog-category">Medical Technology</span>
+                                        <h3>Breakthrough Treatments & Innovations</h3>
+                                        <div class="blog-meta">
+                                            <span><i class="bi bi-calendar"></i> June 12, 2025</span>
+                                            <span class="ms-3"><i class="bi bi-chat"></i> 24 Comments</span>
+                                        </div>
+                                        <p>Stay updated with <strong>advanced medical technologies, life-saving treatments, and the latest healthcare breakthroughs</strong>.</p>
+                                        <a href="#" class="btn btn-link text-decoration-none p-0">Read More <i class="bi bi-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6 mb-4 animate delay-1">
+                                <div class="blog-card">
+                                    <img src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Preventive Healthcare" class="blog-img">
+                                    <div class="blog-content">
+                                        <span class="blog-category">Preventive Care</span>
+                                        <h3>Preventive Healthcare Strategies</h3>
+                                        <div class="blog-meta">
+                                            <span><i class="bi bi-calendar"></i> June 5, 2025</span>
+                                            <span class="ms-3"><i class="bi bi-chat"></i> 18 Comments</span>
+                                        </div>
+                                        <p>Learn how <strong>routine checkups, healthy habits, and early diagnoses</strong> can improve long-term well-being.</p>
+                                        <a href="#" class="btn btn-link text-decoration-none p-0">Read More <i class="bi bi-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6 mb-4 animate delay-2">
+                                <div class="blog-card">
+                                    <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Chronic Conditions" class="blog-img">
+                                    <div class="blog-content">
+                                        <span class="blog-category">Chronic Care</span>
+                                        <h3>Managing Chronic Conditions</h3>
+                                        <div class="blog-meta">
+                                            <span><i class="bi bi-calendar"></i> May 28, 2025</span>
+                                            <span class="ms-3"><i class="bi bi-chat"></i> 32 Comments</span>
+                                        </div>
+                                        <p>Discover effective methods for handling <strong>diabetes, heart disease, arthritis, and other conditions</strong> with <strong>medical expert recommendations</strong>.</p>
+                                        <a href="#" class="btn btn-link text-decoration-none p-0">Read More <i class="bi bi-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6 mb-4 animate delay-3">
+                                <div class="blog-card">
+                                    <img src="https://images.unsplash.com/photo-1593642634524-b40b5baae6bb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Mental Health" class="blog-img">
+                                    <div class="blog-content">
+                                        <span class="blog-category">Mental Health</span>
+                                        <h3>Stress Management Techniques</h3>
+                                        <div class="blog-meta">
+                                            <span><i class="bi bi-calendar"></i> May 20, 2025</span>
+                                            <span class="ms-3"><i class="bi bi-chat"></i> 27 Comments</span>
+                                        </div>
+                                        <p>Explore <strong>mindfulness exercises, relaxation strategies, and therapy guidance</strong> for stress relief.</p>
+                                        <a href="#" class="btn btn-link text-decoration-none p-0">Read More <i class="bi bi-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Mental Health Section -->
+                    <div id="mental-health" class="mb-5">
+                        <h2 class="section-title">Prioritizing Mental Well-being & Emotional Health</h2>
+                        
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <div class="blog-card">
+                                    <img src="https://images.unsplash.com/photo-1596367407372-96cb88503db6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Anxiety & Depression" class="blog-img">
+                                    <div class="blog-content">
+                                        <span class="blog-category">Mental Health</span>
+                                        <h3>Overcoming Anxiety & Depression</h3>
+                                        <div class="blog-meta">
+                                            <span><i class="bi bi-calendar"></i> May 15, 2025</span>
+                                            <span class="ms-3"><i class="bi bi-chat"></i> 42 Comments</span>
+                                        </div>
+                                        <p>Learn <strong>coping mechanisms, professional counseling approaches, and mental resilience techniques</strong> for emotional health.</p>
+                                        <a href="#" class="btn btn-link text-decoration-none p-0">Read More <i class="bi bi-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6 mb-4">
+                                <div class="blog-card">
+                                    <img src="https://images.unsplash.com/photo-1491841550275-ad7854e35ca6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Healthy Habits" class="blog-img">
+                                    <div class="blog-content">
+                                        <span class="blog-category">Wellness</span>
+                                        <h3>Building Healthy Habits for a Strong Mind</h3>
+                                        <div class="blog-meta">
+                                            <span><i class="bi bi-calendar"></i> May 8, 2025</span>
+                                            <span class="ms-3"><i class="bi bi-chat"></i> 19 Comments</span>
+                                        </div>
+                                        <p>Small lifestyle changes can make a difference—discover <strong>daily routines to support mental wellness</strong>.</p>
+                                        <a href="#" class="btn btn-link text-decoration-none p-0">Read More <i class="bi bi-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Patient Stories Section -->
+                    <div id="patient-stories">
+                        <h2 class="section-title">Inspiring Patient Journeys & Success Stories</h2>
+                        
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <div class="blog-card">
+                                    <img src="https://images.unsplash.com/photo-1588617311320-8d1f614dae58?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Recovery Stories" class="blog-img">
+                                    <div class="blog-content">
+                                        <span class="blog-category">Patient Stories</span>
+                                        <h3>Recovery & Rehabilitation Testimonials</h3>
+                                        <div class="blog-meta">
+                                            <span><i class="bi bi-calendar"></i> May 1, 2025</span>
+                                            <span class="ms-3"><i class="bi bi-chat"></i> 36 Comments</span>
+                                        </div>
+                                        <p>Read real stories from patients who overcame <strong>chronic conditions and recovered through therapy and medical care</strong>.</p>
+                                        <a href="#" class="btn btn-link text-decoration-none p-0">Read More <i class="bi bi-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6 mb-4">
+                                <div class="blog-card">
+                                    <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Surgery Recovery" class="blog-img">
+                                    <div class="blog-content">
+                                        <span class="blog-category">Recovery</span>
+                                        <h3>Life After Major Surgery</h3>
+                                        <div class="blog-meta">
+                                            <span><i class="bi bi-calendar"></i> April 24, 2025</span>
+                                            <span class="ms-3"><i class="bi bi-chat"></i> 29 Comments</span>
+                                        </div>
+                                        <p>Discover patient experiences on <strong>post-surgery recovery, rehabilitation milestones, and medical transformations</strong>.</p>
+                                        <a href="#" class="btn btn-link text-decoration-none p-0">Read More <i class="bi bi-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6 mb-4">
+                                <div class="blog-card">
+                                    <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Community Health" class="blog-img">
+                                    <div class="blog-content">
+                                        <span class="blog-category">Community</span>
+                                        <h3>Community Health Awareness & Support</h3>
+                                        <div class="blog-meta">
+                                            <span><i class="bi bi-calendar"></i> April 17, 2025</span>
+                                            <span class="ms-3"><i class="bi bi-chat"></i> 21 Comments</span>
+                                        </div>
+                                        <p>Learn how <strong>VitalCare's outreach programs, screenings, and wellness events</strong> are making an impact in communities.</p>
+                                        <a href="#" class="btn btn-link text-decoration-none p-0">Read More <i class="bi bi-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6 mb-4">
+                                <div class="blog-card">
+                                    <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Nutrition Tips" class="blog-img">
+                                    <div class="blog-content">
+                                        <span class="blog-category">Nutrition</span>
+                                        <h3>Nutrition for Long-term Health</h3>
+                                        <div class="blog-meta">
+                                            <span><i class="bi bi-calendar"></i> April 10, 2025</span>
+                                            <span class="ms-3"><i class="bi bi-chat"></i> 38 Comments</span>
+                                        </div>
+                                        <p>Discover how proper nutrition can transform your health and prevent chronic diseases.</p>
+                                        <a href="#" class="btn btn-link text-decoration-none p-0">Read More <i class="bi bi-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Pagination -->
+                        <nav aria-label="Blog navigation">
+                            <ul class="pagination justify-content-center">
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#" tabindex="-1">Previous</a>
+                                </li>
+                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">Next</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                
+                <!-- Sidebar -->
+                <div class="col-lg-4">
+                    <!-- Search Widget -->
+                    <div class="category-card mb-4">
+                        <h4 class="mb-4">Search Blog</h4>
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search articles...">
+                            <button class="btn btn-primary" type="button">
+                                <i class="bi bi-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Categories Widget -->
+                    <div class="category-card mb-4">
+                        <h4 class="mb-4">Categories</h4>
+                        <ul class="category-list">
+                            <li><a href="#">Medical Insights <span>(24)</span></a></li>
+                            <li><a href="#">Mental Health <span>(18)</span></a></li>
+                            <li><a href="#">Patient Stories <span>(15)</span></a></li>
+                            <li><a href="#">Preventive Care <span>(12)</span></a></li>
+                            <li><a href="#">Nutrition <span>(9)</span></a></li>
+                            <li><a href="#">Wellness Programs <span>(7)</span></a></li>
+                            <li><a href="#">Community Health <span>(5)</span></a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Popular Posts -->
+                    <div class="category-card mb-4">
+                        <h4 class="mb-4">Popular Articles</h4>
+                        
+                        <div class="popular-card">
+                            <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Chronic Conditions" class="popular-img">
+                            <div>
+                                <h5 class="mb-1">Managing Chronic Conditions</h5>
+                                <p class="text-muted mb-0">May 28, 2025</p>
+                            </div>
+                        </div>
+                        
+                        <div class="popular-card">
+                            <img src="https://images.unsplash.com/photo-1596367407372-96cb88503db6?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Anxiety & Depression" class="popular-img">
+                            <div>
+                                <h5 class="mb-1">Overcoming Anxiety & Depression</h5>
+                                <p class="text-muted mb-0">May 15, 2025</p>
+                            </div>
+                        </div>
+                        
+                        <div class="popular-card">
+                            <img src="https://images.unsplash.com/photo-1588617311320-8d1f614dae58?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Recovery Stories" class="popular-img">
+                            <div>
+                                <h5 class="mb-1">Recovery & Rehabilitation Testimonials</h5>
+                                <p class="text-muted mb-0">May 1, 2025</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Newsletter -->
+                    <div class="newsletter-form">
+                        <h4 class="mb-3">Stay Updated</h4>
+                        <p class="mb-4">Subscribe to our newsletter for health tips and clinic updates.</p>
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="Your Email Address">
+                            <button class="btn btn-primary" type="button">Subscribe</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Tags -->
+                    <div class="category-card mt-4">
+                        <h4 class="mb-4">Popular Tags</h4>
+                        <div class="d-flex flex-wrap gap-2">
+                            <a href="#" class="btn btn-sm btn-outline-primary">Prevention</a>
+                            <a href="#" class="btn btn-sm btn-outline-primary">Wellness</a>
+                            <a href="#" class="btn btn-sm btn-outline-primary">Nutrition</a>
+                            <a href="#" class="btn btn-sm btn-outline-primary">Mental Health</a>
+                            <a href="#" class="btn btn-sm btn-outline-primary">Recovery</a>
+                            <a href="#" class="btn btn-sm btn-outline-primary">Therapy</a>
+                            <a href="#" class="btn btn-sm btn-outline-primary">Community</a>
+                            <a href="#" class="btn btn-sm btn-outline-primary">Innovation</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="section" style="background-color: var(--light-teal);">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="mb-4">Join the Conversation & Stay Informed</h2>
+                    <p class="lead mb-5">Follow <strong>VitalCare's blog</strong> for <strong>trusted health advice, medical updates, and inspiring patient stories</strong>. Stay proactive about your well-being today.</p>
+                    <a href="#" class="btn btn-primary btn-lg me-3">View All Articles</a>
+                    <a href="appointments.html" class="btn btn-outline-dark btn-lg">Book Appointment</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <h3 class="text-white mb-4">VitalCare</h3>
+                    <p class="text-white-50 mb-4">"Healing for a Better Life." Providing compassionate healthcare with a focus on holistic wellness and patient-centered care.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="bi bi-facebook"></i></a>
+                        <a href="#"><i class="bi bi-twitter"></i></a>
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                        <a href="#"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-5 mb-md-0">
+                    <h5 class="text-white mb-4">Quick Links</h5>
+                    <div class="footer-links">
+                        <a href="index.html">Home</a>
+                        <a href="about-us.html">About Us</a>
+                        <a href="services.html">Services</a>
+                        <a href="patient-resources.html">Patient Resources</a>
+                        <a href="blog.html">Blog</a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-5 mb-md-0">
+                    <h5 class="text-white mb-4">Our Services</h5>
+                    <div class="footer-links">
+                        <a href="services.html#preventive">Preventive Care</a>
+                        <a href="services.html#specialists">Specialist Consultations</a>
+                        <a href="services.html#therapy">Therapy Sessions</a>
+                        <a href="services.html#wellness">Wellness Programs</a>
+                        <a href="services.html#diagnostics">Diagnostic Tests</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <h5 class="text-white mb-4">Contact Us</h5>
+                    <p class="text-white-50 mb-3"><i class="bi bi-geo-alt me-2"></i> 123 Wellness Avenue, Health District</p>
+                    <p class="text-white-50 mb-3"><i class="bi bi-telephone me-2"></i> +1 (555) 789-6543</p>
+                    <p class="text-white-50 mb-3"><i class="bi bi-envelope me-2"></i> support@vitalcare.com</p>
+                </div>
+            </div>
+            <div class="row copyright">
+                <div class="col-12 text-center">
+                    <p class="mb-0 text-white-50">© 2025 VitalCare Health & Wellness Clinic. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Add animation to elements when they come into view
+        document.addEventListener('DOMContentLoaded', function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            document.querySelectorAll('.blog-card').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
