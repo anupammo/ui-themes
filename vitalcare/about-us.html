@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | VitalCare - Expert Healthcare & Compassionate Care</title>
+    <meta name="description" content="Meet the expert doctors at VitalCare. Discover our philosophy, clinic locations, and patient testimonials. Trusted healthcare for all.">
+    <meta name="keywords" content="VitalCare doctors, healthcare philosophy, medical clinic locations, patient testimonials, compassionate care, expert physicians">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="About Us | VitalCare - Expert Healthcare & Compassionate Care">
+    <meta property="og:description" content="VitalCare offers expert healthcare with a compassionate touch. Meet our doctors, explore our philosophy, and hear from satisfied patients.">
+    <meta property="og:type" content="website">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <style>
+        :root {
+            --mint-green: #98ff98;
+            --deep-teal: #008080;
+            --light-teal: #e6f7f7;
+            --soft-green: #d1f0e0;
+            --dark-green: #006666;
+        }
+        
+        body {
+            font-family: 'Nunito', sans-serif;
+            color: #333;
+            background-color: #f9fdfb;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Merriweather', serif;
+            color: var(--deep-teal);
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, rgba(152, 255, 152, 0.1) 0%, rgba(0, 128, 128, 0.2) 100%), 
+                        url('https://images.unsplash.com/photo-1586773860418-d37222d8fce3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1953&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 150px 0 100px;
+            position: relative;
+            overflow: hidden;
+            color: white;
+            text-align: center;
+        }
+        
+        .hero-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 80, 80, 0.7);
+            z-index: 0;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .brand-name {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: white;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+        
+        .btn-primary {
+            background-color: var(--deep-teal);
+            border: none;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--dark-green);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--mint-green);
+            margin: 15px auto;
+            border-radius: 2px;
+        }
+        
+        .about-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: none;
+        }
+        
+        .about-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 128, 128, 0.1);
+        }
+        
+        .doctor-card {
+            text-align: center;
+            padding: 30px 20px;
+        }
+        
+        .doctor-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 20px;
+            border: 5px solid var(--light-teal);
+        }
+        
+        .specialty-badge {
+            background: var(--mint-green);
+            color: var(--dark-green);
+            border-radius: 20px;
+            padding: 5px 15px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-block;
+            margin: 5px 0;
+        }
+        
+        .philosophy-section {
+            background: linear-gradient(135deg, var(--light-teal) 0%, var(--soft-green) 100%);
+            position: relative;
+        }
+        
+        .value-item {
+            text-align: center;
+            padding: 30px;
+        }
+        
+        .value-icon {
+            font-size: 2.5rem;
+            color: var(--deep-teal);
+            margin-bottom: 20px;
+        }
+        
+        .clinic-card {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            height: 100%;
+        }
+        
+        .clinic-img {
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .clinic-info {
+            padding: 20px;
+        }
+        
+        .testimonial-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+        }
+        
+        .testimonial-card::before {
+            content: """;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 5rem;
+            font-family: serif;
+            color: var(--mint-green);
+            opacity: 0.3;
+            line-height: 1;
+        }
+        
+        .testimonial-rating {
+            color: gold;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+        
+        .patient-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+        }
+        
+        .commitment-section {
+            background: linear-gradient(rgba(0, 128, 128, 0.9), rgba(0, 128, 128, 0.8)), 
+                        url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 0;
+        }
+        
+        .navbar {
+            padding: 20px 0;
+            transition: all 0.4s ease;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .navbar-brand {
+            font-family: 'Merriweather', serif;
+            font-weight: 700;
+            color: var(--deep-teal) !important;
+            font-size: 1.8rem;
+        }
+        
+        .nav-link {
+            font-weight: 600;
+            color: var(--dark-green) !important;
+            margin: 0 10px;
+            position: relative;
+            padding: 8px 0 !important;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--mint-green);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .navbar .btn {
+            margin-left: 15px;
+        }
+        
+        footer {
+            background-color: var(--dark-green);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        /* Animation effects */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+        
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+        
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 100px 0 60px;
+            }
+            
+            .brand-name {
+                font-size: 2.5rem;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .navbar .btn {
+                margin: 10px 0 0;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">VitalCare</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="about-us.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="patient-resources.html">Patient Resources</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact-us.html">Contact</a>
+                    </li>
+                </ul>
+                <a href="appointments.html" class="btn btn-primary">Book Appointment</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container hero-content">
+            <h1 class="brand-name animate">About VitalCare</h1>
+            <p class="lead mb-4 animate delay-1">Healing With Care</p>
+            <div class="d-flex justify-content-center animate delay-2">
+                <a href="#our-team" class="btn btn-light me-3">Meet Our Team</a>
+                <a href="#locations" class="btn btn-outline-light">Find a Clinic</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section class="section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 text-center">
+                    <p class="lead mb-4">At <strong class="text-teal">VitalCare</strong>, we believe in providing <strong>expert medical care with a compassionate approach</strong>. Our mission is to <strong>enhance patient well-being, deliver advanced healthcare solutions, and ensure accessible medical support for all</strong>.</p>
+                    <div class="row mt-5">
+                        <div class="col-md-4 mb-4 mb-md-0">
+                            <div class="value-item">
+                                <div class="value-icon">
+                                    <i class="bi bi-heart-pulse"></i>
+                                </div>
+                                <h4>Compassionate Care</h4>
+                                <p>Treating each patient with dignity, respect, and empathy</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4 mb-md-0">
+                            <div class="value-item">
+                                <div class="value-icon">
+                                    <i class="bi bi-shield-check"></i>
+                                </div>
+                                <h4>Clinical Excellence</h4>
+                                <p>Highest standards of medical expertise and safety protocols</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="value-item">
+                                <div class="value-icon">
+                                    <i class="bi bi-people"></i>
+                                </div>
+                                <h4>Community Focus</h4>
+                                <p>Serving our community with accessible, affordable healthcare</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Team Section -->
+    <section class="section" id="our-team">
+        <div class="container">
+            <h2 class="section-title">Meet Our Expert Doctors</h2>
+            
+            <div class="row mb-5">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <div class="about-card h-100">
+                        <div class="card-body p-4">
+                            <h3 class="mb-3">Highly Skilled Medical Professionals</h3>
+                            <p>Our team of <strong>board-certified doctors and specialists</strong> are committed to providing <strong>accurate diagnoses, personalized treatment plans, and comprehensive patient care</strong>.</p>
+                            <p>Each member of our medical team undergoes rigorous continuing education to stay at the forefront of medical advancements and treatment methodologies.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="about-card h-100">
+                        <div class="card-body p-4">
+                            <h3 class="mb-3">Areas of Expertise</h3>
+                            <p>Our medical professionals specialize in <strong>general medicine, cardiology, orthopedics, mental health, pediatrics, and rehabilitation therapy</strong>.</p>
+                            <div class="mt-4">
+                                <span class="specialty-badge">Cardiology</span>
+                                <span class="specialty-badge">Orthopedics</span>
+                                <span class="specialty-badge">Dermatology</span>
+                                <span class="specialty-badge">Pediatrics</span>
+                                <span class="specialty-badge">Mental Health</span>
+                                <span class="specialty-badge">Physical Therapy</span>
+                                <span class="specialty-badge">Nutrition</span>
+                                <span class="specialty-badge">Preventive Care</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <h3 class="text-center mb-5">Our Medical Leadership Team</h3>
+            
+            <div class="row g-4">
+                <div class="col-md-4 animate">
+                    <div class="doctor-card about-card">
+                        <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Dr. Sarah Johnson" class="doctor-img">
+                        <h4>Dr. Sarah Johnson</h4>
+                        <p class="text-muted">Chief Medical Director</p>
+                        <p class="specialty-badge">Internal Medicine</p>
+                        <p class="mt-3">Board-certified physician with 15+ years of experience in comprehensive patient care.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 animate delay-1">
+                    <div class="doctor-card about-card">
+                        <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Dr. Michael Chen" class="doctor-img">
+                        <h4>Dr. Michael Chen</h4>
+                        <p class="text-muted">Cardiology Specialist</p>
+                        <p class="specialty-badge">Cardiovascular Health</p>
+                        <p class="mt-3">Pioneer in non-invasive cardiac treatments with numerous published research papers.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 animate delay-2">
+                    <div class="doctor-card about-card">
+                        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Dr. Priya Sharma" class="doctor-img">
+                        <h4>Dr. Priya Sharma</h4>
+                        <p class="text-muted">Wellness Director</p>
+                        <p class="specialty-badge">Preventive Medicine</p>
+                        <p class="mt-3">Holistic health advocate specializing in personalized wellness and lifestyle medicine.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Philosophy Section -->
+    <section class="section philosophy-section">
+        <div class="container">
+            <h2 class="section-title">Our Philosophy: Patient-Centered Care</h2>
+            
+            <div class="row">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <div class="about-card">
+                        <div class="card-body p-4">
+                            <h3 class="mb-3">Compassion, Excellence & Innovation</h3>
+                            <p>At <strong class="text-teal">VitalCare</strong>, we follow a <strong>holistic approach to healthcare</strong>, ensuring <strong>patient comfort, advanced treatment methods, and personalized wellness plans</strong>.</p>
+                            <p>We believe in treating the whole person, not just the symptoms. Our integrated approach combines traditional medicine with innovative therapies to address physical, emotional, and lifestyle factors.</p>
+                            <div class="mt-4">
+                                <div class="d-flex align-items-start mb-3">
+                                    <i class="bi bi-check-circle-fill text-success me-2 mt-1"></i>
+                                    <div>Personalized treatment plans tailored to individual needs</div>
+                                </div>
+                                <div class="d-flex align-items-start mb-3">
+                                    <i class="bi bi-check-circle-fill text-success me-2 mt-1"></i>
+                                    <div>Evidence-based medicine combined with innovative approaches</div>
+                                </div>
+                                <div class="d-flex align-items-start mb-3">
+                                    <i class="bi bi-check-circle-fill text-success me-2 mt-1"></i>
+                                    <div>Continuity of care through all stages of treatment</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="about-card">
+                        <div class="card-body p-4">
+                            <h3 class="mb-3">Commitment to Accessibility</h3>
+                            <p>We strive to make <strong>quality healthcare accessible to everyone</strong>, offering <strong>affordable services and convenient appointment scheduling</strong>.</p>
+                            <p>Our sliding scale fees, telehealth options, and extended hours ensure that quality care is within reach for all members of our community.</p>
+                            <div class="row mt-4">
+                                <div class="col-md-6 mb-3">
+                                    <div class="d-flex align-items-center">
+                                        <div class="bg-light rounded-circle p-3 me-3">
+                                            <i class="bi bi-calendar-check fs-3 text-teal"></i>
+                                        </div>
+                                        <div>
+                                            <h5 class="mb-0">Flexible Scheduling</h5>
+                                            <p class="mb-0">Extended and weekend hours</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="d-flex align-items-center">
+                                        <div class="bg-light rounded-circle p-3 me-3">
+                                            <i class="bi bi-cash-coin fs-3 text-teal"></i>
+                                        </div>
+                                        <div>
+                                            <h5 class="mb-0">Affordable Options</h5>
+                                            <p class="mb-0">Sliding scale fees available</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="d-flex align-items-center">
+                                        <div class="bg-light rounded-circle p-3 me-3">
+                                            <i class="bi bi-laptop fs-3 text-teal"></i>
+                                        </div>
+                                        <div>
+                                            <h5 class="mb-0">Telehealth Services</h5>
+                                            <p class="mb-0">Virtual consultations available</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="d-flex align-items-center">
+                                        <div class="bg-light rounded-circle p-3 me-3">
+                                            <i class="bi bi-translate fs-3 text-teal"></i>
+                                        </div>
+                                        <div>
+                                            <h5 class="mb-0">Multilingual Staff</h5>
+                                            <p class="mb-0">Services in 8 languages</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clinic Locations Section -->
+    <section class="section" id="locations">
+        <div class="container">
+            <h2 class="section-title">Our Clinics: Accessible Care Across Locations</h2>
+            
+            <div class="row mb-5">
+                <div class="col-md-8 mx-auto text-center">
+                    <h3 class="mb-3">Find a VitalCare Clinic Near You</h3>
+                    <p>Our clinics feature <strong>modern diagnostic equipment, comfortable consultation spaces, and advanced patient care solutions</strong>.</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-4 animate">
+                    <div class="clinic-card">
+                        <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Downtown Medical Center" class="clinic-img w-100">
+                        <div class="clinic-info">
+                            <h4>Downtown Medical Center</h4>
+                            <p class="text-muted">123 Wellness Avenue<br>Health District, CA 90210</p>
+                            <p class="mb-2"><strong>Hours:</strong> Mon-Fri 8am-8pm, Sat 9am-4pm</p>
+                            <p class="mb-0"><strong>Services:</strong> Full-service clinic with diagnostics</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 animate delay-1">
+                    <div class="clinic-card">
+                        <img src="https://images.unsplash.com/photo-1588617311330-4d0a3e5e1d8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Suburban Wellness Clinic" class="clinic-img w-100">
+                        <div class="clinic-info">
+                            <h4>Suburban Wellness Clinic</h4>
+                            <p class="text-muted">456 Harmony Lane<br>Green Valley, CA 90211</p>
+                            <p class="mb-2"><strong>Hours:</strong> Mon-Fri 9am-7pm, Sat 9am-2pm</p>
+                            <p class="mb-0"><strong>Services:</strong> Preventive care & wellness programs</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 animate delay-2">
+                    <div class="clinic-card">
+                        <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Emergency Care Unit" class="clinic-img w-100">
+                        <div class="clinic-info">
+                            <h4>Emergency Care Unit</h4>
+                            <p class="text-muted">789 Care Boulevard<br>MediCenter, CA 90212</p>
+                            <p class="mb-2"><strong>Hours:</strong> 24/7 Emergency Services</p>
+                            <p class="mb-0"><strong>Services:</strong> Urgent care & emergency services</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section philosophy-section">
+        <div class="container">
+            <h2 class="section-title">What Our Patients Say</h2>
+            
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="fst-italic mb-4">"VitalCare's doctors truly care about patient well-being. Their expert guidance and friendly approach made my treatment smooth and effective!"</p>
+                        <div class="d-flex align-items-center">
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Emily Watson" class="patient-img">
+                            <div>
+                                <h5 class="mb-0">Emily Watson</h5>
+                                <p class="mb-0 text-muted">Verified Patient</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="fst-italic mb-4">"I'm grateful for the outstanding support and medical care I received from VitalCare. Their holistic wellness approach is life-changing!"</p>
+                        <div class="d-flex align-items-center">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Mark Stevens" class="patient-img">
+                            <div>
+                                <h5 class="mb-0">Mark Stevens</h5>
+                                <p class="mb-0 text-muted">VitalCare Patient</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="fst-italic mb-4">"The team at VitalCare went above and beyond to help me manage my chronic condition. Their personalized approach has made all the difference."</p>
+                        <div class="d-flex align-items-center">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Jennifer Lopez" class="patient-img">
+                            <div>
+                                <h5 class="mb-0">Jennifer Lopez</h5>
+                                <p class="mb-0 text-muted">Patient for 5 years</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="fst-italic mb-4">"From the welcoming staff to the exceptional doctors, every visit to VitalCare has been a positive experience. They truly put patients first."</p>
+                        <div class="d-flex align-items-center">
+                            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Robert Johnson" class="patient-img">
+                            <div>
+                                <h5 class="mb-0">Robert Johnson</h5>
+                                <p class="mb-0 text-muted">New Patient</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Commitment Section -->
+    <section class="commitment-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h2 class="mb-4">Let's Build a Healthier Future Together</h2>
+                    <p class="lead mb-5">VitalCare is committed to providing <strong>exceptional healthcare services, expert medical guidance, and compassionate patient support</strong>.</p>
+                    <div class="d-flex flex-wrap justify-content-center gap-3">
+                        <a href="appointments.html" class="btn btn-light btn-lg">Book Your Appointment</a>
+                        <a href="contact-us.html" class="btn btn-outline-light btn-lg">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <h3 class="text-white mb-4">VitalCare</h3>
+                    <p class="text-white-50 mb-4">"Healing for a Better Life." Providing compassionate healthcare with a focus on holistic wellness and patient-centered care.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="bi bi-facebook"></i></a>
+                        <a href="#"><i class="bi bi-twitter"></i></a>
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                        <a href="#"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-5 mb-md-0">
+                    <h5 class="text-white mb-4">Quick Links</h5>
+                    <div class="footer-links">
+                        <a href="index.html">Home</a>
+                        <a href="about-us.html">About Us</a>
+                        <a href="services.html">Services</a>
+                        <a href="patient-resources.html">Patient Resources</a>
+                        <a href="blog.html">Blog</a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-5 mb-md-0">
+                    <h5 class="text-white mb-4">Our Services</h5>
+                    <div class="footer-links">
+                        <a href="services.html#preventive">Preventive Care</a>
+                        <a href="services.html#specialists">Specialist Consultations</a>
+                        <a href="services.html#therapy">Therapy Sessions</a>
+                        <a href="services.html#wellness">Wellness Programs</a>
+                        <a href="services.html#diagnostics">Diagnostic Tests</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <h5 class="text-white mb-4">Contact Us</h5>
+                    <p class="text-white-50 mb-3"><i class="bi bi-geo-alt me-2"></i> 123 Wellness Avenue, Health District</p>
+                    <p class="text-white-50 mb-3"><i class="bi bi-telephone me-2"></i> +1 (555) 789-6543</p>
+                    <p class="text-white-50 mb-3"><i class="bi bi-envelope me-2"></i> support@vitalcare.com</p>
+                </div>
+            </div>
+            <div class="row copyright">
+                <div class="col-12 text-center">
+                    <p class="mb-0 text-white-50">© 2025 VitalCare Health & Wellness Clinic. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Add animation to elements when they come into view
+        document.addEventListener('DOMContentLoaded', function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            document.querySelectorAll('.doctor-card, .clinic-card, .testimonial-card').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
