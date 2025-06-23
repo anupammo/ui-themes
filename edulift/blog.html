@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduLift Blog | Study Tips & Latest Educational Trends</title>
+    <meta name="description" content="Explore study tips, learning strategies, and the latest trends in education with EduLift’s blog. Enhance your academic success today!">
+    <meta name="keywords" content="EduLift blog, study tips, learning strategies, education trends, academic success, online courses, student growth">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="EduLift Blog | Study Tips & Latest Educational Trends">
+    <meta property="og:description" content="Stay updated with EduLift’s expert study tips and educational trends. Improve your learning experience and academic growth.">
+    <meta property="og:type" content="website">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --deep-blue: #00274d;
+            --yellow: #ffcc00;
+            --white: #ffffff;
+            --light-blue: #e6f0ff;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #333;
+            background-color: #f8f9fa;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Source Serif Pro', serif;
+            font-weight: 700;
+        }
+        
+        .navbar {
+            background-color: var(--deep-blue);
+            padding: 20px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        
+        .navbar-brand {
+            font-family: 'Source Serif Pro', serif;
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: var(--white);
+        }
+        
+        .navbar-brand span {
+            color: var(--yellow);
+        }
+        
+        .navbar-nav .nav-link {
+            color: rgba(255,255,255,0.85);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 8px 15px;
+            border-radius: 4px;
+            margin: 0 5px;
+        }
+        
+        .navbar-nav .nav-link:hover {
+            color: var(--yellow);
+            background: rgba(255,255,255,0.1);
+        }
+        
+        .navbar-nav .nav-link.active {
+            color: var(--yellow);
+            background: rgba(255,255,255,0.1);
+        }
+        
+        .blog-hero {
+            background: linear-gradient(rgba(0, 39, 77, 0.9), rgba(0, 39, 77, 0.8)), url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            padding: 120px 0 80px;
+            color: white;
+            text-align: center;
+        }
+        
+        .blog-hero h1 {
+            font-size: 3rem;
+            line-height: 1.3;
+            margin-bottom: 20px;
+        }
+        
+        .blog-hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        
+        .btn-primary {
+            background-color: var(--yellow);
+            border: none;
+            color: var(--deep-blue);
+            padding: 12px 30px;
+            font-weight: 600;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: #ffd633;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 30px;
+            color: var(--deep-blue);
+            padding-bottom: 15px;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 4px;
+            background: var(--yellow);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .blog-card {
+            border: none;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            background: white;
+            margin-bottom: 30px;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .blog-img {
+            height: 220px;
+            object-fit: cover;
+            width: 100%;
+        }
+        
+        .blog-body {
+            padding: 25px;
+        }
+        
+        .blog-category {
+            display: inline-block;
+            background: rgba(0, 39, 77, 0.08);
+            color: var(--deep-blue);
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+        
+        .blog-title {
+            color: var(--deep-blue);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .blog-meta {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .blog-meta i {
+            margin-right: 5px;
+            color: var(--deep-blue);
+        }
+        
+        .blog-meta span {
+            margin-right: 20px;
+        }
+        
+        .sidebar {
+            position: sticky;
+            top: 100px;
+        }
+        
+        .sidebar-widget {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .widget-title {
+            position: relative;
+            margin-bottom: 25px;
+            color: var(--deep-blue);
+            padding-bottom: 15px;
+        }
+        
+        .widget-title:after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            background: var(--yellow);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .popular-post {
+            display: flex;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .popular-post:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .popular-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 8px;
+            object-fit: cover;
+            margin-right: 15px;
+        }
+        
+        .popular-title {
+            font-weight: 600;
+            color: var(--deep-blue);
+            margin-bottom: 5px;
+            font-size: 1rem;
+        }
+        
+        .popular-date {
+            font-size: 0.85rem;
+            color: #666;
+        }
+        
+        .tag {
+            display: inline-block;
+            background: rgba(0, 39, 77, 0.08);
+            color: var(--deep-blue);
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            margin: 0 5px 8px 0;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .tag:hover {
+            background: var(--deep-blue);
+            color: white;
+        }
+        
+        .subscribe-form .form-control {
+            border-radius: 30px;
+            padding: 12px 20px;
+            border: 1px solid #ddd;
+            margin-bottom: 15px;
+        }
+        
+        .subscribe-form .btn {
+            width: 100%;
+            border-radius: 30px;
+            padding: 12px;
+        }
+        
+        .cta-section {
+            background: linear-gradient(rgba(0, 39, 77, 0.9), rgba(0, 39, 77, 0.9)), url('https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') center/cover no-repeat;
+            padding: 80px 0;
+            color: white;
+            text-align: center;
+            margin: 80px 0;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+        }
+        
+        .cta-section p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .btn-outline-light {
+            border: 2px solid var(--yellow);
+            color: var(--yellow);
+            background: transparent;
+            padding: 12px 30px;
+            font-weight: 600;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline-light:hover {
+            background: var(--yellow);
+            color: var(--deep-blue);
+        }
+        
+        footer {
+            background: var(--deep-blue);
+            color: rgba(255,255,255,0.8);
+            padding: 70px 0 30px;
+        }
+        
+        .footer-title {
+            color: var(--yellow);
+            font-family: 'Source Serif Pro', serif;
+            margin-bottom: 25px;
+            font-size: 1.5rem;
+        }
+        
+        .footer-links a {
+            display: block;
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            margin-bottom: 12px;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--yellow);
+            padding-left: 5px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--yellow);
+            color: var(--deep-blue);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            margin-top: 50px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        .delay-1 {
+            animation-delay: 0.1s;
+        }
+        
+        .delay-2 {
+            animation-delay: 0.2s;
+        }
+        
+        .delay-3 {
+            animation-delay: 0.3s;
+        }
+        
+        .delay-4 {
+            animation-delay: 0.4s;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .blog-hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .blog-hero {
+                padding: 80px 0 50px;
+            }
+            
+            .blog-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .blog-hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Edu<span>Lift</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="courses.html">Courses</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="student-resources.html">Resources</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact-us.html">Contact</a>
+                    </li>
+                    <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+                        <a class="btn btn-primary" href="courses.html">Enroll Now</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Blog Hero Section -->
+    <section class="blog-hero">
+        <div class="container">
+            <h1 class="animate">EduLift Blog: Your Guide to Academic Success</h1>
+            <p class="animate delay-1">At EduLift, we provide valuable study tips, education trends, and expert insights to help students enhance their learning experience. Explore our latest blog posts and stay ahead in your academic journey.</p>
+            <div class="animate delay-2">
+                <a href="#blog-posts" class="btn btn-primary me-2">Read Articles</a>
+                <a href="#subscribe" class="btn btn-outline-light">Subscribe</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Content -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Main Content -->
+                <div class="col-lg-8">
+                    <div id="blog-posts">
+                        <!-- Study Tips Section -->
+                        <h2 class="section-title animate">Expert Study Tips & Learning Strategies</h2>
+                        
+                        <div class="row">
+                            <!-- Post 1 -->
+                            <div class="col-md-6 animate delay-1">
+                                <div class="blog-card">
+                                    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="blog-img" alt="Time Management">
+                                    <div class="blog-body">
+                                        <span class="blog-category">Study Tips</span>
+                                        <h3 class="blog-title">Effective Time Management for Students</h3>
+                                        <p>Learn practical time management techniques to optimize study sessions, reduce distractions, and improve focus.</p>
+                                        <div class="blog-meta">
+                                            <span><i class="bi bi-calendar"></i> June 15, 2025</span>
+                                            <span><i class="bi bi-clock"></i> 5 min read</span>
+                                        </div>
+                                        <a href="#" class="btn btn-outline-primary mt-3">Read More</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Post 2 -->
+                            <div class="col-md-6 animate delay-2">
+                                <div class="blog-card">
+                                    <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="blog-img" alt="Online Learning">
+                                    <div class="blog-body">
+                                        <span class="blog-category">Study Tips</span>
+                                        <h3 class="blog-title">How to Ace Online Learning</h3>
+                                        <p>Master online learning with tips on digital organization, engagement techniques, and self-paced study habits.</p>
+                                        <div class="blog-meta">
+                                            <span><i class="bi bi-calendar"></i> June 10, 2025</span>
+                                            <span><i class="bi bi-clock"></i> 6 min read</span>
+                                        </div>
+                                        <a href="#" class="btn btn-outline-primary mt-3">Read More</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Post 3 -->
+                            <div class="col-md-6 animate delay-3">
+                                <div class="blog-card">
+                                    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="blog-img" alt="Study Habits">
+                                    <div class="blog-body">
+                                        <span class="blog-category">Study Tips</span>
+                                        <h3 class="blog-title">Building Strong Study Habits</h3>
+                                        <p>Discover the best strategies for active learning, note-taking, and exam preparation to boost retention.</p>
+                                        <div class="blog-meta">
+                                            <span><i class="bi bi-calendar"></i> June 5, 2025</span>
+                                            <span><i class="bi bi-clock"></i> 7 min read</span>
+                                        </div>
+                                        <a href="#" class="btn btn-outline-primary mt-3">Read More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Educational Trends Section -->
+                        <h2 class="section-title mt-5 animate delay-1">Latest Trends & Innovations in Education</h2>
+                        
+                        <div class="row">
+                            <!-- Post 4 -->
+                            <div class="col-md-6 animate delay-2">
+                                <div class="blog-card">
+                                    <img src="https://images.unsplash.com/photo-1587440871875-191322ee64b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="blog-img" alt="Technology in Learning">
+                                    <div class="blog-body">
+                                        <span class="blog-category">Education Trends</span>
+                                        <h3 class="blog-title">Technology in Learning</h3>
+                                        <p>Explore how AI, adaptive learning, and digital classrooms are transforming modern education.</p>
+                                        <div class="blog-meta">
+                                            <span><i class="bi bi-calendar"></i> May 28, 2025</span>
+                                            <span><i class="bi bi-clock"></i> 8 min read</span>
+                                        </div>
+                                        <a href="#" class="btn btn-outline-primary mt-3">Read More</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Post 5 -->
+                            <div class="col-md-6 animate delay-3">
+                                <div class="blog-card">
+                                    <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="blog-img" alt="Career Advancement">
+                                    <div class="blog-body">
+                                        <span class="blog-category">Education Trends</span>
+                                        <h3 class="blog-title">Upskilling & Career Advancement</h3>
+                                        <p>Stay ahead with popular online certifications, career-oriented training programs, and skill development strategies.</p>
+                                        <div class="blog-meta">
+                                            <span><i class="bi bi-calendar"></i> May 22, 2025</span>
+                                            <span><i class="bi bi-clock"></i> 6 min read</span>
+                                        </div>
+                                        <a href="#" class="btn btn-outline-primary mt-3">Read More</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Post 6 -->
+                            <div class="col-md-6 animate delay-4">
+                                <div class="blog-card">
+                                    <img src="https://images.unsplash.com/photo-1495465798138-718f86d1a4f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="blog-img" alt="Future of E-Learning">
+                                    <div class="blog-body">
+                                        <span class="blog-category">Education Trends</span>
+                                        <h3 class="blog-title">Future of E-Learning</h3>
+                                        <p>Understand how online education is evolving and what students should expect in upcoming years.</p>
+                                        <div class="blog-meta">
+                                            <span><i class="bi bi-calendar"></i> May 15, 2025</span>
+                                            <span><i class="bi bi-clock"></i> 9 min read</span>
+                                        </div>
+                                        <a href="#" class="btn btn-outline-primary mt-3">Read More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- CTA Section -->
+                    <div class="cta-section">
+                        <div class="container">
+                            <h2 class="animate">Join the EduLift Learning Community</h2>
+                            <p class="animate delay-1">Explore study tips and educational insights in our blog, and stay informed about the latest learning trends. Subscribe for updates and continue growing with EduLift!</p>
+                            <div class="animate delay-2">
+                                <a href="courses.html" class="btn btn-primary me-2">Explore Courses</a>
+                                <a href="#subscribe" class="btn btn-outline-light">Subscribe to Blog</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sidebar -->
+                <div class="col-lg-4">
+                    <div class="sidebar">
+                        <!-- About Widget -->
+                        <div class="sidebar-widget animate">
+                            <h4 class="widget-title">About EduLift Blog</h4>
+                            <p>Our blog provides valuable study tips, learning strategies, and insights into the latest education trends to help students succeed in their academic journey.</p>
+                            <div class="mt-4">
+                                <a href="about.html" class="btn btn-outline-primary">Learn More</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Categories Widget -->
+                        <div class="sidebar-widget animate delay-1">
+                            <h4 class="widget-title">Blog Categories</h4>
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><a href="#" class="text-decoration-none d-flex justify-content-between"><span>Study Tips</span> <span class="badge bg-primary rounded-pill">12</span></a></li>
+                                <li class="mb-2"><a href="#" class="text-decoration-none d-flex justify-content-between"><span>Learning Strategies</span> <span class="badge bg-primary rounded-pill">8</span></a></li>
+                                <li class="mb-2"><a href="#" class="text-decoration-none d-flex justify-content-between"><span>Education Trends</span> <span class="badge bg-primary rounded-pill">15</span></a></li>
+                                <li class="mb-2"><a href="#" class="text-decoration-none d-flex justify-content-between"><span>Career Development</span> <span class="badge bg-primary rounded-pill">7</span></a></li>
+                                <li><a href="#" class="text-decoration-none d-flex justify-content-between"><span>Online Learning</span> <span class="badge bg-primary rounded-pill">10</span></a></li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Popular Posts -->
+                        <div class="sidebar-widget animate delay-2">
+                            <h4 class="widget-title">Popular Posts</h4>
+                            
+                            <div class="popular-post">
+                                <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" class="popular-img" alt="Popular Post">
+                                <div>
+                                    <h5 class="popular-title">10 Habits of Highly Successful Students</h5>
+                                    <div class="popular-date">May 30, 2025</div>
+                                </div>
+                            </div>
+                            
+                            <div class="popular-post">
+                                <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" class="popular-img" alt="Popular Post">
+                                <div>
+                                    <h5 class="popular-title">The Future of AI in Education</h5>
+                                    <div class="popular-date">May 18, 2025</div>
+                                </div>
+                            </div>
+                            
+                            <div class="popular-post">
+                                <img src="https://images.unsplash.com/photo-1516321165247-4aa89a48be28?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" class="popular-img" alt="Popular Post">
+                                <div>
+                                    <h5 class="popular-title">Maximizing Your Learning Potential</h5>
+                                    <div class="popular-date">May 5, 2025</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Tags Widget -->
+                        <div class="sidebar-widget animate delay-3">
+                            <h4 class="widget-title">Popular Tags</h4>
+                            <div class="tags">
+                                <a href="#" class="tag">Study Tips</a>
+                                <a href="#" class="tag">Time Management</a>
+                                <a href="#" class="tag">Online Learning</a>
+                                <a href="#" class="tag">Education Trends</a>
+                                <a href="#" class="tag">Career Growth</a>
+                                <a href="#" class="tag">Learning Strategies</a>
+                                <a href="#" class="tag">E-Learning</a>
+                                <a href="#" class="tag">Academic Success</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Subscribe Widget -->
+                        <div class="sidebar-widget animate delay-4" id="subscribe">
+                            <h4 class="widget-title">Subscribe to Blog</h4>
+                            <p>Get the latest articles and study tips delivered to your inbox.</p>
+                            <form class="subscribe-form">
+                                <input type="email" class="form-control" placeholder="Your Email Address">
+                                <button type="submit" class="btn btn-primary mt-2">Subscribe</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h3 class="footer-title">Edu<span>Lift</span></h3>
+                    <p>"Learn Today, Lead Tomorrow."</p>
+                    <p>Providing quality education through innovative learning experiences since 2025.</p>
+                    <div class="social-links mt-4">
+                        <a href="#"><i class="bi bi-facebook"></i></a>
+                        <a href="#"><i class="bi bi-twitter"></i></a>
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                        <a href="#"><i class="bi bi-linkedin"></i></a>
+                        <a href="#"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <div class="footer-links">
+                        <a href="index.html">Home</a>
+                        <a href="courses.html">Courses</a>
+                        <a href="student-resources.html">Resources</a>
+                        <a href="blog.html">Blog</a>
+                        <a href="contact-us.html">Contact Us</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h4 class="footer-title">Resources</h4>
+                    <div class="footer-links">
+                        <a href="#">FAQs</a>
+                        <a href="#">Learning Materials</a>
+                        <a href="#">Career Support</a>
+                        <a href="#">Student Success Stories</a>
+                        <a href="#">Events & Webinars</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 mb-4">
+                    <h4 class="footer-title">Contact Us</h4>
+                    <p><i class="bi bi-envelope me-2"></i> support@edulift.com</p>
+                    <p><i class="bi bi-telephone me-2"></i> +1 (555) 678-1234</p>
+                    <p><i class="bi bi-geo-alt me-2"></i> 123 Education St, Learning City</p>
+                    <div class="mt-4">
+                        <a href="contact-us.html" class="btn btn-outline-light">Send a Message</a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 EduLift. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        // Animation on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const animateElements = document.querySelectorAll('.animate');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            animateElements.forEach(element => {
+                element.style.opacity = '0';
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>
