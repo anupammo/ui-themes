@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details | ShopifyPro - Buy Smart, Shop Easy</title>
+    <meta name="description" content="Find complete product details including specifications, customer reviews & related products. Get the best deals now at ShopifyPro.">
+    <meta name="keywords" content="product details, online shopping, ShopifyPro store, customer reviews, related products, specifications, digital marketplace">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Product Details | ShopifyPro - Buy Smart, Shop Easy">
+    <meta property="og:description" content="Explore product specifications, customer reviews & related items. Find the best shopping experience with ShopifyPro.">
+    <meta property="og:type" content="website">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    
+    <style>
+        :root {
+            --brick-red: #b22222;
+            --warm-beige: #f5deb3;
+            --white: #ffffff;
+            --dark-gray: #333333;
+            --light-gray: #f8f9fa;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--dark-gray);
+            line-height: 1.7;
+            background-color: #f9f9f9;
+        }
+        
+        h1, h2, h3, h4, h5, .navbar-brand {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+        
+        .navbar {
+            background-color: var(--white);
+            padding: 1.2rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .navbar-brand {
+            font-size: 1.8rem;
+            color: var(--brick-red) !important;
+            letter-spacing: 0.5px;
+        }
+        
+        .navbar-brand span {
+            color: var(--dark-gray);
+        }
+        
+        .nav-link {
+            color: var(--dark-gray) !important;
+            font-weight: 500;
+            margin: 0 0.8rem;
+            position: relative;
+        }
+        
+        .btn-primary {
+            background-color: var(--brick-red);
+            border-color: var(--brick-red);
+            padding: 0.9rem 1.8rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            border-radius: 4px;
+        }
+        
+        .btn-primary:hover {
+            background-color: #9b1d1d;
+            border-color: #9b1d1d;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(178, 34, 34, 0.25);
+        }
+        
+        .section {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 2.5rem;
+            color: var(--dark-gray);
+            padding-bottom: 15px;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: var(--brick-red);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .product-card {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+            background: var(--white);
+            border: none;
+        }
+        
+        .product-img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 12px 12px 0 0;
+        }
+        
+        .product-price {
+            color: var(--brick-red);
+            font-weight: 700;
+            font-size: 1.8rem;
+            margin: 0.5rem 0;
+        }
+        
+        .spec-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            height: 100%;
+        }
+        
+        .review-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            margin-bottom: 1.5rem;
+        }
+        
+        .stars {
+            color: #ffc107;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .highlight {
+            color: var(--brick-red);
+            font-weight: 500;
+        }
+        
+        .feature-list li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .feature-list li:before {
+            content: "✓";
+            color: var(--brick-red);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        .related-product {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+            height: 100%;
+            text-align: center;
+        }
+        
+        .related-product:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        
+        .related-img {
+            height: 180px;
+            width: 100%;
+            object-fit: contain;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.03)), var(--warm-beige);
+            padding: 4rem 0;
+            border-radius: 12px;
+        }
+        
+        footer {
+            background: var(--dark-gray);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+        }
+        
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--white);
+            margin-right: 10px;
+            transition: all 0.3s;
+        }
+        
+        .social-icon:hover {
+            background: var(--brick-red);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 1.5rem 0;
+            margin-top: 3rem;
+        }
+        
+        .breadcrumb {
+            background: transparent;
+            padding: 0;
+            margin-bottom: 1.5rem;
+        }
+        
+        .breadcrumb-item a {
+            color: var(--brick-red);
+            text-decoration: none;
+        }
+        
+        .product-action-btns {
+            display: flex;
+            gap: 15px;
+            margin-top: 2rem;
+        }
+        
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 0.5rem;
+            width: 120px;
+        }
+        
+        .quantity-btn {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            width: 30px;
+            cursor: pointer;
+        }
+        
+        .quantity-input {
+            width: 50px;
+            border: none;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .section {
+                padding: 3rem 0;
+            }
+            
+            .product-img {
+                height: 300px;
+            }
+            
+            .product-action-btns {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Shopify<span>Pro</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Categories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Deals</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <a href="#" class="btn btn-outline-dark me-2"><i class="bi bi-search"></i></a>
+                    <a href="#" class="btn btn-outline-dark me-2"><i class="bi bi-heart"></i></a>
+                    <a href="#" class="btn btn-outline-dark position-relative">
+                        <i class="bi bi-cart3"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            3
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="container mt-4">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item"><a href="#">Electronics</a></li>
+                <li class="breadcrumb-item"><a href="#">Headphones</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Premium Wireless Headphones</li>
+            </ol>
+        </nav>
+    </div>
+
+    <!-- Product Section -->
+    <section class="product-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Premium Wireless Headphones" class="product-img">
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-3">
+                            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Thumbnail" class="img-fluid rounded cursor-pointer">
+                        </div>
+                        <div class="col-3">
+                            <img src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Thumbnail" class="img-fluid rounded cursor-pointer">
+                        </div>
+                        <div class="col-3">
+                            <img src="https://images.unsplash.com/photo-1572536147248-ac59a8abfa4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Thumbnail" class="img-fluid rounded cursor-pointer">
+                        </div>
+                        <div class="col-3">
+                            <img src="https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Thumbnail" class="img-fluid rounded cursor-pointer">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <h1>Premium Wireless Headphones - ProSound X500</h1>
+                    <div class="d-flex align-items-center my-3">
+                        <div class="stars">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-half"></i>
+                        </div>
+                        <span class="ms-2">4.8/5 (1,248 reviews)</span>
+                        <span class="ms-3"><i class="bi bi-check-circle-fill text-success"></i> 2,450 sold</span>
+                    </div>
+                    
+                    <p class="lead">At <span class="highlight">ShopifyPro</span>, we provide <span class="highlight">detailed product specifications, genuine customer reviews, and top recommendations</span> to help you make the right choice. Explore the information below before adding to cart!</p>
+                    
+                    <div class="product-price">$199.99</div>
+                    <p class="text-success"><i class="bi bi-check-circle-fill"></i> In Stock - Ready to Ship</p>
+                    
+                    <div class="product-action-btns">
+                        <div class="quantity-selector">
+                            <button class="quantity-btn">-</button>
+                            <input type="text" class="quantity-input" value="1">
+                            <button class="quantity-btn">+</button>
+                        </div>
+                        <button class="btn btn-primary flex-grow-1"><i class="bi bi-cart-plus me-2"></i> Add to Cart</button>
+                        <button class="btn btn-outline-secondary"><i class="bi bi-heart"></i></button>
+                    </div>
+                    
+                    <div class="mt-4 pt-3 border-top">
+                        <p><i class="bi bi-truck me-2"></i> Free shipping for orders over $50</p>
+                        <p><i class="bi bi-arrow-return-left me-2"></i> 30-day money-back guarantee</p>
+                        <p><i class="bi bi-shield-check me-2"></i> 2-year manufacturer warranty</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specifications Section -->
+    <section class="spec-section">
+        <div class="container">
+            <h2 class="section-title">Product Specifications</h2>
+            
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="spec-card">
+                        <h3 class="mb-4">Brand & Model</h3>
+                        <p><strong>Brand:</strong> ProSound Audio <br> <strong>Model:</strong> X500 Wireless</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="spec-card">
+                        <h3 class="mb-4">Price & Availability</h3>
+                        <p><strong>Price:</strong> $199.99 <br> <strong>Stock Status:</strong> In Stock</p>
+                    </div>
+                </div>
+                
+                <div class="col-12">
+                    <div class="spec-card">
+                        <h3 class="mb-4">Key Features</h3>
+                        <ul class="feature-list">
+                            <li>Active Noise Cancellation (ANC) technology</li>
+                            <li>30-hour battery life with quick charge (5 min = 2 hrs)</li>
+                            <li>Bluetooth 5.2 with multi-device pairing</li>
+                            <li>Premium memory foam ear cushions</li>
+                            <li>Built-in microphone with voice assistant support</li>
+                            <li>Hi-Res audio certified with 40mm drivers</li>
+                            <li>Foldable design with travel case included</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews-section bg-light">
+        <div class="container">
+            <h2 class="section-title">Customer Reviews</h2>
+            
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <div>
+                    <div class="stars">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-half"></i>
+                        <span class="ms-2">4.8/5 based on 1,248 reviews</span>
+                    </div>
+                </div>
+                <button class="btn btn-outline-primary">Write a Review</button>
+            </div>
+            
+            <div class="review-card">
+                <div class="d-flex justify-content-between">
+                    <div class="d-flex align-items-center">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Customer" class="rounded-circle me-3" width="50">
+                        <div>
+                            <h5 class="mb-0">Anna Roberts</h5>
+                            <small class="text-muted">Verified Customer</small>
+                        </div>
+                    </div>
+                    <div class="stars">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                    </div>
+                </div>
+                <div class="mt-3">
+                    <p class="mb-0"><em>"Absolutely love this product! The sound quality is exceptional and the noise cancellation works perfectly. I can wear them all day without discomfort. Highly recommend!"</em></p>
+                </div>
+                <div class="mt-3 text-muted">
+                    <small>Posted on: October 15, 2023</small>
+                </div>
+            </div>
+            
+            <div class="review-card">
+                <div class="d-flex justify-content-between">
+                    <div class="d-flex align-items-center">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Customer" class="rounded-circle me-3" width="50">
+                        <div>
+                            <h5 class="mb-0">John Smith</h5>
+                            <small class="text-muted">Verified Buyer</small>
+                        </div>
+                    </div>
+                    <div class="stars">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star"></i>
+                    </div>
+                </div>
+                <div class="mt-3">
+                    <p class="mb-0"><em>"Fast delivery, great packaging, and amazing performance! The battery life is impressive. My only minor complaint is the touch controls can be a bit sensitive at times."</em></p>
+                </div>
+                <div class="mt-3 text-muted">
+                    <small>Posted on: October 10, 2023</small>
+                </div>
+            </div>
+            
+            <div class="text-center mt-4">
+                <button class="btn btn-outline-primary">Load More Reviews</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Products -->
+    <section class="related-section">
+        <div class="container">
+            <h2 class="section-title">Related Products You Might Like</h2>
+            
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="spec-card">
+                        <h3 class="mb-4">Similar Products</h3>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <a href="#" class="text-decoration-none text-dark">
+                                    <div class="d-flex align-items-center">
+                                        <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Product" class="img-fluid me-3" width="60">
+                                        <div>
+                                            <h6 class="mb-0">ProSound X400</h6>
+                                            <small class="text-muted">$149.99</small>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <a href="#" class="text-decoration-none text-dark">
+                                    <div class="d-flex align-items-center">
+                                        <img src="https://images.unsplash.com/photo-1504274066651-8d31a536b11a?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Product" class="img-fluid me-3" width="60">
+                                        <div>
+                                            <h6 class="mb-0">AudioMax Pro 7</h6>
+                                            <small class="text-muted">$179.99</small>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <a href="#" class="text-decoration-none text-dark">
+                                    <div class="d-flex align-items-center">
+                                        <img src="https://images.unsplash.com/photo-1572536147248-ac59a8abfa4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Product" class="img-fluid me-3" width="60">
+                                        <div>
+                                            <h6 class="mb-0">SoundBlast Elite</h6>
+                                            <small class="text-muted">$219.99</small>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="spec-card">
+                        <h3 class="mb-4">Frequently Bought Together</h3>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <a href="#" class="text-decoration-none text-dark">
+                                    <div class="d-flex align-items-center">
+                                        <img src="https://images.unsplash.com/photo-1591370874773-6702e8f12fd8?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Product" class="img-fluid me-3" width="60">
+                                        <div>
+                                            <h6 class="mb-0">Carrying Case</h6>
+                                            <small class="text-muted">$24.99</small>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <a href="#" class="text-decoration-none text-dark">
+                                    <div class="d-flex align-items-center">
+                                        <img src="https://images.unsplash.com/photo-1606313564200-75a8ee9ad6c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Product" class="img-fluid me-3" width="60">
+                                        <div>
+                                            <h6 class="mb-0">Replacement Ear Pads</h6>
+                                            <small class="text-muted">$19.99</small>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <a href="#" class="text-decoration-none text-dark">
+                                    <div class="d-flex align-items-center">
+                                        <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Product" class="img-fluid me-3" width="60">
+                                        <div>
+                                            <h6 class="mb-0">AudioPro Cable Kit</h6>
+                                            <small class="text-muted">$14.99</small>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="mb-4">Ready to Experience Premium Sound?</h2>
+                    <p class="lead mb-5">Found what you were looking for? <span class="highlight">Add this item to your cart and complete the checkout process securely with ShopifyPro!</span></p>
+                    <div class="d-flex justify-content-center gap-3">
+                        <a href="#" class="btn btn-primary btn-lg">Add to Cart</a>
+                        <a href="#" class="btn btn-outline-dark btn-lg">Continue Shopping</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <h4 class="mb-4">ShopifyPro</h4>
+                    <p>Your trusted online marketplace for quality products at competitive prices. We make online shopping simple and secure.</p>
+                    <div class="mt-4">
+                        <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-pinterest"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2">
+                    <h5>Shop</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-white-50">All Products</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-white-50">Featured</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-white-50">New Arrivals</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-white-50">Deals</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-white-50">Gift Cards</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2">
+                    <h5>Help</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-white-50">Customer Service</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-white-50">Track Order</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-white-50">Returns & Exchanges</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-white-50">Shipping Info</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-white-50">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-4">
+                    <h5>Contact Us</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-3"><i class="bi bi-envelope me-2"></i> support@shopifypro.com</li>
+                        <li class="mb-3"><i class="bi bi-telephone me-2"></i> +1 (555) 789-6543</li>
+                        <li class="mb-3"><i class="bi bi-geo-alt me-2"></i> 123 Commerce Street, San Francisco, CA</li>
+                        <li class="mb-3"><i class="bi bi-clock me-2"></i> Mon-Fri: 9am - 8pm EST</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright text-center mt-5">
+                <p class="mb-0">&copy; 2025 ShopifyPro. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom Script -->
+    <script>
+        // Quantity selector functionality
+        document.querySelectorAll('.quantity-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const input = this.parentElement.querySelector('.quantity-input');
+                let value = parseInt(input.value);
+                
+                if(this.textContent === '+' && value < 10) {
+                    input.value = value + 1;
+                } else if(this.textContent === '-' && value > 1) {
+                    input.value = value - 1;
+                }
+            });
+        });
+        
+        // Thumbnail selection
+        document.querySelectorAll('.col-3 img').forEach(img => {
+            img.addEventListener('click', function() {
+                document.querySelector('.product-img').src = this.src.replace('200', '1200');
+            });
+        });
+    </script>
+</body>
+</html>
