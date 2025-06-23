@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopifyPro | Online Store - Electronics, Fashion & More</title>
+    <meta name="description" content="ShopifyPro offers electronics, fashion & home essentials at unbeatable prices. Browse categories, find discounts & shop smarter today.">
+    <meta name="keywords" content="online shop, ShopifyPro store, electronics shopping, fashion deals, home essentials, discount offers, secure checkout">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="ShopifyPro | Online Store - Electronics, Fashion & More">
+    <meta property="og:description" content="Discover top deals on electronics, fashion, and home essentials at ShopifyPro. Browse categories & shop smarter today.">
+    <meta property="og:type" content="website">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    
+    <style>
+        :root {
+            --brick-red: #b22222;
+            --warm-beige: #f5deb3;
+            --white: #ffffff;
+            --dark-gray: #333333;
+            --light-gray: #f8f9fa;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--dark-gray);
+            line-height: 1.7;
+            background-color: #f9f9f9;
+        }
+        
+        h1, h2, h3, h4, h5, .navbar-brand {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+        
+        .navbar {
+            background-color: var(--white);
+            padding: 1.2rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .navbar-brand {
+            font-size: 1.8rem;
+            color: var(--brick-red) !important;
+            letter-spacing: 0.5px;
+        }
+        
+        .navbar-brand span {
+            color: var(--dark-gray);
+        }
+        
+        .nav-link {
+            color: var(--dark-gray) !important;
+            font-weight: 500;
+            margin: 0 0.8rem;
+            position: relative;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--brick-red);
+            transition: width 0.3s;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        .btn-primary {
+            background-color: var(--brick-red);
+            border-color: var(--brick-red);
+            padding: 0.9rem 1.8rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            border-radius: 4px;
+        }
+        
+        .btn-primary:hover {
+            background-color: #9b1d1d;
+            border-color: #9b1d1d;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(178, 34, 34, 0.25);
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1607082350899-7e105aa886ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 8rem 0 6rem;
+            color: var(--white);
+            text-align: center;
+        }
+        
+        .section {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 2.5rem;
+            color: var(--dark-gray);
+            padding-bottom: 15px;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: var(--brick-red);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .section-title.text-center:after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .category-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s;
+            height: 100%;
+            text-align: center;
+            border: none;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15);
+        }
+        
+        .category-img {
+            height: 250px;
+            width: 100%;
+            object-fit: cover;
+        }
+        
+        .product-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s;
+            height: 100%;
+            border: none;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .product-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+        
+        .product-price {
+            color: var(--brick-red);
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin: 0.5rem 0;
+        }
+        
+        .deal-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--brick-red);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .benefit-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            text-align: center;
+            height: 100%;
+            transition: all 0.3s;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .benefit-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--warm-beige);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.8rem;
+            color: var(--brick-red);
+        }
+        
+        .highlight {
+            color: var(--brick-red);
+            font-weight: 500;
+        }
+        
+        .cta-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.03)), var(--warm-beige);
+            padding: 5rem 0;
+            border-radius: 12px;
+        }
+        
+        footer {
+            background: var(--dark-gray);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+        }
+        
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--white);
+            margin-right: 10px;
+            transition: all 0.3s;
+        }
+        
+        .social-icon:hover {
+            background: var(--brick-red);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 1.5rem 0;
+            margin-top: 3rem;
+        }
+        
+        .filter-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2rem;
+        }
+        
+        .form-check-input:checked {
+            background-color: var(--brick-red);
+            border-color: var(--brick-red);
+        }
+        
+        .featured-header {
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 2rem;
+        }
+        
+        .featured-header:after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: var(--brick-red);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .sale-banner {
+            background: linear-gradient(135deg, #b22222 0%, #e74c3c 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .section {
+                padding: 3rem 0;
+            }
+            
+            .hero-section {
+                padding: 6rem 0 4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Shopify<span>Pro</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Categories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Deals</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <div class="input-group me-3">
+                        <input type="text" class="form-control" placeholder="Search products..." aria-label="Search">
+                        <button class="btn btn-outline-secondary" type="button"><i class="bi bi-search"></i></button>
+                    </div>
+                    <a href="#" class="btn btn-outline-dark me-2"><i class="bi bi-heart"></i></a>
+                    <a href="#" class="btn btn-outline-dark position-relative">
+                        <i class="bi bi-cart3"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            5
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h1 class="display-4 fw-bold">ShopifyPro Store: Find Everything You Need in One Place</h1>
+                    <p class="lead my-4">Shop the latest <span class="highlight">electronics, fashion trends, and home essentials</span> at <span class="highlight">ShopifyPro</span>. Explore unbeatable deals, top-rated products, and a <span class="highlight">secure, hassle-free checkout experience</span>.</p>
+                    <div class="d-flex justify-content-center gap-3 mt-4">
+                        <a href="#categories" class="btn btn-primary btn-lg">Shop Now</a>
+                        <a href="#deals" class="btn btn-outline-light btn-lg">View Deals</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="section" id="categories">
+        <div class="container">
+            <h2 class="section-title text-center">Shop by Category</h2>
+            <p class="text-center mb-5">Browse our wide selection of products across popular categories</p>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="category-card">
+                        <img src="https://images.unsplash.com/photo-1468436139062-f60a71c5c892?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Electronics" class="category-img">
+                        <div class="p-4">
+                            <h3>Electronics</h3>
+                            <p>Upgrade your tech with <span class="highlight">smartphones, laptops, accessories</span>, and more.</p>
+                            <a href="#" class="btn btn-outline-primary mt-2">Browse Electronics</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="category-card">
+                        <img src="https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Fashion" class="category-img">
+                        <div class="p-4">
+                            <h3>Fashion</h3>
+                            <p>Shop stylish <span class="highlight">clothing, footwear, and accessories</span> at affordable prices.</p>
+                            <a href="#" class="btn btn-outline-primary mt-2">Browse Fashion</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="category-card">
+                        <img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Home Essentials" class="category-img">
+                        <div class="p-4">
+                            <h3>Home Essentials</h3>
+                            <p>Discover <span class="highlight">smart home gadgets, kitchenware, furniture</span>, and more.</p>
+                            <a href="#" class="btn btn-outline-primary mt-2">Browse Home</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Deals Section -->
+    <section class="section bg-light" id="deals">
+        <div class="container">
+            <div class="sale-banner">
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <h2 class="mb-3">Summer Sale: Up to 50% Off!</h2>
+                        <p class="mb-0">Find <span class="fw-bold">limited-time offers</span> and <span class="fw-bold">seasonal sales</span> on top brands. Save more with our <span class="fw-bold">flash deals and member-only discounts</span>.</p>
+                    </div>
+                    <div class="col-md-4 text-md-end">
+                        <div class="display-4 fw-bold">24:59:59</div>
+                        <p class="mb-0">Time left for this offer</p>
+                    </div>
+                </div>
+            </div>
+            
+            <h2 class="section-title">Exclusive Deals & Discounts</h2>
+            
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="product-card">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Smart Watch" class="product-img">
+                            <div class="deal-badge">25% OFF</div>
+                        </div>
+                        <div class="p-3">
+                            <h5 class="mb-1">Smart Fitness Watch</h5>
+                            <div class="d-flex align-items-center">
+                                <div class="product-price">$89.99</div>
+                                <div class="ms-2 text-muted text-decoration-line-through">$119.99</div>
+                            </div>
+                            <div class="stars small text-warning">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-half"></i>
+                                <span class="ms-1 text-dark">(142)</span>
+                            </div>
+                            <button class="btn btn-sm btn-primary w-100 mt-2">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="product-card">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Wireless Headphones" class="product-img">
+                            <div class="deal-badge">30% OFF</div>
+                        </div>
+                        <div class="p-3">
+                            <h5 class="mb-1">Wireless Headphones</h5>
+                            <div class="d-flex align-items-center">
+                                <div class="product-price">$69.99</div>
+                                <div class="ms-2 text-muted text-decoration-line-through">$99.99</div>
+                            </div>
+                            <div class="stars small text-warning">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <span class="ms-1 text-dark">(210)</span>
+                            </div>
+                            <button class="btn btn-sm btn-primary w-100 mt-2">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="product-card">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Designer Sunglasses" class="product-img">
+                            <div class="deal-badge">40% OFF</div>
+                        </div>
+                        <div class="p-3">
+                            <h5 class="mb-1">Designer Sunglasses</h5>
+                            <div class="d-flex align-items-center">
+                                <div class="product-price">$45.99</div>
+                                <div class="ms-2 text-muted text-decoration-line-through">$76.99</div>
+                            </div>
+                            <div class="stars small text-warning">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star"></i>
+                                <span class="ms-1 text-dark">(87)</span>
+                            </div>
+                            <button class="btn btn-sm btn-primary w-100 mt-2">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="product-card">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1595341888016-a392ef81b7de?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Smart Speaker" class="product-img">
+                            <div class="deal-badge">20% OFF</div>
+                        </div>
+                        <div class="p-3">
+                            <h5 class="mb-1">Smart Home Speaker</h5>
+                            <div class="d-flex align-items-center">
+                                <div class="product-price">$119.99</div>
+                                <div class="ms-2 text-muted text-decoration-line-through">$149.99</div>
+                            </div>
+                            <div class="stars small text-warning">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-half"></i>
+                                <span class="ms-1 text-dark">(178)</span>
+                            </div>
+                            <button class="btn btn-sm btn-primary w-100 mt-2">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Featured Products</h2>
+            
+            <div class="mb-5">
+                <h3 class="featured-header">Top-Selling Electronics</h3>
+                <p>Browse the <span class="highlight">best-rated gadgets</span> and latest tech at unbeatable prices.</p>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="product-card">
+                            <img src="https://images.unsplash.com/photo-1605236453806-6ff36851218e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Smartphone" class="product-img">
+                            <div class="p-3">
+                                <h5 class="mb-1">Premium Smartphone</h5>
+                                <div class="product-price">$899.99</div>
+                                <div class="stars small text-warning">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star"></i>
+                                    <span class="ms-1 text-dark">(98)</span>
+                                </div>
+                                <button class="btn btn-sm btn-outline-primary w-100 mt-2">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="product-card">
+                            <img src="https://images.unsplash.com/photo-1541807084-5c52b6b3adef?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Laptop" class="product-img">
+                            <div class="p-3">
+                                <h5 class="mb-1">Ultra-Slim Laptop</h5>
+                                <div class="product-price">$1,299.99</div>
+                                <div class="stars small text-warning">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-half"></i>
+                                    <span class="ms-1 text-dark">(142)</span>
+                                </div>
+                                <button class="btn btn-sm btn-outline-primary w-100 mt-2">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="product-card">
+                            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Headphones" class="product-img">
+                            <div class="p-3">
+                                <h5 class="mb-1">Premium Headphones</h5>
+                                <div class="product-price">$249.99</div>
+                                <div class="stars small text-warning">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <span class="ms-1 text-dark">(210)</span>
+                                </div>
+                                <button class="btn btn-sm btn-outline-primary w-100 mt-2">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mb-5">
+                <h3 class="featured-header">Trending Fashion Picks</h3>
+                <p>Stay ahead with <span class="highlight">seasonal fashion collections</span> curated for style-conscious shoppers.</p>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="product-card">
+                            <img src="https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Casual Jacket" class="product-img">
+                            <div class="p-3">
+                                <h5 class="mb-1">Casual Denim Jacket</h5>
+                                <div class="product-price">$79.99</div>
+                                <div class="stars small text-warning">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star"></i>
+                                    <span class="ms-1 text-dark">(67)</span>
+                                </div>
+                                <button class="btn btn-sm btn-outline-primary w-100 mt-2">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="product-card">
+                            <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Summer Dress" class="product-img">
+                            <div class="p-3">
+                                <h5 class="mb-1">Summer Floral Dress</h5>
+                                <div class="product-price">$59.99</div>
+                                <div class="stars small text-warning">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-half"></i>
+                                    <span class="ms-1 text-dark">(124)</span>
+                                </div>
+                                <button class="btn btn-sm btn-outline-primary w-100 mt-2">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="product-card">
+                            <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Sneakers" class="product-img">
+                            <div class="p-3">
+                                <h5 class="mb-1">Premium Sneakers</h5>
+                                <div class="product-price">$129.99</div>
+                                <div class="stars small text-warning">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <span class="ms-1 text-dark">(189)</span>
+                                </div>
+                                <button class="btn btn-sm btn-outline-primary w-100 mt-2">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div>
+                <h3 class="featured-header">Best Home Deals</h3>
+                <p>Upgrade your space with <span class="highlight">high-quality home essentials</span> that make life easier.</p>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="product-card">
+                            <img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Coffee Maker" class="product-img">
+                            <div class="p-3">
+                                <h5 class="mb-1">Smart Coffee Maker</h5>
+                                <div class="product-price">$149.99</div>
+                                <div class="stars small text-warning">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star"></i>
+                                    <span class="ms-1 text-dark">(78)</span>
+                                </div>
+                                <button class="btn btn-sm btn-outline-primary w-100 mt-2">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="product-card">
+                            <img src="https://images.unsplash.com/photo-1538688525198-9b88f6f53126?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Vacuum Cleaner" class="product-img">
+                            <div class="p-3">
+                                <h5 class="mb-1">Robot Vacuum Cleaner</h5>
+                                <div class="product-price">$299.99</div>
+                                <div class="stars small text-warning">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-half"></i>
+                                    <span class="ms-1 text-dark">(112)</span>
+                                </div>
+                                <button class="btn btn-sm btn-outline-primary w-100 mt-2">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="product-card">
+                            <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Air Purifier" class="product-img">
+                            <div class="p-3">
+                                <h5 class="mb-1">Air Purifier</h5>
+                                <div class="product-price">$199.99</div>
+                                <div class="stars small text-warning">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <span class="ms-1 text-dark">(156)</span>
+                                </div>
+                                <button class="btn btn-sm btn-outline-primary w-100 mt-2">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="section bg-light">
+        <div class="container">
+            <h2 class="section-title text-center">Why Choose ShopifyPro?</h2>
+            <p class="text-center mb-5">We're committed to providing the best shopping experience for our customers</p>
+            
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="bi bi-shield-lock"></i>
+                        </div>
+                        <h4>Secure Payments</h4>
+                        <p>Encrypted transactions for safety and peace of mind during your shopping experience.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="bi bi-truck"></i>
+                        </div>
+                        <h4>Fast Delivery</h4>
+                        <p>Reliable shipping for quick arrival with real-time tracking and delivery updates.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="bi bi-headset"></i>
+                        </div>
+                        <h4>24/7 Support</h4>
+                        <p>Expert assistance whenever needed through multiple channels for your convenience.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="bi bi-arrow-repeat"></i>
+                        </div>
+                        <h4>Easy Returns</h4>
+                        <p>Hassle-free refunds and exchanges with our 30-day satisfaction guarantee policy.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="mb-4">Find the Best Deals Now!</h2>
+                    <p class="lead mb-5">Join thousands of shoppers enjoying <span class="highlight">secure transactions, exclusive offers, and fast delivery</span>. Start browsing <span class="highlight">ShopifyPro</span> today!</p>
+                    <div class="d-flex justify-content-center gap-3">
+                        <a href="#categories" class="btn btn-primary btn-lg">Start Shopping</a>
+                        <a href="#deals" class="btn btn-outline-dark btn-lg">View Special Offers</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <h4 class="mb-4">ShopifyPro</h4>
+                    <p>Your trusted online marketplace for quality products at competitive prices. We make online shopping simple and secure.</p>
+                    <div class="mt-4">
+                        <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-pinterest"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2">
+                    <h5>Shop</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-white-50">All Products</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-white-50">Featured</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-white-50">New Arrivals</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-white-50">Deals</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-white-50">Gift Cards</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2">
+                    <h5>Help</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-white-50">Customer Service</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-white-50">Track Order</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-white-50">Returns & Exchanges</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-white-50">Shipping Info</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-white-50">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-4">
+                    <h5>Contact Us</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-3"><i class="bi bi-envelope me-2"></i> support@shopifypro.com</li>
+                        <li class="mb-3"><i class="bi bi-telephone me-2"></i> +1 (555) 789-6543</li>
+                        <li class="mb-3"><i class="bi bi-geo-alt me-2"></i> 123 Commerce Street, San Francisco, CA</li>
+                        <li class="mb-3"><i class="bi bi-clock me-2"></i> Mon-Fri: 9am - 8pm EST</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright text-center mt-5">
+                <p class="mb-0">&copy; 2025 ShopifyPro. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom Script -->
+    <script>
+        // Simple animation for product cards
+        document.querySelectorAll('.product-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+        
+        // Countdown timer for sale banner
+        function updateCountdown() {
+            const now = new Date();
+            const endOfDay = new Date();
+            endOfDay.setHours(23, 59, 59, 999);
+            
+            const diff = endOfDay - now;
+            
+            const hours = Math.floor(diff / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            document.querySelector('.display-4').textContent = 
+                `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+        
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+</body>
+</html>
