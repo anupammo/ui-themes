@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VitalCare Services | Comprehensive Healthcare & Wellness</title>
+    <meta name="description" content="Explore VitalCare’s expert healthcare services, including general checkups, specialist consultations, therapy sessions, and wellness programs.">
+    <meta name="keywords" content="healthcare services, VitalCare clinic, general checkup, medical consultation, therapy sessions, wellness programs, patient care">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="VitalCare Services | Comprehensive Healthcare & Wellness">
+    <meta property="og:description" content="VitalCare offers expert medical care with general checkups, specialist consultations, therapy, and wellness programs. Book your appointment today.">
+    <meta property="og:type" content="website">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <style>
+        :root {
+            --mint-green: #98ff98;
+            --deep-teal: #008080;
+            --light-teal: #e6f7f7;
+            --soft-green: #d1f0e0;
+            --dark-green: #006666;
+        }
+        
+        body {
+            font-family: 'Nunito', sans-serif;
+            color: #333;
+            background-color: #f9fdfb;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Merriweather', serif;
+            color: var(--deep-teal);
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, rgba(152, 255, 152, 0.1) 0%, rgba(0, 128, 128, 0.2) 100%), 
+                        url('https://images.unsplash.com/photo-1586773860418-d37222d8fce3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1953&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 150px 0 100px;
+            position: relative;
+            overflow: hidden;
+            color: white;
+            text-align: center;
+        }
+        
+        .hero-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 80, 80, 0.7);
+            z-index: 0;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .brand-name {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: white;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+        
+        .btn-primary {
+            background-color: var(--deep-teal);
+            border: none;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--dark-green);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--mint-green);
+            margin: 15px auto;
+            border-radius: 2px;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: none;
+            margin-bottom: 30px;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 128, 128, 0.1);
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--deep-teal);
+            margin-bottom: 20px;
+        }
+        
+        .service-img {
+            height: 200px;
+            object-fit: cover;
+            width: 100%;
+        }
+        
+        .service-content {
+            padding: 25px;
+        }
+        
+        .service-highlight {
+            background: linear-gradient(135deg, var(--light-teal) 0%, var(--soft-green) 100%);
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .service-feature {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        
+        .feature-icon {
+            font-size: 1.5rem;
+            color: var(--deep-teal);
+            margin-right: 15px;
+            min-width: 30px;
+        }
+        
+        .service-tabs .nav-link {
+            font-family: 'Merriweather', serif;
+            color: var(--deep-teal);
+            border: none;
+            border-radius: 10px;
+            padding: 15px 20px;
+            margin-bottom: 10px;
+            text-align: left;
+            transition: all 0.3s ease;
+        }
+        
+        .service-tabs .nav-link.active {
+            background-color: var(--deep-teal);
+            color: white;
+        }
+        
+        .service-tabs .nav-link:not(.active):hover {
+            background-color: var(--mint-green);
+        }
+        
+        .tab-content {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .navbar {
+            padding: 20px 0;
+            transition: all 0.4s ease;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .navbar-brand {
+            font-family: 'Merriweather', serif;
+            font-weight: 700;
+            color: var(--deep-teal) !important;
+            font-size: 1.8rem;
+        }
+        
+        .nav-link {
+            font-weight: 600;
+            color: var(--dark-green) !important;
+            margin: 0 10px;
+            position: relative;
+            padding: 8px 0 !important;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--mint-green);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .navbar .btn {
+            margin-left: 15px;
+        }
+        
+        footer {
+            background-color: var(--dark-green);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        /* Animation effects */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+        
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+        
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 100px 0 60px;
+            }
+            
+            .brand-name {
+                font-size: 2.5rem;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .navbar .btn {
+                margin: 10px 0 0;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">VitalCare</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about-us.html">About Us</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="services.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="patient-resources.html">Patient Resources</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="appointments.html">Appointments</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact-us.html">Contact</a>
+                    </li>
+                </ul>
+                <a href="appointments.html" class="btn btn-primary">Book Appointment</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container hero-content">
+            <h1 class="brand-name animate">Comprehensive Healthcare Services</h1>
+            <p class="lead mb-4 animate delay-1">At <strong>VitalCare</strong>, we provide expert medical care tailored to your health needs.</p>
+            <p class="mb-4 animate delay-2">Whether it's <strong>routine checkups, specialist consultations, or holistic wellness programs</strong>, our dedicated team ensures <strong>personalized, effective treatments for every patient</strong>.</p>
+            <div class="d-flex justify-content-center animate delay-3">
+                <a href="#services" class="btn btn-light me-3">Explore Services</a>
+                <a href="appointments.html" class="btn btn-outline-light">Book Appointment</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Overview -->
+    <section class="section" id="services">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <p class="lead mb-5">VitalCare offers a comprehensive range of healthcare services designed to meet your medical needs at every stage of life. Our expert team combines advanced medical technology with compassionate care.</p>
+                </div>
+            </div>
+            
+            <div class="service-highlight">
+                <div class="row">
+                    <div class="col-md-6 mb-4 mb-md-0">
+                        <h3>Why Choose VitalCare Services?</h3>
+                        <div class="service-feature">
+                            <div class="feature-icon">
+                                <i class="bi bi-check-circle"></i>
+                            </div>
+                            <div>
+                                <h5>Expert Medical Professionals</h5>
+                                <p class="mb-0">Board-certified doctors and specialists with extensive experience</p>
+                            </div>
+                        </div>
+                        <div class="service-feature">
+                            <div class="feature-icon">
+                                <i class="bi bi-check-circle"></i>
+                            </div>
+                            <div>
+                                <h5>Patient-Centered Approach</h5>
+                                <p class="mb-0">Personalized care plans tailored to your unique health needs</p>
+                            </div>
+                        </div>
+                        <div class="service-feature">
+                            <div class="feature-icon">
+                                <i class="bi bi-check-circle"></i>
+                            </div>
+                            <div>
+                                <h5>Advanced Technology</h5>
+                                <p class="mb-0">State-of-the-art diagnostic equipment and treatment methods</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="h-100 d-flex align-items-center">
+                            <div class="bg-white p-4 rounded-3">
+                                <h4 class="text-center mb-4">Comprehensive Care Packages</h4>
+                                <p>We offer integrated care packages that combine multiple services for holistic health management:</p>
+                                <ul>
+                                    <li><strong>Executive Health Assessment:</strong> Comprehensive annual checkup with advanced diagnostics</li>
+                                    <li><strong>Chronic Care Management:</strong> Coordinated care for ongoing health conditions</li>
+                                    <li><strong>Wellness Transformation:</strong> 90-day program combining nutrition, fitness, and mental wellness</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Navigation -->
+    <section class="section" style="background-color: var(--light-teal);">
+        <div class="container">
+            <h2 class="section-title">Our Healthcare Services</h2>
+            
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="service-tabs">
+                        <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                            <button class="nav-link active" id="v-pills-checkup-tab" data-bs-toggle="pill" data-bs-target="#v-pills-checkup" type="button" role="tab">
+                                <i class="bi bi-heart-pulse me-2"></i> General Checkups
+                            </button>
+                            <button class="nav-link" id="v-pills-specialist-tab" data-bs-toggle="pill" data-bs-target="#v-pills-specialist" type="button" role="tab">
+                                <i class="bi bi-people me-2"></i> Specialist Consultation
+                            </button>
+                            <button class="nav-link" id="v-pills-therapy-tab" data-bs-toggle="pill" data-bs-target="#v-pills-therapy" type="button" role="tab">
+                                <i class="bi bi-bandaid me-2"></i> Therapy Sessions
+                            </button>
+                            <button class="nav-link" id="v-pills-wellness-tab" data-bs-toggle="pill" data-bs-target="#v-pills-wellness" type="button" role="tab">
+                                <i class="bi bi-flower1 me-2"></i> Wellness Programs
+                            </button>
+                            <button class="nav-link" id="v-pills-diagnostics-tab" data-bs-toggle="pill" data-bs-target="#v-pills-diagnostics" type="button" role="tab">
+                                <i class="bi bi-clipboard2-pulse me-2"></i> Diagnostic Services
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="tab-content" id="v-pills-tabContent">
+                        <div class="tab-pane fade show active" id="v-pills-checkup" role="tabpanel">
+                            <h3 class="mb-4">Preventive Care for a Healthier Life</h3>
+                            <p>Our comprehensive checkups are designed to detect potential health issues early and keep you on track for optimal wellness.</p>
+                            
+                            <div class="row mt-4">
+                                <div class="col-md-6 mb-4">
+                                    <div class="service-feature">
+                                        <div class="feature-icon">
+                                            <i class="bi bi-calendar-check"></i>
+                                        </div>
+                                        <div>
+                                            <h5>Annual Health Screenings</h5>
+                                            <p class="mb-0">Stay ahead of potential health issues with <strong>comprehensive screenings, diagnostic tests, and physical exams</strong>.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="service-feature">
+                                        <div class="feature-icon">
+                                            <i class="bi bi-droplet"></i>
+                                        </div>
+                                        <div>
+                                            <h5>Blood Tests & Lab Analysis</h5>
+                                            <p class="mb-0">Our <strong>state-of-the-art laboratory</strong> provides <strong>accurate test results</strong>, ensuring timely medical interventions.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="service-feature">
+                                        <div class="feature-icon">
+                                            <i class="bi bi-shield-plus"></i>
+                                        </div>
+                                        <div>
+                                            <h5>Vaccinations & Immunization</h5>
+                                            <p class="mb-0">Protect yourself and your family with <strong>essential vaccinations</strong>, including <strong>flu shots, travel vaccines, and pediatric immunization</strong>.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="service-feature">
+                                        <div class="feature-icon">
+                                            <i class="bi bi-person-heart"></i>
+                                        </div>
+                                        <div>
+                                            <h5>Health Risk Assessments</h5>
+                                            <p class="mb-0">Personalized evaluations to identify potential health risks and preventive strategies.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="tab-pane fade" id="v-pills-specialist" role="tabpanel">
+                            <h3 class="mb-4">Expert Specialist Consultations</h3>
+                            <p>Access to top medical specialists across various fields for comprehensive diagnosis and treatment.</p>
+                            
+                            <div class="row mt-4">
+                                <div class="col-md-6 mb-4">
+                                    <div class="service-feature">
+                                        <div class="feature-icon">
+                                            <i class="bi bi-heart"></i>
+                                        </div>
+                                        <div>
+                                            <h5>Cardiology & Heart Health</h5>
+                                            <p class="mb-0">Our cardiologists specialize in <strong>heart disease prevention, diagnostics, and treatment plans</strong> for a healthier heart.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="service-feature">
+                                        <div class="feature-icon">
+                                            <i class="bi bi-bone"></i>
+                                        </div>
+                                        <div>
+                                            <h5>Orthopedic & Joint Care</h5>
+                                            <p class="mb-0">Get expert consultations for <strong>bone and joint health</strong>, including <strong>injury recovery, arthritis treatment, and mobility therapies</strong>.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="service-feature">
+                                        <div class="feature-icon">
+                                            <i class="bi bi-person-bounding-box"></i>
+                                        </div>
+                                        <div>
+                                            <h5>Dermatology & Skin Care</h5>
+                                            <p class="mb-0">Achieve healthy skin with <strong>advanced dermatological treatments</strong> for <strong>acne, skin conditions, and cosmetic dermatology</strong>.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="service-feature">
+                                        <div class="feature-icon">
+                                            <i class="bi bi-eyedropper"></i>
+                                        </div>
+                                        <div>
+                                            <h5>Endocrinology & Diabetes Care</h5>
+                                            <p class="mb-0">Comprehensive management of hormonal disorders and diabetes with personalized treatment plans.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="tab-pane fade" id="v-pills-therapy" role="tabpanel">
+                            <h3 class="mb-4">Therapeutic Treatments for Well-being</h3>
+                            <p>Our therapeutic services address both physical and mental health needs for comprehensive wellness.</p>
+                            
+                            <div class="row mt-4">
+                                <div class="col-md-6 mb-4">
+                                    <div class="service-feature">
+                                        <div class="feature-icon">
+                                            <i class="bi bi-activity"></i>
+                                        </div>
+                                        <div>
+                                            <h5>Rehabilitation & Physical Therapy</h5>
+                                            <p class="mb-0">Recover faster with <strong>specialized physiotherapy, injury rehabilitation, and post-surgery recovery programs</strong>.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="service-feature">
+                                        <div class="feature-icon">
+                                            <i class="bi bi-emoji-smile"></i>
+                                        </div>
+                                        <div>
+                                            <h5>Mental Health Counseling</h5>
+                                            <p class="mb-0">Our licensed professionals provide <strong>therapy for anxiety, depression, stress management, and emotional well-being</strong>.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="service-feature">
+                                        <div class="feature-icon">
+                                            <i class="bi bi-bandaid"></i>
+                                        </div>
+                                        <div>
+                                            <h5>Chronic Pain Management</h5>
+                                            <p class="mb-0">Personalized <strong>pain relief therapies</strong> for patients dealing with <strong>neuropathy, arthritis, and injury-related discomfort</strong>.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="service-feature">
+                                        <div class="feature-icon">
+                                            <i class="bi bi-chat-dots"></i>
+                                        </div>
+                                        <div>
+                                            <h5>Speech & Occupational Therapy</h5>
+                                            <p class="mb-0">Specialized therapies to improve communication skills and daily living activities.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="tab-pane fade" id="v-pills-wellness" role="tabpanel">
+                            <h3 class="mb-4">Personalized Wellness Programs</h3>
+                            <p>Transform your health with our holistic wellness programs designed for sustainable lifestyle changes.</p>
+                            
+                            <div class="row mt-4">
+                                <div class="col-md-6 mb-4">
+                                    <div class="service-feature">
+                                        <div class="feature-icon">
+                                            <i class="bi bi-nutrition"></i>
+                                        </div>
+                                        <div>
+                                            <h5>Nutrition & Lifestyle Coaching</h5>
+                                            <p class="mb-0">Work with <strong>certified dietitians</strong> to develop <strong>meal plans, weight management strategies, and healthy eating habits</strong>.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="service-feature">
+                                        <div class="feature-icon">
+                                            <i class="bi bi-tree"></i>
+                                        </div>
+                                        <div>
+                                            <h5>Holistic Medicine & Alternative Therapies</h5>
+                                            <p class="mb-0">Explore <strong>natural healing methods</strong> such as <strong>acupuncture, meditation, and herbal treatments</strong> to support wellness.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="service-feature">
+                                        <div class="feature-icon">
+                                            <i class="bi bi-bicycle"></i>
+                                        </div>
+                                        <div>
+                                            <h5>Fitness & Health Optimization</h5>
+                                            <p class="mb-0">Join <strong>guided fitness programs</strong> for improved endurance, strength, and overall well-being.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="service-feature">
+                                        <div class="feature-icon">
+                                            <i class="bi bi-moon-stars"></i>
+                                        </div>
+                                        <div>
+                                            <h5>Sleep Health Programs</h5>
+                                            <p class="mb-0">Comprehensive assessment and treatment for sleep disorders and quality improvement.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="tab-pane fade" id="v-pills-diagnostics" role="tabpanel">
+                            <h3 class="mb-4">Advanced Diagnostic Services</h3>
+                            <p>State-of-the-art diagnostic technology for accurate assessments and early detection.</p>
+                            
+                            <div class="row mt-4">
+                                <div class="col-md-6 mb-4">
+                                    <div class="service-feature">
+                                        <div class="feature-icon">
+                                            <i class="bi bi-camera"></i>
+                                        </div>
+                                        <div>
+                                            <h5>Imaging Services</h5>
+                                            <p class="mb-0">Digital X-ray, MRI, CT scans, and ultrasound with advanced technology and expert interpretation.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="service-feature">
+                                        <div class="feature-icon">
+                                            <i class="bi bi-heart-pulse"></i>
+                                        </div>
+                                        <div>
+                                            <h5>Cardiac Diagnostics</h5>
+                                            <p class="mb-0">ECG, stress testing, echocardiography, and Holter monitoring for comprehensive heart health assessment.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="service-feature">
+                                        <div class="feature-icon">
+                                            <i class="bi bi-droplet-half"></i>
+                                        </div>
+                                        <div>
+                                            <h5>Laboratory Testing</h5>
+                                            <p class="mb-0">Comprehensive blood work, urinalysis, and specialized testing with rapid results.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="service-feature">
+                                        <div class="feature-icon">
+                                            <i class="bi bi-lungs"></i>
+                                        </div>
+                                        <div>
+                                            <h5>Pulmonary Function Tests</h5>
+                                            <p class="mb-0">Detailed assessment of lung capacity and respiratory function.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Cards -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Featured Healthcare Services</h2>
+            
+            <div class="row">
+                <div class="col-md-4 animate">
+                    <div class="service-card">
+                        <img src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Preventive Care" class="service-img">
+                        <div class="service-content">
+                            <div class="service-icon">
+                                <i class="bi bi-shield-check"></i>
+                            </div>
+                            <h3>Preventive Health Plans</h3>
+                            <p>Comprehensive wellness programs designed to prevent illness and optimize health through regular screenings, vaccinations, and lifestyle guidance.</p>
+                            <a href="#" class="btn btn-link p-0 text-decoration-none">Learn More <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 animate delay-1">
+                    <div class="service-card">
+                        <img src="https://images.unsplash.com/photo-1588617311320-8d1f614dae58?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Chronic Care" class="service-img">
+                        <div class="service-content">
+                            <div class="service-icon">
+                                <i class="bi bi-clipboard2-pulse"></i>
+                            </div>
+                            <h3>Chronic Disease Management</h3>
+                            <p>Personalized care plans for diabetes, hypertension, heart disease, and other chronic conditions with ongoing support and monitoring.</p>
+                            <a href="#" class="btn btn-link p-0 text-decoration-none">Learn More <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 animate delay-2">
+                    <div class="service-card">
+                        <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Mental Wellness" class="service-img">
+                        <div class="service-content">
+                            <div class="service-icon">
+                                <i class="bi bi-emoji-smile"></i>
+                            </div>
+                            <h3>Mental Wellness Programs</h3>
+                            <p>Integrated approach to mental health including counseling, stress management, and mindfulness practices for emotional well-being.</p>
+                            <a href="#" class="btn btn-link p-0 text-decoration-none">Learn More <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="section" style="background-color: var(--light-teal);">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="mb-4">Let's Prioritize Your Health Together</h2>
+                    <p class="lead mb-5">At <strong>VitalCare</strong>, we believe in <strong>proactive healthcare solutions</strong>. Book a consultation today for <strong>high-quality medical care and personalized wellness programs</strong>.</p>
+                    <a href="appointments.html" class="btn btn-primary btn-lg me-3">Book Appointment</a>
+                    <a href="contact-us.html" class="btn btn-outline-dark btn-lg">Contact Our Team</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <h3 class="text-white mb-4">VitalCare</h3>
+                    <p class="text-white-50 mb-4">"Healing for a Better Life." Providing compassionate healthcare with a focus on holistic wellness and patient-centered care.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="bi bi-facebook"></i></a>
+                        <a href="#"><i class="bi bi-twitter"></i></a>
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                        <a href="#"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-5 mb-md-0">
+                    <h5 class="text-white mb-4">Quick Links</h5>
+                    <div class="footer-links">
+                        <a href="index.html">Home</a>
+                        <a href="about-us.html">About Us</a>
+                        <a href="services.html">Services</a>
+                        <a href="patient-resources.html">Patient Resources</a>
+                        <a href="blog.html">Blog</a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-5 mb-md-0">
+                    <h5 class="text-white mb-4">Our Services</h5>
+                    <div class="footer-links">
+                        <a href="services.html#preventive">Preventive Care</a>
+                        <a href="services.html#specialists">Specialist Consultations</a>
+                        <a href="services.html#therapy">Therapy Sessions</a>
+                        <a href="services.html#wellness">Wellness Programs</a>
+                        <a href="services.html#diagnostics">Diagnostic Tests</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <h5 class="text-white mb-4">Contact Us</h5>
+                    <p class="text-white-50 mb-3"><i class="bi bi-geo-alt me-2"></i> 123 Wellness Avenue, Health District</p>
+                    <p class="text-white-50 mb-3"><i class="bi bi-telephone me-2"></i> +1 (555) 789-6543</p>
+                    <p class="text-white-50 mb-3"><i class="bi bi-envelope me-2"></i> support@vitalcare.com</p>
+                </div>
+            </div>
+            <div class="row copyright">
+                <div class="col-12 text-center">
+                    <p class="mb-0 text-white-50">© 2025 VitalCare Health & Wellness Clinic. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Add animation to elements when they come into view
+        document.addEventListener('DOMContentLoaded', function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            document.querySelectorAll('.service-card').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
