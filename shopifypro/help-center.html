@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Center | ShopifyPro - FAQs, Returns & Support</title>
+    <meta name="description" content="Need help? Explore ShopifyPro's Help Center for FAQs, returns, refunds, and customer support. We're here to assist you 24/7.">
+    <meta name="keywords" content="help center, ShopifyPro support, FAQs, returns, refunds, order issues, customer service, online shopping help">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Help Center | ShopifyPro - FAQs, Returns & Support">
+    <meta property="og:description" content="Need assistance with an order? Visit ShopifyPro's Help Center for answers to FAQs, returns, refunds, and live customer support.">
+    <meta property="og:type" content="website">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    
+    <style>
+        :root {
+            --brick-red: #b22222;
+            --warm-beige: #f5deb3;
+            --white: #ffffff;
+            --dark-gray: #333333;
+            --light-gray: #f8f9fa;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--dark-gray);
+            line-height: 1.7;
+            background-color: #f9f9f9;
+        }
+        
+        h1, h2, h3, h4, h5, .navbar-brand {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+        
+        .navbar {
+            background-color: var(--white);
+            padding: 1.2rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .navbar-brand {
+            font-size: 1.8rem;
+            color: var(--brick-red) !important;
+            letter-spacing: 0.5px;
+        }
+        
+        .navbar-brand span {
+            color: var(--dark-gray);
+        }
+        
+        .nav-link {
+            color: var(--dark-gray) !important;
+            font-weight: 500;
+            margin: 0 0.8rem;
+            position: relative;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--brick-red);
+            transition: width 0.3s;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        .btn-primary {
+            background-color: var(--brick-red);
+            border-color: var(--brick-red);
+            padding: 0.9rem 1.8rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            border-radius: 4px;
+        }
+        
+        .btn-primary:hover {
+            background-color: #9b1d1d;
+            border-color: #9b1d1d;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(178, 34, 34, 0.25);
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.03)), url('https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 6rem 0 4rem;
+            text-align: center;
+        }
+        
+        .section {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 2.5rem;
+            color: var(--dark-gray);
+            padding-bottom: 15px;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: var(--brick-red);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .section-title.text-center:after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .faq-card {
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+        
+        .faq-card:hover {
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .faq-header {
+            padding: 1.5rem;
+            background: var(--light-gray);
+            cursor: pointer;
+            position: relative;
+            font-weight: 600;
+        }
+        
+        .faq-header:after {
+            content: '+';
+            position: absolute;
+            right: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            color: var(--brick-red);
+        }
+        
+        .faq-header.active:after {
+            content: '-';
+        }
+        
+        .faq-content {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+        
+        .faq-content.show {
+            padding: 1.5rem;
+            max-height: 500px;
+        }
+        
+        .support-card {
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 2rem;
+            text-align: center;
+            height: 100%;
+            transition: all 0.3s;
+        }
+        
+        .support-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .support-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--warm-beige);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.8rem;
+            color: var(--brick-red);
+        }
+        
+        .highlight {
+            color: var(--brick-red);
+            font-weight: 500;
+        }
+        
+        .contact-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.03)), var(--warm-beige);
+            padding: 5rem 0;
+            border-radius: 12px;
+        }
+        
+        footer {
+            background: var(--dark-gray);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+        }
+        
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--white);
+            margin-right: 10px;
+            transition: all 0.3s;
+        }
+        
+        .social-icon:hover {
+            background: var(--brick-red);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 1.5rem 0;
+            margin-top: 3rem;
+        }
+        
+        .help-search {
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .help-search .form-control {
+            padding: 1.2rem 1.5rem;
+            border-radius: 50px;
+            border: 2px solid var(--brick-red);
+            font-size: 1.1rem;
+        }
+        
+        .help-search .btn {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            bottom: 5px;
+            border-radius: 50px;
+            padding: 0 1.5rem;
+        }
+        
+        .support-illustration {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .section {
+                padding: 3rem 0;
+            }
+            
+            .hero-section {
+                padding: 4rem 0 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Shopify<span>Pro</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Account</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Deals</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Help Center</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <a href="#" class="btn btn-outline-dark me-2"><i class="bi bi-heart"></i></a>
+                    <a href="#" class="btn btn-outline-dark position-relative">
+                        <i class="bi bi-cart3"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            3
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h1 class="display-4 fw-bold">ShopifyPro Help Center: We're Here to Assist You</h1>
+                    <p class="lead my-4">Need help with your <span class="highlight">order, returns, refunds, or shopping experience</span>? Our <span class="highlight">customer support team is available 24/7</span> to ensure a hassle-free experience at ShopifyPro.</p>
+                    
+                    <div class="help-search mb-4">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="How can we help you today?">
+                            <button class="btn btn-primary" type="button">Search</button>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex justify-content-center gap-3 flex-wrap">
+                        <a href="#faqs" class="btn btn-outline-primary">FAQs</a>
+                        <a href="#returns" class="btn btn-outline-primary">Returns & Refunds</a>
+                        <a href="#contact" class="btn btn-outline-primary">Contact Support</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQs Section -->
+    <section class="section" id="faqs">
+        <div class="container">
+            <h2 class="section-title text-center">Frequently Asked Questions</h2>
+            <p class="text-center mb-5">Find answers to common questions about orders, payments, and more</p>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="faq-card">
+                        <div class="faq-header">
+                            How Can I Track My Order?
+                        </div>
+                        <div class="faq-content">
+                            <p>Once your order is placed, you will receive a <span class="highlight">tracking link via email</span>. You can also visit the <a href="tracking-page.html">Order Tracking Page</a> to get real-time updates on your shipment's progress.</p>
+                            <p>Our tracking system updates every 6-12 hours, providing you with the latest information on your package's location and estimated delivery date.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-card">
+                        <div class="faq-header">
+                            What Payment Methods Do You Accept?
+                        </div>
+                        <div class="faq-content">
+                            <p>We support a variety of payment options for your convenience:</p>
+                            <ul>
+                                <li><span class="highlight">Credit/Debit Cards</span> (Visa, Mastercard, American Express)</li>
+                                <li><span class="highlight">PayPal</span> for secure online payments</li>
+                                <li><span class="highlight">Apple Pay</span> and <span class="highlight">Google Pay</span> for mobile payments</li>
+                                <li><span class="highlight">Cash on Delivery (COD)</span> in select locations</li>
+                            </ul>
+                            <p>All transactions are encrypted and secured for your protection.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-card">
+                        <div class="faq-header">
+                            How Can I Cancel My Order?
+                        </div>
+                        <div class="faq-content">
+                            <p>If your order has not been shipped yet, you can <span class="highlight">cancel it through your ShopifyPro account</span>. Simply follow these steps:</p>
+                            <ol>
+                                <li>Log in to your ShopifyPro account</li>
+                                <li>Go to <span class="highlight">"My Orders"</span> section</li>
+                                <li>Find the order you wish to cancel</li>
+                                <li>Click the <span class="highlight">"Cancel"</span> button before dispatch</li>
+                            </ol>
+                            <p>If the cancel button is unavailable, it means your order has already been processed and shipped. In this case, you can request a return once you receive the item.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-card">
+                        <div class="faq-header">
+                            What Happens If My Order Is Delayed?
+                        </div>
+                        <div class="faq-content">
+                            <p>Occasionally, orders may face slight <span class="highlight">shipping delays due to high demand or logistics challenges</span>. If your order is <span class="highlight">delayed beyond the expected delivery window</span>, we recommend:</p>
+                            <ul>
+                                <li>Checking the tracking information for updates</li>
+                                <li>Contacting our <span class="highlight">support team</span> for assistance</li>
+                                <li>Allowing an extra 1-2 business days for delivery</li>
+                            </ul>
+                            <p>If your order is significantly delayed (more than 5 business days past the estimated delivery date), please contact our support team for further assistance.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-card">
+                        <div class="faq-header">
+                            How Do I Change My Shipping Address?
+                        </div>
+                        <div class="faq-content">
+                            <p>You can change your shipping address if your order hasn't been shipped yet:</p>
+                            <ol>
+                                <li>Log in to your ShopifyPro account</li>
+                                <li>Go to "My Orders"</li>
+                                <li>Select the order you want to modify</li>
+                                <li>Click "Change Shipping Address"</li>
+                                <li>Enter your new address and confirm</li>
+                            </ol>
+                            <p>If the option is unavailable, it means your order has already been processed for shipping. In this case, contact our support team immediately for assistance.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-card">
+                        <div class="faq-header">
+                            How Do I Apply a Promo Code?
+                        </div>
+                        <div class="faq-content">
+                            <p>To apply a promo code during checkout:</p>
+                            <ol>
+                                <li>Add items to your cart</li>
+                                <li>Proceed to checkout</li>
+                                <li>Find the "Promo Code" field below the order summary</li>
+                                <li>Enter your code and click "Apply"</li>
+                                <li>The discount will be reflected in your order total</li>
+                            </ol>
+                            <p>If you're having trouble applying a code, ensure it hasn't expired and that your order meets the minimum requirements for the promotion.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Returns & Refunds Section -->
+    <section class="section bg-light" id="returns">
+        <div class="container">
+            <h2 class="section-title text-center">Returns & Refunds Policy</h2>
+            <p class="text-center mb-5">Our straightforward return policy makes it easy to exchange or return items</p>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="faq-card">
+                        <div class="faq-header">
+                            How Do I Request a Return?
+                        </div>
+                        <div class="faq-content">
+                            <p>If you're not satisfied with your purchase, you can request a return within <span class="highlight">30 days of delivery</span>. Follow these simple steps:</p>
+                            <ol>
+                                <li>Log in to your ShopifyPro account</li>
+                                <li>Navigate to the <span class="highlight">"Returns"</span> page</li>
+                                <li>Select the item(s) you wish to return</li>
+                                <li>Choose a return reason</li>
+                                <li>Print the return label</li>
+                                <li>Package your item securely</li>
+                                <li>Ship it back to us</li>
+                            </ol>
+                            <p>Once we receive your return, we'll process it within 1-2 business days.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-card">
+                        <div class="faq-header">
+                            How Long Does a Refund Take?
+                        </div>
+                        <div class="faq-content">
+                            <p>Once we receive your returned item, <span class="highlight">refunds are processed within 5-7 business days</span> to the original payment method. The timing for the refund to appear in your account depends on your payment provider:</p>
+                            <ul>
+                                <li><span class="highlight">Credit/Debit Cards:</span> 3-10 business days after we process the refund</li>
+                                <li><span class="highlight">PayPal:</span> Usually within 24 hours</li>
+                                <li><span class="highlight">Bank Transfers:</span> 5-10 business days</li>
+                            </ul>
+                            <p>You'll receive an email confirmation once your refund has been processed.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-card">
+                        <div class="faq-header">
+                            Which Items Are Not Eligible for Returns?
+                        </div>
+                        <div class="faq-content">
+                            <p>For health and safety reasons, certain items are not eligible for returns:</p>
+                            <ul>
+                                <li><span class="highlight">Personal hygiene products</span> (toothbrushes, earrings, etc.)</li>
+                                <li><span class="highlight">Digital downloads</span> (software, ebooks, music)</li>
+                                <li><span class="highlight">Final-sale clearance items</span> (marked as non-returnable)</li>
+                                <li><span class="highlight">Perishable goods</span> (food, flowers, etc.)</li>
+                                <li><span class="highlight">Custom-made or personalized items</span></li>
+                            </ul>
+                            <p>Please check product descriptions before purchasing, as some items may have specific return policies.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-card">
+                        <div class="faq-header">
+                            What Condition Should Returned Items Be In?
+                        </div>
+                        <div class="faq-content">
+                            <p>To be eligible for a return, your item must be:</p>
+                            <ul>
+                                <li>Unused and in the original condition</li>
+                                <li>In the original packaging with all tags attached</li>
+                                <li>Accompanied by the receipt or proof of purchase</li>
+                                <li>Free from any damage, stains, or odors</li>
+                            </ul>
+                            <p>We reserve the right to refuse returns that don't meet these conditions or to issue a partial refund if items show signs of use.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Support Section -->
+    <section class="section contact-section" id="contact">
+        <div class="container">
+            <h2 class="section-title text-center">Need Additional Help?</h2>
+            <p class="text-center mb-5">Still have questions? <span class="highlight">Reach out to our support team</span> for direct assistance.</p>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="support-card">
+                        <div class="support-icon">
+                            <i class="bi bi-chat-dots"></i>
+                        </div>
+                        <h3>Live Chat Support</h3>
+                        <p>Chat with our support team in <span class="highlight">real-time</span> through our Live Chat portal. Available 24/7 for immediate assistance.</p>
+                        <a href="live-chat.html" class="btn btn-outline-primary mt-3">Start Live Chat</a>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="support-card">
+                        <div class="support-icon">
+                            <i class="bi bi-envelope"></i>
+                        </div>
+                        <h3>Email Support</h3>
+                        <p>Send us an email and our team will respond within <span class="highlight">24 hours</span> with a solution to your query.</p>
+                        <div class="mt-4">
+                            <p><i class="bi bi-envelope me-2"></i> <a href="mailto:support@shopifypro.com">support@shopifypro.com</a></p>
+                            <p><i class="bi bi-telephone me-2"></i> +1 (555) 789-6543</p>
+                        </div>
+                        <a href="mailto:support@shopifypro.com" class="btn btn-outline-primary mt-3">Send Email</a>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="support-card">
+                        <div class="support-icon">
+                            <i class="bi bi-people"></i>
+                        </div>
+                        <h3>Community Support</h3>
+                        <p>Connect with other ShopifyPro users in our community forum. Share experiences and find solutions together.</p>
+                        <div class="mt-4">
+                            <a href="#" class="btn btn-outline-dark me-2"><i class="bi bi-facebook"></i></a>
+                            <a href="#" class="btn btn-outline-dark me-2"><i class="bi bi-reddit"></i></a>
+                            <a href="#" class="btn btn-outline-dark"><i class="bi bi-discord"></i></a>
+                        </div>
+                        <a href="#" class="btn btn-outline-primary mt-3">Join Community</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-5">
+                <div class="col-lg-8 mx-auto">
+                    <div class="support-card">
+                        <h3 class="text-center mb-4">Connect on Social Media</h3>
+                        <p class="text-center">Follow us for updates, promotions, and additional support options:</p>
+                        <div class="d-flex justify-content-center gap-3 mt-4">
+                            <a href="https://www.linkedin.com/company/shopifypro" class="btn btn-primary"><i class="bi bi-linkedin me-2"></i> LinkedIn</a>
+                            <a href="https://twitter.com/shopifypro" class="btn btn-primary"><i class="bi bi-twitter me-2"></i> Twitter</a>
+                            <a href="https://www.facebook.com/shopifypro" class="btn btn-primary"><i class="bi bi-facebook me-2"></i> Facebook</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <h4 class="mb-4">ShopifyPro</h4>
+                    <p>Your trusted online marketplace for quality products at competitive prices. We make online shopping simple and secure.</p>
+                    <div class="mt-4">
+                        <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-pinterest"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2">
+                    <h5>Shop</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-white-50">All Products</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-white-50">Featured</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-white-50">New Arrivals</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-white-50">Deals</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-white-50">Gift Cards</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2">
+                    <h5>Help</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-white-50">Customer Service</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-white-50">Track Order</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-white-50">Returns & Exchanges</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-white-50">Shipping Info</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-white-50">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-4">
+                    <h5>Contact Us</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-3"><i class="bi bi-envelope me-2"></i> support@shopifypro.com</li>
+                        <li class="mb-3"><i class="bi bi-telephone me-2"></i> +1 (555) 789-6543</li>
+                        <li class="mb-3"><i class="bi bi-geo-alt me-2"></i> 123 Commerce Street, San Francisco, CA</li>
+                        <li class="mb-3"><i class="bi bi-clock me-2"></i> Mon-Fri: 9am - 8pm EST</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright text-center mt-5">
+                <p class="mb-0">&copy; 2025 ShopifyPro. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom Script -->
+    <script>
+        // FAQ accordion functionality
+        document.querySelectorAll('.faq-header').forEach(header => {
+            header.addEventListener('click', function() {
+                // Toggle active class on header
+                this.classList.toggle('active');
+                
+                // Get the next element (faq-content)
+                const content = this.nextElementSibling;
+                
+                // Toggle the show class on content
+                if (content.classList.contains('show')) {
+                    content.classList.remove('show');
+                } else {
+                    // Close other open FAQs
+                    document.querySelectorAll('.faq-content').forEach(item => {
+                        item.classList.remove('show');
+                    });
+                    document.querySelectorAll('.faq-header').forEach(item => {
+                        item.classList.remove('active');
+                    });
+                    
+                    // Open this FAQ
+                    content.classList.add('show');
+                    this.classList.add('active');
+                }
+            });
+        });
+        
+        // Search functionality
+        document.querySelector('.help-search button').addEventListener('click', function() {
+            const searchTerm = document.querySelector('.help-search input').value.toLowerCase();
+            if (searchTerm.trim() === '') return;
+            
+            const faqHeaders = document.querySelectorAll('.faq-header');
+            let found = false;
+            
+            // Close all FAQs first
+            document.querySelectorAll('.faq-content').forEach(item => {
+                item.classList.remove('show');
+            });
+            document.querySelectorAll('.faq-header').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Search through FAQs
+            faqHeaders.forEach(header => {
+                const headerText = header.textContent.toLowerCase();
+                const content = header.nextElementSibling;
+                const contentText = content.textContent.toLowerCase();
+                
+                if (headerText.includes(searchTerm) || contentText.includes(searchTerm)) {
+                    header.classList.add('active');
+                    content.classList.add('show');
+                    header.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    found = true;
+                }
+            });
+            
+            if (!found) {
+                alert('No results found for "' + searchTerm + '". Please try different keywords.');
+            }
+        });
+        
+        // Allow Enter key to trigger search
+        document.querySelector('.help-search input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                document.querySelector('.help-search button').click();
+            }
+        });
+    </script>
+</body>
+</html>
