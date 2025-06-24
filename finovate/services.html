@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finovate Services | Investment Planning & Risk Management</title>
+    <meta name="description" content="Explore Finovate’s expert financial services, including strategic investment planning and risk management for long-term wealth growth.">
+    <meta name="keywords" content="Finovate financial services, investment planning, wealth strategy, risk assessment, asset management, financial growth">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Finovate Services | Investment Planning & Risk Management">
+    <meta property="og:description" content="Discover Finovate’s wealth management services, from investment planning to risk mitigation. Secure your financial future today.">
+    <meta property="og:type" content="website">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <style>
+        :root {
+            --deep-green: #014421;
+            --gold: #daa520;
+            --light-gold: #f0e6c3;
+            --white: #ffffff;
+            --light-gray: #f8f9fa;
+        }
+        
+        body {
+            font-family: 'Libre Baskerville', serif;
+            color: #333;
+            overflow-x: hidden;
+            background-color: #f9f9f9;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Work Sans', sans-serif;
+            font-weight: 600;
+        }
+        
+        .btn-primary {
+            background-color: var(--deep-green);
+            border-color: var(--deep-green);
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: #013319;
+            border-color: #013319;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(1, 68, 33, 0.2);
+        }
+        
+        .btn-outline-primary {
+            color: var(--deep-green);
+            border-color: var(--deep-green);
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+        }
+        
+        .btn-outline-primary:hover {
+            background-color: var(--deep-green);
+            color: var(--white);
+        }
+        
+        .btn-gold {
+            background-color: var(--gold);
+            color: var(--deep-green);
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-gold:hover {
+            background-color: #c6951c;
+            color: var(--deep-green);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(218, 165, 32, 0.2);
+        }
+        
+        .bg-deep-green {
+            background-color: var(--deep-green);
+        }
+        
+        .bg-gold {
+            background-color: var(--gold);
+        }
+        
+        .bg-light-gold {
+            background-color: var(--light-gold);
+        }
+        
+        .text-deep-green {
+            color: var(--deep-green);
+        }
+        
+        .text-gold {
+            color: var(--gold);
+        }
+        
+        .navbar {
+            padding: 20px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-brand {
+            font-family: 'Work Sans', sans-serif;
+            font-weight: 700;
+            font-size: 1.8rem;
+        }
+        
+        .navbar-brand span {
+            color: var(--gold);
+        }
+        
+        .hero-services {
+            background: linear-gradient(135deg, rgba(1, 68, 33, 0.9) 0%, rgba(1, 68, 33, 0.85) 100%), url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center;
+            background-size: cover;
+            padding: 150px 0 100px;
+            color: var(--white);
+            position: relative;
+            text-align: center;
+        }
+        
+        .hero-services h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+        
+        .hero-services p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 50px;
+            padding-bottom: 20px;
+        }
+        
+        .section-title:after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: var(--gold);
+        }
+        
+        .section-title.center:after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .service-card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            height: 100%;
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+        
+        .process-step {
+            text-align: center;
+            padding: 30px;
+            position: relative;
+        }
+        
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: var(--deep-green);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 20px;
+        }
+        
+        .process-arrow {
+            position: absolute;
+            top: 50%;
+            right: -30px;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            color: var(--gold);
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+        
+        .comparison-table th {
+            background-color: var(--deep-green);
+            color: var(--white);
+            padding: 20px;
+            text-align: left;
+        }
+        
+        .comparison-table td {
+            padding: 15px 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background-color: var(--light-gray);
+        }
+        
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .comparison-table .check {
+            color: var(--gold);
+            font-size: 1.5rem;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, var(--deep-green) 0%, #013319 100%);
+            padding: 100px 0;
+            color: var(--white);
+            text-align: center;
+        }
+        
+        .footer {
+            background: #111;
+            color: var(--white);
+            padding: 60px 0 30px;
+        }
+        
+        .footer a {
+            color: #aaa;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer a:hover {
+            color: var(--gold);
+        }
+        
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            transition: all 0.3s ease;
+            margin-right: 10px;
+        }
+        
+        .social-icon:hover {
+            background: var(--gold);
+            color: var(--deep-green);
+            transform: translateY(-3px);
+        }
+        
+        .service-benefit {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        
+        .benefit-icon {
+            min-width: 50px;
+            height: 50px;
+            background: var(--light-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--gold);
+            margin-right: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-services h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-services p {
+                font-size: 1.1rem;
+            }
+            
+            .process-arrow {
+                position: static;
+                transform: rotate(90deg);
+                margin: 20px auto;
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                Fino<span>vate</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="services.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="client-success-stories.html">Success Stories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact-us.html">Contact</a>
+                    </li>
+                </ul>
+                <a href="contact-us.html" class="btn btn-gold ms-3">Free Consultation</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-services">
+        <div class="container">
+            <h1>Smart Wealth Solutions: Finovate Financial Services</h1>
+            <p class="lead">Building Wealth, Securely.</p>
+        </div>
+    </section>
+
+    <!-- Introduction -->
+    <section class="py-5">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <p>Finovate offers <strong class="text-deep-green">tailored financial services</strong> designed to help individuals and businesses <strong class="text-deep-green">maximize wealth, optimize investments, and mitigate financial risks</strong>.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Investment Planning -->
+    <section class="py-5 bg-light">
+        <div class="container py-5">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="section-title center">Investment Planning: Build Your Wealth Strategically</h2>
+                    <p class="lead">Crafting portfolios for sustainable financial growth</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="service-card">
+                        <i class="bi bi-pie-chart service-icon"></i>
+                        <h3>Customized Portfolio Development</h3>
+                        <p>Our experts craft <strong class="text-deep-green">strategic investment portfolios</strong> to align with your <strong class="text-deep-green">financial goals, risk tolerance, and market conditions</strong>.</p>
+                        
+                        <div class="service-benefit mt-4">
+                            <div class="benefit-icon">
+                                <i class="bi bi-bullseye"></i>
+                            </div>
+                            <div>
+                                <h5>Goal-Oriented Approach</h5>
+                                <p>Strategies aligned with your specific financial objectives</p>
+                            </div>
+                        </div>
+                        
+                        <div class="service-benefit">
+                            <div class="benefit-icon">
+                                <i class="bi bi-graph-up"></i>
+                            </div>
+                            <div>
+                                <h5>Growth Focus</h5>
+                                <p>Maximizing returns through strategic asset allocation</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="service-card">
+                        <i class="bi bi-globe service-icon"></i>
+                        <h3>Diversification Strategies</h3>
+                        <p>Minimize risk and maximize growth with <strong class="text-deep-green">diversified investments</strong> across <strong class="text-deep-green">stocks, bonds, real estate, and global markets</strong>.</p>
+                        
+                        <div class="service-benefit mt-4">
+                            <div class="benefit-icon">
+                                <i class="bi bi-shuffle"></i>
+                            </div>
+                            <div>
+                                <h5>Asset Allocation</h5>
+                                <p>Optimal distribution across various asset classes</p>
+                            </div>
+                        </div>
+                        
+                        <div class="service-benefit">
+                            <div class="benefit-icon">
+                                <i class="bi bi-shield-check"></i>
+                            </div>
+                            <div>
+                                <h5>Risk Reduction</h5>
+                                <p>Minimizing exposure through strategic diversification</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="service-card">
+                        <i class="bi bi-calendar-check service-icon"></i>
+                        <h3>Long-Term Wealth Optimization</h3>
+                        <p>Plan ahead with <strong class="text-deep-green">smart wealth-building solutions</strong>, ensuring financial security for <strong class="text-deep-green">retirement, business expansion, and asset protection</strong>.</p>
+                        
+                        <div class="service-benefit mt-4">
+                            <div class="benefit-icon">
+                                <i class="bi bi-arrow-repeat"></i>
+                            </div>
+                            <div>
+                                <h5>Sustainable Growth</h5>
+                                <p>Strategies designed for long-term financial security</p>
+                            </div>
+                        </div>
+                        
+                        <div class="service-benefit">
+                            <div class="benefit-icon">
+                                <i class="bi bi-people"></i>
+                            </div>
+                            <div>
+                                <h5>Generational Planning</h5>
+                                <p>Building and preserving wealth for future generations</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Risk Management -->
+    <section class="py-5">
+        <div class="container py-5">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="section-title center">Risk Management: Protecting Your Investments</h2>
+                    <p class="lead">Safeguarding your assets in volatile markets</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="service-card">
+                        <i class="bi bi-clipboard-data service-icon"></i>
+                        <h3>Proactive Risk Assessment</h3>
+                        <p>Stay ahead of market volatility with <strong class="text-deep-green">advanced risk analysis, predictive modeling, and financial resilience planning</strong>.</p>
+                        
+                        <div class="service-benefit mt-4">
+                            <div class="benefit-icon">
+                                <i class="bi bi-binoculars"></i>
+                            </div>
+                            <div>
+                                <h5>Early Detection</h5>
+                                <p>Identifying potential risks before they impact your portfolio</p>
+                            </div>
+                        </div>
+                        
+                        <div class="service-benefit">
+                            <div class="benefit-icon">
+                                <i class="bi bi-cpu"></i>
+                            </div>
+                            <div>
+                                <h5>Predictive Analytics</h5>
+                                <p>Data-driven insights for proactive risk management</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="service-card">
+                        <i class="bi bi-shield-lock service-icon"></i>
+                        <h3>Loss Prevention & Contingency Strategies</h3>
+                        <p>We implement <strong class="text-deep-green">effective risk mitigation frameworks</strong>, securing your assets against <strong class="text-deep-green">economic downturns and market uncertainties</strong>.</p>
+                        
+                        <div class="service-benefit mt-4">
+                            <div class="benefit-icon">
+                                <i class="bi bi-lightning"></i>
+                            </div>
+                            <div>
+                                <h5>Crisis Management</h5>
+                                <p>Rapid response strategies for market disruptions</p>
+                            </div>
+                        </div>
+                        
+                        <div class="service-benefit">
+                            <div class="benefit-icon">
+                                <i class="bi bi-diagram-3"></i>
+                            </div>
+                            <div>
+                                <h5>Hedging Strategies</h5>
+                                <p>Protecting investments from adverse market movements</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="service-card">
+                        <i class="bi bi-safe service-icon"></i>
+                        <h3>Financial Stability Solutions</h3>
+                        <p>Ensure a <strong class="text-deep-green">stable financial future</strong> with <strong class="text-deep-green">insurance planning, crisis management, and wealth preservation techniques</strong>.</p>
+                        
+                        <div class="service-benefit mt-4">
+                            <div class="benefit-icon">
+                                <i class="bi bi-lock"></i>
+                            </div>
+                            <div>
+                                <h5>Asset Protection</h5>
+                                <p>Safeguarding wealth from unexpected events</p>
+                            </div>
+                        </div>
+                        
+                        <div class="service-benefit">
+                            <div class="benefit-icon">
+                                <i class="bi bi-umbrella"></i>
+                            </div>
+                            <div>
+                                <h5>Insurance Solutions</h5>
+                                <p>Comprehensive coverage for financial security</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Process -->
+    <section class="py-5 bg-light-gold">
+        <div class="container py-5">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="section-title center">Our Client-Centric Approach</h2>
+                    <p class="lead">How we deliver personalized financial solutions</p>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-6 col-lg-3">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <h4>Discovery & Assessment</h4>
+                        <p>We begin with a comprehensive analysis of your financial situation, goals, and risk tolerance.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3 position-relative">
+                    <div class="process-arrow d-none d-lg-block">
+                        <i class="bi bi-arrow-right"></i>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <h4>Strategy Development</h4>
+                        <p>Our experts create a customized financial strategy tailored to your unique needs.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3 position-relative">
+                    <div class="process-arrow d-none d-lg-block">
+                        <i class="bi bi-arrow-right"></i>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <h4>Implementation</h4>
+                        <p>We put the plan into action with precision and attention to detail.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3 position-relative">
+                    <div class="process-arrow d-none d-lg-block">
+                        <i class="bi bi-arrow-right"></i>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <h4>Ongoing Management</h4>
+                        <p>Continuous monitoring and adjustments to ensure optimal performance.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Comparison -->
+    <section class="py-5">
+        <div class="container py-5">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="section-title center">Comprehensive Service Offerings</h2>
+                    <p class="lead">Tailored solutions for every financial need</p>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-12">
+                    <div class="table-responsive">
+                        <table class="comparison-table">
+                            <thead>
+                                <tr>
+                                    <th>Service Area</th>
+                                    <th>Investment Planning</th>
+                                    <th>Risk Management</th>
+                                    <th>Wealth Preservation</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Portfolio Management</td>
+                                    <td><i class="bi bi-check check"></i></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Asset Allocation</td>
+                                    <td><i class="bi bi-check check"></i></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Market Analysis</td>
+                                    <td><i class="bi bi-check check"></i></td>
+                                    <td><i class="bi bi-check check"></i></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Risk Assessment</td>
+                                    <td></td>
+                                    <td><i class="bi bi-check check"></i></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Crisis Management</td>
+                                    <td></td>
+                                    <td><i class="bi bi-check check"></i></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Insurance Planning</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td><i class="bi bi-check check"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Estate Planning</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td><i class="bi bi-check check"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Tax Optimization</td>
+                                    <td><i class="bi bi-check check"></i></td>
+                                    <td></td>
+                                    <td><i class="bi bi-check check"></i></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="mb-4">Work with Finovate for Expert Financial Solutions</h2>
+                    <p class="lead mb-5">Enhance your <strong>investment strategy and risk protection</strong> with <strong>Finovate's expert financial advisors</strong>. Contact us today to start planning for sustainable wealth growth.</p>
+                    
+                    <div class="d-flex flex-wrap justify-content-center gap-3">
+                        <a href="contact-us.html" class="btn btn-gold">Schedule Consultation</a>
+                        <a href="tel:+15556781234" class="btn btn-outline-light">
+                            <i class="bi bi-telephone me-2"></i> +1 (555) 678-1234
+                        </a>
+                    </div>
+                    
+                    <div class="mt-5 pt-4 border-top">
+                        <h5 class="mb-4">Connect with Finovate</h5>
+                        <p class="mb-1"><i class="bi bi-envelope me-2"></i> support@finovate.com</p>
+                        <p class="mb-0"><i class="bi bi-globe me-2"></i> www.finovate.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h3 class="mb-4">Finovate</h3>
+                    <p class="mb-4">Building Wealth, Securely. We provide expert financial guidance to help you achieve your long-term financial goals.</p>
+                    <div class="d-flex">
+                        <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h5 class="mb-4">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html">Home</a></li>
+                        <li class="mb-2"><a href="about.html">About Us</a></li>
+                        <li class="mb-2"><a href="services.html">Services</a></li>
+                        <li class="mb-2"><a href="client-success-stories.html">Success Stories</a></li>
+                        <li class="mb-2"><a href="contact-us.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 col-md-4 mb-4 mb-md-0">
+                    <h5 class="mb-4">Our Services</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#">Investment Planning</a></li>
+                        <li class="mb-2"><a href="#">Risk Management</a></li>
+                        <li class="mb-2"><a href="#">Retirement Planning</a></li>
+                        <li class="mb-2"><a href="#">Tax Optimization</a></li>
+                        <li class="mb-2"><a href="#">Estate Planning</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 col-md-4">
+                    <h5 class="mb-4">Contact Us</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="bi bi-geo-alt me-2"></i> 123 Financial District, NY</li>
+                        <li class="mb-2"><i class="bi bi-telephone me-2"></i> +1 (555) 678-1234</li>
+                        <li class="mb-2"><i class="bi bi-envelope me-2"></i> support@finovate.com</li>
+                        <li class="mb-2"><i class="bi bi-clock me-2"></i> Mon-Fri: 9AM - 6PM</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <hr class="my-5" style="border-color: #333;">
+            
+            <div class="row">
+                <div class="col-md-6 mb-3 mb-md-0">
+                    <p class="mb-0">&copy; 2025 Finovate. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0"><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Simple animation for navbar on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-sm');
+                navbar.style.padding = '10px 0';
+            } else {
+                navbar.classList.remove('shadow-sm');
+                navbar.style.padding = '20px 0';
+            }
+        });
+    </script>
+</body>
+</html>
