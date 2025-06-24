@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LexPoint Legal Blog | Expert Legal Insights & Updates</title>
+    <meta name="description" content="Explore expert legal insights, case studies, and law industry trends with LexPoint’s legal blog. Stay informed about legal updates.">
+    <meta name="keywords" content="LexPoint legal blog, law industry trends, legal insights, case studies, corporate law news, civil litigation updates, family law advice">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="LexPoint Legal Blog | Expert Legal Insights & Updates">
+    <meta property="og:description" content="Stay updated with LexPoint’s legal blog featuring expert law insights, case studies, and industry updates.">
+    <meta property="og:type" content="website">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@600;700&family=Noto+Sans:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <style>
+        :root {
+            --dark-blue: #002147;
+            --silver: #c0c0c0;
+            --light-silver: #f8f9fa;
+            --gold: #d4af37;
+        }
+        
+        body {
+            font-family: 'Noto Sans', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background-color: #fafafa;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Crimson Pro', serif;
+            font-weight: 700;
+            color: var(--dark-blue);
+        }
+        
+        .btn-primary {
+            background-color: var(--dark-blue);
+            border-color: var(--dark-blue);
+            padding: 12px 30px;
+            border-radius: 0;
+            font-weight: 500;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary:hover {
+            background-color: #001a36;
+            border-color: #001a36;
+            transform: translateY(-3px);
+        }
+        
+        .btn-outline-primary {
+            color: var(--dark-blue);
+            border-color: var(--dark-blue);
+            border-radius: 0;
+            padding: 12px 30px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+        
+        .btn-outline-primary:hover {
+            background-color: var(--dark-blue);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .navbar {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px 0;
+        }
+        
+        .navbar-brand {
+            font-family: 'Crimson Pro', serif;
+            font-weight: 700;
+            font-size: 26px;
+            color: var(--dark-blue) !important;
+        }
+        
+        .nav-link {
+            color: #555 !important;
+            font-weight: 500;
+            margin: 0 10px;
+            position: relative;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--dark-blue);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        .hero-blog {
+            background: linear-gradient(rgba(0, 33, 71, 0.85), rgba(0, 33, 71, 0.85)), url('https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') center/cover no-repeat;
+            padding: 150px 0 100px;
+            color: white;
+            text-align: center;
+        }
+        
+        .hero-blog h1 {
+            color: white;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 40px;
+            padding-bottom: 15px;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background: var(--dark-blue);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .blog-container {
+            padding: 80px 0;
+        }
+        
+        .blog-card {
+            border: none;
+            border-radius: 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            margin-bottom: 30px;
+            background-color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .blog-img {
+            height: 200px;
+            object-fit: cover;
+            width: 100%;
+        }
+        
+        .blog-body {
+            padding: 30px;
+        }
+        
+        .blog-category {
+            display: inline-block;
+            background-color: var(--dark-blue);
+            color: white;
+            padding: 5px 15px;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        
+        .blog-meta {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .blog-meta i {
+            margin-right: 5px;
+            color: var(--dark-blue);
+        }
+        
+        .blog-meta span {
+            margin-right: 20px;
+        }
+        
+        .subscribe-section {
+            background-color: var(--light-silver);
+            padding: 80px 0;
+        }
+        
+        .subscribe-box {
+            background-color: white;
+            padding: 50px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-top: 5px solid var(--dark-blue);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .form-control {
+            border-radius: 0;
+            border: 1px solid #ddd;
+            padding: 12px 15px;
+            margin-bottom: 20px;
+            transition: all 0.3s;
+        }
+        
+        .form-control:focus {
+            border-color: var(--dark-blue);
+            box-shadow: 0 0 0 0.25rem rgba(0, 33, 71, 0.15);
+        }
+        
+        .sidebar-widget {
+            background-color: white;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-top: 3px solid var(--dark-blue);
+        }
+        
+        .widget-title {
+            position: relative;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+        }
+        
+        .widget-title:after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            background: var(--dark-blue);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .category-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .category-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .category-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .category-list a {
+            color: #333;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .category-list a:hover {
+            color: var(--dark-blue);
+            padding-left: 5px;
+        }
+        
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .tag-list a {
+            display: inline-block;
+            background-color: var(--light-silver);
+            color: #333;
+            padding: 5px 15px;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+        
+        .tag-list a:hover {
+            background-color: var(--dark-blue);
+            color: white;
+        }
+        
+        .footer {
+            background-color: #001a36;
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer h5 {
+            color: white;
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        .footer h5:after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background: var(--silver);
+            bottom: -10px;
+            left: 0;
+        }
+        
+        .footer ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer ul li a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer ul li a:hover {
+            color: white;
+        }
+        
+        .social-links-footer a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            margin-right: 10px;
+            transition: all 0.3s;
+        }
+        
+        .social-links-footer a:hover {
+            background-color: var(--silver);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            margin-top: 40px;
+            text-align: center;
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+        
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+        
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .hero-blog h1 {
+                font-size: 2.8rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-blog {
+                padding: 100px 0 60px;
+            }
+            
+            .hero-blog h1 {
+                font-size: 2.3rem;
+            }
+            
+            .section-title {
+                margin-bottom: 30px;
+            }
+            
+            .subscribe-box {
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">LexPoint</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about-us.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="case-studies.html">Case Studies</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="legal-blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact-us.html">Contact</a>
+                    </li>
+                    <li class="nav-item ms-lg-3">
+                        <a class="btn btn-outline-primary" href="#subscribe">Subscribe</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-blog">
+        <div class="container">
+            <h1 class="animate">LexPoint Legal Blog: Your Source for Law Insights</h1>
+            <p class="lead animate delay-1">Expert opinions, legal updates, and industry analysis</p>
+        </div>
+    </section>
+
+    <!-- Blog Content -->
+    <section class="blog-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="mb-5 animate">
+                        <h2 class="section-title">Expert Legal Insights & Commentary</h2>
+                        
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <div class="blog-card">
+                                    <img src="https://images.pexels.com/photos/5668473/pexels-photo-5668473.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Corporate Law Compliance" class="blog-img">
+                                    <div class="blog-body">
+                                        <span class="blog-category">Corporate Law</span>
+                                        <h3>Understanding Corporate Law Compliance</h3>
+                                        <p>Get a <strong>breakdown of key business regulations</strong> and compliance strategies for corporations.</p>
+                                        <div class="blog-meta">
+                                            <span><i class="bi bi-person"></i> Robert Chen</span>
+                                            <span><i class="bi bi-calendar"></i> June 15, 2025</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6 mb-4">
+                                <div class="blog-card">
+                                    <img src="https://images.pexels.com/photos/5668481/pexels-photo-5668481.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Civil Lawsuits" class="blog-img">
+                                    <div class="blog-body">
+                                        <span class="blog-category">Civil Litigation</span>
+                                        <h3>Navigating Civil Lawsuits: What You Need to Know</h3>
+                                        <p>Explore <strong>litigation processes, legal representation strategies, and case preparation tips</strong>.</p>
+                                        <div class="blog-meta">
+                                            <span><i class="bi bi-person"></i> Sarah Johnson</span>
+                                            <span><i class="bi bi-calendar"></i> June 10, 2025</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6 mb-4">
+                                <div class="blog-card">
+                                    <img src="https://images.pexels.com/photos/4475523/pexels-photo-4475523.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Family Law" class="blog-img">
+                                    <div class="blog-body">
+                                        <span class="blog-category">Family Law</span>
+                                        <h3>Family Law & Custody Battles Explained</h3>
+                                        <p>Learn <strong>how child custody cases are resolved</strong>, legal rights involved, and best practices for handling disputes.</p>
+                                        <div class="blog-meta">
+                                            <span><i class="bi bi-person"></i> Michael Rodriguez</span>
+                                            <span><i class="bi bi-calendar"></i> June 5, 2025</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-5 animate delay-1">
+                        <h2 class="section-title">Case Studies & Success Stories</h2>
+                        
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <div class="blog-card">
+                                    <img src="https://images.pexels.com/photos/5327656/pexels-photo-5327656.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Litigation Cases" class="blog-img">
+                                    <div class="blog-body">
+                                        <span class="blog-category">Case Study</span>
+                                        <h3>Winning Complex Litigation Cases</h3>
+                                        <p>Review <strong>case studies where our attorneys secured favorable verdicts for civil disputes</strong>.</p>
+                                        <div class="blog-meta">
+                                            <span><i class="bi bi-person"></i> Sarah Johnson</span>
+                                            <span><i class="bi bi-calendar"></i> May 28, 2025</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6 mb-4">
+                                <div class="blog-card">
+                                    <img src="https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Contract Negotiation" class="blog-img">
+                                    <div class="blog-body">
+                                        <span class="blog-category">Corporate Law</span>
+                                        <h3>Corporate Contract Negotiation Best Practices</h3>
+                                        <p>Discover how <strong>LexPoint structured major business agreements</strong> to protect clients' interests.</p>
+                                        <div class="blog-meta">
+                                            <span><i class="bi bi-person"></i> Robert Chen</span>
+                                            <span><i class="bi bi-calendar"></i> May 22, 2025</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6 mb-4">
+                                <div class="blog-card">
+                                    <img src="https://images.pexels.com/photos/3931550/pexels-photo-3931550.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Divorce Settlements" class="blog-img">
+                                    <div class="blog-body">
+                                        <span class="blog-category">Family Law</span>
+                                        <h3>Divorce Settlements & Custody Resolutions</h3>
+                                        <p>Insights into <strong>real family law cases</strong> where our attorneys guided clients toward successful legal solutions.</p>
+                                        <div class="blog-meta">
+                                            <span><i class="bi bi-person"></i> Michael Rodriguez</span>
+                                            <span><i class="bi bi-calendar"></i> May 15, 2025</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="animate delay-2">
+                        <h2 class="section-title">Latest Legal Industry Trends & Updates</h2>
+                        
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <div class="blog-card">
+                                    <img src="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="AI in Law" class="blog-img">
+                                    <div class="blog-body">
+                                        <span class="blog-category">Legal Tech</span>
+                                        <h3>AI & Legal Automation: Transforming Law Firms</h3>
+                                        <p>Explore <strong>how technology is reshaping legal processes, documentation, and client consultations</strong>.</p>
+                                        <div class="blog-meta">
+                                            <span><i class="bi bi-person"></i> Robert Chen</span>
+                                            <span><i class="bi bi-calendar"></i> May 10, 2025</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6 mb-4">
+                                <div class="blog-card">
+                                    <img src="https://images.pexels.com/photos/669610/pexels-photo-669610.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Business Regulations" class="blog-img">
+                                    <div class="blog-body">
+                                        <span class="blog-category">Corporate Law</span>
+                                        <h3>New Regulations Impacting Businesses</h3>
+                                        <p>Stay up-to-date with <strong>changing corporate laws, compliance policies, and government legal reforms</strong>.</p>
+                                        <div class="blog-meta">
+                                            <span><i class="bi bi-person"></i> Sarah Johnson</span>
+                                            <span><i class="bi bi-calendar"></i> May 5, 2025</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6 mb-4">
+                                <div class="blog-card">
+                                    <img src="https://images.pexels.com/photos/4475523/pexels-photo-4475523.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Family Law Policies" class="blog-img">
+                                    <div class="blog-body">
+                                        <span class="blog-category">Family Law</span>
+                                        <h3>Changes in Family Law Policies</h3>
+                                        <p>Learn about <strong>recent updates in divorce laws, custody regulations, and inheritance rules</strong>.</p>
+                                        <div class="blog-meta">
+                                            <span><i class="bi bi-person"></i> Michael Rodriguez</span>
+                                            <span><i class="bi bi-calendar"></i> April 28, 2025</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4">
+                    <div class="sidebar-widget animate delay-1">
+                        <h4 class="widget-title">Blog Categories</h4>
+                        <ul class="category-list">
+                            <li><a href="#">Corporate Law <span>(12)</span></a></li>
+                            <li><a href="#">Civil Litigation <span>(8)</span></a></li>
+                            <li><a href="#">Family Law <span>(15)</span></a></li>
+                            <li><a href="#">Legal Tech <span>(7)</span></a></li>
+                            <li><a href="#">Case Studies <span>(10)</span></a></li>
+                            <li><a href="#">Legal Updates <span>(9)</span></a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="sidebar-widget animate delay-2">
+                        <h4 class="widget-title">Popular Tags</h4>
+                        <div class="tag-list">
+                            <a href="#">Compliance</a>
+                            <a href="#">Contract Law</a>
+                            <a href="#">Litigation</a>
+                            <a href="#">Custody</a>
+                            <a href="#">Divorce</a>
+                            <a href="#">Business Law</a>
+                            <a href="#">Legal Tech</a>
+                            <a href="#">Regulations</a>
+                            <a href="#">Corporate Governance</a>
+                        </div>
+                    </div>
+                    
+                    <div class="sidebar-widget animate delay-3">
+                        <h4 class="widget-title">Featured Posts</h4>
+                        <div class="featured-post mb-3">
+                            <div class="d-flex">
+                                <div class="flex-shrink-0">
+                                    <img src="https://images.pexels.com/photos/669610/pexels-photo-669610.jpeg?auto=compress&cs=tinysrgb&w=100" alt="Featured Post" width="80">
+                                </div>
+                                <div class="flex-grow-1 ms-3">
+                                    <h5 class="mt-0"><a href="#" class="text-dark">Navigating International Business Law</a></h5>
+                                    <p class="small">June 3, 2025</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="featured-post mb-3">
+                            <div class="d-flex">
+                                <div class="flex-shrink-0">
+                                    <img src="https://images.pexels.com/photos/5327656/pexels-photo-5327656.jpeg?auto=compress&cs=tinysrgb&w=100" alt="Featured Post" width="80">
+                                </div>
+                                <div class="flex-grow-1 ms-3">
+                                    <h5 class="mt-0"><a href="#" class="text-dark">Personal Injury Law: Recent Changes</a></h5>
+                                    <p class="small">May 25, 2025</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="featured-post">
+                            <div class="d-flex">
+                                <div class="flex-shrink-0">
+                                    <img src="https://images.pexels.com/photos/3931550/pexels-photo-3931550.jpeg?auto=compress&cs=tinysrgb&w=100" alt="Featured Post" width="80">
+                                </div>
+                                <div class="flex-grow-1 ms-3">
+                                    <h5 class="mt-0"><a href="#" class="text-dark">Estate Planning Essentials</a></h5>
+                                    <p class="small">May 18, 2025</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Subscribe Section -->
+    <section id="subscribe" class="subscribe-section">
+        <div class="container">
+            <div class="subscribe-box text-center animate">
+                <h2 class="mb-4">Subscribe to LexPoint's Legal Blog</h2>
+                <p class="lead mb-4">Stay ahead in the legal landscape with <strong>expert insights, industry updates, and strategic case studies</strong>. Subscribe to our blog and <strong>never miss a legal update</strong>.</p>
+                
+                <form class="mb-4">
+                    <div class="row justify-content-center">
+                        <div class="col-md-8">
+                            <div class="input-group">
+                                <input type="email" class="form-control" placeholder="Your email address" aria-label="Email" required>
+                                <button class="btn btn-primary" type="submit">Subscribe</button>
+                            </div>
+                            <p class="small mt-2">We respect your privacy. Unsubscribe at any time.</p>
+                        </div>
+                    </div>
+                </form>
+                
+                <div class="contact-info">
+                    <h5 class="mb-3">Connect with LexPoint</h5>
+                    <div class="d-flex justify-content-center flex-wrap gap-3">
+                        <div><i class="bi bi-envelope me-2"></i> <a href="mailto:support@lexpoint.com">support@lexpoint.com</a></div>
+                        <div><i class="bi bi-telephone me-2"></i> <a href="tel:+15553219876">+1 (555) 321-9876</a></div>
+                        <div><i class="bi bi-globe me-2"></i> <a href="https://www.lexpoint.com">www.lexpoint.com</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h5>LexPoint</h5>
+                    <p>Delivering expert legal solutions with integrity and excellence. Justice served right since 2010.</p>
+                    <div class="social-links-footer mt-4">
+                        <a href="#"><i class="bi bi-facebook"></i></a>
+                        <a href="#"><i class="bi bi-twitter"></i></a>
+                        <a href="#"><i class="bi bi-linkedin"></i></a>
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h5>Quick Links</h5>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about-us.html">About Us</a></li>
+                        <li><a href="case-studies.html">Case Studies</a></li>
+                        <li><a href="legal-blog.html">Blog</a></li>
+                        <li><a href="contact-us.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 col-md-4 mb-4 mb-md-0">
+                    <h5>Practice Areas</h5>
+                    <ul>
+                        <li><a href="#">Corporate Law</a></li>
+                        <li><a href="#">Civil Litigation</a></li>
+                        <li><a href="#">Family Law</a></li>
+                        <li><a href="#">Intellectual Property</a></li>
+                        <li><a href="#">Real Estate Law</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 col-md-4">
+                    <h5>Contact Info</h5>
+                    <ul>
+                        <li><i class="bi bi-geo-alt me-2"></i> 123 Justice Ave, New York, NY</li>
+                        <li><i class="bi bi-telephone me-2"></i> +1 (555) 321-9876</li>
+                        <li><i class="bi bi-envelope me-2"></i> support@lexpoint.com</li>
+                        <li><i class="bi bi-clock me-2"></i> Mon-Fri: 9AM - 6PM</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 LexPoint Legal Advisory Firm. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script>
+        // Animation on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            document.querySelectorAll('.animate').forEach(el => {
+                observer.observe(el);
+            });
+            
+            // Form submission simulation
+            const subscribeForm = document.querySelector('#subscribe form');
+            if(subscribeForm) {
+                subscribeForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('Thank you for subscribing to the LexPoint Legal Blog!');
+                    subscribeForm.reset();
+                });
+            }
+        });
+    </script>
+</body>
+</html>
