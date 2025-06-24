@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact LexPoint | Expert Legal Consultation & Support</title>
+    <meta name="description" content="Get in touch with LexPoint for expert legal assistance in corporate law, civil litigation, and family law. Contact us via phone, email, or inquiry form.">
+    <meta name="keywords" content="LexPoint contact, legal consultation, law firm assistance, corporate law inquiry, family law support, civil litigation help">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Contact LexPoint | Expert Legal Consultation & Support">
+    <meta property="og:description" content="Need legal assistance? Contact LexPoint’s trusted attorneys for expert guidance in corporate, civil, and family law matters.">
+    <meta property="og:type" content="website">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@600;700&family=Noto+Sans:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <style>
+        :root {
+            --dark-blue: #002147;
+            --silver: #c0c0c0;
+            --light-silver: #f8f9fa;
+            --gold: #d4af37;
+        }
+        
+        body {
+            font-family: 'Noto Sans', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background-color: #fafafa;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Crimson Pro', serif;
+            font-weight: 700;
+            color: var(--dark-blue);
+        }
+        
+        .btn-primary {
+            background-color: var(--dark-blue);
+            border-color: var(--dark-blue);
+            padding: 12px 30px;
+            border-radius: 0;
+            font-weight: 500;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary:hover {
+            background-color: #001a36;
+            border-color: #001a36;
+            transform: translateY(-3px);
+        }
+        
+        .btn-outline-primary {
+            color: var(--dark-blue);
+            border-color: var(--dark-blue);
+            border-radius: 0;
+            padding: 12px 30px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+        
+        .btn-outline-primary:hover {
+            background-color: var(--dark-blue);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .navbar {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px 0;
+        }
+        
+        .navbar-brand {
+            font-family: 'Crimson Pro', serif;
+            font-weight: 700;
+            font-size: 26px;
+            color: var(--dark-blue) !important;
+        }
+        
+        .nav-link {
+            color: #555 !important;
+            font-weight: 500;
+            margin: 0 10px;
+            position: relative;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--dark-blue);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        .hero-contact {
+            background: linear-gradient(rgba(0, 33, 71, 0.85), rgba(0, 33, 71, 0.85)), url('https://images.pexels.com/photos/5668473/pexels-photo-5668473.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') center/cover no-repeat;
+            padding: 150px 0 100px;
+            color: white;
+            text-align: center;
+        }
+        
+        .hero-contact h1 {
+            color: white;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 40px;
+            padding-bottom: 15px;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background: var(--dark-blue);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .contact-form {
+            padding: 80px 0;
+        }
+        
+        .form-control, .form-select {
+            border-radius: 0;
+            border: 1px solid #ddd;
+            padding: 12px 15px;
+            margin-bottom: 20px;
+            transition: all 0.3s;
+        }
+        
+        .form-control:focus, .form-select:focus {
+            border-color: var(--dark-blue);
+            box-shadow: 0 0 0 0.25rem rgba(0, 33, 71, 0.15);
+        }
+        
+        .contact-info-box {
+            background-color: var(--light-silver);
+            padding: 40px;
+            height: 100%;
+            border-left: 5px solid var(--dark-blue);
+        }
+        
+        .contact-item {
+            display: flex;
+            margin-bottom: 30px;
+        }
+        
+        .contact-icon {
+            flex: 0 0 50px;
+            height: 50px;
+            background-color: var(--dark-blue);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            margin-right: 15px;
+        }
+        
+        .office-hours {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .office-hours li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--dark-blue);
+            color: white;
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: #001a36;
+            transform: translateY(-3px);
+        }
+        
+        .map-container {
+            height: 400px;
+            background-color: #eee;
+            margin: 50px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .map-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 33, 71, 0.1);
+            pointer-events: none;
+        }
+        
+        .consultation-cta {
+            background-color: var(--light-silver);
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .footer {
+            background-color: #001a36;
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer h5 {
+            color: white;
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        .footer h5:after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background: var(--silver);
+            bottom: -10px;
+            left: 0;
+        }
+        
+        .footer ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer ul li a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer ul li a:hover {
+            color: white;
+        }
+        
+        .social-links-footer a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            margin-right: 10px;
+            transition: all 0.3s;
+        }
+        
+        .social-links-footer a:hover {
+            background-color: var(--silver);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            margin-top: 40px;
+            text-align: center;
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+        
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+        
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .hero-contact h1 {
+                font-size: 2.8rem;
+            }
+            
+            .contact-info-box {
+                margin-top: 40px;
+                border-left: none;
+                border-top: 5px solid var(--dark-blue);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-contact {
+                padding: 100px 0 60px;
+            }
+            
+            .hero-contact h1 {
+                font-size: 2.3rem;
+            }
+            
+            .section-title {
+                margin-bottom: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">LexPoint</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about-us.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="case-studies.html">Case Studies</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="contact-us.html">Contact</a>
+                    </li>
+                    <li class="nav-item ms-lg-3">
+                        <a class="btn btn-outline-primary" href="#contact-form">Schedule Consultation</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-contact">
+        <div class="container">
+            <h1 class="animate">Contact LexPoint: Your Legal Partner in Justice</h1>
+            <p class="lead animate delay-1">Expert legal counsel when you need it most</p>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="contact-form" class="contact-form">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 mb-5 mb-lg-0 animate">
+                    <h2 class="section-title">Send Us Your Legal Inquiry</h2>
+                    <p>Fill out the form below, and one of our legal experts will get back to you within 24 hours.</p>
+                    
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">Full Name</label>
+                                    <input type="text" class="form-control" id="name" placeholder="Your full name" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email Address</label>
+                                    <input type="email" class="form-control" id="email" placeholder="Your email address" required>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">Phone Number</label>
+                            <input type="tel" class="form-control" id="phone" placeholder="Your phone number">
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="subject" class="form-label">Subject</label>
+                            <input type="text" class="form-control" id="subject" placeholder="Subject of your inquiry" required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="practice" class="form-label">Practice Area</label>
+                            <select class="form-select" id="practice">
+                                <option selected>Select practice area</option>
+                                <option>Corporate Law</option>
+                                <option>Civil Litigation</option>
+                                <option>Family Law</option>
+                                <option>Real Estate Law</option>
+                                <option>Intellectual Property</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="message" class="form-label">Your Inquiry</label>
+                            <textarea class="form-control" id="message" rows="5" placeholder="Describe your legal needs" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Submit Inquiry</button>
+                    </form>
+                </div>
+                
+                <div class="col-lg-5 animate delay-1">
+                    <div class="contact-info-box">
+                        <h3 class="mb-4">Contact Information</h3>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="bi bi-geo-alt"></i>
+                            </div>
+                            <div>
+                                <h5>Headquarters</h5>
+                                <p>123 Justice Avenue, Suite 700<br>New York, NY 10001</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="bi bi-telephone"></i>
+                            </div>
+                            <div>
+                                <h5>Phone</h5>
+                                <p>+1 (555) 321-9876</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="bi bi-envelope"></i>
+                            </div>
+                            <div>
+                                <h5>Email</h5>
+                                <p>support@lexpoint.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="bi bi-clock"></i>
+                            </div>
+                            <div>
+                                <h5>Office Hours</h5>
+                                <ul class="office-hours">
+                                    <li><strong>Monday - Friday:</strong> 9:00 AM - 6:00 PM</li>
+                                    <li><strong>Saturday:</strong> 10:00 AM - 3:00 PM</li>
+                                    <li><strong>Sunday:</strong> Closed</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <h5>Follow Us</h5>
+                            <div class="social-links">
+                                <a href="https://www.linkedin.com/company/lexpoint"><i class="bi bi-linkedin"></i></a>
+                                <a href="https://twitter.com/lexpoint"><i class="bi bi-twitter"></i></a>
+                                <a href="https://www.facebook.com/lexpoint"><i class="bi bi-facebook"></i></a>
+                                <a href="https://www.instagram.com/lexpoint"><i class="bi bi-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Office Location -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 mb-5 mb-lg-0 animate">
+                    <h2 class="section-title">Visit Our Office</h2>
+                    
+                    <div class="mb-4">
+                        <h4>LexPoint Headquarters</h4>
+                        <p>123 Justice Avenue, Suite 700<br>New York, NY 10001</p>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h4>Office Hours</h4>
+                        <ul class="office-hours">
+                            <li><strong>Monday - Friday:</strong> 9:00 AM - 6:00 PM</li>
+                            <li><strong>Saturday:</strong> 10:00 AM - 3:00 PM</li>
+                            <li><strong>Sunday:</strong> Closed</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h4>Parking Information</h4>
+                        <p>Complimentary parking available in the building garage. Please bring your parking ticket for validation at our reception desk.</p>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <a href="https://maps.google.com" class="btn btn-outline-primary">Get Directions</a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-7 animate delay-1">
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193595.1583091352!2d-74.11976373946229!3d40.69766374859258!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2s!4v1656612345678!5m2!1sen!2s" allowfullscreen="" loading="lazy"></iframe>
+                        <div class="map-overlay"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Consultation CTA -->
+    <section class="consultation-cta">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="mb-4">Need Immediate Legal Assistance?</h2>
+                    <p class="lead mb-5">Looking for <strong>trusted legal counsel</strong>? Visit our Practice Areas to learn more about our services and schedule a <strong>consultation today</strong>.</p>
+                    <div class="d-flex justify-content-center gap-3">
+                        <a href="practice-areas.html" class="btn btn-primary">Explore Practice Areas</a>
+                        <a href="tel:+15553219876" class="btn btn-outline-primary">Call Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h5>LexPoint</h5>
+                    <p>Delivering expert legal solutions with integrity and excellence. Justice served right since 2010.</p>
+                    <div class="social-links-footer mt-4">
+                        <a href="#"><i class="bi bi-facebook"></i></a>
+                        <a href="#"><i class="bi bi-twitter"></i></a>
+                        <a href="#"><i class="bi bi-linkedin"></i></a>
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h5>Quick Links</h5>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about-us.html">About Us</a></li>
+                        <li><a href="case-studies.html">Case Studies</a></li>
+                        <li><a href="contact-us.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 col-md-4 mb-4 mb-md-0">
+                    <h5>Practice Areas</h5>
+                    <ul>
+                        <li><a href="#">Corporate Law</a></li>
+                        <li><a href="#">Civil Litigation</a></li>
+                        <li><a href="#">Family Law</a></li>
+                        <li><a href="#">Intellectual Property</a></li>
+                        <li><a href="#">Real Estate Law</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 col-md-4">
+                    <h5>Contact Info</h5>
+                    <ul>
+                        <li><i class="bi bi-geo-alt me-2"></i> 123 Justice Ave, New York, NY</li>
+                        <li><i class="bi bi-telephone me-2"></i> +1 (555) 321-9876</li>
+                        <li><i class="bi bi-envelope me-2"></i> support@lexpoint.com</li>
+                        <li><i class="bi bi-clock me-2"></i> Mon-Fri: 9AM - 6PM</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 LexPoint Legal Advisory Firm. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script>
+        // Animation on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            document.querySelectorAll('.animate').forEach(el => {
+                observer.observe(el);
+            });
+            
+            // Form submission simulation
+            const form = document.querySelector('form');
+            if(form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('Thank you for your inquiry! A legal expert from LexPoint will contact you shortly.');
+                    form.reset();
+                });
+            }
+        });
+    </script>
+</body>
+</html>
