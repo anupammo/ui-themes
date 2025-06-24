@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LexPoint Practice Areas | Corporate, Civil & Family Law Experts</title>
+    <meta name="description" content="LexPoint specializes in corporate law, civil litigation, and family law. Get expert legal counsel tailored to your needs. Justice, Simplified.">
+    <meta name="keywords" content="LexPoint legal services, corporate law firm, civil litigation attorneys, family law specialists, legal representation, trusted lawyers">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="LexPoint Practice Areas | Corporate, Civil & Family Law Experts">
+    <meta property="og:description" content="LexPoint offers expert legal counsel in corporate law, civil litigation, and family law. Get trusted legal solutions tailored to your case.">
+    <meta property="og:type" content="website">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@600;700&family=Noto+Sans:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <style>
+        :root {
+            --dark-blue: #002147;
+            --silver: #c0c0c0;
+            --light-silver: #f8f9fa;
+            --gold: #d4af37;
+        }
+        
+        body {
+            font-family: 'Noto Sans', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background-color: #fafafa;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Crimson Pro', serif;
+            font-weight: 700;
+            color: var(--dark-blue);
+        }
+        
+        .btn-primary {
+            background-color: var(--dark-blue);
+            border-color: var(--dark-blue);
+            padding: 12px 30px;
+            border-radius: 0;
+            font-weight: 500;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary:hover {
+            background-color: #001a36;
+            border-color: #001a36;
+            transform: translateY(-3px);
+        }
+        
+        .btn-outline-primary {
+            color: var(--dark-blue);
+            border-color: var(--dark-blue);
+            border-radius: 0;
+            padding: 12px 30px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+        
+        .btn-outline-primary:hover {
+            background-color: var(--dark-blue);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .navbar {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px 0;
+        }
+        
+        .navbar-brand {
+            font-family: 'Crimson Pro', serif;
+            font-weight: 700;
+            font-size: 26px;
+            color: var(--dark-blue) !important;
+        }
+        
+        .nav-link {
+            color: #555 !important;
+            font-weight: 500;
+            margin: 0 10px;
+            position: relative;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--dark-blue);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        .hero-practice {
+            background: linear-gradient(rgba(0, 33, 71, 0.85), rgba(0, 33, 71, 0.85)), url('https://images.pexels.com/photos/5668487/pexels-photo-5668487.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') center/cover no-repeat;
+            padding: 150px 0 100px;
+            color: white;
+            text-align: center;
+        }
+        
+        .hero-practice h1 {
+            color: white;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background: var(--dark-blue);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .practice-area {
+            padding: 100px 0;
+        }
+        
+        .practice-header {
+            background-color: var(--dark-blue);
+            color: white;
+            padding: 20px 30px;
+            display: inline-block;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .practice-header:after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            background: var(--gold);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .service-card {
+            border: none;
+            border-radius: 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            margin-bottom: 30px;
+            background-color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background-color: var(--dark-blue);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin: 0 auto 20px;
+        }
+        
+        .service-body {
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .practice-cta {
+            background-color: var(--light-silver);
+            padding: 100px 0;
+        }
+        
+        .cta-card {
+            background-color: var(--dark-blue);
+            color: white;
+            padding: 60px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .cta-card h2 {
+            color: white;
+        }
+        
+        .cta-card .section-title:after {
+            background: white;
+        }
+        
+        .footer {
+            background-color: #001a36;
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer h5 {
+            color: white;
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        .footer h5:after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background: var(--silver);
+            bottom: -10px;
+            left: 0;
+        }
+        
+        .footer ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer ul li a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer ul li a:hover {
+            color: white;
+        }
+        
+        .social-links-footer a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            margin-right: 10px;
+            transition: all 0.3s;
+        }
+        
+        .social-links-footer a:hover {
+            background-color: var(--silver);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            margin-top: 40px;
+            text-align: center;
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+        
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+        
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .hero-practice h1 {
+                font-size: 2.8rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-practice {
+                padding: 100px 0 60px;
+            }
+            
+            .hero-practice h1 {
+                font-size: 2.3rem;
+            }
+            
+            .section-title {
+                margin-bottom: 40px;
+            }
+            
+            .cta-card {
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">LexPoint</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about-us.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="case-studies.html">Case Studies</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="legal-blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="practice-areas.html">Practice Areas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact-us.html">Contact</a>
+                    </li>
+                    <li class="nav-item ms-lg-3">
+                        <a class="btn btn-outline-primary" href="contact-us.html">Schedule Consultation</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-practice">
+        <div class="container">
+            <h1 class="animate">Expert Legal Representation Across Key Practice Areas</h1>
+            <p class="lead animate delay-1">Precision. Dedication. Justice.</p>
+        </div>
+    </section>
+
+    <!-- Introduction -->
+    <section class="py-5" style="padding: 100px 0;">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center animate">
+                    <p>LexPoint provides <strong>comprehensive legal services</strong> in <strong>corporate law, civil litigation, and family law</strong>. Our attorneys specialize in navigating complex legal matters with <strong>clarity, precision, and dedication</strong>.</p>
+                    <div class="mt-5">
+                        <div class="row">
+                            <div class="col-md-4 mb-4 animate delay-1">
+                                <div class="h1">200+</div>
+                                <div class="h5">Cases Handled</div>
+                            </div>
+                            <div class="col-md-4 mb-4 animate delay-2">
+                                <div class="h1">98%</div>
+                                <div class="h5">Success Rate</div>
+                            </div>
+                            <div class="col-md-4 mb-4 animate delay-3">
+                                <div class="h1">15+</div>
+                                <div class="h5">Years Experience</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Corporate Law -->
+    <section class="practice-area" style="background-color: var(--light-silver);">
+        <div class="container">
+            <div class="practice-header animate">
+                <h2>Corporate Law: Legal Protection for Businesses</h2>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-4 mb-4 animate">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="bi bi-building"></i>
+                        </div>
+                        <div class="service-body">
+                            <h3>Business Formation & Compliance</h3>
+                            <p>Secure your business with <strong>legal structuring, corporate registration, and regulatory compliance assistance</strong>.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4 animate delay-1">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="bi bi-file-earmark-text"></i>
+                        </div>
+                        <div class="service-body">
+                            <h3>Contract Negotiation & Dispute Resolution</h3>
+                            <p>Ensure <strong>smooth business agreements</strong> and handle contract disputes with <strong>strategic legal support</strong>.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4 animate delay-2">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="bi bi-diagram-3"></i>
+                        </div>
+                        <div class="service-body">
+                            <h3>Mergers & Acquisitions</h3>
+                            <p>Get <strong>expert guidance</strong> on company mergers, acquisitions, and legal due diligence to protect your investments.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-4 animate delay-3">
+                <a href="contact-us.html" class="btn btn-primary">Get Corporate Legal Support</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Civil Litigation -->
+    <section class="practice-area">
+        <div class="container">
+            <div class="practice-header animate">
+                <h2>Civil Litigation: Resolving Legal Disputes</h2>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-4 mb-4 animate">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="bi bi-gavel"></i>
+                        </div>
+                        <div class="service-body">
+                            <h3>Legal Advocacy & Court Representation</h3>
+                            <p>Our attorneys provide <strong>strong representation</strong> in civil disputes, ensuring <strong>fair outcomes for clients</strong>.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4 animate delay-1">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="bi bi-heart-pulse"></i>
+                        </div>
+                        <div class="service-body">
+                            <h3>Personal Injury & Compensation Claims</h3>
+                            <p>Seek <strong>justice for injury cases</strong> with expert litigation and compensation recovery services.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4 animate delay-2">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="bi bi-shield-shaded"></i>
+                        </div>
+                        <div class="service-body">
+                            <h3>Consumer Protection & Fraud Cases</h3>
+                            <p>Fight against <strong>fraudulent practices</strong> with <strong>legal advocacy for consumer rights</strong>.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-4 animate delay-3">
+                <a href="contact-us.html" class="btn btn-primary">Resolve Your Legal Dispute</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Family Law -->
+    <section class="practice-area" style="background-color: var(--light-silver);">
+        <div class="container">
+            <div class="practice-header animate">
+                <h2>Family Law: Protecting Families & Their Futures</h2>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-4 mb-4 animate">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="bi bi-people"></i>
+                        </div>
+                        <div class="service-body">
+                            <h3>Divorce & Legal Separation</h3>
+                            <p>Get <strong>professional representation for divorce proceedings</strong>, settlements, and legal agreements.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4 animate delay-1">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="bi bi-emoji-heart-eyes"></i>
+                        </div>
+                        <div class="service-body">
+                            <h3>Child Custody & Parental Rights</h3>
+                            <p>Fight for <strong>custody arrangements</strong>, parental rights, and child support solutions tailored to your family.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4 animate delay-2">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="bi bi-house-door"></i>
+                        </div>
+                        <div class="service-body">
+                            <h3>Estate Planning & Wills</h3>
+                            <p>Plan for the future with <strong>estate management, wills, and inheritance protection</strong>.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-4 animate delay-3">
+                <a href="contact-us.html" class="btn btn-primary">Protect Your Family's Future</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="practice-cta">
+        <div class="container">
+            <div class="cta-card animate">
+                <h2 class="section-title">Let LexPoint Guide You Through Legal Challenges</h2>
+                <p class="lead mb-4">Our <strong>experienced attorneys</strong> ensure that <strong>corporate law, civil disputes, and family legal matters</strong> are handled with professionalism and <strong>justice in mind</strong>.</p>
+                <div class="mt-5">
+                    <a href="contact-us.html" class="btn btn-light me-3">Schedule Consultation</a>
+                    <a href="tel:+15553219876" class="btn btn-outline-light">Call Now</a>
+                </div>
+                <div class="contact-info mt-5">
+                    <div class="d-flex justify-content-center flex-wrap gap-4">
+                        <div><i class="bi bi-envelope me-2"></i> <a href="mailto:support@lexpoint.com" class="text-white">support@lexpoint.com</a></div>
+                        <div><i class="bi bi-telephone me-2"></i> <a href="tel:+15553219876" class="text-white">+1 (555) 321-9876</a></div>
+                        <div><i class="bi bi-globe me-2"></i> <a href="https://www.lexpoint.com" class="text-white">www.lexpoint.com</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h5>LexPoint</h5>
+                    <p>Delivering expert legal solutions with integrity and excellence. Justice served right since 2010.</p>
+                    <div class="social-links-footer mt-4">
+                        <a href="#"><i class="bi bi-facebook"></i></a>
+                        <a href="#"><i class="bi bi-twitter"></i></a>
+                        <a href="#"><i class="bi bi-linkedin"></i></a>
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h5>Quick Links</h5>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about-us.html">About Us</a></li>
+                        <li><a href="case-studies.html">Case Studies</a></li>
+                        <li><a href="legal-blog.html">Blog</a></li>
+                        <li><a href="practice-areas.html">Practice Areas</a></li>
+                        <li><a href="contact-us.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 col-md-4 mb-4 mb-md-0">
+                    <h5>Practice Areas</h5>
+                    <ul>
+                        <li><a href="#">Corporate Law</a></li>
+                        <li><a href="#">Civil Litigation</a></li>
+                        <li><a href="#">Family Law</a></li>
+                        <li><a href="#">Intellectual Property</a></li>
+                        <li><a href="#">Real Estate Law</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 col-md-4">
+                    <h5>Contact Info</h5>
+                    <ul>
+                        <li><i class="bi bi-geo-alt me-2"></i> 123 Justice Ave, New York, NY</li>
+                        <li><i class="bi bi-telephone me-2"></i> +1 (555) 321-9876</li>
+                        <li><i class="bi bi-envelope me-2"></i> support@lexpoint.com</li>
+                        <li><i class="bi bi-clock me-2"></i> Mon-Fri: 9AM - 6PM</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 LexPoint Legal Advisory Firm. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script>
+        // Animation on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            document.querySelectorAll('.animate').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
