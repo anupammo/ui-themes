@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery | TasteBites - Explore Our Culinary Creations</title>
+    
+    <!-- Meta Description -->
+    <meta name="description" content="Take a visual tour of TasteBites! Browse our gallery to see delicious dishes, elegant ambiance, and happy dining experiences.">
+    
+    <!-- Keywords -->
+    <meta name="keywords" content="TasteBites gallery, restaurant photos, gourmet food, dining ambiance, customer experience, restaurant decor, signature dishes">
+    
+    <!-- Robots Meta Tag -->
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Gallery | TasteBites - Explore Our Culinary Creations">
+    <meta property="og:description" content="Discover the vibrant atmosphere, exquisite food, and exceptional dining experience at TasteBites through our curated gallery.">
+    <meta property="og:type" content="website">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --rustic-brown: #8b4513;
+            --cream: #fff8dc;
+            --olive: #808000;
+            --light-olive: #a8a84d;
+            --dark-brown: #5a2d0c;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--cream);
+            color: #333;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, .navbar-brand, .display-title {
+            font-family: 'Great Vibes', cursive;
+            color: var(--rustic-brown);
+        }
+        
+        .btn-primary {
+            background-color: var(--rustic-brown);
+            border-color: var(--dark-brown);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--dark-brown);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .btn-outline-primary {
+            color: var(--rustic-brown);
+            border-color: var(--rustic-brown);
+        }
+        
+        .btn-outline-primary:hover {
+            background-color: var(--rustic-brown);
+            color: white;
+        }
+        
+        .section {
+            padding: 5rem 0;
+        }
+        
+        .gallery-hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+            background-size: cover;
+            background-position: center;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .navbar {
+            background-color: rgba(139, 69, 19, 0.95) !important;
+            transition: all 0.5s ease;
+        }
+        
+        .navbar.scrolled {
+            background-color: rgba(139, 69, 19, 0.95) !important;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-brand {
+            font-size: 2rem;
+            color: var(--cream) !important;
+        }
+        
+        .nav-link {
+            color: rgba(255, 248, 220, 0.85) !important;
+            font-weight: 600;
+            margin: 0 10px;
+            position: relative;
+        }
+        
+        .nav-link:hover {
+            color: white !important;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--cream);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .display-title {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .gallery-intro {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .gallery-section {
+            margin-bottom: 5rem;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--rustic-brown);
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            height: 300px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(139, 69, 19, 0.7);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 20px;
+            color: white;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        .gallery-category {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: var(--rustic-brown);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .social-section {
+            background: linear-gradient(rgba(139, 69, 19, 0.05), rgba(139, 69, 19, 0.05)), url('https://images.pexels.com/photos/769289/pexels-photo-769289.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+            background-size: cover;
+            background-position: center;
+            padding: 5rem 0;
+            text-align: center;
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 2rem;
+        }
+        
+        .social-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--rustic-brown);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            background-color: var(--dark-brown);
+            transform: translateY(-5px);
+        }
+        
+        .reservation-cta {
+            background: linear-gradient(rgba(139, 69, 19, 0.9), rgba(128, 128, 0, 0.9)), url('https://images.pexels.com/photos/3186654/pexels-photo-3186654.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            border-radius: 10px;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        
+        .footer {
+            background-color: var(--rustic-brown);
+            color: var(--cream);
+            padding: 3rem 0;
+        }
+        
+        .footer a {
+            color: var(--cream);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .display-title {
+                font-size: 3rem;
+            }
+            
+            .section {
+                padding: 3rem 0;
+            }
+            
+            .gallery-hero {
+                height: 50vh;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">TasteBites</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="reservations.html">Reservations</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact-us.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="gallery-hero">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-10 col-lg-8">
+                    <h1 class="display-title">TasteBites Gallery</h1>
+                    <p class="lead">A Feast for Your Eyes</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Introduction -->
+    <section class="section">
+        <div class="container">
+            <div class="gallery-intro">
+                <p class="lead">Get a glimpse of the <strong>TasteBites experience</strong> through our curated gallery of <strong>signature dishes, restaurant ambiance, and satisfied diners</strong>. Our dedication to <strong>exceptional presentation and warm hospitality</strong> shines through in every photo.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Culinary Creations -->
+    <section class="section gallery-section">
+        <div class="container">
+            <h2 class="section-title">Our Culinary Creations</h2>
+            
+            <div class="gallery-intro mb-5">
+                <h3>Gourmet Starters</h3>
+                <p>A selection of beautifully plated appetizers, from <strong>golden crispy calamari</strong> to <strong>refreshing bruschetta</strong>.</p>
+            </div>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.pexels.com/photos/3616956/pexels-photo-3616956.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Crispy Calamari">
+                    <div class="gallery-category">Starters</div>
+                    <div class="gallery-overlay">
+                        <h4>Crispy Calamari</h4>
+                        <p>Served with lemon aioli</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.pexels.com/photos/1251208/pexels-photo-1251208.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Bruschetta">
+                    <div class="gallery-category">Starters</div>
+                    <div class="gallery-overlay">
+                        <h4>Tomato Bruschetta</h4>
+                        <p>Fresh tomatoes on toasted artisan bread</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.pexels.com/photos/769289/pexels-photo-769289.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Mushroom Crostini">
+                    <div class="gallery-category">Starters</div>
+                    <div class="gallery-overlay">
+                        <h4>Truffle Mushroom Crostini</h4>
+                        <p>Wild mushrooms with truffle oil</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="gallery-intro mb-5 mt-5">
+                <h3>Main Course Excellence</h3>
+                <p>View <strong>perfectly grilled meats, pasta dishes rich in flavor, and vibrant vegetarian specials</strong> that define our menu.</p>
+            </div>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.pexels.com/photos/699953/pexels-photo-699953.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Grilled Steak">
+                    <div class="gallery-category">Main Course</div>
+                    <div class="gallery-overlay">
+                        <h4>Grilled Ribeye Steak</h4>
+                        <p>With roasted vegetables and herb butter</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.pexels.com/photos/1279330/pexels-photo-1279330.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Seafood Pasta">
+                    <div class="gallery-category">Main Course</div>
+                    <div class="gallery-overlay">
+                        <h4>Seafood Linguine</h4>
+                        <p>Fresh catch in garlic white wine sauce</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.pexels.com/photos/2474661/pexels-photo-2474661.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Vegetarian Risotto">
+                    <div class="gallery-category">Main Course</div>
+                    <div class="gallery-overlay">
+                        <h4>Wild Mushroom Risotto</h4>
+                        <p>Creamy arborio rice with seasonal mushrooms</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="gallery-intro mb-5 mt-5">
+                <h3>Decadent Desserts</h3>
+                <p>Indulge in our <strong>molten chocolate lava cake, handcrafted cheesecakes, and artisanal crème brûlée</strong>.</p>
+            </div>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.pexels.com/photos/3026804/pexels-photo-3026804.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Chocolate Lava Cake">
+                    <div class="gallery-category">Desserts</div>
+                    <div class="gallery-overlay">
+                        <h4>Molten Chocolate Lava Cake</h4>
+                        <p>With vanilla bean ice cream</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.pexels.com/photos/132694/pexels-photo-132694.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Berry Cheesecake">
+                    <div class="gallery-category">Desserts</div>
+                    <div class="gallery-overlay">
+                        <h4>Berry Swirl Cheesecake</h4>
+                        <p>New York style with seasonal berries</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.pexels.com/photos/2067396/pexels-photo-2067396.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Crème Brûlée">
+                    <div class="gallery-category">Desserts</div>
+                    <div class="gallery-overlay">
+                        <h4>Vanilla Bean Crème Brûlée</h4>
+                        <p>With caramelized sugar crust</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Restaurant Ambiance -->
+    <section class="section gallery-section bg-light">
+        <div class="container">
+            <h2 class="section-title">Elegant Atmosphere & Dining Experience</h2>
+            
+            <div class="gallery-intro mb-5">
+                <h3>Warm & Inviting Interiors</h3>
+                <p>Explore <strong>cozy seating, modern décor, and thoughtfully designed spaces</strong> perfect for any occasion.</p>
+            </div>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Dining Area">
+                    <div class="gallery-category">Interior</div>
+                    <div class="gallery-overlay">
+                        <h4>Main Dining Room</h4>
+                        <p>Elegant and comfortable seating</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.pexels.com/photos/941861/pexels-photo-941861.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Bar Area">
+                    <div class="gallery-category">Interior</div>
+                    <div class="gallery-overlay">
+                        <h4>Craft Cocktail Bar</h4>
+                        <p>Featuring signature drinks</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.pexels.com/photos/262047/pexels-photo-262047.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Wine Display">
+                    <div class="gallery-category">Interior</div>
+                    <div class="gallery-overlay">
+                        <h4>Wine Collection</h4>
+                        <p>Carefully curated selection</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="gallery-intro mb-5 mt-5">
+                <h3>Outdoor & Private Dining</h3>
+                <p>Discover our <strong>serene patio seating, intimate indoor arrangements, and private event space options</strong>.</p>
+            </div>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.pexels.com/photos/1484516/pexels-photo-1484516.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Patio Dining">
+                    <div class="gallery-category">Outdoor</div>
+                    <div class="gallery-overlay">
+                        <h4>Garden Patio</h4>
+                        <p>Al fresco dining experience</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.pexels.com/photos/2373520/pexels-photo-2373520.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Private Dining">
+                    <div class="gallery-category">Private</div>
+                    <div class="gallery-overlay">
+                        <h4>Private Dining Room</h4>
+                        <p>Perfect for special occasions</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.pexels.com/photos/325193/pexels-photo-325193.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Chef's Table">
+                    <div class="gallery-category">Private</div>
+                    <div class="gallery-overlay">
+                        <h4>Chef's Table Experience</h4>
+                        <p>Interactive culinary journey</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customer Experiences -->
+    <section class="section gallery-section">
+        <div class="container">
+            <h2 class="section-title">Memorable Customer Experiences</h2>
+            
+            <div class="gallery-intro mb-5">
+                <p>See <strong>smiling guests enjoying their meals, celebrating special occasions, and making unforgettable memories</strong> at TasteBites.</p>
+            </div>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.pexels.com/photos/3184183/pexels-photo-3184183.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Birthday Celebration">
+                    <div class="gallery-category">Celebration</div>
+                    <div class="gallery-overlay">
+                        <h4>Birthday Celebration</h4>
+                        <p>Special desserts for special occasions</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.pexels.com/photos/3184188/pexels-photo-3184188.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Anniversary Dinner">
+                    <div class="gallery-category">Celebration</div>
+                    <div class="gallery-overlay">
+                        <h4>Anniversary Dinner</h4>
+                        <p>Romantic setting for couples</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Family Gathering">
+                    <div class="gallery-category">Family</div>
+                    <div class="gallery-overlay">
+                        <h4>Family Gathering</h4>
+                        <p>Perfect for multi-generational meals</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Sharing Section -->
+    <section class="social-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h2 class="section-title">Share Your TasteBites Moments</h2>
+                    <p class="lead">Been to <strong>TasteBites</strong>? We'd love to see your photos! Tag us on social media and share your <strong>dining experience</strong> with us.</p>
+                    
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/tastebites" class="social-icon">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="https://www.facebook.com/tastebites" class="social-icon">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a href="https://twitter.com/tastebites" class="social-icon">
+                            <i class="bi bi-twitter"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="bi bi-hash"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <h3 class="mt-4">Featured Hashtags</h3>
+                        <div class="d-flex justify-content-center gap-3 mt-3">
+                            <a href="#" class="btn btn-outline-light">#TasteBitesExperience</a>
+                            <a href="#" class="btn btn-outline-light">#TasteTheTradition</a>
+                            <a href="#" class="btn btn-outline-light">#TasteBitesMoments</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reservation CTA -->
+    <section class="section">
+        <div class="container">
+            <div class="reservation-cta">
+                <h2 class="mb-4">Book a Table & Enjoy the Best in Dining</h2>
+                <p class="lead mb-4">Want to <strong>taste these creations in person</strong>? <strong>Reserve a table today</strong> and experience <strong>TasteBites for yourself!</strong></p>
+                <a href="reservations.html" class="btn btn-light btn-lg px-5">Make a Reservation</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h3 class="mb-3">TasteBites</h3>
+                    <p class="mb-4">Savor the tradition of exceptional cuisine in a warm, inviting atmosphere where every meal tells a story.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h4 class="mb-3">Quick Links</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html">Home</a></li>
+                        <li class="mb-2"><a href="menu.html">Our Menu</a></li>
+                        <li class="mb-2"><a href="gallery.html">Gallery</a></li>
+                        <li class="mb-2"><a href="reservations.html">Reservations</a></li>
+                        <li class="mb-2"><a href="contact-us.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-4">
+                    <h4 class="mb-3">Opening Hours</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">Monday - Thursday: 11:00 AM - 10:00 PM</li>
+                        <li class="mb-2">Friday - Saturday: 11:00 AM - 11:00 PM</li>
+                        <li class="mb-2">Sunday: 10:00 AM - 9:00 PM</li>
+                        <li class="mb-2">Brunch: Saturday & Sunday 10:00 AM - 2:00 PM</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <hr class="mt-4 mb-4" style="border-color: rgba(255,255,255,0.1);">
+            
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2025 TasteBites. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="mb-0">Designed with <i class="bi bi-heart-fill text-danger"></i> for food lovers</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Gallery item animation
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px)';
+                this.style.boxShadow = '0 15px 40px rgba(0,0,0,0.2)';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+                this.style.boxShadow = '0 10px 30px rgba(0,0,0,0.1)';
+            });
+        });
+    </script>
+</body>
+</html>
