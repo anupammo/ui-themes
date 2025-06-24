@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduLift Courses | Online & Instructor-Led Learning Programs</title>
+    <meta name="description" content="Explore EduLift's comprehensive catalog of online and instructor-led courses in technology, business, design, and personal development. Start learning today!">
+    <meta name="keywords" content="EduLift courses, online classes, instructor-led training, technology courses, business courses, design courses, personal development">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="EduLift Courses | Online & Instructor-Led Learning Programs">
+    <meta property="og:description" content="Discover EduLift's expert-led courses designed to help you grow skills and advance your career. Flexible learning options available.">
+    <meta property="og:type" content="website">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --deep-blue: #00274d;
+            --yellow: #ffcc00;
+            --white: #ffffff;
+            --light-blue: #e6f0ff;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #333;
+            background-color: #f8f9fa;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Source Serif Pro', serif;
+            font-weight: 700;
+        }
+        
+        .navbar {
+            background-color: var(--deep-blue);
+            padding: 20px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        
+        .navbar-brand {
+            font-family: 'Source Serif Pro', serif;
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: var(--white);
+        }
+        
+        .navbar-brand span {
+            color: var(--yellow);
+        }
+        
+        .navbar-nav .nav-link {
+            color: rgba(255,255,255,0.85);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 8px 15px;
+            border-radius: 4px;
+            margin: 0 5px;
+        }
+        
+        .navbar-nav .nav-link:hover {
+            color: var(--yellow);
+            background: rgba(255,255,255,0.1);
+        }
+        
+        .navbar-nav .nav-link.active {
+            color: var(--yellow);
+            background: rgba(255,255,255,0.1);
+        }
+        
+        .courses-hero {
+            background: linear-gradient(rgba(0, 39, 77, 0.9), rgba(0, 39, 77, 0.8)), url('https://images.unsplash.com/photo-1495465798138-718f86d1a4f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            padding: 120px 0 80px;
+            color: white;
+        }
+        
+        .courses-hero h1 {
+            font-size: 3rem;
+            line-height: 1.3;
+            margin-bottom: 20px;
+        }
+        
+        .courses-hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        
+        .btn-primary {
+            background-color: var(--yellow);
+            border: none;
+            color: var(--deep-blue);
+            padding: 12px 30px;
+            font-weight: 600;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: #ffd633;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .btn-outline-light {
+            border: 2px solid var(--yellow);
+            color: var(--yellow);
+            background: transparent;
+            padding: 12px 30px;
+            font-weight: 600;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline-light:hover {
+            background: var(--yellow);
+            color: var(--deep-blue);
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 50px;
+            text-align: center;
+            color: var(--deep-blue);
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: var(--yellow);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .category-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            height: 100%;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .category-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 204, 0, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+        
+        .category-icon i {
+            font-size: 32px;
+            color: var(--deep-blue);
+        }
+        
+        .course-card {
+            border: none;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            height: 100%;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+        
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .course-img {
+            height: 200px;
+            object-fit: cover;
+            width: 100%;
+        }
+        
+        .course-body {
+            padding: 25px;
+        }
+        
+        .course-category {
+            display: inline-block;
+            background: rgba(0, 39, 77, 0.08);
+            color: var(--deep-blue);
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+        
+        .course-title {
+            color: var(--deep-blue);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .course-meta {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+            padding: 15px 0;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .course-meta-item {
+            text-align: center;
+            flex: 1;
+        }
+        
+        .course-meta-item i {
+            color: var(--yellow);
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+        
+        .course-price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--deep-blue);
+            margin: 15px 0;
+        }
+        
+        .instructor-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+            height: 100%;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .instructor-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 20px;
+            border: 3px solid var(--yellow);
+        }
+        
+        .testimonial-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .testimonial-card:before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            font-size: 5rem;
+            color: rgba(0, 39, 77, 0.05);
+            font-family: 'Source Serif Pro', serif;
+            line-height: 1;
+        }
+        
+        .student-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+        }
+        
+        .cta-section {
+            background: linear-gradient(rgba(0, 39, 77, 0.9), rgba(0, 39, 77, 0.9)), url('https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') center/cover no-repeat;
+            padding: 80px 0;
+            color: white;
+            text-align: center;
+            margin: 80px 0;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+        }
+        
+        footer {
+            background: var(--deep-blue);
+            color: rgba(255,255,255,0.8);
+            padding: 70px 0 30px;
+        }
+        
+        .footer-title {
+            color: var(--yellow);
+            font-family: 'Source Serif Pro', serif;
+            margin-bottom: 25px;
+            font-size: 1.5rem;
+        }
+        
+        .footer-links a {
+            display: block;
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            margin-bottom: 12px;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--yellow);
+            padding-left: 5px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--yellow);
+            color: var(--deep-blue);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            margin-top: 50px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        .delay-1 {
+            animation-delay: 0.1s;
+        }
+        
+        .delay-2 {
+            animation-delay: 0.2s;
+        }
+        
+        .delay-3 {
+            animation-delay: 0.3s;
+        }
+        
+        .delay-4 {
+            animation-delay: 0.4s;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .courses-hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .courses-hero {
+                padding: 80px 0 50px;
+            }
+            
+            .courses-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .courses-hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Edu<span>Lift</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="courses.html">Courses</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="student-resources.html">Resources</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact-us.html">Contact</a>
+                    </li>
+                    <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+                        <a class="btn btn-primary" href="courses.html">Enroll Now</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="courses-hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h1 class="animate">EduLift Courses: Your Path to Mastery</h1>
+                    <p class="animate delay-1">Discover expert-led courses designed to help you grow skills, advance your career, and achieve success. Flexible learning options to fit your schedule.</p>
+                    <div class="animate delay-2">
+                        <a href="#course-categories" class="btn btn-primary me-2">Explore Courses</a>
+                        <a href="contact-us.html" class="btn btn-outline-light">Schedule Consultation</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Categories -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title animate">Explore Our Learning Programs</h2>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 animate delay-1">
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="bi bi-laptop"></i>
+                        </div>
+                        <h3>Online Classes</h3>
+                        <p>Flexible self-paced courses covering technology, business, design, and personal development.</p>
+                        <a href="#online-courses" class="btn btn-outline-primary mt-3">View Courses</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 animate delay-2">
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="bi bi-people-fill"></i>
+                        </div>
+                        <h3>Instructor-Led</h3>
+                        <p>Live expert-led sessions offering real-time guidance, mentorship, and hands-on experience.</p>
+                        <a href="#instructor-courses" class="btn btn-outline-primary mt-3">View Courses</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 animate delay-3">
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="bi bi-journal-bookmark"></i>
+                        </div>
+                        <h3>Learning Materials</h3>
+                        <p>Access ebooks, video lectures, and worksheets tailored to each course.</p>
+                        <a href="student-resources.html" class="btn btn-outline-primary mt-3">Explore Resources</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 animate delay-4">
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="bi bi-person-badge"></i>
+                        </div>
+                        <h3>Career Support</h3>
+                        <p>Resume building, interview preparation, and career guidance services.</p>
+                        <a href="contact-us.html" class="btn btn-outline-primary mt-3">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Online Courses -->
+    <section class="py-5 bg-light" id="online-courses">
+        <div class="container">
+            <h2 class="section-title animate">Online Classes</h2>
+            <p class="text-center mb-5 animate delay-1">Flexible self-paced courses covering technology, business, design, and personal development.</p>
+            
+            <div class="row">
+                <!-- Course 1 -->
+                <div class="col-lg-4 col-md-6 animate delay-2">
+                    <div class="course-card">
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="course-img" alt="Web Development">
+                        <div class="course-body">
+                            <span class="course-category">Technology</span>
+                            <h3 class="course-title">Full Stack Web Development</h3>
+                            <p>Master front-end and back-end technologies to build modern web applications.</p>
+                            
+                            <div class="course-meta">
+                                <div class="course-meta-item">
+                                    <i class="bi bi-clock"></i>
+                                    <div>8 Weeks</div>
+                                </div>
+                                <div class="course-meta-item">
+                                    <i class="bi bi-bar-chart"></i>
+                                    <div>Intermediate</div>
+                                </div>
+                                <div class="course-meta-item">
+                                    <i class="bi bi-people"></i>
+                                    <div>Self-Paced</div>
+                                </div>
+                            </div>
+                            
+                            <div class="course-price">$299</div>
+                            <a href="#" class="btn btn-primary w-100">Enroll Now</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Course 2 -->
+                <div class="col-lg-4 col-md-6 animate delay-3">
+                    <div class="course-card">
+                        <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="course-img" alt="Data Science">
+                        <div class="course-body">
+                            <span class="course-category">Technology</span>
+                            <h3 class="course-title">Data Science & Analytics</h3>
+                            <p>Learn to extract insights from data using Python, SQL, and machine learning.</p>
+                            
+                            <div class="course-meta">
+                                <div class="course-meta-item">
+                                    <i class="bi bi-clock"></i>
+                                    <div>10 Weeks</div>
+                                </div>
+                                <div class="course-meta-item">
+                                    <i class="bi bi-bar-chart"></i>
+                                    <div>Advanced</div>
+                                </div>
+                                <div class="course-meta-item">
+                                    <i class="bi bi-people"></i>
+                                    <div>Self-Paced</div>
+                                </div>
+                            </div>
+                            
+                            <div class="course-price">$349</div>
+                            <a href="#" class="btn btn-primary w-100">Enroll Now</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Course 3 -->
+                <div class="col-lg-4 col-md-6 animate delay-4">
+                    <div class="course-card">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="course-img" alt="Digital Marketing">
+                        <div class="course-body">
+                            <span class="course-category">Business</span>
+                            <h3 class="course-title">Digital Marketing Strategy</h3>
+                            <p>Master SEO, social media, content marketing, and analytics to grow businesses.</p>
+                            
+                            <div class="course-meta">
+                                <div class="course-meta-item">
+                                    <i class="bi bi-clock"></i>
+                                    <div>6 Weeks</div>
+                                </div>
+                                <div class="course-meta-item">
+                                    <i class="bi bi-bar-chart"></i>
+                                    <div>Beginner</div>
+                                </div>
+                                <div class="course-meta-item">
+                                    <i class="bi bi-people"></i>
+                                    <div>Self-Paced</div>
+                                </div>
+                            </div>
+                            
+                            <div class="course-price">$249</div>
+                            <a href="#" class="btn btn-primary w-100">Enroll Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-4">
+                <a href="#" class="btn btn-outline-primary">View All Online Courses</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instructor-Led Courses -->
+    <section class="py-5" id="instructor-courses">
+        <div class="container">
+            <h2 class="section-title animate">Instructor-Led Training</h2>
+            <p class="text-center mb-5 animate delay-1">Live expert-led sessions offering real-time guidance, mentorship, and hands-on experience.</p>
+            
+            <div class="row">
+                <!-- Course 1 -->
+                <div class="col-lg-4 col-md-6 animate delay-2">
+                    <div class="course-card">
+                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="course-img" alt="UX Design">
+                        <div class="course-body">
+                            <span class="course-category">Design</span>
+                            <h3 class="course-title">UX/UI Design Masterclass</h3>
+                            <p>Learn user research, prototyping, and interface design from industry experts.</p>
+                            
+                            <div class="course-meta">
+                                <div class="course-meta-item">
+                                    <i class="bi bi-clock"></i>
+                                    <div>12 Weeks</div>
+                                </div>
+                                <div class="course-meta-item">
+                                    <i class="bi bi-bar-chart"></i>
+                                    <div>Intermediate</div>
+                                </div>
+                                <div class="course-meta-item">
+                                    <i class="bi bi-people"></i>
+                                    <div>Live Sessions</div>
+                                </div>
+                            </div>
+                            
+                            <div class="course-price">$499</div>
+                            <a href="#" class="btn btn-primary w-100">Enroll Now</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Course 2 -->
+                <div class="col-lg-4 col-md-6 animate delay-3">
+                    <div class="course-card">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="course-img" alt="Project Management">
+                        <div class="course-body">
+                            <span class="course-category">Business</span>
+                            <h3 class="course-title">Project Management Professional</h3>
+                            <p>Prepare for PMP certification with comprehensive training and practice exams.</p>
+                            
+                            <div class="course-meta">
+                                <div class="course-meta-item">
+                                    <i class="bi bi-clock"></i>
+                                    <div>10 Weeks</div>
+                                </div>
+                                <div class="course-meta-item">
+                                    <i class="bi bi-bar-chart"></i>
+                                    <div>Advanced</div>
+                                </div>
+                                <div class="course-meta-item">
+                                    <i class="bi bi-people"></i>
+                                    <div>Live Sessions</div>
+                                </div>
+                            </div>
+                            
+                            <div class="course-price">$599</div>
+                            <a href="#" class="btn btn-primary w-100">Enroll Now</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Course 3 -->
+                <div class="col-lg-4 col-md-6 animate delay-4">
+                    <div class="course-card">
+                        <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="course-img" alt="Leadership">
+                        <div class="course-body">
+                            <span class="course-category">Personal Development</span>
+                            <h3 class="course-title">Leadership & Team Management</h3>
+                            <p>Develop essential leadership skills to inspire and manage high-performing teams.</p>
+                            
+                            <div class="course-meta">
+                                <div class="course-meta-item">
+                                    <i class="bi bi-clock"></i>
+                                    <div>8 Weeks</div>
+                                </div>
+                                <div class="course-meta-item">
+                                    <i class="bi bi-bar-chart"></i>
+                                    <div>All Levels</div>
+                                </div>
+                                <div class="course-meta-item">
+                                    <i class="bi bi-people"></i>
+                                    <div>Live Sessions</div>
+                                </div>
+                            </div>
+                            
+                            <div class="course-price">$399</div>
+                            <a href="#" class="btn btn-primary w-100">Enroll Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-4">
+                <a href="#" class="btn btn-outline-primary">View All Instructor-Led Courses</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Instructors -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title animate">Meet Our Expert Instructors</h2>
+            <p class="text-center mb-5 animate delay-1">Learn from certified professionals with industry experience.</p>
+            
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4 animate delay-2">
+                    <div class="instructor-card">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" class="instructor-img" alt="Alex Johnson">
+                        <h3>Alex Johnson</h3>
+                        <p class="text-muted">Senior Web Developer</p>
+                        <p>10+ years experience building scalable web applications for Fortune 500 companies.</p>
+                        <div class="mt-3">
+                            <a href="#" class="btn btn-sm btn-outline-primary">View Courses</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-4 animate delay-3">
+                    <div class="instructor-card">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" class="instructor-img" alt="Sarah Chen">
+                        <h3>Sarah Chen</h3>
+                        <p class="text-muted">Data Science Lead</p>
+                        <p>Former data scientist at Google, specializing in machine learning and AI applications.</p>
+                        <div class="mt-3">
+                            <a href="#" class="btn btn-sm btn-outline-primary">View Courses</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-4 animate delay-4">
+                    <div class="instructor-card">
+                        <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" class="instructor-img" alt="Michael Rodriguez">
+                        <h3>Michael Rodriguez</h3>
+                        <p class="text-muted">UX Design Director</p>
+                        <p>Led design teams at Apple and Airbnb, creating award-winning user experiences.</p>
+                        <div class="mt-3">
+                            <a href="#" class="btn btn-sm btn-outline-primary">View Courses</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-4 animate">
+                    <div class="instructor-card">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" class="instructor-img" alt="Emily Wilson">
+                        <h3>Emily Wilson</h3>
+                        <p class="text-muted">Business Strategist</p>
+                        <p>Helped startups secure $50M+ in funding through effective business planning.</p>
+                        <div class="mt-3">
+                            <a href="#" class="btn btn-sm btn-outline-primary">View Courses</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title animate">Student Success Stories</h2>
+            
+            <div class="row">
+                <div class="col-lg-4 mb-4 animate delay-1">
+                    <div class="testimonial-card">
+                        <p>"The Data Science course transformed my career. I went from an analyst role to a data scientist position with a 40% salary increase within 6 months of completing the program."</p>
+                        <div class="d-flex align-items-center mt-4">
+                            <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" class="student-img" alt="James Wilson">
+                            <div>
+                                <h5 class="mb-0">James Wilson</h5>
+                                <p class="text-muted mb-0">Data Scientist</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 mb-4 animate delay-2">
+                    <div class="testimonial-card">
+                        <p>"The UX Design Masterclass gave me the practical skills I needed to transition into the design field. The portfolio I built during the course helped me land my dream job."</p>
+                        <div class="d-flex align-items-center mt-4">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" class="student-img" alt="Sophia Martinez">
+                            <div>
+                                <h5 class="mb-0">Sophia Martinez</h5>
+                                <p class="text-muted mb-0">UX Designer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 mb-4 animate delay-3">
+                    <div class="testimonial-card">
+                        <p>"The flexibility of EduLift's online courses allowed me to upskill while working full-time. The instructors were always available to answer questions and provide guidance."</p>
+                        <div class="d-flex align-items-center mt-4">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" class="student-img" alt="David Kim">
+                            <div>
+                                <h5 class="mb-0">David Kim</h5>
+                                <p class="text-muted mb-0">Software Engineer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <div class="cta-section">
+        <div class="container">
+            <h2 class="animate">Ready to Transform Your Career?</h2>
+            <p class="animate delay-1">Join thousands of students who have advanced their careers with EduLift courses.</p>
+            <div class="animate delay-2">
+                <a href="courses.html" class="btn btn-primary me-2">Browse All Courses</a>
+                <a href="contact-us.html" class="btn btn-outline-light">Request Information</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h3 class="footer-title">Edu<span>Lift</span></h3>
+                    <p>"Learn Today, Lead Tomorrow."</p>
+                    <p>Providing quality education through innovative learning experiences since 2025.</p>
+                    <div class="social-links mt-4">
+                        <a href="#"><i class="bi bi-facebook"></i></a>
+                        <a href="#"><i class="bi bi-twitter"></i></a>
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                        <a href="#"><i class="bi bi-linkedin"></i></a>
+                        <a href="#"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <div class="footer-links">
+                        <a href="index.html">Home</a>
+                        <a href="courses.html">Courses</a>
+                        <a href="student-resources.html">Resources</a>
+                        <a href="blog.html">Blog</a>
+                        <a href="contact-us.html">Contact</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h4 class="footer-title">Resources</h4>
+                    <div class="footer-links">
+                        <a href="#">FAQs</a>
+                        <a href="#">Learning Materials</a>
+                        <a href="#">Career Support</a>
+                        <a href="#">Student Success Stories</a>
+                        <a href="#">Events & Webinars</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 mb-4">
+                    <h4 class="footer-title">Contact Us</h4>
+                    <p><i class="bi bi-envelope me-2"></i> support@edulift.com</p>
+                    <p><i class="bi bi-telephone me-2"></i> +1 (555) 678-1234</p>
+                    <p><i class="bi bi-geo-alt me-2"></i> 123 Education St, Learning City</p>
+                    <div class="mt-4">
+                        <a href="contact-us.html" class="btn btn-outline-light">Send a Message</a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 EduLift. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        // Animation on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const animateElements = document.querySelectorAll('.animate');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            animateElements.forEach(element => {
+                element.style.opacity = '0';
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>
