@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog | Globetrek – Travel Stories, Guides & Inspiration</title>
+  <meta name="description" content="Explore Globetrek’s travel blog for destination guides, insider tips, cultural deep-dives, and stories that spark wanderlust.">
+  <meta name="keywords" content="Globetrek blog, travel articles, destination tips, travel planning, cultural travel stories, global experiences, tourism insights, travel journal">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Blog | Globetrek Travel Journal">
+  <meta property="og:description" content="Read travel inspiration, expert guides, and traveler stories from around the globe. Fuel your next adventure with Globetrek.">
+  <meta property="og:type" content="website">
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+  
+  <style>
+    :root {
+      --ocean-blue: #008cba;
+      --sunset-orange: #ff4500;
+      --white: #ffffff;
+    }
+    
+    body {
+      font-family: 'Nunito Sans', sans-serif;
+      color: #333;
+      background-color: #f8f9fa;
+    }
+    
+    h1, h2, h3, h4, h5, .navbar-brand {
+      font-family: 'Pacifico', cursive;
+    }
+    
+    .hero-section {
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                  url('https://images.unsplash.com/photo-1503220317375-aaad61436b1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+      height: 60vh;
+      min-height: 400px;
+      display: flex;
+      align-items: center;
+      color: var(--white);
+    }
+    
+    .navbar {
+      background-color: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .btn-primary {
+      background-color: var(--ocean-blue);
+      border-color: var(--ocean-blue);
+    }
+    
+    .btn-primary:hover {
+      background-color: #0079a1;
+      border-color: #0079a1;
+    }
+    
+    .btn-secondary {
+      background-color: var(--sunset-orange);
+      border-color: var(--sunset-orange);
+    }
+    
+    .btn-secondary:hover {
+      background-color: #e03e00;
+      border-color: #e03e00;
+    }
+    
+    .section-title {
+      position: relative;
+      margin-bottom: 2.5rem;
+      padding-bottom: 1rem;
+    }
+    
+    .section-title:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 80px;
+      height: 4px;
+      background: var(--ocean-blue);
+    }
+    
+    .blog-card {
+      border-radius: 15px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      height: 100%;
+      border: none;
+      margin-bottom: 30px;
+      background: white;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+    
+    .blog-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .blog-img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+    
+    .blog-content {
+      padding: 25px;
+    }
+    
+    .category-badge {
+      display: inline-block;
+      padding: 5px 15px;
+      border-radius: 20px;
+      background: rgba(0, 140, 186, 0.1);
+      color: var(--ocean-blue);
+      font-weight: 600;
+      font-size: 0.85rem;
+      margin-bottom: 15px;
+    }
+    
+    .meta-info {
+      display: flex;
+      align-items: center;
+      margin-top: 20px;
+      color: #6c757d;
+      font-size: 0.9rem;
+    }
+    
+    .meta-info img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 10px;
+      object-fit: cover;
+    }
+    
+    .topic-card {
+      background: white;
+      border-radius: 15px;
+      padding: 25px;
+      margin-bottom: 30px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+    }
+    
+    .topic-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+    
+    .topic-icon {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: var(--ocean-blue);
+    }
+    
+    .cta-section {
+      background: linear-gradient(to right, var(--ocean-blue), var(--sunset-orange));
+      border-radius: 15px;
+      padding: 50px;
+      color: white;
+      margin: 50px 0;
+      text-align: center;
+    }
+    
+    .feature-list li {
+      margin-bottom: 1rem;
+      list-style-type: none;
+      padding-left: 2rem;
+      position: relative;
+      font-size: 1.1rem;
+    }
+    
+    .feature-list li:before {
+      content: "•";
+      color: var(--ocean-blue);
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+      font-size: 1.5rem;
+    }
+    
+    .footer {
+      background-color: #222;
+      color: #fff;
+      padding: 4rem 0 2rem;
+    }
+    
+    .social-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: white;
+      margin-right: 0.5rem;
+      transition: all 0.3s ease;
+    }
+    
+    .social-icon:hover {
+      background-color: var(--ocean-blue);
+      transform: translateY(-5px);
+    }
+    
+    .tag-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    
+    .tag {
+      padding: 5px 15px;
+      background: rgba(0, 140, 186, 0.1);
+      color: var(--ocean-blue);
+      border-radius: 20px;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+    }
+    
+    .tag:hover {
+      background: var(--ocean-blue);
+      color: white;
+      cursor: pointer;
+    }
+    
+    .sidebar-card {
+      background: white;
+      border-radius: 15px;
+      padding: 25px;
+      margin-bottom: 30px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html" style="font-size: 2rem; color: var(--ocean-blue);">
+        <i class="bi bi-airplane me-2"></i>Globetrek
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto me-4">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="destinations.html">Destinations</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="blog.html">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact-us.html">Contact Us</a>
+          </li>
+        </ul>
+        <a href="booking.html" class="btn btn-primary px-4">Book Now</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container text-center">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <h1 class="display-2 mb-4">The Globetrek Blog</h1>
+          <p class="lead mb-5">Stories that take flight and journeys that transform</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <section class="py-6">
+    <div class="container">
+      <div class="row">
+        <!-- Main Content -->
+        <div class="col-lg-8 mb-5 mb-lg-0">
+          <div class="mb-5">
+            <p class="lead">Here's where stories take flight. At <strong>Globetrek</strong>, we believe every destination has a soul — and the best way to connect with it is through real journeys and real voices. Our blog is your passport to deeper experiences, smarter travel, and that irresistible call to explore the world.</p>
+          </div>
+          
+          <!-- Featured Articles -->
+          <h2 class="section-title">Popular Reads</h2>
+          
+          <div class="blog-card">
+            <img src="https://images.unsplash.com/photo-1532664189809-02133fee698d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Rajasthan" class="blog-img">
+            <div class="blog-content">
+              <span class="category-badge">Destination Guide</span>
+              <h3>7 Hidden Gems in Rajasthan You Can't Miss</h3>
+              <p>Beyond forts and palaces, uncover the forgotten villages, local artisans, and desert trails that make Rajasthan endlessly fascinating.</p>
+              <a href="blog/rajasthan-hidden-gems.html" class="btn btn-outline-primary">Continue Reading</a>
+              <div class="meta-info">
+                <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Author">
+                <div>
+                  <strong>Priya Sharma</strong> • June 12, 2025 • 8 min read
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="blog-card">
+            <img src="https://images.unsplash.com/photo-1506970845839-2d8e1e9688b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Travel Planning" class="blog-img">
+            <div class="blog-content">
+              <span class="category-badge">Travel Planning</span>
+              <h3>How to Choose the Right International Trip for Your Travel Style</h3>
+              <p>Backpacking or luxury? Group tour or solo wanderer? Let this guide help you align your dream destinations with your pace and priorities.</p>
+              <a href="blog/international-trip-guide.html" class="btn btn-outline-primary">Continue Reading</a>
+              <div class="meta-info">
+                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Author">
+                <div>
+                  <strong>Raj Patel</strong> • May 28, 2025 • 10 min read
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="blog-card">
+            <img src="https://images.unsplash.com/photo-1565967511849-76a60a516170?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="South India" class="blog-img">
+            <div class="blog-content">
+              <span class="category-badge">Cultural Journey</span>
+              <h3>Tea Trails & Temple Towns: Why South India is a Cultural Masterpiece</h3>
+              <p>From the Nilgiris to Madurai, dive into South India's quiet grace and sensory overload — a harmony of old soul and natural beauty.</p>
+              <a href="blog/south-india-culture.html" class="btn btn-outline-primary">Continue Reading</a>
+              <div class="meta-info">
+                <img src="https://randomuser.me/api/portraits/women/28.jpg" alt="Author">
+                <div>
+                  <strong>Ananya Desai</strong> • May 15, 2025 • 12 min read
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Blog Topics -->
+          <h2 class="section-title mt-6">What We Write About</h2>
+          
+          <div class="row">
+            <div class="col-md-6 mb-4">
+              <div class="topic-card">
+                <i class="bi bi-geo-alt topic-icon"></i>
+                <h4>Destination Guides & Itineraries</h4>
+                <p>Detailed explorations of destinations near and far with practical tips and must-see locations.</p>
+              </div>
+            </div>
+            
+            <div class="col-md-6 mb-4">
+              <div class="topic-card">
+                <i class="bi bi-lightbulb topic-icon"></i>
+                <h4>Travel Hacks & Packing Checklists</h4>
+                <p>Smart solutions and essential lists to make your travels smoother and more enjoyable.</p>
+              </div>
+            </div>
+            
+            <div class="col-md-6 mb-4">
+              <div class="topic-card">
+                <i class="bi bi-signpost-split topic-icon"></i>
+                <h4>Offbeat Journeys & Cultural Deep-Dives</h4>
+                <p>Venture beyond the tourist trail and immerse yourself in authentic local experiences.</p>
+              </div>
+            </div>
+            
+            <div class="col-md-6 mb-4">
+              <div class="topic-card">
+                <i class="bi bi-journal-text topic-icon"></i>
+                <h4>First-Hand Stories & Personal Reflections</h4>
+                <p>Heartfelt narratives from fellow travelers that capture the essence of exploration.</p>
+              </div>
+            </div>
+            
+            <div class="col-md-12 mb-4">
+              <div class="topic-card">
+                <i class="bi bi-compass topic-icon"></i>
+                <h4>Planning Tips for Every Kind of Explorer</h4>
+                <p>Tailored advice whether you're a solo backpacker, family vacationer, or luxury traveler.</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- CTA Section -->
+          <div class="cta-section">
+            <h2 class="mb-4">Got a Story or Travel Question?</h2>
+            <p class="mb-4 lead">We love hearing from fellow travelers. Want to share a guest article or need advice for your next getaway?</p>
+            <a href="contact-us.html" class="btn btn-light btn-lg px-5">Reach Out to Our Team</a>
+          </div>
+        </div>
+        
+        <!-- Sidebar -->
+        <div class="col-lg-4">
+          <div class="sidebar-card">
+            <h4 class="mb-4">Search Articles</h4>
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Search blog...">
+              <button class="btn btn-primary" type="button">
+                <i class="bi bi-search"></i>
+              </button>
+            </div>
+          </div>
+          
+          <div class="sidebar-card">
+            <h4 class="mb-4">Popular Topics</h4>
+            <div class="tag-cloud">
+              <span class="tag">India Travel</span>
+              <span class="tag">Budget Tips</span>
+              <span class="tag">Cultural Journeys</span>
+              <span class="tag">Solo Travel</span>
+              <span class="tag">Food Adventures</span>
+              <span class="tag">Family Travel</span>
+              <span class="tag">Luxury Escapes</span>
+              <span class="tag">Hiking Trails</span>
+              <span class="tag">Beach Getaways</span>
+            </div>
+          </div>
+          
+          <div class="sidebar-card">
+            <h4 class="mb-4">Recent Posts</h4>
+            <div class="d-flex mb-4">
+              <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Recent Post" class="rounded me-3" width="80">
+              <div>
+                <h6>Monsoon Magic: Best Places to Visit in India</h6>
+                <p class="small text-muted">June 10, 2025</p>
+              </div>
+            </div>
+            
+            <div class="d-flex mb-4">
+              <img src="https://images.unsplash.com/photo-1536152470836-b943b246224c?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Recent Post" class="rounded me-3" width="80">
+              <div>
+                <h6>10 Essential Apps for International Travel</h6>
+                <p class="small text-muted">June 5, 2025</p>
+              </div>
+            </div>
+            
+            <div class="d-flex mb-4">
+              <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Recent Post" class="rounded me-3" width="80">
+              <div>
+                <h6>Sustainable Travel: How to Leave a Positive Impact</h6>
+                <p class="small text-muted">May 30, 2025</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="sidebar-card">
+            <h4 class="mb-4">Join Our Newsletter</h4>
+            <p>Get travel inspiration, exclusive deals, and insider tips delivered to your inbox.</p>
+            <div class="mb-3">
+              <input type="email" class="form-control" placeholder="Your email address">
+            </div>
+            <button class="btn btn-primary w-100">Subscribe</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 mb-5 mb-lg-0">
+          <h3 class="mb-4"><i class="bi bi-airplane me-2"></i>Globetrek</h3>
+          <p class="mb-4">Crafting unforgettable travel experiences since 2010. Your journey begins with us.</p>
+          <div class="d-flex">
+            <a href="#" class="social-icon me-2"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="social-icon me-2"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="social-icon me-2"><i class="bi bi-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="bi bi-youtube"></i></a>
+          </div>
+        </div>
+        
+        <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+          <h5 class="mb-4">Explore</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="index.html" class="text-white text-decoration-none">Home</a></li>
+            <li class="mb-2"><a href="destinations.html" class="text-white text-decoration-none">Destinations</a></li>
+            <li class="mb-2"><a href="blog.html" class="text-white text-decoration-none">Travel Blog</a></li>
+            <li class="mb-2"><a href="booking.html" class="text-white text-decoration-none">Special Offers</a></li>
+          </ul>
+        </div>
+        
+        <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+          <h5 class="mb-4">Support</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="contact-us.html" class="text-white text-decoration-none">Contact Us</a></li>
+            <li class="mb-2"><a href="#" class="text-white text-decoration-none">FAQs</a></li>
+            <li class="mb-2"><a href="#" class="text-white text-decoration-none">Booking Terms</a></li>
+            <li class="mb-2"><a href="#" class="text-white text-decoration-none">Privacy Policy</a></li>
+          </ul>
+        </div>
+        
+        <div class="col-lg-4 col-md-4">
+          <h5 class="mb-4">Contact Info</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><i class="bi bi-geo-alt me-2"></i>123 Adventure St, Mumbai, India</li>
+            <li class="mb-2"><i class="bi bi-telephone me-2"></i>+91 98765 43210</li>
+            <li class="mb-2"><i class="bi bi-envelope me-2"></i>hello@globetrek.com</li>
+            <li><i class="bi bi-clock me-2"></i>Mon-Fri: 9AM - 6PM</li>
+          </ul>
+        </div>
+      </div>
+      
+      <hr class="mt-5 mb-4">
+      
+      <div class="row">
+        <div class="col-md-6 mb-3 mb-md-0">
+          <p class="mb-0">&copy; 2025 Globetrek Travel Agency. All rights reserved.</p>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <p class="mb-0">Designed with <i class="bi bi-heart-fill text-danger"></i> for travelers</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
