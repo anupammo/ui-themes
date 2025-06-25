@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Eventoria | Professional Event Planning Experts</title>
+    <meta name="description" content="Discover Eventoria, the premier event planning company dedicated to crafting unforgettable experiences for corporate events, weddings, and private parties.">
+    <meta name="keywords" content="Eventoria, event planning, corporate events, wedding planners, private party organizers, expert event management">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="About Eventoria | Professional Event Planning Experts">
+    <meta property="og:description" content="Eventoria specializes in flawless event planning for corporate gatherings, dream weddings, and private celebrations. Let us bring your vision to life.">
+    <meta property="og:type" content="website">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --royal-purple: #800080;
+            --champagne-gold: #d4af37;
+            --light-gold: #f0e6d2;
+            --white: #ffffff;
+            --dark-gray: #333333;
+            --light-gray: #f8f9fa;
+        }
+        
+        body {
+            font-family: 'Quicksand', sans-serif;
+            color: var(--dark-gray);
+            overflow-x: hidden;
+            background-color: var(--white);
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+        }
+        
+        .brand-text {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            color: var(--royal-purple);
+        }
+        
+        .bg-purple {
+            background-color: var(--royal-purple);
+        }
+        
+        .text-gold {
+            color: var(--champagne-gold);
+        }
+        
+        .btn-gold {
+            background-color: var(--champagne-gold);
+            color: var(--royal-purple);
+            border: none;
+            font-weight: 600;
+            padding: 12px 28px;
+            border-radius: 30px;
+            transition: all 0.4s;
+        }
+        
+        .btn-gold:hover {
+            background-color: #c19e2e;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .btn-outline-gold {
+            border: 2px solid var(--champagne-gold);
+            color: var(--champagne-gold);
+            background: transparent;
+            font-weight: 600;
+            padding: 10px 26px;
+            border-radius: 30px;
+            transition: all 0.4s;
+        }
+        
+        .btn-outline-gold:hover {
+            background-color: var(--champagne-gold);
+            color: var(--royal-purple);
+            transform: translateY(-3px);
+        }
+        
+        .navbar {
+            padding: 20px 0;
+            transition: all 0.4s;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-brand {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 28px;
+            color: var(--royal-purple);
+        }
+        
+        .navbar-brand span {
+            color: var(--champagne-gold);
+        }
+        
+        .nav-link {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            margin: 0 12px;
+            color: var(--dark-gray);
+            position: relative;
+            padding: 5px 0;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--champagne-gold);
+            transition: width 0.3s;
+        }
+        
+        .nav-link:hover:after,
+        .nav-link.active:after {
+            width: 100%;
+        }
+        
+        .hero {
+            min-height: 70vh;
+            background: linear-gradient(rgba(128, 0, 128, 0.7), rgba(128, 0, 128, 0.8)), 
+                        url('https://images.unsplash.com/photo-1581578021473-9b76d3b3c9c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero:before {
+            content: '';
+            position: absolute;
+            width: 300%;
+            height: 300%;
+            top: -100%;
+            left: -100%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+            transform: rotate(30deg);
+            animation: rotate 20s infinite linear;
+        }
+        
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 50px;
+            padding-bottom: 15px;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background: var(--champagne-gold);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .about-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .about-highlight {
+            background: linear-gradient(to right, var(--light-gold), rgba(212, 175, 55, 0.1));
+            border-left: 4px solid var(--champagne-gold);
+            padding: 30px;
+            border-radius: 0 10px 10px 0;
+            margin: 40px 0;
+        }
+        
+        .feature-box {
+            background: var(--light-gray);
+            border-radius: 15px;
+            padding: 30px;
+            height: 100%;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-box:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--champagne-gold);
+            transition: width 0.4s;
+        }
+        
+        .feature-box:hover:before {
+            width: 100%;
+            opacity: 0.1;
+        }
+        
+        .feature-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--champagne-gold);
+            margin-bottom: 20px;
+        }
+        
+        .team-card {
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.4s;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            height: 100%;
+            background: var(--white);
+            border: none;
+        }
+        
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .team-img {
+            height: 300px;
+            overflow: hidden;
+        }
+        
+        .team-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .team-card:hover .team-img img {
+            transform: scale(1.05);
+        }
+        
+        .team-social {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.4s;
+        }
+        
+        .team-card:hover .team-social {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .team-social a {
+            width: 40px;
+            height: 40px;
+            background: var(--royal-purple);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 5px;
+            transition: all 0.3s;
+        }
+        
+        .team-social a:hover {
+            background: var(--champagne-gold);
+            color: var(--royal-purple);
+            transform: translateY(-5px);
+        }
+        
+        .values-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .values-list li {
+            padding: 15px 0 15px 60px;
+            position: relative;
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .values-list li:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 15px;
+            width: 40px;
+            height: 40px;
+            background: var(--royal-purple);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--champagne-gold);
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            font-size: 18px;
+        }
+        
+        .values-list li:nth-child(1):before { content: '\f0c0'; }
+        .values-list li:nth-child(2):before { content: '\f06e'; }
+        .values-list li:nth-child(3):before { content: '\f0e7'; }
+        .values-list li:nth-child(4):before { content: '\f201'; }
+        
+        .cta-section {
+            background: linear-gradient(rgba(128, 0, 128, 0.85), rgba(128, 0, 128, 0.9)), 
+                        url('https://images.pexels.com/photos/169186/pexels-photo-169186.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') center/cover no-repeat;
+            padding: 100px 0;
+            color: var(--white);
+            text-align: center;
+            position: relative;
+        }
+        
+        .cta-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .footer {
+            background: var(--dark-gray);
+            color: var(--white);
+            padding: 70px 0 30px;
+        }
+        
+        .footer-title {
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .footer-title:after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 2px;
+            background: var(--champagne-gold);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: all 0.3s;
+        }
+        
+        .social-icon:hover {
+            background: var(--champagne-gold);
+            color: var(--royal-purple);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 20px 0;
+            margin-top: 50px;
+        }
+        
+        /* Animations */
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Event<span>oria</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="about-us.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="event-gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="testimonials.html">Testimonials</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact-us.html">Contact</a></li>
+                </ul>
+                <a href="contact-us.html" class="btn btn-gold ms-lg-4">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <h1 data-aos="fade-right" data-aos-duration="1000">About <span class="brand-text">Eventoria</span></h1>
+                    <p class="lead" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200">Professional Event Planning Experts</p>
+                    <p data-aos="fade-right" data-aos-duration="1000" data-aos-delay="300">Discover the passion, expertise, and dedication behind our flawless event executions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section class="py-5 my-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="text-center mb-5" data-aos="fade-up">
+                        <h2 class="section-title">Welcome to Eventoria - Memories, Perfectly Planned</h2>
+                    </div>
+                    
+                    <div class="about-content" data-aos="fade-up" data-aos-delay="100">
+                        <p>At <strong>Eventoria</strong>, we believe that every event is more than just a gathering—it's an experience, a moment that leaves an impression. From <strong>high-profile corporate functions to intimate private celebrations</strong>, our expert planners ensure <strong>every detail is flawlessly executed</strong>.</p>
+                        
+                        <div class="about-highlight" data-aos="fade-right" data-aos-delay="200">
+                            <p class="lead mb-0">We don't just plan events; we create experiences that resonate long after the last guest has departed.</p>
+                        </div>
+                        
+                        <p>Founded in 2015, Eventoria has grown from a passionate duo to a team of 25 dedicated professionals. Our journey has been marked by thousands of successful events, countless smiles, and a reputation for excellence in the event planning industry.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Commitment Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="section-title" data-aos="fade-up">Our Commitment to Unforgettable Events</h2>
+                    <p class="lead" data-aos="fade-up" data-aos-delay="100">Dedicated to excellence in every celebration</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-6" data-aos="fade-right" data-aos-delay="200">
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <h3>Experienced Event Planners</h3>
+                        <p>With <strong>over 10 years of expertise</strong> in event planning, we specialize in <strong>creating, designing, and executing extraordinary experiences</strong> that exceed expectations. Our team brings together diverse talents from the worlds of design, hospitality, and project management.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6" data-aos="fade-left" data-aos-delay="300">
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <h3>Tailored Approach to Event Management</h3>
+                        <p>Each client has a unique vision, and at <strong>Eventoria</strong>, we make it our mission to <strong>turn ideas into stunning realities</strong>, customized to fit every occasion. We listen, we conceptualize, and we bring your personal story to life through thoughtful design and meticulous planning.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="mb-5">
+                        <h2 class="section-title">Why Clients Trust Us</h2>
+                        <p class="lead">The pillars of our success</p>
+                    </div>
+                    
+                    <ul class="values-list">
+                        <li data-aos="fade-right" data-aos-delay="100">
+                            <h4>Flawless Execution</h4>
+                            <p>Precision in planning and seamless coordination ensures that every event unfolds perfectly.</p>
+                        </li>
+                        <li data-aos="fade-right" data-aos-delay="200">
+                            <h4>Creative Designs</h4>
+                            <p>Stunning décor and unique event themes tailored to your personal style and preferences.</p>
+                        </li>
+                        <li data-aos="fade-right" data-aos-delay="300">
+                            <h4>Stress-Free Planning</h4>
+                            <p>We handle every detail, so you don't have to. Enjoy the journey while we manage the complexities.</p>
+                        </li>
+                        <li data-aos="fade-right" data-aos-delay="400">
+                            <h4>Expert Vendor Network</h4>
+                            <p>Access to top-tier catering, entertainment, and venue partners through our established relationships.</p>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="h-100" style="background: url('https://images.pexels.com/photos/169186/pexels-photo-169186.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') center/cover; border-radius: 15px; min-height: 500px;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="section-title" data-aos="fade-up">Meet Our Leadership</h2>
+                    <p class="lead" data-aos="fade-up" data-aos-delay="100">The creative minds behind your perfect events</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="team-card">
+                        <div class="team-img position-relative">
+                            <img src="https://images.pexels.com/photos/3760263/pexels-photo-3760263.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Founder & CEO">
+                            <div class="team-social">
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                        <div class="card-body p-4 text-center">
+                            <h3 class="mb-1">Sarah Johnson</h3>
+                            <p class="text-muted mb-2">Founder & CEO</p>
+                            <p class="mb-0">With 15+ years in luxury event planning, Sarah brings visionary leadership to our team.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="team-card">
+                        <div class="team-img position-relative">
+                            <img src="https://images.pexels.com/photos/3785079/pexels-photo-3785079.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Creative Director">
+                            <div class="team-social">
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                        <div class="card-body p-4 text-center">
+                            <h3 class="mb-1">Michael Chen</h3>
+                            <p class="text-muted mb-2">Creative Director</p>
+                            <p class="mb-0">Michael's innovative designs have earned him multiple event industry awards.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="team-card">
+                        <div class="team-img position-relative">
+                            <img src="https://images.pexels.com/photos/3771087/pexels-photo-3771087.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Operations Manager">
+                            <div class="team-social">
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                        <div class="card-body p-4 text-center">
+                            <h3 class="mb-1">Elena Rodriguez</h3>
+                            <p class="text-muted mb-2">Operations Manager</p>
+                            <p class="mb-0">Elena ensures every logistical detail is perfected for seamless execution.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content" data-aos="zoom-in">
+                <h2 class="mb-4">Make Your Vision a Reality with Eventoria</h2>
+                <p class="lead mb-5">From concept to execution, <strong>Eventoria turns dreams into spectacular events</strong>. Contact us today and <strong>let's create something truly unforgettable</strong>.</p>
+                <a href="contact-us.html" class="btn btn-gold btn-lg me-3">Start Planning Today</a>
+                <a href="services.html" class="btn btn-outline-gold btn-lg">View Our Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <h3 class="footer-title">Eventoria</h3>
+                    <p>Creating unforgettable experiences and turning dreams into reality with flawless event planning and execution.</p>
+                    <div class="mt-4">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html" class="text-white text-decoration-none">Home</a></li>
+                        <li class="mb-2"><a href="about-us.html" class="text-white text-decoration-none">About Us</a></li>
+                        <li class="mb-2"><a href="services.html" class="text-white text-decoration-none">Services</a></li>
+                        <li class="mb-2"><a href="event-gallery.html" class="text-white text-decoration-none">Event Gallery</a></li>
+                        <li class="mb-2"><a href="testimonials.html" class="text-white text-decoration-none">Testimonials</a></li>
+                        <li><a href="contact-us.html" class="text-white text-decoration-none">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h3 class="footer-title">Contact Info</h3>
+                    <ul class="list-unstyled">
+                        <li class="mb-3">
+                            <i class="fas fa-map-marker-alt me-2 text-gold"></i> 
+                            123 Celebration Blvd, Event City
+                        </li>
+                        <li class="mb-3">
+                            <i class="fas fa-phone me-2 text-gold"></i> 
+                            +1 (555) 789-4561
+                        </li>
+                        <li class="mb-3">
+                            <i class="fas fa-envelope me-2 text-gold"></i> 
+                            <a href="mailto:support@eventoria.com" class="text-white text-decoration-none">support@eventoria.com</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-globe me-2 text-gold"></i> 
+                            <a href="https://www.eventoria.com" class="text-white text-decoration-none">www.eventoria.com</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright text-center mt-5">
+                <p class="mb-0">&copy; 2025 Eventoria. All Rights Reserved. | Turning Dreams Into Reality</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+        
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-sm');
+                navbar.style.padding = "10px 0";
+            } else {
+                navbar.classList.remove('shadow-sm');
+                navbar.style.padding = "20px 0";
+            }
+        });
+    </script>
+</body>
+</html>
