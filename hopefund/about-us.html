@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Meta Title -->
+  <title>About Us | HopeFund – Nonprofit for Health & Education Equity</title>
+
+  <!-- Meta Description -->
+  <meta name="description" content="HopeFund is a nonprofit organization driven by compassion and impact. Learn about our story, values, and commitment to healthcare and education for all.">
+
+  <!-- Meta Keywords -->
+  <meta name="keywords" content="HopeFund about us, nonprofit mission, NGO story, charity organization, healthcare nonprofit, education for poor, NGO values, social justice charity, equity driven organization">
+
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="About HopeFund | Empowering Lives, Together" />
+  <meta property="og:description" content="From healthcare access to education equality, HopeFund is building a future grounded in dignity, opportunity, and hope." />
+  <meta property="og:type" content="website" />
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+  
+  <style>
+    :root {
+      --deep-green: #006400;
+      --warm-beige: #f5f5dc;
+      --pure-white: #ffffff;
+    }
+    
+    body {
+      font-family: 'Lato', sans-serif;
+      color: #333;
+      line-height: 1.6;
+      background-color: var(--pure-white);
+    }
+    
+    h1, h2, h3, h4, h5 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      color: var(--deep-green);
+    }
+    
+    .navbar {
+      background-color: var(--deep-green);
+      padding: 20px 0;
+    }
+    
+    .navbar-brand {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1.8rem;
+      color: var(--warm-beige) !important;
+    }
+    
+    .navbar-nav .nav-link {
+      color: rgba(245, 245, 220, 0.85) !important;
+      font-weight: 500;
+      padding: 0.5rem 1.2rem;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    
+    .navbar-nav .nav-link:hover {
+      color: var(--pure-white) !important;
+    }
+    
+    .navbar-nav .nav-link:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: var(--warm-beige);
+      transition: all 0.3s ease;
+    }
+    
+    .navbar-nav .nav-link:hover:after {
+      width: 70%;
+      left: 15%;
+    }
+    
+    .btn-primary {
+      background-color: var(--deep-green);
+      border-color: var(--deep-green);
+      padding: 12px 28px;
+      border-radius: 30px;
+      font-weight: 700;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-primary:hover {
+      background-color: #004d00;
+      border-color: #004d00;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    
+    .btn-outline-primary {
+      color: var(--deep-green);
+      border-color: var(--deep-green);
+      padding: 12px 28px;
+      border-radius: 30px;
+      font-weight: 700;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-outline-primary:hover {
+      background-color: var(--deep-green);
+      color: var(--pure-white);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    
+    .hero-section {
+      background: linear-gradient(rgba(0, 100, 0, 0.7), rgba(0, 100, 0, 0.7)), 
+                  url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      color: var(--pure-white);
+      padding: 100px 0;
+      text-align: center;
+    }
+    
+    .hero-content h1 {
+      color: var(--pure-white);
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+    
+    .hero-content p {
+      font-size: 1.3rem;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      color: rgba(255,255,255,0.9);
+    }
+    
+    .section-title {
+      position: relative;
+      padding-bottom: 20px;
+      margin-bottom: 40px;
+    }
+    
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background-color: var(--deep-green);
+    }
+    
+    .mission-section {
+      background-color: var(--warm-beige);
+      padding: 100px 0;
+    }
+    
+    .mission-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    
+    .journey-section {
+      padding: 100px 0;
+      background: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80') no-repeat center center;
+      background-size: cover;
+      background-attachment: fixed;
+      position: relative;
+      color: var(--pure-white);
+    }
+    
+    .journey-overlay {
+      background-color: rgba(0, 100, 0, 0.85);
+      padding: 80px 0;
+    }
+    
+    .values-section {
+      padding: 100px 0;
+      background-color: var(--pure-white);
+    }
+    
+    .value-card {
+      background-color: var(--warm-beige);
+      border-radius: 15px;
+      padding: 30px;
+      margin-bottom: 30px;
+      height: 100%;
+      transition: all 0.3s ease;
+    }
+    
+    .value-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    }
+    
+    .value-icon {
+      font-size: 2.5rem;
+      color: var(--deep-green);
+      margin-bottom: 20px;
+    }
+    
+    .team-section {
+      padding: 100px 0;
+      background-color: #f9f9f9;
+    }
+    
+    .team-card {
+      background-color: var(--pure-white);
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+      height: 100%;
+    }
+    
+    .team-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    }
+    
+    .team-img {
+      height: 250px;
+      object-fit: cover;
+    }
+    
+    .team-info {
+      padding: 25px;
+    }
+    
+    .cta-section {
+      background-color: var(--deep-green);
+      padding: 80px 0;
+      border-radius: 20px;
+      margin: 100px 0;
+      color: var(--pure-white);
+      text-align: center;
+    }
+    
+    .footer {
+      background-color: var(--deep-green);
+      color: var(--warm-beige);
+      padding: 60px 0 30px;
+    }
+    
+    .footer-title {
+      color: var(--pure-white);
+      margin-bottom: 25px;
+      font-weight: 700;
+    }
+    
+    .footer-links a {
+      color: rgba(245, 245, 220, 0.8);
+      text-decoration: none;
+      display: block;
+      margin-bottom: 12px;
+      transition: all 0.3s ease;
+    }
+    
+    .footer-links a:hover {
+      color: var(--pure-white);
+      padding-left: 5px;
+    }
+    
+    .social-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 45px;
+      height: 45px;
+      background-color: rgba(245, 245, 220, 0.1);
+      color: var(--warm-beige);
+      border-radius: 50%;
+      margin-right: 12px;
+      transition: all 0.3s ease;
+    }
+    
+    .social-icon:hover {
+      background-color: var(--warm-beige);
+      color: var(--deep-green);
+      transform: translateY(-5px);
+    }
+    
+    .copyright {
+      border-top: 1px solid rgba(245, 245, 220, 0.2);
+      padding-top: 20px;
+      margin-top: 40px;
+      text-align: center;
+      color: rgba(245, 245, 220, 0.6);
+    }
+    
+    /* Timeline */
+    .timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .timeline::after {
+      content: '';
+      position: absolute;
+      width: 6px;
+      background-color: var(--deep-green);
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -3px;
+    }
+    
+    .timeline-item {
+      padding: 10px 40px;
+      position: relative;
+      width: 50%;
+      box-sizing: border-box;
+    }
+    
+    .timeline-item::after {
+      content: '';
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      right: -13px;
+      background-color: var(--pure-white);
+      border: 4px solid var(--deep-green);
+      top: 15px;
+      border-radius: 50%;
+      z-index: 1;
+    }
+    
+    .left {
+      left: 0;
+    }
+    
+    .right {
+      left: 50%;
+    }
+    
+    .right::after {
+      left: -13px;
+    }
+    
+    .timeline-content {
+      padding: 20px 30px;
+      background-color: var(--warm-beige);
+      position: relative;
+      border-radius: 6px;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 992px) {
+      .hero-content h1 {
+        font-size: 2.8rem;
+      }
+      
+      .timeline::after {
+        left: 31px;
+      }
+      
+      .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+      }
+      
+      .timeline-item::after {
+        left: 18px;
+      }
+      
+      .right {
+        left: 0%;
+      }
+      
+      .left, .right {
+        padding-right: 25px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .hero-content h1 {
+        font-size: 2.4rem;
+      }
+      
+      .hero-content p {
+        font-size: 1.1rem;
+      }
+      
+      .navbar-brand {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">HopeFund</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="about-us.html">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="causes.html">Causes</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="programsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Programs
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="programsDropdown">
+              <li><a class="dropdown-item" href="healthcare-support.html">Healthcare Support</a></li>
+              <li><a class="dropdown-item" href="education-for-all.html">Education for All</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="volunteer.html">Volunteer</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact-us.html">Contact Us</a>
+          </li>
+          <li class="nav-item ms-lg-3">
+            <a class="btn btn-outline-light" href="donate.html">Donate Now</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="hero-content">
+            <h1>About HopeFund</h1>
+            <p>Every life holds value, and every community deserves opportunity</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission Section -->
+  <section class="mission-section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <div class="mission-content">
+            <h2 class="section-title">Our Mission</h2>
+            <p class="lead"><strong>HopeFund</strong> was founded on one belief: every life holds value, and every community deserves opportunity. Since day one, we've worked hand-in-hand with partners and changemakers to deliver practical, lasting solutions in the areas of <strong>healthcare access</strong> and <strong>education equity</strong>.</p>
+            
+            <div class="mt-5 p-4 bg-white rounded shadow-sm">
+              <h3 class="mb-4">To empower individuals and uplift underserved communities by removing barriers to quality healthcare and education — with compassion, transparency, and dignity at our core.</h3>
+              <p class="mb-0">We believe in creating sustainable change through community partnerships and evidence-based solutions.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Journey Section -->
+  <section class="journey-section">
+    <div class="journey-overlay">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8 text-center mb-5">
+            <h2 class="section-title">Our Journey</h2>
+            <p class="lead">From grassroots beginnings to a multi-cause movement transforming communities</p>
+          </div>
+        </div>
+        
+        <div class="timeline">
+          <div class="timeline-item left">
+            <div class="timeline-content">
+              <h4>2017: The Beginning</h4>
+              <p>Founded by Dr. Sarah Johnson and Michael Rodriguez as a grassroots initiative to provide medical care in rural communities.</p>
+            </div>
+          </div>
+          <div class="timeline-item right">
+            <div class="timeline-content">
+              <h4>2018: First Education Program</h4>
+              <p>Launched our "Books for All" initiative in urban slums, providing educational resources to 500 children.</p>
+            </div>
+          </div>
+          <div class="timeline-item left">
+            <div class="timeline-content">
+              <h4>2019: Disaster Response</h4>
+              <p>Distributed medical kits and supplies in flood-hit areas, serving over 5,000 affected individuals.</p>
+            </div>
+          </div>
+          <div class="timeline-item right">
+            <div class="timeline-content">
+              <h4>2021: Regional Expansion</h4>
+              <p>Expanded operations to three new regions, establishing community health centers and learning hubs.</p>
+            </div>
+          </div>
+          <div class="timeline-item left">
+            <div class="timeline-content">
+              <h4>2023: Strategic Partnerships</h4>
+              <p>Formed alliances with 15+ corporations and government agencies to scale our impact.</p>
+            </div>
+          </div>
+          <div class="timeline-item right">
+            <div class="timeline-content">
+              <h4>2025: Reaching Milestones</h4>
+              <p>Celebrated serving over 50,000 individuals with healthcare and 12,000+ children with education programs.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values Section -->
+  <section class="values-section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center mb-5">
+          <h2 class="section-title">Guiding Principles</h2>
+          <p class="lead">Our core values shape every decision we make and every action we take</p>
+        </div>
+      </div>
+      
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+          <div class="value-card">
+            <div class="value-icon">
+              <i class="bi bi-people-fill"></i>
+            </div>
+            <h4>Community-First Approach</h4>
+            <p>We listen, co-create, and stay accountable to the communities we serve. Our solutions are developed with community input and leadership.</p>
+          </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-4">
+          <div class="value-card">
+            <div class="value-icon">
+              <i class="bi bi-tree-fill"></i>
+            </div>
+            <h4>Sustainability</h4>
+            <p>We invest in systems and leadership that create lasting change. Our programs are designed to continue thriving long after our initial involvement.</p>
+          </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-4">
+          <div class="value-card">
+            <div class="value-icon">
+              <i class="bi bi-journal-bookmark-fill"></i>
+            </div>
+            <h4>Education is Power</h4>
+            <p>Everyone deserves access to quality education. We work to remove barriers and create pathways to learning for all.</p>
+          </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-4">
+          <div class="value-card">
+            <div class="value-icon">
+              <i class="bi bi-heart-pulse-fill"></i>
+            </div>
+            <h4>Healthcare is a Human Right</h4>
+            <p>Not a privilege. We advocate for and provide access to essential health services for vulnerable populations.</p>
+          </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-4">
+          <div class="value-card">
+            <div class="value-icon">
+              <i class="bi bi-lightbulb-fill"></i>
+            </div>
+            <h4>Hope is Action</h4>
+            <p>Hope is not just an idea - it's action. We transform hope into tangible programs that change lives.</p>
+          </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-4">
+          <div class="value-card">
+            <div class="value-icon">
+              <i class="bi bi-shield-check"></i>
+            </div>
+            <h4>Transparency & Accountability</h4>
+            <p>We maintain the highest standards of financial integrity and program effectiveness, with regular reporting to our stakeholders.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="team-section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center mb-5">
+          <h2 class="section-title">Leadership & People</h2>
+          <p class="lead">Meet the passionate team driving our mission forward</p>
+        </div>
+      </div>
+      
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3">
+          <div class="team-card">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" class="team-img w-100" alt="Dr. Sarah Johnson">
+            <div class="team-info">
+              <h4>Dr. Sarah Johnson</h4>
+              <p class="text-primary">Co-Founder & Executive Director</p>
+              <p class="small">Medical professional with 20+ years in public health</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-3">
+          <div class="team-card">
+            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" class="team-img w-100" alt="Michael Rodriguez">
+            <div class="team-info">
+              <h4>Michael Rodriguez</h4>
+              <p class="text-primary">Co-Founder & Program Director</p>
+              <p class="small">Education reform advocate and community organizer</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-3">
+          <div class="team-card">
+            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" class="team-img w-100" alt="Priya Sharma">
+            <div class="team-info">
+              <h4>Priya Sharma</h4>
+              <p class="text-primary">Director of Healthcare Initiatives</p>
+              <p class="small">Global health specialist with field experience in 12 countries</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-3">
+          <div class="team-card">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" class="team-img w-100" alt="David Chen">
+            <div class="team-info">
+              <h4>David Chen</h4>
+              <p class="text-primary">Director of Education Programs</p>
+              <p class="small">Former teacher and curriculum development expert</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-center mt-5">
+        <p class="lead">HopeFund is led by educators, medical professionals, and nonprofit strategists with decades of field experience. Our team includes volunteers, advisors, and staff who bring their whole hearts to the mission — because this isn't work, it's a calling.</p>
+        <a href="contact-us.html" class="btn btn-outline-primary">Meet Our Full Team</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <h2 class="mb-4">Together, We Build Hope</h2>
+          <p class="lead mb-4">We can't do it alone. Whether you're a donor, volunteer, community partner, or supporter — you are the reason real lives are being changed.</p>
+          <div class="d-flex flex-wrap justify-content-center gap-3">
+            <a href="contact-us.html" class="btn btn-light">Reach Out to Us</a>
+            <a href="healthcare-support.html" class="btn btn-outline-light">Explore Healthcare Programs</a>
+            <a href="education-for-all.html" class="btn btn-outline-light">Explore Education Programs</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-4">
+          <h3 class="footer-title">HopeFund</h3>
+          <p class="mb-4">Empowering communities through healthcare and education initiatives since 2017. Together, we're building a future full of hope.</p>
+          <div class="d-flex">
+            <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="social-icon"><i class="bi bi-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+        
+        <div class="col-lg-2 col-md-4">
+          <h5 class="footer-title">Quick Links</h5>
+          <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="about-us.html">About Us</a>
+            <a href="causes.html">Our Causes</a>
+            <a href="healthcare-support.html">Healthcare</a>
+            <a href="education-for-all.html">Education</a>
+          </div>
+        </div>
+        
+        <div class="col-lg-2 col-md-4">
+          <h5 class="footer-title">Get Involved</h5>
+          <div class="footer-links">
+            <a href="donate.html">Donate</a>
+            <a href="volunteer.html">Volunteer</a>
+            <a href="contact-us.html">Partner With Us</a>
+            <a href="contact-us.html">Careers</a>
+            <a href="#">Fundraise</a>
+          </div>
+        </div>
+        
+        <div class="col-lg-4 col-md-4">
+          <h5 class="footer-title">Contact Us</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><i class="bi bi-geo-alt me-2"></i> 123 Hope Street, Community Center, City 10001</li>
+            <li class="mb-2"><i class="bi bi-telephone me-2"></i> +1 (555) 123-4567</li>
+            <li class="mb-2"><i class="bi bi-envelope me-2"></i> info@hopefund.org</li>
+          </ul>
+          <form class="mt-3">
+            <div class="input-group">
+              <input type="email" class="form-control" placeholder="Your Email" aria-label="Your Email">
+              <button class="btn btn-light" type="button">Subscribe</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      
+      <div class="copyright">
+        <p class="mb-0">&copy; 2025 HopeFund. All Rights Reserved. | Empowering Lives, Together.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
