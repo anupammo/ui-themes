@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog | CareerCraft – Showcase Your Brilliance</title>
+  <meta name="description" content="Read insights, tutorials, and personal stories from my journey in tech and creativity. The CareerCraft Blog is where thoughts turn into value.">
+  <meta name="keywords" content="CareerCraft blog, developer stories, coding tutorials, creative writing, design tips, personal development blog, portfolio blog, career journal">
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Blog | CareerCraft" />
+  <meta property="og:description" content="Explore reflections, how-tos, and insights from my journey through tech, learning, and creative discovery." />
+  <meta property="og:type" content="website" />
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Josefin+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+  
+  <style>
+    :root {
+      --charcoal: #333333;
+      --soft-blue: #87ceeb;
+      --white: #ffffff;
+    }
+    
+    body {
+      font-family: 'Josefin Sans', sans-serif;
+      color: var(--charcoal);
+      line-height: 1.8;
+      overflow-x: hidden;
+      background-color: #fafcff;
+    }
+    
+    h1, h2, h3, h4, h5 {
+      font-family: 'Lora', serif;
+      font-weight: 600;
+    }
+    
+    .navbar {
+      background-color: var(--white);
+      box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+      padding: 1.5rem 0;
+    }
+    
+    .navbar-brand {
+      font-family: 'Lora', serif;
+      font-weight: 700;
+      color: var(--charcoal);
+      font-size: 1.8rem;
+    }
+    
+    .navbar-brand span {
+      color: var(--soft-blue);
+    }
+    
+    .nav-link {
+      color: var(--charcoal);
+      font-weight: 500;
+      margin: 0 0.8rem;
+      position: relative;
+      padding: 0.5rem 0 !important;
+    }
+    
+    .nav-link:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--soft-blue);
+      transition: width 0.3s ease;
+    }
+    
+    .nav-link:hover:after,
+    .nav-link.active:after {
+      width: 100%;
+    }
+    
+    .blog-hero {
+      padding: 8rem 0 5rem;
+      background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(245,250,255,0.95) 100%);
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    
+    .blog-hero:before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, var(--soft-blue) 0%, transparent 70%);
+      opacity: 0.1;
+      z-index: -1;
+    }
+    
+    .section-title {
+      position: relative;
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+    
+    .section-title:after {
+      content: "";
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: var(--soft-blue);
+      border-radius: 2px;
+    }
+    
+    .blog-card {
+      border: none;
+      border-radius: 15px;
+      overflow: hidden;
+      transition: all 0.4s ease;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      height: 100%;
+      background: white;
+    }
+    
+    .blog-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(135, 206, 235, 0.2);
+    }
+    
+    .blog-img {
+      height: 220px;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .blog-card:hover .blog-img {
+      transform: scale(1.05);
+    }
+    
+    .blog-content {
+      padding: 2rem;
+    }
+    
+    .post-meta {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+      color: #666;
+    }
+    
+    .post-date {
+      background: rgba(135, 206, 235, 0.1);
+      color: var(--soft-blue);
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      display: inline-block;
+    }
+    
+    .tag {
+      display: inline-block;
+      background: rgba(51, 51, 51, 0.05);
+      color: var(--charcoal);
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      margin-right: 0.5rem;
+      margin-top: 0.5rem;
+      transition: all 0.3s ease;
+    }
+    
+    .tag:hover {
+      background: var(--soft-blue);
+      color: white;
+    }
+    
+    .topics-section {
+      background: linear-gradient(135deg, rgba(135,206,235,0.05) 0%, rgba(255,255,255,0.1) 100%);
+      border-radius: 20px;
+      padding: 3rem;
+      margin-top: 4rem;
+      border: 1px solid rgba(135,206,235,0.1);
+    }
+    
+    .topic-item {
+      display: flex;
+      align-items: center;
+      padding: 1.2rem;
+      margin-bottom: 1rem;
+      background: white;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+    }
+    
+    .topic-item:hover {
+      transform: translateX(10px);
+      box-shadow: 0 8px 25px rgba(135, 206, 235, 0.15);
+    }
+    
+    .topic-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: rgba(135, 206, 235, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 1.5rem;
+      flex-shrink: 0;
+    }
+    
+    .topic-icon i {
+      font-size: 1.3rem;
+      color: var(--soft-blue);
+    }
+    
+    .cta-box {
+      background: linear-gradient(135deg, var(--charcoal) 0%, #2a2a2a 100%);
+      border-radius: 20px;
+      padding: 3rem;
+      color: white;
+      text-align: center;
+      margin-top: 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .cta-box:before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(135,206,235,0.1) 0%, transparent 70%);
+      z-index: 0;
+    }
+    
+    .btn-outline-light {
+      border: 2px solid white;
+      color: white;
+      background: transparent;
+      padding: 0.8rem 2.5rem;
+      font-weight: 600;
+      border-radius: 30px;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-outline-light:hover {
+      background: white;
+      color: var(--charcoal);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    
+    section {
+      padding: 6rem 0;
+    }
+    
+    .footer {
+      background-color: var(--charcoal);
+      color: var(--white);
+      padding: 3rem 0 2rem;
+    }
+    
+    .social-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      color: var(--white);
+      margin: 0 0.5rem;
+      transition: all 0.3s ease;
+    }
+    
+    .social-icon:hover {
+      background: var(--soft-blue);
+      transform: translateY(-3px);
+    }
+    
+    /* Animations */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    
+    .fade-in.appear {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 992px) {
+      .blog-hero {
+        padding: 7rem 0 4rem;
+      }
+      
+      .blog-hero h1 {
+        font-size: 2.8rem;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .blog-hero {
+        padding: 6rem 0 3rem;
+      }
+      
+      .blog-hero h1 {
+        font-size: 2.3rem;
+      }
+      
+      .blog-hero p {
+        font-size: 1.1rem;
+      }
+      
+      section {
+        padding: 4rem 0;
+      }
+      
+      .topics-section {
+        padding: 2rem;
+      }
+      
+      .topic-item {
+        padding: 1rem;
+      }
+      
+      .topic-icon {
+        margin-right: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Career<span>Craft</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about-me.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="services.html">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="client-success-stories.html">Success Stories</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="blog.html">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact-us.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="blog-hero">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <h1 class="fade-in">The CareerCraft Blog</h1>
+          <p class="lead fade-in">This is where I share what I'm learning, building, and thinking about — from coding breakthroughs to career pivots, creative obsessions to productivity experiments. Some posts are technical, some are reflective, but all are honest and evolving.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Posts -->
+  <section>
+    <div class="container">
+      <h2 class="section-title fade-in">Recent Posts</h2>
+      <div class="row g-4">
+        <!-- Post 1 -->
+        <div class="col-md-6 col-lg-4 fade-in">
+          <div class="blog-card">
+            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="blog-img" alt="Figma to Code Workflow">
+            <div class="blog-content">
+              <div class="post-meta">
+                <span class="post-date">August 12, 2024</span>
+              </div>
+              <h3>From Wireframe to Webpage: My Favorite Figma-to-Code Workflow</h3>
+              <p>A step-by-step breakdown of how I take mockups and turn them into clean, responsive front-end code — including tips for spacing, accessibility, and reusable components.</p>
+              <a href="blog/figma-to-code.html" class="btn btn-link p-0 text-decoration-none">Read More <i class="bi bi-arrow-right"></i></a>
+              <div class="mt-3">
+                <span class="tag">#Design</span>
+                <span class="tag">#Development</span>
+                <span class="tag">#Workflow</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Post 2 -->
+        <div class="col-md-6 col-lg-4 fade-in">
+          <div class="blog-card">
+            <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="blog-img" alt="Portfolio Redesign">
+            <div class="blog-content">
+              <div class="post-meta">
+                <span class="post-date">July 28, 2024</span>
+              </div>
+              <h3>What I Learned From Rebuilding My Portfolio (Twice)</h3>
+              <p>I redesigned this site — and then redesigned it again. Here's what each version taught me about design thinking, user flow, and knowing when to stop tweaking.</p>
+              <a href="blog/portfolio-redesign.html" class="btn btn-link p-0 text-decoration-none">Read More <i class="bi bi-arrow-right"></i></a>
+              <div class="mt-3">
+                <span class="tag">#Portfolio</span>
+                <span class="tag">#Design</span>
+                <span class="tag">#Reflection</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Post 3 -->
+        <div class="col-md-6 col-lg-4 fade-in">
+          <div class="blog-card">
+            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="blog-img" alt="Learning Organization">
+            <div class="blog-content">
+              <div class="post-meta">
+                <span class="post-date">July 9, 2024</span>
+              </div>
+              <h3>How I Organize My Learning: A Dev Journal System That Actually Works</h3>
+              <p>If you're always watching tutorials but forgetting what you've learned, this post's for you. I share how I use Notion + GitHub to track growth and deepen retention.</p>
+              <a href="blog/dev-journal-system.html" class="btn btn-link p-0 text-decoration-none">Read More <i class="bi bi-arrow-right"></i></a>
+              <div class="mt-3">
+                <span class="tag">#Learning</span>
+                <span class="tag">#Productivity</span>
+                <span class="tag">#Organization</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Additional Posts -->
+        <div class="col-md-6 col-lg-4 fade-in">
+          <div class="blog-card">
+            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="blog-img" alt="CSS Tips">
+            <div class="blog-content">
+              <div class="post-meta">
+                <span class="post-date">June 21, 2024</span>
+              </div>
+              <h3>Modern CSS Techniques That Changed My Workflow</h3>
+              <p>Exploring the CSS features that have significantly improved my development efficiency and design capabilities in recent projects.</p>
+              <a href="#" class="btn btn-link p-0 text-decoration-none">Read More <i class="bi bi-arrow-right"></i></a>
+              <div class="mt-3">
+                <span class="tag">#CSS</span>
+                <span class="tag">#Development</span>
+                <span class="tag">#Tips</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-4 fade-in">
+          <div class="blog-card">
+            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="blog-img" alt="Career Advice">
+            <div class="blog-content">
+              <div class="post-meta">
+                <span class="post-date">June 5, 2024</span>
+              </div>
+              <h3>Breaking Into Tech: Lessons From My First Year as a Developer</h3>
+              <p>Reflecting on the challenges, surprises, and key lessons learned during my first year working professionally in web development.</p>
+              <a href="#" class="btn btn-link p-0 text-decoration-none">Read More <i class="bi bi-arrow-right"></i></a>
+              <div class="mt-3">
+                <span class="tag">#Career</span>
+                <span class="tag">#Development</span>
+                <span class="tag">#Advice</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-4 fade-in">
+          <div class="blog-card">
+            <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="blog-img" alt="UX Design">
+            <div class="blog-content">
+              <div class="post-meta">
+                <span class="post-date">May 18, 2024</span>
+              </div>
+              <h3>The Psychology of User Experience: Designing for Emotion</h3>
+              <p>How understanding human psychology can help create digital experiences that resonate emotionally and create lasting impressions.</p>
+              <a href="#" class="btn btn-link p-0 text-decoration-none">Read More <i class="bi bi-arrow-right"></i></a>
+              <div class="mt-3">
+                <span class="tag">#UX</span>
+                <span class="tag">#Design</span>
+                <span class="tag">#Psychology</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Topics Section -->
+  <section>
+    <div class="container">
+      <div class="topics-section fade-in">
+        <h2 class="section-title">Topics I Write About</h2>
+        
+        <div class="topic-item">
+          <div class="topic-icon">
+            <i class="bi bi-code-slash"></i>
+          </div>
+          <div>
+            <h4 class="mb-1">Frontend development tips & tools</h4>
+            <p class="mb-0">Insights on frameworks, libraries, and techniques for building modern web experiences</p>
+          </div>
+        </div>
+        
+        <div class="topic-item">
+          <div class="topic-icon">
+            <i class="bi bi-palette"></i>
+          </div>
+          <div>
+            <h4 class="mb-1">Design systems & UI/UX principles</h4>
+            <p class="mb-0">Creating cohesive visual languages and user-centered design approaches</p>
+          </div>
+        </div>
+        
+        <div class="topic-item">
+          <div class="topic-icon">
+            <i class="bi bi-kanban"></i>
+          </div>
+          <div>
+            <h4 class="mb-1">Personal projects & lessons learned</h4>
+            <p class="mb-0">Real-world experiences from building side projects and experiments</p>
+          </div>
+        </div>
+        
+        <div class="topic-item">
+          <div class="topic-icon">
+            <i class="bi bi-graph-up"></i>
+          </div>
+          <div>
+            <h4 class="mb-1">Career reflections & job hunt stories</h4>
+            <p class="mb-0">Navigating professional growth and transitions in the tech industry</p>
+          </div>
+        </div>
+        
+        <div class="topic-item">
+          <div class="topic-icon">
+            <i class="bi bi-lightning"></i>
+          </div>
+          <div>
+            <h4 class="mb-1">Productivity, mindset, and growth</h4>
+            <p class="mb-0">Strategies for continuous improvement and effective creative work</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="cta-box text-center position-relative fade-in">
+            <h3>Got Feedback or a Topic You'd Like Me to Explore?</h3>
+            <p class="lead mb-4">Reach out through my contact page — I love hearing from fellow learners, tinkerers, and creators.</p>
+            <a href="contact-us.html" class="btn btn-outline-light">Contact Me</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6 mb-4 mb-md-0">
+          <h3 class="mb-3">Career<span style="color: var(--soft-blue);">Craft</span></h3>
+          <p class="mb-0">Showcasing brilliance through professional storytelling and exceptional work.</p>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <div class="social-links">
+            <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="social-icon"><i class="bi bi-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="bi bi-linkedin"></i></a>
+            <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="bi bi-github"></i></a>
+          </div>
+        </div>
+      </div>
+      <hr class="my-4" style="border-color: rgba(255,255,255,0.1);">
+      <div class="row">
+        <div class="col-md-6 mb-3 mb-md-0">
+          <p class="mb-0">&copy; 2025 CareerCraft. All rights reserved.</p>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <ul class="list-inline mb-0">
+            <li class="list-inline-item"><a href="about-me.html" class="text-white">About</a></li>
+            <li class="list-inline-item"><a href="services.html" class="text-white">Services</a></li>
+            <li class="list-inline-item"><a href="client-success-stories.html" class="text-white">Success Stories</a></li>
+            <li class="list-inline-item"><a href="blog.html" class="text-white">Blog</a></li>
+            <li class="list-inline-item"><a href="contact-us.html" class="text-white">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- Custom JS for animations -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Fade-in animation on scroll
+      const fadeElements = document.querySelectorAll('.fade-in');
+      
+      const fadeInOnScroll = function() {
+        fadeElements.forEach(element => {
+          const elementTop = element.getBoundingClientRect().top;
+          const elementVisible = 150;
+          
+          if (elementTop < window.innerHeight - elementVisible) {
+            element.classList.add('appear');
+          }
+        });
+      };
+      
+      // Initial check
+      fadeInOnScroll();
+      
+      // Check on scroll
+      window.addEventListener('scroll', fadeInOnScroll);
+    });
+  </script>
+</body>
+</html>
