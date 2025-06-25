@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Meta Title -->
+  <title>Donate | HopeFund – Make an Impact That Lasts</title>
+
+  <!-- Meta Description -->
+  <meta name="description" content="Donate to HopeFund and directly support life-changing programs in healthcare and education. Every contribution empowers communities with hope and opportunity.">
+
+  <!-- Meta Keywords -->
+  <meta name="keywords" content="HopeFund donate, support NGO, give charity, nonprofit donation, education donation, healthcare donation, sponsor child, emergency relief, NGO fundraising">
+
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Donate to HopeFund | Every Gift Matters" />
+  <meta property="og:description" content="Make a difference with your donation. Help fund health services, education access, and community resilience. Start giving today." />
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+  
+  <style>
+    :root {
+      --deep-green: #006400;
+      --warm-beige: #f5f5dc;
+      --pure-white: #ffffff;
+      --light-green: #e6f4e6;
+    }
+    
+    body {
+      font-family: 'Lato', sans-serif;
+      color: #333;
+      line-height: 1.6;
+      background-color: var(--pure-white);
+    }
+    
+    h1, h2, h3, h4, h5 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      color: var(--deep-green);
+    }
+    
+    .navbar {
+      background-color: var(--deep-green);
+      padding: 20px 0;
+    }
+    
+    .navbar-brand {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1.8rem;
+      color: var(--warm-beige) !important;
+    }
+    
+    .navbar-nav .nav-link {
+      color: rgba(245, 245, 220, 0.85) !important;
+      font-weight: 500;
+      padding: 0.5rem 1.2rem;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    
+    .navbar-nav .nav-link:hover {
+      color: var(--pure-white) !important;
+    }
+    
+    .navbar-nav .nav-link:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: var(--warm-beige);
+      transition: all 0.3s ease;
+    }
+    
+    .navbar-nav .nav-link:hover:after {
+      width: 70%;
+      left: 15%;
+    }
+    
+    .btn-primary {
+      background-color: var(--deep-green);
+      border-color: var(--deep-green);
+      padding: 12px 28px;
+      border-radius: 30px;
+      font-weight: 700;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-primary:hover {
+      background-color: #004d00;
+      border-color: #004d00;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    
+    .btn-outline-primary {
+      color: var(--deep-green);
+      border-color: var(--deep-green);
+      padding: 12px 28px;
+      border-radius: 30px;
+      font-weight: 700;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-outline-primary:hover {
+      background-color: var(--deep-green);
+      color: var(--pure-white);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    
+    .hero-section {
+      background: linear-gradient(rgba(0, 100, 0, 0.7), rgba(0, 100, 0, 0.7)), 
+                  url('https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      color: var(--pure-white);
+      padding: 100px 0;
+      text-align: center;
+    }
+    
+    .hero-content h1 {
+      color: var(--pure-white);
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+    
+    .hero-content p {
+      font-size: 1.3rem;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      color: rgba(255,255,255,0.9);
+    }
+    
+    .section-title {
+      position: relative;
+      padding-bottom: 20px;
+      margin-bottom: 40px;
+    }
+    
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background-color: var(--deep-green);
+    }
+    
+    .donate-intro {
+      padding: 100px 0 50px;
+      background-color: var(--warm-beige);
+    }
+    
+    .donation-options {
+      padding: 100px 0;
+    }
+    
+    .option-card {
+      background-color: var(--light-green);
+      border-radius: 15px;
+      padding: 30px;
+      height: 100%;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+    
+    .option-card:hover {
+      transform: translateY(-10px);
+      border-color: var(--deep-green);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+    }
+    
+    .option-icon {
+      font-size: 2.5rem;
+      color: var(--deep-green);
+      margin-bottom: 20px;
+    }
+    
+    .impact-section {
+      padding: 100px 0;
+      background-color: var(--warm-beige);
+    }
+    
+    .impact-card {
+      background-color: var(--pure-white);
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .impact-icon {
+      font-size: 2rem;
+      color: var(--deep-green);
+      margin-bottom: 15px;
+    }
+    
+    .donation-form-section {
+      padding: 100px 0;
+      background-color: var(--light-green);
+    }
+    
+    .form-card {
+      background-color: var(--pure-white);
+      border-radius: 15px;
+      padding: 40px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+    
+    .form-card .form-control {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 12px 15px;
+      margin-bottom: 20px;
+      transition: all 0.3s ease;
+    }
+    
+    .form-card .form-control:focus {
+      border-color: var(--deep-green);
+      box-shadow: 0 0 0 0.25rem rgba(0, 100, 0, 0.1);
+    }
+    
+    .amount-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    
+    .amount-option {
+      flex: 1;
+      min-width: 100px;
+      text-align: center;
+      padding: 15px;
+      background: var(--light-green);
+      border: 2px solid transparent;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .amount-option:hover, .amount-option.active {
+      background: var(--deep-green);
+      color: var(--pure-white);
+      border-color: var(--deep-green);
+    }
+    
+    .amount-option.active {
+      transform: scale(1.05);
+    }
+    
+    .payment-methods {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin: 20px 0;
+    }
+    
+    .payment-method {
+      flex: 1;
+      min-width: 100px;
+      text-align: center;
+      padding: 15px 10px;
+      background: var(--warm-beige);
+      border: 2px solid transparent;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .payment-method:hover, .payment-method.active {
+      background: var(--deep-green);
+      color: var(--pure-white);
+      border-color: var(--deep-green);
+    }
+    
+    .payment-icon {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+    
+    .tax-info {
+      background-color: var(--warm-beige);
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 30px;
+    }
+    
+    .footer {
+      background-color: var(--deep-green);
+      color: var(--warm-beige);
+      padding: 60px 0 30px;
+    }
+    
+    .footer-title {
+      color: var(--pure-white);
+      margin-bottom: 25px;
+      font-weight: 700;
+    }
+    
+    .footer-links a {
+      color: rgba(245, 245, 220, 0.8);
+      text-decoration: none;
+      display: block;
+      margin-bottom: 12px;
+      transition: all 0.3s ease;
+    }
+    
+    .footer-links a:hover {
+      color: var(--pure-white);
+      padding-left: 5px;
+    }
+    
+    .social-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 45px;
+      height: 45px;
+      background-color: rgba(245, 245, 220, 0.1);
+      color: var(--warm-beige);
+      border-radius: 50%;
+      margin-right: 12px;
+      transition: all 0.3s ease;
+    }
+    
+    .social-icon:hover {
+      background-color: var(--warm-beige);
+      color: var(--deep-green);
+      transform: translateY(-5px);
+    }
+    
+    .copyright {
+      border-top: 1px solid rgba(245, 245, 220, 0.2);
+      padding-top: 20px;
+      margin-top: 40px;
+      text-align: center;
+      color: rgba(245, 245, 220, 0.6);
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 992px) {
+      .hero-content h1 {
+        font-size: 2.8rem;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .hero-content h1 {
+        font-size: 2.4rem;
+      }
+      
+      .hero-content p {
+        font-size: 1.1rem;
+      }
+      
+      .navbar-brand {
+        font-size: 1.5rem;
+      }
+      
+      .amount-option, .payment-method {
+        min-width: 80px;
+        padding: 12px 5px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">HopeFund</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about-us.html">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="causes.html">Causes</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="programsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Programs
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="programsDropdown">
+              <li><a class="dropdown-item" href="healthcare-support.html">Healthcare Support</a></li>
+              <li><a class="dropdown-item" href="education-for-all.html">Education for All</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="volunteer.html">Volunteer</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact-us.html">Contact Us</a>
+          </li>
+          <li class="nav-item ms-lg-3">
+            <a class="btn btn-outline-light" href="donate.html">Donate Now</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="hero-content">
+            <h1>Donate With Purpose</h1>
+            <p>Every time you give to HopeFund, you light a path for someone else. Your generosity turns hope into action — and impact into legacy.</p>
+            <a href="#donate-form" class="btn btn-primary">Make a Donation</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Donation Intro -->
+  <section class="donate-intro">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center">
+          <p class="lead fs-4">At <strong>HopeFund</strong>, we ensure that every contribution directly supports life-changing programs in healthcare and education. Your donation empowers communities with hope and opportunity.</p>
+          <div class="mt-5 bg-white p-4 rounded-3 shadow-sm">
+            <h3>Together, we fund more than hope — we build futures.</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ways to Give -->
+  <section class="donation-options">
+    <div class="container">
+      <div class="row justify-content-center mb-5">
+        <div class="col-lg-8 text-center">
+          <h2 class="section-title">Ways to Give</h2>
+          <p class="lead">Choose the giving option that works best for you</p>
+        </div>
+      </div>
+      
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3">
+          <div class="option-card">
+            <div class="option-icon">
+              <i class="bi bi-credit-card"></i>
+            </div>
+            <h4>One-Time Donation</h4>
+            <p>Make a single contribution to support our current initiatives and emergency response efforts.</p>
+            <div class="mt-3">
+              <span class="badge bg-success">Credit/Debit Card</span>
+              <span class="badge bg-success">PayPal</span>
+              <span class="badge bg-success">Bank Transfer</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-3">
+          <div class="option-card">
+            <div class="option-icon">
+              <i class="bi bi-calendar-check"></i>
+            </div>
+            <h4>Monthly Giving</h4>
+            <p>Become a HopeBuilder with recurring monthly donations that provide sustainable support.</p>
+            <div class="mt-3">
+              <span class="badge bg-success">Auto-Debit</span>
+              <span class="badge bg-success">Credit Card</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-3">
+          <div class="option-card">
+            <div class="option-icon">
+              <i class="bi bi-gift"></i>
+            </div>
+            <h4>Sponsor a Child</h4>
+            <p>Provide education, healthcare, and nutrition for a child in need through our sponsorship program.</p>
+            <div class="mt-3">
+              <span class="badge bg-success">Monthly Commitment</span>
+              <span class="badge bg-success">Annual Payment</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-3">
+          <div class="option-card">
+            <div class="option-icon">
+              <i class="bi bi-building"></i>
+            </div>
+            <h4>Corporate Giving</h4>
+            <p>Partner with us through CSR initiatives, employee matching, or cause marketing campaigns.</p>
+            <div class="mt-3">
+              <span class="badge bg-success">CSR Funds</span>
+              <span class="badge bg-success">Matching Gifts</span>
+              <span class="badge bg-success">Sponsorships</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-center mt-5">
+        <a href="contact-us.html" class="btn btn-outline-primary">Learn About In-Kind Donations</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Impact Section -->
+  <section class="impact-section">
+    <div class="container">
+      <div class="row justify-content-center mb-5">
+        <div class="col-lg-8 text-center">
+          <h2 class="section-title">Where Your Donation Goes</h2>
+          <p class="lead">See the tangible impact of your generosity</p>
+        </div>
+      </div>
+      
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="impact-card">
+            <div class="impact-icon">
+              <i class="bi bi-journal-bookmark"></i>
+            </div>
+            <h4>₹500</h4>
+            <p>Provides school essentials (notebooks, pencils, backpack) for one student for an entire year.</p>
+            <div class="progress mt-auto">
+              <div class="progress-bar bg-success" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <div class="mt-2 text-muted small">85% of target reached</div>
+          </div>
+        </div>
+        
+        <div class="col-md-4">
+          <div class="impact-card">
+            <div class="impact-icon">
+              <i class="bi bi-heart-pulse"></i>
+            </div>
+            <h4>₹1,000</h4>
+            <p>Funds essential medicine and treatments for five patients in our rural health clinics.</p>
+            <div class="progress mt-auto">
+              <div class="progress-bar bg-success" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <div class="mt-2 text-muted small">65% of target reached</div>
+          </div>
+        </div>
+        
+        <div class="col-md-4">
+          <div class="impact-card">
+            <div class="impact-icon">
+              <i class="bi bi-hospital"></i>
+            </div>
+            <h4>₹5,000</h4>
+            <p>Supports a mobile health camp for an entire village, including screenings and treatments.</p>
+            <div class="progress mt-auto">
+              <div class="progress-bar bg-success" role="progressbar" style="width: 45%" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <div class="mt-2 text-muted small">45% of target reached</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-center mt-5">
+        <p class="lead">All contributions are tax-deductible and transparently tracked. <a href="about-us.html">Learn more</a> about our financial accountability.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Donation Form -->
+  <section class="donation-form-section" id="donate-form">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="form-card">
+            <h2 class="section-title text-center">Make a Secure Donation</h2>
+            <p class="text-center mb-4">Complete this form to make your donation today. All transactions are secure and encrypted.</p>
+            
+            <form>
+              <div class="mb-4">
+                <h5>1. Select Donation Type</h5>
+                <div class="d-flex gap-3 mt-3">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="donationType" id="oneTime" checked>
+                    <label class="form-check-label" for="oneTime">
+                      One-Time Donation
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="donationType" id="monthly">
+                    <label class="form-check-label" for="monthly">
+                      Monthly Donation
+                    </label>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="mb-4">
+                <h5>2. Choose Your Amount</h5>
+                <div class="amount-options mt-3">
+                  <div class="amount-option active">₹500</div>
+                  <div class="amount-option">₹1,000</div>
+                  <div class="amount-option">₹2,500</div>
+                  <div class="amount-option">₹5,000</div>
+                  <div class="amount-option">Other</div>
+                </div>
+                <div class="mt-3">
+                  <label for="customAmount" class="form-label">Or enter custom amount (₹)</label>
+                  <input type="number" class="form-control" id="customAmount" placeholder="Enter amount">
+                </div>
+              </div>
+              
+              <div class="mb-4">
+                <h5>3. Select Payment Method</h5>
+                <div class="payment-methods mt-3">
+                  <div class="payment-method active">
+                    <div class="payment-icon">
+                      <i class="bi bi-credit-card"></i>
+                    </div>
+                    <div>Credit/Debit</div>
+                  </div>
+                  <div class="payment-method">
+                    <div class="payment-icon">
+                      <i class="bi bi-paypal"></i>
+                    </div>
+                    <div>PayPal</div>
+                  </div>
+                  <div class="payment-method">
+                    <div class="payment-icon">
+                      <i class="bi bi-bank"></i>
+                    </div>
+                    <div>Bank Transfer</div>
+                  </div>
+                  <div class="payment-method">
+                    <div class="payment-icon">
+                      <i class="bi bi-phone"></i>
+                    </div>
+                    <div>UPI</div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="mb-4">
+                <h5>4. Your Information</h5>
+                <div class="row mt-3">
+                  <div class="col-md-6">
+                    <div class="mb-3">
+                      <label for="firstName" class="form-label">First Name</label>
+                      <input type="text" class="form-control" id="firstName" required>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="mb-3">
+                      <label for="lastName" class="form-label">Last Name</label>
+                      <input type="text" class="form-control" id="lastName" required>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email Address</label>
+                  <input type="email" class="form-control" id="email" required>
+                </div>
+                
+                <div class="mb-3">
+                  <label for="phone" class="form-label">Phone Number</label>
+                  <input type="tel" class="form-control" id="phone">
+                </div>
+                
+                <div class="mb-3">
+                  <label for="address" class="form-label">Address</label>
+                  <textarea class="form-control" id="address" rows="2"></textarea>
+                </div>
+              </div>
+              
+              <div class="tax-info">
+                <h5><i class="bi bi-receipt-cutoff me-2"></i> Tax Deductible Donation</h5>
+                <p class="mb-0">Your donation to HopeFund is tax-deductible under Section 80G of the Income Tax Act. We will email you a receipt immediately after your donation is processed.</p>
+              </div>
+              
+              <div class="form-check mt-4">
+                <input class="form-check-input" type="checkbox" id="terms" required>
+                <label class="form-check-label" for="terms">
+                  I agree to the <a href="#">terms and conditions</a> and authorize HopeFund to process my donation.
+                </label>
+              </div>
+              
+              <button type="submit" class="btn btn-primary w-100 mt-4">Donate Now</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-4">
+          <h3 class="footer-title">HopeFund</h3>
+          <p class="mb-4">Empowering communities through healthcare and education initiatives since 2017. Together, we're building a future full of hope.</p>
+          <div class="d-flex">
+            <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="social-icon"><i class="bi bi-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+        
+        <div class="col-lg-2 col-md-4">
+          <h5 class="footer-title">Quick Links</h5>
+          <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="about-us.html">About Us</a>
+            <a href="causes.html">Our Causes</a>
+            <a href="healthcare-support.html">Healthcare</a>
+            <a href="education-for-all.html">Education</a>
+          </div>
+        </div>
+        
+        <div class="col-lg-2 col-md-4">
+          <h5 class="footer-title">Get Involved</h5>
+          <div class="footer-links">
+            <a href="donate.html">Donate</a>
+            <a href="volunteer.html">Volunteer</a>
+            <a href="contact-us.html">Partner With Us</a>
+            <a href="contact-us.html">Careers</a>
+            <a href="#">Fundraise</a>
+          </div>
+        </div>
+        
+        <div class="col-lg-4 col-md-4">
+          <h5 class="footer-title">Contact Us</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><i class="bi bi-geo-alt me-2"></i> 123 Hope Street, Community Center, City 10001</li>
+            <li class="mb-2"><i class="bi bi-telephone me-2"></i> +1 (555) 123-4567</li>
+            <li class="mb-2"><i class="bi bi-envelope me-2"></i> info@hopefund.org</li>
+          </ul>
+          <form class="mt-3">
+            <div class="input-group">
+              <input type="email" class="form-control" placeholder="Your Email" aria-label="Your Email">
+              <button class="btn btn-light" type="button">Subscribe</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      
+      <div class="copyright">
+        <p class="mb-0">&copy; 2025 HopeFund. All Rights Reserved. | Empowering Lives, Together.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    // Simple JavaScript to handle amount selection
+    document.querySelectorAll('.amount-option').forEach(option => {
+      option.addEventListener('click', function() {
+        document.querySelectorAll('.amount-option').forEach(el => {
+          el.classList.remove('active');
+        });
+        this.classList.add('active');
+      });
+    });
+    
+    // Simple JavaScript to handle payment method selection
+    document.querySelectorAll('.payment-method').forEach(method => {
+      method.addEventListener('click', function() {
+        document.querySelectorAll('.payment-method').forEach(el => {
+          el.classList.remove('active');
+        });
+        this.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
