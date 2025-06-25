@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us | FitPlus – Your Fitness Journey Starts Here</title>
+  <meta name="description" content="Get in touch with FitPlus to start your fitness journey. Ask about memberships, training, or schedule a free consultation. Let's build your strongest self.">
+  <meta name="keywords" content="FitPlus contact, join the gym, personal training inquiry, free trial session, gym consultation, fitness questions, gym location, call FitPlus">
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Contact FitPlus | Reach Out Today" />
+  <meta property="og:description" content="Want to get stronger, fitter, more focused? Connect with FitPlus to book your free tour or speak with a trainer. We’re here to help." />
+  <meta property="og:type" content="website" />
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300;400;500;600;700&family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+  
+  <style>
+    :root {
+      --fiery-red: #ff0000;
+      --black: #000000;
+      --white: #ffffff;
+    }
+    
+    body {
+      font-family: 'Nunito', sans-serif;
+      color: #333;
+      overflow-x: hidden;
+      background-color: #f8f9fa;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Teko', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .btn-primary {
+      background-color: var(--fiery-red);
+      border: none;
+      border-radius: 0;
+      padding: 12px 30px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.3s;
+    }
+    
+    .btn-primary:hover {
+      background-color: #d90000;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(255, 0, 0, 0.2);
+    }
+    
+    .btn-outline-primary {
+      color: var(--fiery-red);
+      border: 2px solid var(--fiery-red);
+      border-radius: 0;
+      padding: 10px 28px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.3s;
+    }
+    
+    .btn-outline-primary:hover {
+      background-color: var(--fiery-red);
+      color: var(--white);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(255, 0, 0, 0.2);
+    }
+    
+    .navbar {
+      background-color: var(--black);
+      padding: 20px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    
+    .navbar-brand {
+      font-family: 'Teko', sans-serif;
+      font-size: 2.5rem;
+      color: var(--white) !important;
+      letter-spacing: 1px;
+    }
+    
+    .navbar-brand span {
+      color: var(--fiery-red);
+    }
+    
+    .nav-link {
+      color: rgba(255, 255, 255, 0.8) !important;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin: 0 10px;
+      font-size: 1.1rem;
+      transition: all 0.3s;
+      position: relative;
+    }
+    
+    .nav-link:hover {
+      color: var(--white) !important;
+    }
+    
+    .nav-link:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 3px;
+      bottom: -5px;
+      left: 0;
+      background-color: var(--fiery-red);
+      transition: width 0.3s;
+    }
+    
+    .nav-link:hover:after {
+      width: 100%;
+    }
+    
+    .contact-hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1540497077202-7c8a3999166f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      color: var(--white);
+      padding: 100px 0;
+      text-align: center;
+    }
+    
+    .contact-hero h1 {
+      font-size: 4.5rem;
+      font-weight: 700;
+      line-height: 1;
+      margin-bottom: 20px;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    }
+    
+    .contact-hero p {
+      font-size: 1.5rem;
+      max-width: 800px;
+      margin: 0 auto 40px;
+      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    }
+    
+    .section-title {
+      position: relative;
+      margin-bottom: 50px;
+      font-size: 3rem;
+      font-weight: 700;
+    }
+    
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 0;
+      width: 80px;
+      height: 5px;
+      background-color: var(--fiery-red);
+    }
+    
+    .section-title.center:after {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    .contact-section {
+      padding: 100px 0;
+    }
+    
+    .contact-card {
+      background-color: var(--white);
+      padding: 40px;
+      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+      height: 100%;
+      border-left: 5px solid var(--fiery-red);
+    }
+    
+    .contact-info {
+      padding: 30px;
+      background-color: var(--black);
+      color: var(--white);
+      height: 100%;
+    }
+    
+    .contact-info h3 {
+      color: var(--fiery-red);
+      font-size: 2rem;
+      margin-bottom: 30px;
+    }
+    
+    .contact-info-item {
+      margin-bottom: 25px;
+      padding-left: 35px;
+      position: relative;
+    }
+    
+    .contact-info-item i {
+      position: absolute;
+      left: 0;
+      top: 5px;
+      font-size: 1.5rem;
+      color: var(--fiery-red);
+    }
+    
+    .form-control {
+      border-radius: 0;
+      padding: 12px 15px;
+      border: 2px solid #ddd;
+      margin-bottom: 20px;
+      transition: all 0.3s;
+    }
+    
+    .form-control:focus {
+      border-color: var(--fiery-red);
+      box-shadow: 0 0 0 0.25rem rgba(255, 0, 0, 0.25);
+    }
+    
+    textarea.form-control {
+      min-height: 150px;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 30px;
+    }
+    
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      background-color: #333;
+      color: var(--white);
+      border-radius: 50%;
+      font-size: 1.5rem;
+      transition: all 0.3s;
+    }
+    
+    .social-link:hover {
+      background-color: var(--fiery-red);
+      transform: translateY(-5px);
+    }
+    
+    .map-container {
+      height: 400px;
+      margin-top: 60px;
+      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+      border: 5px solid var(--white);
+      overflow: hidden;
+    }
+    
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    
+    .footer {
+      background-color: var(--black);
+      color: var(--white);
+      padding: 70px 0 30px;
+    }
+    
+    .footer-title {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      color: var(--fiery-red);
+    }
+    
+    .footer-links {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+    
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    
+    .footer-links a:hover {
+      color: var(--fiery-red);
+      padding-left: 5px;
+    }
+    
+    .copyright {
+      border-top: 1px solid #333;
+      padding-top: 20px;
+      margin-top: 50px;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.5);
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 991px) {
+      .contact-hero h1 {
+        font-size: 3.5rem;
+      }
+      
+      .section-title {
+        font-size: 2.5rem;
+      }
+    }
+    
+    @media (max-width: 767px) {
+      .contact-hero h1 {
+        font-size: 2.8rem;
+      }
+      
+      .contact-hero p {
+        font-size: 1.2rem;
+      }
+      
+      .section-title {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Fit<span>Plus</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon text-white"><i class="bi bi-list"></i></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="membership-plans.html">Membership</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="trainers.html">Trainers</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="contact-us.html">Contact</a>
+          </li>
+          <li class="nav-item ms-lg-3">
+            <a class="btn btn-outline-primary" href="membership-plans.html">Join Now</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="contact-hero">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h1>We’re Ready When You Are</h1>
+          <p>Taking the first step is the hardest — but also the most powerful. Whether you’re curious about plans, booking a free session, or just want to talk goals with a coach, we’re here to help you every rep of the way.</p>
+          <a href="#contact-form" class="btn btn-primary">Get In Touch</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <div class="container">
+      <div class="row g-5">
+        <!-- Contact Form -->
+        <div class="col-lg-7">
+          <div class="contact-card">
+            <h2 class="section-title">Send a Quick Message</h2>
+            <form id="contact-form" action="submit_contact.php" method="post">
+              <div class="row">
+                <div class="col-md-6">
+                  <label for="name" class="form-label">Full Name</label>
+                  <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+                <div class="col-md-6">
+                  <label for="email" class="form-label">Email Address</label>
+                  <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+              </div>
+              
+              <div class="mb-3">
+                <label for="subject" class="form-label">Subject</label>
+                <input type="text" class="form-control" id="subject" name="subject">
+              </div>
+              
+              <div class="mb-4">
+                <label for="message" class="form-label">Your Message</label>
+                <textarea class="form-control" id="message" name="message" rows="6" required></textarea>
+              </div>
+              
+              <button type="submit" class="btn btn-primary w-100">Send Message</button>
+            </form>
+          </div>
+        </div>
+        
+        <!-- Contact Information -->
+        <div class="col-lg-5">
+          <div class="contact-info">
+            <h3>Visit or Call Us</h3>
+            
+            <div class="contact-info-item">
+              <i class="bi bi-envelope"></i>
+              <h4>Email</h4>
+              <p><a href="mailto:contact@fitplusgym.com" class="text-white">contact@fitplusgym.com</a></p>
+            </div>
+            
+            <div class="contact-info-item">
+              <i class="bi bi-telephone"></i>
+              <h4>Phone</h4>
+              <p>+1 (555) 678-9012</p>
+            </div>
+            
+            <div class="contact-info-item">
+              <i class="bi bi-geo-alt"></i>
+              <h4>Location</h4>
+              <p>87 Iron Street, Wellness District, CA 90210</p>
+            </div>
+            
+            <div class="contact-info-item">
+              <i class="bi bi-clock"></i>
+              <h4>Hours</h4>
+              <p>Monday – Saturday | 6:00 AM – 10:00 PM<br>
+                 Sunday | 8:00 AM – 4:00 PM</p>
+            </div>
+            
+            <div class="mt-5">
+              <h4>Connect With the FitPlus Fam</h4>
+              <div class="social-links">
+                <a href="https://instagram.com/fitplusgym" class="social-link" target="_blank">
+                  <i class="bi bi-instagram"></i>
+                </a>
+                <a href="https://facebook.com/fitplusgym" class="social-link" target="_blank">
+                  <i class="bi bi-facebook"></i>
+                </a>
+                <a href="https://youtube.com/@fitplusgym" class="social-link" target="_blank">
+                  <i class="bi bi-youtube"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Map Section -->
+      <div class="row mt-5">
+        <div class="col-12">
+          <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3304.609091437507!2d-118.24368492456025!3d34.05358097314632!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c635d3b665b5%3A0x9a4a4b7b5a7a5a5a!2sDowntown%20Los%20Angeles%2C%20CA!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 mb-5 mb-lg-0">
+          <h3 class="navbar-brand mb-4">Fit<span>Plus</span></h3>
+          <p>Transform your body, empower your mind. Join our fitness community and discover your true potential with expert guidance and state-of-the-art facilities.</p>
+          <div class="social-links mt-4">
+            <a href="#"><i class="bi bi-facebook"></i></a>
+            <a href="#"><i class="bi bi-instagram"></i></a>
+            <a href="#"><i class="bi bi-twitter"></i></a>
+            <a href="#"><i class="bi bi-youtube"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-4 mb-5 mb-lg-0">
+          <h4 class="footer-title">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="membership-plans.html">Membership Plans</a></li>
+            <li><a href="trainers.html">Our Trainers</a></li>
+            <li><a href="contact-us.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4">
+          <h4 class="footer-title">Contact Info</h4>
+          <ul class="footer-links">
+            <li><i class="bi bi-geo-alt me-2"></i> 123 Fitness Street, Health City</li>
+            <li><i class="bi bi-telephone me-2"></i> (123) 456-7890</li>
+            <li><i class="bi bi-envelope me-2"></i> info@fitplus.com</li>
+            <li><i class="bi bi-clock me-2"></i> Mon-Fri: 5am-11pm, Sat-Sun: 7am-9pm</li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2025 FitPlus. All Rights Reserved. <strong>Strong Body, Strong Mind.</strong></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    // Simple form validation
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Simple validation
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+      
+      if(name && email && message) {
+        // In a real implementation, this would submit the form
+        alert('Thank you for your message! We will contact you shortly.');
+        this.reset();
+      } else {
+        alert('Please fill in all required fields.');
+      }
+    });
+  </script>
+</body>
+</html>
