@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Skills | CareerCraft – Showcase Your Brilliance</title>
+  <meta name="description" content="Explore my core technical, creative, and interpersonal skills. A portfolio of strengths that evolve with experience.">
+  <meta name="keywords" content="CareerCraft skills, portfolio skillset, developer skills, creative strengths, personal competencies, frontend backend tools, soft skills, technical stack">
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Skills | CareerCraft" />
+  <meta property="og:description" content="Explore a snapshot of my strongest skills — from code to creativity, collaboration to critical thinking." />
+  <meta property="og:type" content="website" />
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Josefin+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+  
+  <style>
+    :root {
+      --charcoal: #333333;
+      --soft-blue: #87ceeb;
+      --white: #ffffff;
+    }
+    
+    body {
+      font-family: 'Josefin Sans', sans-serif;
+      color: var(--charcoal);
+      line-height: 1.8;
+      overflow-x: hidden;
+      background-color: #fafcff;
+    }
+    
+    h1, h2, h3, h4, h5 {
+      font-family: 'Lora', serif;
+      font-weight: 600;
+    }
+    
+    .navbar {
+      background-color: var(--white);
+      box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+      padding: 1.5rem 0;
+    }
+    
+    .navbar-brand {
+      font-family: 'Lora', serif;
+      font-weight: 700;
+      color: var(--charcoal);
+      font-size: 1.8rem;
+    }
+    
+    .navbar-brand span {
+      color: var(--soft-blue);
+    }
+    
+    .nav-link {
+      color: var(--charcoal);
+      font-weight: 500;
+      margin: 0 0.8rem;
+      position: relative;
+      padding: 0.5rem 0 !important;
+    }
+    
+    .nav-link:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--soft-blue);
+      transition: width 0.3s ease;
+    }
+    
+    .nav-link:hover:after,
+    .nav-link.active:after {
+      width: 100%;
+    }
+    
+    .skills-hero {
+      padding: 8rem 0 5rem;
+      background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(245,250,255,0.95) 100%);
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    
+    .skills-hero:before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, var(--soft-blue) 0%, transparent 70%);
+      opacity: 0.1;
+      z-index: -1;
+    }
+    
+    .skill-category {
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      padding: 2.5rem;
+      height: 100%;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .skill-category:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(135, 206, 235, 0.2);
+    }
+    
+    .skill-icon {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: rgba(135, 206, 235, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+    }
+    
+    .skill-icon i {
+      font-size: 1.8rem;
+      color: var(--soft-blue);
+    }
+    
+    .skill-list {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .skill-item {
+      padding: 0.8rem 0;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      position: relative;
+      padding-left: 30px;
+    }
+    
+    .skill-item:before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      top: 0.8rem;
+      color: var(--soft-blue);
+      font-weight: bold;
+    }
+    
+    .skill-item:last-child {
+      border-bottom: none;
+    }
+    
+    .skill-tag {
+      display: inline-block;
+      background: rgba(135, 206, 235, 0.1);
+      color: var(--soft-blue);
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin: 0.3rem;
+    }
+    
+    .learning-section {
+      background: linear-gradient(135deg, rgba(135,206,235,0.05) 0%, rgba(255,255,255,0.1) 100%);
+      border-radius: 20px;
+      padding: 3rem;
+      margin-top: 3rem;
+      border: 1px solid rgba(135,206,235,0.1);
+    }
+    
+    .tech-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: white;
+      color: var(--soft-blue);
+      margin: 0 0.8rem 1rem;
+      font-size: 1.8rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+    }
+    
+    .tech-icon:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(135, 206, 235, 0.2);
+    }
+    
+    .section-title {
+      position: relative;
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+    
+    .section-title:after {
+      content: "";
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: var(--soft-blue);
+      border-radius: 2px;
+    }
+    
+    .cta-box {
+      background: linear-gradient(135deg, var(--charcoal) 0%, #2a2a2a 100%);
+      border-radius: 20px;
+      padding: 4rem;
+      color: white;
+      text-align: center;
+      margin-top: 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .cta-box:before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(135,206,235,0.1) 0%, transparent 70%);
+      z-index: 0;
+    }
+    
+    .btn-primary {
+      background-color: var(--soft-blue);
+      border: none;
+      padding: 0.8rem 2.5rem;
+      font-weight: 600;
+      border-radius: 30px;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-primary:hover {
+      background-color: var(--charcoal);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    
+    .btn-outline {
+      background-color: transparent;
+      border: 2px solid var(--soft-blue);
+      color: var(--soft-blue);
+      padding: 0.8rem 2.5rem;
+      font-weight: 600;
+      border-radius: 30px;
+      margin-left: 1rem;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-outline:hover {
+      background-color: var(--soft-blue);
+      color: var(--white);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    
+    section {
+      padding: 6rem 0;
+    }
+    
+    .footer {
+      background-color: var(--charcoal);
+      color: var(--white);
+      padding: 3rem 0 2rem;
+    }
+    
+    .social-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      color: var(--white);
+      margin: 0 0.5rem;
+      transition: all 0.3s ease;
+    }
+    
+    .social-icon:hover {
+      background: var(--soft-blue);
+      transform: translateY(-3px);
+    }
+    
+    /* Animations */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    
+    .fade-in.appear {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 992px) {
+      .skills-hero {
+        padding: 7rem 0 4rem;
+      }
+      
+      .skills-hero h1 {
+        font-size: 2.8rem;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .skills-hero {
+        padding: 6rem 0 3rem;
+      }
+      
+      .skills-hero h1 {
+        font-size: 2.3rem;
+      }
+      
+      section {
+        padding: 4rem 0;
+      }
+      
+      .btn-outline {
+        margin-left: 0;
+        margin-top: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Career<span>Craft</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about-me.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="services.html">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="projects.html">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="skills.html">Skills</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="blog.html">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact-us.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="skills-hero">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <h1 class="fade-in">My Skill Set – Built to Build</h1>
+          <p class="lead fade-in">Whether it's pixels or processes, I approach every challenge with curiosity and craft. The following skills represent both my professional toolkit and the mindset I bring to every project.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Sections -->
+  <section>
+    <div class="container">
+      <div class="row g-4">
+        <!-- Technical Skills -->
+        <div class="col-md-6 col-lg-4 fade-in">
+          <div class="skill-category">
+            <div class="skill-icon">
+              <i class="bi bi-code-slash"></i>
+            </div>
+            <h2 class="text-center mb-4">Technical Proficiencies</h2>
+            <ul class="skill-list">
+              <li class="skill-item">
+                <strong>Frontend Development:</strong>
+                <div class="mt-2">
+                  <span class="skill-tag">HTML5</span>
+                  <span class="skill-tag">CSS3</span>
+                  <span class="skill-tag">JavaScript (ES6+)</span>
+                  <span class="skill-tag">React.js</span>
+                  <span class="skill-tag">Vue.js</span>
+                </div>
+              </li>
+              <li class="skill-item">
+                <strong>Backend Development:</strong>
+                <div class="mt-2">
+                  <span class="skill-tag">Node.js</span>
+                  <span class="skill-tag">Express</span>
+                  <span class="skill-tag">REST APIs</span>
+                  <span class="skill-tag">MongoDB</span>
+                  <span class="skill-tag">PostgreSQL</span>
+                </div>
+              </li>
+              <li class="skill-item">
+                <strong>Version Control:</strong>
+                <div class="mt-2">
+                  <span class="skill-tag">Git</span>
+                  <span class="skill-tag">GitHub</span>
+                  <span class="skill-tag">GitLab</span>
+                </div>
+              </li>
+              <li class="skill-item">
+                <strong>Responsive Design:</strong>
+                <div class="mt-2">
+                  <span class="skill-tag">Bootstrap</span>
+                  <span class="skill-tag">Tailwind CSS</span>
+                  <span class="skill-tag">Figma-to-Code</span>
+                </div>
+              </li>
+              <li class="skill-item">
+                <strong>Deployment:</strong>
+                <div class="mt-2">
+                  <span class="skill-tag">Netlify</span>
+                  <span class="skill-tag">Vercel</span>
+                  <span class="skill-tag">Heroku</span>
+                  <span class="skill-tag">AWS</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        <!-- Creative Skills -->
+        <div class="col-md-6 col-lg-4 fade-in">
+          <div class="skill-category">
+            <div class="skill-icon">
+              <i class="bi bi-palette"></i>
+            </div>
+            <h2 class="text-center mb-4">Creative & UX Capabilities</h2>
+            <ul class="skill-list">
+              <li class="skill-item">
+                <strong>UI/UX Design Principles:</strong>
+                <div class="mt-2">
+                  <span class="skill-tag">Wireframing</span>
+                  <span class="skill-tag">Prototyping</span>
+                  <span class="skill-tag">Accessibility</span>
+                  <span class="skill-tag">User Research</span>
+                </div>
+              </li>
+              <li class="skill-item">
+                <strong>Design Tools:</strong>
+                <div class="mt-2">
+                  <span class="skill-tag">Figma</span>
+                  <span class="skill-tag">Adobe XD</span>
+                  <span class="skill-tag">Canva</span>
+                  <span class="skill-tag">Illustrator</span>
+                </div>
+              </li>
+              <li class="skill-item">
+                <strong>Brand & Identity:</strong>
+                <div class="mt-2">
+                  <span class="skill-tag">Typography</span>
+                  <span class="skill-tag">Color Theory</span>
+                  <span class="skill-tag">Visual Storytelling</span>
+                  <span class="skill-tag">Logo Design</span>
+                </div>
+              </li>
+              <li class="skill-item">
+                <strong>Design Systems:</strong>
+                <div class="mt-2">
+                  <span class="skill-tag">Component Libraries</span>
+                  <span class="skill-tag">Style Guides</span>
+                  <span class="skill-tag">Design Tokens</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        <!-- People Skills -->
+        <div class="col-md-6 col-lg-4 fade-in">
+          <div class="skill-category">
+            <div class="skill-icon">
+              <i class="bi bi-people"></i>
+            </div>
+            <h2 class="text-center mb-4">People-Centric Skills</h2>
+            <ul class="skill-list">
+              <li class="skill-item">
+                <strong>Communication:</strong>
+                <p class="mb-0 mt-2">Clear, proactive, and empathetic—whether in code comments or client calls</p>
+              </li>
+              <li class="skill-item">
+                <strong>Problem Solving:</strong>
+                <p class="mb-0 mt-2">Solution-oriented, analytical, and adaptive under pressure</p>
+              </li>
+              <li class="skill-item">
+                <strong>Teamwork:</strong>
+                <p class="mb-0 mt-2">Experienced in agile sprints, remote collaboration, and cross-functional alignment</p>
+              </li>
+              <li class="skill-item">
+                <strong>Time Management:</strong>
+                <p class="mb-0 mt-2">Prioritization, task tracking (Asana, Trello), and self-directed workflows</p>
+              </li>
+              <li class="skill-item">
+                <strong>Leadership:</strong>
+                <p class="mb-0 mt-2">Mentoring, project leadership, and stakeholder communication</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Learning Section -->
+  <section>
+    <div class="container">
+      <div class="learning-section fade-in">
+        <h2 class="section-title">Always Learning</h2>
+        <div class="text-center">
+          <p>Currently diving deeper into these emerging technologies and concepts. Because growing skills is part of the craft.</p>
+          
+          <div class="mt-4">
+            <div class="tech-icon">
+              <i class="bi bi-filetype-tsx"></i>
+            </div>
+            <div class="tech-icon">
+              <i class="bi bi-diagram-3"></i>
+            </div>
+            <div class="tech-icon">
+              <i class="bi bi-currency-bitcoin"></i>
+            </div>
+            <div class="tech-icon">
+              <i class="bi bi-cpu"></i>
+            </div>
+          </div>
+          
+          <div class="mt-3">
+            <span class="skill-tag" style="font-size: 1rem; padding: 0.5rem 1.2rem;">TypeScript</span>
+            <span class="skill-tag" style="font-size: 1rem; padding: 0.5rem 1.2rem;">GraphQL</span>
+            <span class="skill-tag" style="font-size: 1rem; padding: 0.5rem 1.2rem;">Web3</span>
+            <span class="skill-tag" style="font-size: 1rem; padding: 0.5rem 1.2rem;">AI Integration</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section>
+    <div class="container">
+      <div class="cta-box position-relative fade-in">
+        <h2>Want to See These Skills in Action?</h2>
+        <p class="lead mb-4">Check out my projects to see what I've built—or get in touch if you'd like to collaborate or connect.</p>
+        <a href="projects.html" class="btn btn-primary">View Projects</a>
+        <a href="contact-us.html" class="btn btn-outline">Contact Me</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6 mb-4 mb-md-0">
+          <h3 class="mb-3">Career<span style="color: var(--soft-blue);">Craft</span></h3>
+          <p class="mb-0">Showcasing brilliance through professional storytelling and exceptional work.</p>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <div class="social-links">
+            <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="social-icon"><i class="bi bi-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="bi bi-linkedin"></i></a>
+            <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="bi bi-github"></i></a>
+          </div>
+        </div>
+      </div>
+      <hr class="my-4" style="border-color: rgba(255,255,255,0.1);">
+      <div class="row">
+        <div class="col-md-6 mb-3 mb-md-0">
+          <p class="mb-0">&copy; 2025 CareerCraft. All rights reserved.</p>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <ul class="list-inline mb-0">
+            <li class="list-inline-item"><a href="about-me.html" class="text-white">About</a></li>
+            <li class="list-inline-item"><a href="services.html" class="text-white">Services</a></li>
+            <li class="list-inline-item"><a href="projects.html" class="text-white">Projects</a></li>
+            <li class="list-inline-item"><a href="skills.html" class="text-white">Skills</a></li>
+            <li class="list-inline-item"><a href="contact-us.html" class="text-white">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- Custom JS for animations -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Fade-in animation on scroll
+      const fadeElements = document.querySelectorAll('.fade-in');
+      
+      const fadeInOnScroll = function() {
+        fadeElements.forEach(element => {
+          const elementTop = element.getBoundingClientRect().top;
+          const elementVisible = 150;
+          
+          if (elementTop < window.innerHeight - elementVisible) {
+            element.classList.add('appear');
+          }
+        });
+      };
+      
+      // Initial check
+      fadeInOnScroll();
+      
+      // Check on scroll
+      window.addEventListener('scroll', fadeInOnScroll);
+    });
+  </script>
+</body>
+</html>
