@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vehicles | AutoVibe – New & Used Cars for Every Driver</title>
+  <meta name="description" content="Browse AutoVibe’s wide range of vehicles, including brand-new and certified used cars. Find your perfect ride today and drive your passion.">
+  <meta name="keywords" content="AutoVibe vehicles, new cars, used cars, pre-owned vehicles, car inventory, buy car, dealership, sedans, SUVs, trucks, best car deals">
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Vehicles | AutoVibe" />
+  <meta property="og:description" content="Explore AutoVibe’s selection of new and used vehicles. From modern sedans to rugged SUVs, we've got your next ride." />
+  <meta property="og:type" content="website" />
+  
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --secondary: #0f172a;
+      --accent: #f97316;
+      --light: #f8fafc;
+      --gray: #64748b;
+      --dark: #0f172a;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--dark);
+      background-color: var(--light);
+      overflow-x: hidden;
+      transition: background-color 0.3s ease;
+    }
+    
+    body.dark-mode {
+      background-color: #0c1120;
+      color: #e2e8f0;
+    }
+    
+    .dark-mode .card,
+    .dark-mode .navbar,
+    .dark-mode .vehicle-card,
+    .dark-mode .benefit-card,
+    .dark-mode .cta-section {
+      background-color: #1e293b;
+      border-color: #334155;
+    }
+    
+    .dark-mode .vehicle-card:hover {
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    }
+    
+    h1, h2, h3, h4, h5 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+    }
+    
+    .navbar-brand {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 1.8rem;
+      color: var(--primary);
+    }
+    
+    .navbar {
+      padding: 1.2rem 0;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .navbar.scrolled {
+      padding: 0.8rem 0;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+    }
+    
+    .dark-mode .navbar.scrolled {
+      background: rgba(15, 23, 42, 0.95);
+    }
+    
+    .nav-link {
+      font-weight: 500;
+      margin: 0 0.5rem;
+      position: relative;
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: width 0.3s ease;
+    }
+    
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    
+    .vehicles-hero {
+      position: relative;
+      padding: 8rem 0 5rem;
+      background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.9)), url('https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      overflow: hidden;
+    }
+    
+    .vehicles-hero-content {
+      position: relative;
+      z-index: 2;
+    }
+    
+    .vehicles-title {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+    
+    .btn-primary {
+      background-color: var(--primary);
+      border-color: var(--primary);
+      padding: 0.8rem 2rem;
+      font-weight: 600;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-primary:hover {
+      background-color: var(--primary-dark);
+      border-color: var(--primary-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
+    }
+    
+    .btn-outline-primary {
+      color: var(--primary);
+      border-color: var(--primary);
+      padding: 0.8rem 2rem;
+      font-weight: 600;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-outline-primary:hover {
+      background-color: var(--primary);
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
+    }
+    
+    .section-title {
+      position: relative;
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: var(--primary);
+      border-radius: 2px;
+    }
+    
+    .vehicle-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      transition: all 0.4s ease;
+      height: 100%;
+      border: none;
+    }
+    
+    .dark-mode .vehicle-card {
+      background: #1e293b;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+    
+    .vehicle-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    }
+    
+    .vehicle-img {
+      height: 220px;
+      width: 100%;
+      object-fit: cover;
+    }
+    
+    .vehicle-badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      z-index: 2;
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      font-weight: 600;
+    }
+    
+    .benefit-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      transition: all 0.4s ease;
+      height: 100%;
+      border: none;
+      padding: 2.5rem;
+      text-align: center;
+    }
+    
+    .dark-mode .benefit-card {
+      background: #1e293b;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+    
+    .benefit-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    }
+    
+    .benefit-icon {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+    }
+    
+    .inventory-filter {
+      background: white;
+      border-radius: 16px;
+      padding: 1.5rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      margin-bottom: 2rem;
+    }
+    
+    .dark-mode .inventory-filter {
+      background: #1e293b;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+    
+    .filter-btn {
+      border-radius: 50px;
+      padding: 0.5rem 1.5rem;
+      margin: 0.25rem;
+      transition: all 0.3s ease;
+    }
+    
+    .filter-btn.active {
+      background: var(--primary);
+      color: white;
+    }
+    
+    .cta-section {
+      background: linear-gradient(120deg, var(--primary), var(--primary-dark));
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      padding: 4rem 2rem;
+      color: white;
+      box-shadow: 0 20px 40px rgba(37, 99, 235, 0.3);
+    }
+    
+    .cta-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.15;
+    }
+    
+    .stats-card {
+      background: white;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    
+    .dark-mode .stats-card {
+      background: #1e293b;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+    
+    .stats-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .stats-number {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+    
+    footer {
+      background: var(--secondary);
+      color: white;
+      padding: 4rem 0 2rem;
+    }
+    
+    .footer-title {
+      position: relative;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.75rem;
+    }
+    
+    .footer-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background: var(--primary);
+    }
+    
+    .social-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      margin-right: 0.5rem;
+      transition: all 0.3s ease;
+    }
+    
+    .social-icon:hover {
+      background: var(--primary);
+      transform: translateY(-3px);
+    }
+    
+    .footer-link {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      margin-bottom: 0.75rem;
+      display: block;
+      transition: all 0.3s ease;
+    }
+    
+    .footer-link:hover {
+      color: white;
+      padding-left: 5px;
+    }
+    
+    .theme-toggle {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 1000;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+    }
+    
+    .theme-toggle:hover {
+      transform: scale(1.1) rotate(15deg);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+    
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    
+    .animate-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    @media (max-width: 768px) {
+      .vehicles-title {
+        font-size: 2.5rem;
+      }
+      
+      .navbar-brand {
+        font-size: 1.5rem;
+      }
+      
+      .vehicle-img {
+        height: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Theme Toggle -->
+  <div class="theme-toggle" id="themeToggle">
+    <i class="bi bi-moon-fill"></i>
+  </div>
+  
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-white">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Auto<span class="text-primary">Vibe</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="vehicles.html">Vehicles</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="services.html">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about-us.html">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+        </ul>
+        <div class="ms-lg-3 mt-3 mt-lg-0">
+          <a href="contact.html" class="btn btn-outline-primary">Book Test Drive</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="vehicles-hero">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto text-center">
+          <h1 class="vehicles-title animate-on-scroll">Browse Vehicles at AutoVibe</h1>
+          <p class="lead animate-on-scroll">At <strong>AutoVibe</strong>, we believe choosing a car is more than just comparing specs — it's about finding the vehicle that moves you.</p>
+          <div class="mt-4 animate-on-scroll">
+            <a href="#new-cars" class="btn btn-light btn-lg me-2">New Vehicles</a>
+            <a href="#used-cars" class="btn btn-outline-light btn-lg">Pre-Owned</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="py-6">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-3">
+          <div class="stats-card animate-on-scroll">
+            <div class="stats-number">200+</div>
+            <h5>Vehicles in Stock</h5>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="stats-card animate-on-scroll">
+            <div class="stats-number">95%</div>
+            <h5>Customer Satisfaction</h5>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="stats-card animate-on-scroll">
+            <div class="stats-number">24</div>
+            <h5>Brands Available</h5>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="stats-card animate-on-scroll">
+            <div class="stats-number">7</div>
+            <h5>Days Test Drive</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- New Vehicles -->
+  <section id="new-cars" class="py-6 bg-light">
+    <div class="container">
+      <h2 class="section-title animate-on-scroll">New Vehicles</h2>
+      <p class="text-center mb-5 animate-on-scroll">Latest models with cutting-edge features, manufacturer warranties, and flexible financing options.</p>
+      
+      <div class="inventory-filter animate-on-scroll">
+        <h5 class="mb-3">Filter by Type:</h5>
+        <div class="d-flex flex-wrap">
+          <button class="btn filter-btn active">All</button>
+          <button class="btn filter-btn">Sedans</button>
+          <button class="btn filter-btn">SUVs</button>
+          <button class="btn filter-btn">Trucks</button>
+          <button class="btn filter-btn">Electric</button>
+          <button class="btn filter-btn">Luxury</button>
+        </div>
+      </div>
+      
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+          <div class="vehicle-card animate-on-scroll">
+            <div class="position-relative">
+              <img src="https://images.unsplash.com/photo-1550355291-bbee04a92027?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1592&q=80" alt="New Sedan" class="vehicle-img">
+              <span class="vehicle-badge bg-primary">New</span>
+            </div>
+            <div class="p-4">
+              <h4 class="mb-1">2025 Velocity Sedan</h4>
+              <p class="text-muted mb-3">Premium Edition</p>
+              <div class="d-flex justify-content-between mb-3">
+                <div><i class="bi bi-speedometer2 me-1"></i> 24,000 mi</div>
+                <div><i class="bi bi-fuel-pump me-1"></i> Hybrid</div>
+                <div><i class="bi bi-gear me-1"></i> Automatic</div>
+              </div>
+              <div class="d-flex justify-content-between align-items-center">
+                <h3 class="mb-0">$32,499</h3>
+                <a href="#" class="btn btn-primary">Details</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="vehicle-card animate-on-scroll">
+            <div class="position-relative">
+              <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="New SUV" class="vehicle-img">
+              <span class="vehicle-badge bg-primary">New</span>
+            </div>
+            <div class="p-4">
+              <h4 class="mb-1">2025 Summit SUV</h4>
+              <p class="text-muted mb-3">Adventure Package</p>
+              <div class="d-flex justify-content-between mb-3">
+                <div><i class="bi bi-speedometer2 me-1"></i> 18,500 mi</div>
+                <div><i class="bi bi-fuel-pump me-1"></i> Gasoline</div>
+                <div><i class="bi bi-gear me-1"></i> Automatic</div>
+              </div>
+              <div class="d-flex justify-content-between align-items-center">
+                <h3 class="mb-0">$45,999</h3>
+                <a href="#" class="btn btn-primary">Details</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="vehicle-card animate-on-scroll">
+            <div class="position-relative">
+              <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="New Truck" class="vehicle-img">
+              <span class="vehicle-badge bg-primary">New</span>
+            </div>
+            <div class="p-4">
+              <h4 class="mb-1">2025 Titan Truck</h4>
+              <p class="text-muted mb-3">Workhorse Edition</p>
+              <div class="d-flex justify-content-between mb-3">
+                <div><i class="bi bi-speedometer2 me-1"></i> 15,200 mi</div>
+                <div><i class="bi bi-fuel-pump me-1"></i> Diesel</div>
+                <div><i class="bi bi-gear me-1"></i> Automatic</div>
+              </div>
+              <div class="d-flex justify-content-between align-items-center">
+                <h3 class="mb-0">$52,750</h3>
+                <a href="#" class="btn btn-primary">Details</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="vehicle-card animate-on-scroll">
+            <div class="position-relative">
+              <img src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="New Electric" class="vehicle-img">
+              <span class="vehicle-badge bg-primary">New</span>
+            </div>
+            <div class="p-4">
+              <h4 class="mb-1">2025 Volt EV</h4>
+              <p class="text-muted mb-3">Premium Electric</p>
+              <div class="d-flex justify-content-between mb-3">
+                <div><i class="bi bi-speedometer2 me-1"></i> 8,500 mi</div>
+                <div><i class="bi bi-lightning-charge me-1"></i> Electric</div>
+                <div><i class="bi bi-gear me-1"></i> Automatic</div>
+              </div>
+              <div class="d-flex justify-content-between align-items-center">
+                <h3 class="mb-0">$48,299</h3>
+                <a href="#" class="btn btn-primary">Details</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="vehicle-card animate-on-scroll">
+            <div class="position-relative">
+              <img src="https://images.unsplash.com/photo-1617814076231-2c0c5cce47e9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="New Luxury" class="vehicle-img">
+              <span class="vehicle-badge bg-primary">New</span>
+            </div>
+            <div class="p-4">
+              <h4 class="mb-1">2025 Prestige LX</h4>
+              <p class="text-muted mb-3">Luxury Edition</p>
+              <div class="d-flex justify-content-between mb-3">
+                <div><i class="bi bi-speedometer2 me-1"></i> 12,300 mi</div>
+                <div><i class="bi bi-fuel-pump me-1"></i> Gasoline</div>
+                <div><i class="bi bi-gear me-1"></i> Automatic</div>
+              </div>
+              <div class="d-flex justify-content-between align-items-center">
+                <h3 class="mb-0">$68,900</h3>
+                <a href="#" class="btn btn-primary">Details</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="vehicle-card animate-on-scroll">
+            <div class="position-relative">
+              <img src="https://images.unsplash.com/photo-1553440569-bcc63803a83d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1650&q=80" alt="New Hybrid" class="vehicle-img">
+              <span class="vehicle-badge bg-primary">New</span>
+            </div>
+            <div class="p-4">
+              <h4 class="mb-1">2025 Eco Hybrid</h4>
+              <p class="text-muted mb-3">Eco-Friendly</p>
+              <div class="d-flex justify-content-between mb-3">
+                <div><i class="bi bi-speedometer2 me-1"></i> 9,800 mi</div>
+                <div><i class="bi bi-fuel-pump me-1"></i> Hybrid</div>
+                <div><i class="bi bi-gear me-1"></i> Automatic</div>
+              </div>
+              <div class="d-flex justify-content-between align-items-center">
+                <h3 class="mb-0">$36,750</h3>
+                <a href="#" class="btn btn-primary">Details</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-5 animate-on-scroll">
+        <a href="vehicles/new-cars.html" class="btn btn-outline-primary btn-lg">View All New Vehicles</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Used Vehicles -->
+  <section id="used-cars" class="py-6">
+    <div class="container">
+      <h2 class="section-title animate-on-scroll">Pre-Owned Vehicles</h2>
+      <p class="text-center mb-5 animate-on-scroll">Quality pre-owned vehicles, inspected and priced with confidence for every budget.</p>
+      
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+          <div class="vehicle-card animate-on-scroll">
+            <div class="position-relative">
+              <img src="https://images.unsplash.com/photo-1542362567-b07e54358753?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1592&q=80" alt="Used Sedan" class="vehicle-img">
+              <span class="vehicle-badge bg-success">Certified</span>
+            </div>
+            <div class="p-4">
+              <h4 class="mb-1">2022 Velocity Sedan</h4>
+              <p class="text-muted mb-3">Premium Edition</p>
+              <div class="d-flex justify-content-between mb-3">
+                <div><i class="bi bi-speedometer2 me-1"></i> 24,000 mi</div>
+                <div><i class="bi bi-fuel-pump me-1"></i> Hybrid</div>
+                <div><i class="bi bi-gear me-1"></i> Automatic</div>
+              </div>
+              <div class="d-flex justify-content-between align-items-center">
+                <h3 class="mb-0">$24,499</h3>
+                <a href="#" class="btn btn-primary">Details</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="vehicle-card animate-on-scroll">
+            <div class="position-relative">
+              <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1592&q=80" alt="Used SUV" class="vehicle-img">
+              <span class="vehicle-badge bg-success">Certified</span>
+            </div>
+            <div class="p-4">
+              <h4 class="mb-1">2021 Summit SUV</h4>
+              <p class="text-muted mb-3">Adventure Package</p>
+              <div class="d-flex justify-content-between mb-3">
+                <div><i class="bi bi-speedometer2 me-1"></i> 38,500 mi</div>
+                <div><i class="bi bi-fuel-pump me-1"></i> Gasoline</div>
+                <div><i class="bi bi-gear me-1"></i> Automatic</div>
+              </div>
+              <div class="d-flex justify-content-between align-items-center">
+                <h3 class="mb-0">$32,999</h3>
+                <a href="#" class="btn btn-primary">Details</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="vehicle-card animate-on-scroll">
+            <div class="position-relative">
+              <img src="https://images.unsplash.com/photo-1580274437635-89b720f0d51c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1592&q=80" alt="Used Truck" class="vehicle-img">
+              <span class="vehicle-badge bg-success">Certified</span>
+            </div>
+            <div class="p-4">
+              <h4 class="mb-1">2020 Titan Truck</h4>
+              <p class="text-muted mb-3">Workhorse Edition</p>
+              <div class="d-flex justify-content-between mb-3">
+                <div><i class="bi bi-speedometer2 me-1"></i> 45,200 mi</div>
+                <div><i class="bi bi-fuel-pump me-1"></i> Diesel</div>
+                <div><i class="bi bi-gear me-1"></i> Automatic</div>
+              </div>
+              <div class="d-flex justify-content-between align-items-center">
+                <h3 class="mb-0">$38,750</h3>
+                <a href="#" class="btn btn-primary">Details</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-5 animate-on-scroll">
+        <a href="vehicles/used-cars.html" class="btn btn-outline-primary btn-lg">View All Pre-Owned Vehicles</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trade-In & Financing -->
+  <section class="py-6 bg-light">
+    <div class="container">
+      <h2 class="section-title animate-on-scroll">Trade-In & Financing</h2>
+      <div class="row">
+        <div class="col-lg-6 mb-5 mb-lg-0 animate-on-scroll">
+          <h3 class="mb-4">Get Top Value for Your Trade-In</h3>
+          <p>Our team will help simplify the process so you can focus on the fun part: picking your ride. We offer:</p>
+          <ul class="mb-4">
+            <li>Fair market value assessments</li>
+            <li>Quick and easy appraisal process</li>
+            <li>Competitive offers with no obligations</li>
+            <li>Seamless trade-in towards your next vehicle</li>
+          </ul>
+          <a href="contact.html" class="btn btn-primary">Get Trade-In Estimate</a>
+        </div>
+        <div class="col-lg-6 animate-on-scroll">
+          <h3 class="mb-4">Flexible Financing Options</h3>
+          <p>Unlock low-interest financing with our network of trusted lenders. We provide:</p>
+          <ul class="mb-4">
+            <li>Competitive interest rates for all credit levels</li>
+            <li>Flexible payment terms from 24 to 84 months</li>
+            <li>Quick pre-approval with no impact to credit score</li>
+            <li>Personalized financing solutions</li>
+          </ul>
+          <a href="contact.html" class="btn btn-outline-primary">Apply for Financing</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits -->
+  <section class="py-6">
+    <div class="container">
+      <h2 class="section-title animate-on-scroll">Why Choose AutoVibe?</h2>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3">
+          <div class="benefit-card animate-on-scroll">
+            <div class="benefit-icon">
+              <i class="bi bi-search-heart"></i>
+            </div>
+            <h4>Rigorous Inspection</h4>
+            <p>Every vehicle undergoes a 150-point inspection for quality assurance.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="benefit-card animate-on-scroll">
+            <div class="benefit-icon">
+              <i class="bi bi-shield-check"></i>
+            </div>
+            <h4>Extended Warranty</h4>
+            <p>Comprehensive coverage options for peace of mind on the road.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="benefit-card animate-on-scroll">
+            <div class="benefit-icon">
+              <i class="bi bi-currency-exchange"></i>
+            </div>
+            <h4>Price Match</h4>
+            <p>We'll match any competitor's price on identical vehicles.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="benefit-card animate-on-scroll">
+            <div class="benefit-icon">
+              <i class="bi bi-arrow-repeat"></i>
+            </div>
+            <h4>7-Day Exchange</h4>
+            <p>Not satisfied? Exchange your vehicle within 7 days.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="py-6">
+    <div class="container">
+      <div class="cta-section animate-on-scroll">
+        <div class="cta-overlay"></div>
+        <div class="row align-items-center position-relative z-2">
+          <div class="col-lg-8 text-center text-lg-start">
+            <h2 class="text-white mb-3">Test Drive Your Future Vehicle</h2>
+            <p class="text-white-50 mb-4 mb-lg-0">Want to get behind the wheel? Visit our showroom or contact us to schedule a no-pressure test drive at your convenience.</p>
+          </div>
+          <div class="col-lg-4 text-center">
+            <a href="contact.html" class="btn btn-light btn-lg">Schedule Test Drive</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-4">
+          <h4 class="footer-title">Auto<span class="text-primary">Vibe</span></h4>
+          <p class="mb-4">At AutoVibe, every car comes with something extra — confidence, care, and the joy of the open road.</p>
+          <div class="d-flex">
+            <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="bi bi-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="bi bi-youtube"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-4">
+          <h5 class="footer-title">Quick Links</h5>
+          <a href="index.html" class="footer-link">Home</a>
+          <a href="vehicles.html" class="footer-link">Vehicles</a>
+          <a href="services.html" class="footer-link">Services</a>
+          <a href="about-us.html" class="footer-link">About Us</a>
+          <a href="contact.html" class="footer-link">Contact</a>
+        </div>
+        <div class="col-lg-3 col-md-4">
+          <h5 class="footer-title">Our Services</h5>
+          <a href="services.html" class="footer-link">New Vehicles</a>
+          <a href="services.html" class="footer-link">Pre-Owned Vehicles</a>
+          <a href="services.html" class="footer-link">Auto Financing</a>
+          <a href="services.html" class="footer-link">Maintenance & Repair</a>
+          <a href="services.html" class="footer-link">Parts & Accessories</a>
+        </div>
+        <div class="col-lg-3 col-md-4">
+          <h5 class="footer-title">Contact Us</h5>
+          <p class="mb-2"><i class="bi bi-geo-alt me-2"></i> 123 Auto Drive, Motor City</p>
+          <p class="mb-2"><i class="bi bi-telephone me-2"></i> (555) 123-4567</p>
+          <p class="mb-2"><i class="bi bi-envelope me-2"></i> info@autovibe.com</p>
+          <p><i class="bi bi-clock me-2"></i> Mon-Sat: 9AM - 8PM</p>
+        </div>
+      </div>
+      <hr class="my-5 border-secondary">
+      <div class="text-center py-3">
+        <p class="mb-0">&copy; 2025 AutoVibe. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    // Theme toggle functionality
+    const themeToggle = document.getElementById('themeToggle');
+    const body = document.body;
+    const themeIcon = themeToggle.querySelector('i');
+    
+    // Check for saved theme preference
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme) {
+      body.classList.add(currentTheme);
+      themeIcon.className = currentTheme === 'dark-mode' ? 'bi bi-sun-fill' : 'bi bi-moon-fill';
+    }
+    
+    themeToggle.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      
+      if (body.classList.contains('dark-mode')) {
+        localStorage.setItem('theme', 'dark-mode');
+        themeIcon.className = 'bi bi-sun-fill';
+      } else {
+        localStorage.removeItem('theme');
+        themeIcon.className = 'bi bi-moon-fill';
+      }
+    });
+    
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+    
+    // Animation on scroll
+    function animateOnScroll() {
+      const elements = document.querySelectorAll('.animate-on-scroll');
+      elements.forEach(element => {
+        const elementPosition = element.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.3;
+        
+        if (elementPosition < screenPosition) {
+          element.classList.add('visible');
+        }
+      });
+    }
+    
+    // Initialize animations
+    window.addEventListener('DOMContentLoaded', animateOnScroll);
+    window.addEventListener('scroll', animateOnScroll);
+    
+    // Filter buttons functionality
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    filterButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
