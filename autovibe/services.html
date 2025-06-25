@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services | AutoVibe – Expert Automotive Care & Support</title>
+  <meta name="description" content="Explore AutoVibe's full range of vehicle services including repairs, inspections, detailing, and maintenance. Professional, efficient, and trusted.">
+  <meta name="keywords" content="AutoVibe services, car maintenance, vehicle inspection, oil change, car repair, auto detailing, tire rotation, certified mechanics">
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Services | AutoVibe – Automotive Support That Moves You" />
+  <meta property="og:description" content="AutoVibe provides professional vehicle services including diagnostics, repairs, inspections, and more. Let us help you drive with confidence." />
+  <meta property="og:type" content="website" />
+  
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --secondary: #0f172a;
+      --accent: #f97316;
+      --light: #f8fafc;
+      --gray: #64748b;
+      --dark: #0f172a;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--dark);
+      background-color: var(--light);
+      overflow-x: hidden;
+      transition: background-color 0.3s ease;
+    }
+    
+    body.dark-mode {
+      background-color: #0c1120;
+      color: #e2e8f0;
+    }
+    
+    .dark-mode .card,
+    .dark-mode .navbar,
+    .dark-mode .service-card,
+    .dark-mode .benefit-card,
+    .dark-mode .cta-section {
+      background-color: #1e293b;
+      border-color: #334155;
+    }
+    
+    .dark-mode .service-card:hover {
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    }
+    
+    h1, h2, h3, h4, h5 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+    }
+    
+    .navbar-brand {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 1.8rem;
+      color: var(--primary);
+    }
+    
+    .navbar {
+      padding: 1.2rem 0;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .navbar.scrolled {
+      padding: 0.8rem 0;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+    }
+    
+    .dark-mode .navbar.scrolled {
+      background: rgba(15, 23, 42, 0.95);
+    }
+    
+    .nav-link {
+      font-weight: 500;
+      margin: 0 0.5rem;
+      position: relative;
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: width 0.3s ease;
+    }
+    
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    
+    .services-hero {
+      position: relative;
+      padding: 8rem 0 5rem;
+      background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.9)), url('https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      overflow: hidden;
+    }
+    
+    .services-hero-content {
+      position: relative;
+      z-index: 2;
+    }
+    
+    .services-title {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+    
+    .btn-primary {
+      background-color: var(--primary);
+      border-color: var(--primary);
+      padding: 0.8rem 2rem;
+      font-weight: 600;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-primary:hover {
+      background-color: var(--primary-dark);
+      border-color: var(--primary-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
+    }
+    
+    .btn-outline-primary {
+      color: var(--primary);
+      border-color: var(--primary);
+      padding: 0.8rem 2rem;
+      font-weight: 600;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-outline-primary:hover {
+      background-color: var(--primary);
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
+    }
+    
+    .section-title {
+      position: relative;
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: var(--primary);
+      border-radius: 2px;
+    }
+    
+    .service-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      transition: all 0.4s ease;
+      height: 100%;
+      border: none;
+      padding: 2.5rem;
+    }
+    
+    .dark-mode .service-card {
+      background: #1e293b;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+    
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    }
+    
+    .service-icon {
+      font-size: 3.5rem;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+    }
+    
+    .benefit-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      transition: all 0.4s ease;
+      height: 100%;
+      border: none;
+      padding: 2.5rem;
+      text-align: center;
+    }
+    
+    .dark-mode .benefit-card {
+      background: #1e293b;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+    
+    .benefit-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    }
+    
+    .benefit-icon {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+    }
+    
+    .process-step {
+      display: flex;
+      align-items: center;
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      border-radius: 16px;
+      background: rgba(37, 99, 235, 0.05);
+      transition: all 0.3s ease;
+    }
+    
+    .dark-mode .process-step {
+      background: rgba(37, 99, 235, 0.1);
+    }
+    
+    .process-step:hover {
+      transform: translateX(10px);
+    }
+    
+    .step-number {
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--primary);
+      min-width: 80px;
+      margin-right: 1.5rem;
+    }
+    
+    .cta-section {
+      background: linear-gradient(120deg, var(--primary), var(--primary-dark));
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      padding: 4rem 2rem;
+      color: white;
+      box-shadow: 0 20px 40px rgba(37, 99, 235, 0.3);
+    }
+    
+    .cta-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.15;
+    }
+    
+    footer {
+      background: var(--secondary);
+      color: white;
+      padding: 4rem 0 2rem;
+    }
+    
+    .footer-title {
+      position: relative;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.75rem;
+    }
+    
+    .footer-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background: var(--primary);
+    }
+    
+    .social-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      margin-right: 0.5rem;
+      transition: all 0.3s ease;
+    }
+    
+    .social-icon:hover {
+      background: var(--primary);
+      transform: translateY(-3px);
+    }
+    
+    .footer-link {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      margin-bottom: 0.75rem;
+      display: block;
+      transition: all 0.3s ease;
+    }
+    
+    .footer-link:hover {
+      color: white;
+      padding-left: 5px;
+    }
+    
+    .theme-toggle {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 1000;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+    }
+    
+    .theme-toggle:hover {
+      transform: scale(1.1) rotate(15deg);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+    
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    
+    .animate-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    @media (max-width: 768px) {
+      .services-title {
+        font-size: 2.5rem;
+      }
+      
+      .navbar-brand {
+        font-size: 1.5rem;
+      }
+      
+      .process-step {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .step-number {
+        margin-right: 0;
+        margin-bottom: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Theme Toggle -->
+  <div class="theme-toggle" id="themeToggle">
+    <i class="bi bi-moon-fill"></i>
+  </div>
+  
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-white">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Auto<span class="text-primary">Vibe</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="vehicles.html">Vehicles</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="services.html">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about-us.html">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+        </ul>
+        <div class="ms-lg-3 mt-3 mt-lg-0">
+          <a href="contact.html" class="btn btn-outline-primary">Book Service</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="services-hero">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto text-center">
+          <h1 class="services-title animate-on-scroll">AutoVibe Vehicle Services</h1>
+          <p class="lead animate-on-scroll">Keeping your vehicle in top form means more than just great driving — it means safety, reliability, and value.</p>
+          <div class="mt-4 animate-on-scroll">
+            <a href="#services" class="btn btn-light btn-lg me-2">Our Services</a>
+            <a href="contact.html" class="btn btn-outline-light btn-lg">Book Appointment</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Intro Section -->
+  <section class="py-6">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-10 text-center">
+          <div class="mb-5 animate-on-scroll">
+            <p class="lead">At <strong>AutoVibe</strong>, we offer professional, no-nonsense automotive services that help you stay in control of your journey. Your car deserves care that matches your passion.</p>
+          </div>
+          <div class="row g-5 mt-5">
+            <div class="col-md-6 animate-on-scroll">
+              <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="AutoVibe Service Center" class="img-fluid rounded-3 shadow">
+            </div>
+            <div class="col-md-6 text-start animate-on-scroll">
+              <h3 class="mb-4">Expert Care for Every Vehicle</h3>
+              <p>Our state-of-the-art service center is equipped with the latest diagnostic tools and staffed by ASE-certified technicians who understand the importance of keeping your vehicle performing at its best.</p>
+              <p>From routine maintenance to complex repairs, we treat every vehicle with the attention to detail it deserves, ensuring you drive away with confidence and peace of mind.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="py-6 bg-light">
+    <div class="container">
+      <h2 class="section-title animate-on-scroll">What We Offer</h2>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card animate-on-scroll">
+            <div class="service-icon">
+              <i class="bi bi-gear"></i>
+            </div>
+            <h3>Routine Maintenance</h3>
+            <p>Oil changes, filter replacements, and safety inspections for continued peace of mind.</p>
+            <ul class="mt-3">
+              <li>Comprehensive 30-point inspection</li>
+              <li>Synthetic & conventional oil options</li>
+              <li>Fluid level checks and top-offs</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card animate-on-scroll">
+            <div class="service-icon">
+              <i class="bi bi-braces"></i>
+            </div>
+            <h3>Brake & Tire Service</h3>
+            <p>Tire balancing, rotations, replacements, and full brake system repair by certified technicians.</p>
+            <ul class="mt-3">
+              <li>Brake pad and rotor replacement</li>
+              <li>Tire alignment and balancing</li>
+              <li>Wheel mounting and balancing</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card animate-on-scroll">
+            <div class="service-icon">
+              <i class="bi bi-cpu"></i>
+            </div>
+            <h3>Engine Diagnostics</h3>
+            <p>Modern tech meets expert insight to resolve issues fast and keep your engine running strong.</p>
+            <ul class="mt-3">
+              <li>Computerized diagnostic scanning</li>
+              <li>Emissions testing and repair</li>
+              <li>Performance tuning</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card animate-on-scroll">
+            <div class="service-icon">
+              <i class="bi bi-lightning-charge"></i>
+            </div>
+            <h3>Battery & Electrical</h3>
+            <p>We test, repair, and replace key electrical components with guaranteed parts and precision.</p>
+            <ul class="mt-3">
+              <li>Battery testing and replacement</li>
+              <li>Alternator and starter repair</li>
+              <li>Wiring and fuse diagnostics</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card animate-on-scroll">
+            <div class="service-icon">
+              <i class="bi bi-snow"></i>
+            </div>
+            <h3>Air Conditioning & Heating</h3>
+            <p>Climate control repairs and recharge services to keep every drive comfortable.</p>
+            <ul class="mt-3">
+              <li>AC system diagnostics</li>
+              <li>Refrigerant recharge</li>
+              <li>Heater core replacement</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card animate-on-scroll">
+            <div class="service-icon">
+              <i class="bi bi-brush"></i>
+            </div>
+            <h3>Detailing & Interior Care</h3>
+            <p>Professional detailing packages to protect and refresh the look of your vehicle.</p>
+            <ul class="mt-3">
+              <li>Premium interior cleaning</li>
+              <li>Exterior polish and wax</li>
+              <li>Ceramic coating application</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="py-6">
+    <div class="container">
+      <h2 class="section-title animate-on-scroll">Why Choose AutoVibe Service?</h2>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3">
+          <div class="benefit-card animate-on-scroll">
+            <div class="benefit-icon">
+              <i class="bi bi-person-badge"></i>
+            </div>
+            <h4>Expert Technicians</h4>
+            <p>Factory-trained, ASE-certified technicians with specialized knowledge for your vehicle.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="benefit-card animate-on-scroll">
+            <div class="benefit-icon">
+              <i class="bi bi-cash-stack"></i>
+            </div>
+            <h4>Transparent Pricing</h4>
+            <p>No surprise fees - we provide upfront quotes and stand by our pricing.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="benefit-card animate-on-scroll">
+            <div class="benefit-icon">
+              <i class="bi bi-shield-check"></i>
+            </div>
+            <h4>Quality Parts</h4>
+            <p>OEM-approved parts & service warranties to protect your investment.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="benefit-card animate-on-scroll">
+            <div class="benefit-icon">
+              <i class="bi bi-emoji-smile"></i>
+            </div>
+            <h4>Customer Focus</h4>
+            <p>Friendly, honest support at every step of your service experience.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Process -->
+  <section class="py-6 bg-light">
+    <div class="container">
+      <h2 class="section-title animate-on-scroll">Our Service Process</h2>
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <div class="process-step animate-on-scroll">
+            <div class="step-number">1</div>
+            <div>
+              <h4>Schedule Appointment</h4>
+              <p>Book online, by phone, or in-person. We'll confirm your appointment and send reminders.</p>
+            </div>
+          </div>
+          <div class="process-step animate-on-scroll">
+            <div class="step-number">2</div>
+            <div>
+              <h4>Vehicle Drop-off</h4>
+              <p>Bring your vehicle at your convenience. Enjoy complimentary coffee and Wi-Fi in our lounge.</p>
+            </div>
+          </div>
+          <div class="process-step animate-on-scroll">
+            <div class="step-number">3</div>
+            <div>
+              <h4>Diagnostic & Estimate</h4>
+              <p>We perform a comprehensive inspection and provide a detailed estimate before any work begins.</p>
+            </div>
+          </div>
+          <div class="process-step animate-on-scroll">
+            <div class="step-number">4</div>
+            <div>
+              <h4>Expert Service</h4>
+              <p>Our certified technicians perform the service using premium parts and advanced equipment.</p>
+            </div>
+          </div>
+          <div class="process-step animate-on-scroll">
+            <div class="step-number">5</div>
+            <div>
+              <h4>Quality Check</h4>
+              <p>Every service includes a 30-point quality inspection to ensure your safety.</p>
+            </div>
+          </div>
+          <div class="process-step animate-on-scroll">
+            <div class="step-number">6</div>
+            <div>
+              <h4>Vehicle Pick-up</h4>
+              <p>We explain the work performed and provide maintenance recommendations for the future.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="py-6">
+    <div class="container">
+      <div class="cta-section animate-on-scroll">
+        <div class="cta-overlay"></div>
+        <div class="row align-items-center position-relative z-2">
+          <div class="col-lg-8 text-center text-lg-start">
+            <h2 class="text-white mb-3">Schedule Your Service Appointment</h2>
+            <p class="text-white-50 mb-4 mb-lg-0">Ready for a tune-up or just want to stay ahead of the curve? Let's keep your passion on the road where it belongs.</p>
+          </div>
+          <div class="col-lg-4 text-center">
+            <a href="contact.html" class="btn btn-light btn-lg me-2">Book Now</a>
+            <a href="tel:+15557892345" class="btn btn-outline-light btn-lg">Call Us</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-4">
+          <h4 class="footer-title">Auto<span class="text-primary">Vibe</span></h4>
+          <p class="mb-4">Your trusted partner for new and pre-owned vehicles, expert service, and exceptional customer care.</p>
+          <div class="d-flex">
+            <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="bi bi-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="bi bi-youtube"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-4">
+          <h5 class="footer-title">Quick Links</h5>
+          <a href="index.html" class="footer-link">Home</a>
+          <a href="vehicles.html" class="footer-link">Vehicles</a>
+          <a href="services.html" class="footer-link">Services</a>
+          <a href="about-us.html" class="footer-link">About Us</a>
+          <a href="contact.html" class="footer-link">Contact</a>
+        </div>
+        <div class="col-lg-3 col-md-4">
+          <h5 class="footer-title">Our Services</h5>
+          <a href="services.html" class="footer-link">New Vehicles</a>
+          <a href="services.html" class="footer-link">Pre-Owned Vehicles</a>
+          <a href="services.html" class="footer-link">Auto Financing</a>
+          <a href="services.html" class="footer-link">Maintenance & Repair</a>
+          <a href="services.html" class="footer-link">Parts & Accessories</a>
+        </div>
+        <div class="col-lg-3 col-md-4">
+          <h5 class="footer-title">Contact Us</h5>
+          <p class="mb-2"><i class="bi bi-geo-alt me-2"></i> 123 Auto Drive, Motor City</p>
+          <p class="mb-2"><i class="bi bi-telephone me-2"></i> (555) 123-4567</p>
+          <p class="mb-2"><i class="bi bi-envelope me-2"></i> info@autovibe.com</p>
+          <p><i class="bi bi-clock me-2"></i> Mon-Sat: 9AM - 8PM</p>
+        </div>
+      </div>
+      <hr class="my-5 border-secondary">
+      <div class="text-center py-3">
+        <p class="mb-0">&copy; 2025 AutoVibe. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    // Theme toggle functionality
+    const themeToggle = document.getElementById('themeToggle');
+    const body = document.body;
+    const themeIcon = themeToggle.querySelector('i');
+    
+    // Check for saved theme preference
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme) {
+      body.classList.add(currentTheme);
+      themeIcon.className = currentTheme === 'dark-mode' ? 'bi bi-sun-fill' : 'bi bi-moon-fill';
+    }
+    
+    themeToggle.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      
+      if (body.classList.contains('dark-mode')) {
+        localStorage.setItem('theme', 'dark-mode');
+        themeIcon.className = 'bi bi-sun-fill';
+      } else {
+        localStorage.removeItem('theme');
+        themeIcon.className = 'bi bi-moon-fill';
+      }
+    });
+    
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+    
+    // Animation on scroll
+    function animateOnScroll() {
+      const elements = document.querySelectorAll('.animate-on-scroll');
+      elements.forEach(element => {
+        const elementPosition = element.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.3;
+        
+        if (elementPosition < screenPosition) {
+          element.classList.add('visible');
+        }
+      });
+    }
+    
+    // Initialize animations
+    window.addEventListener('DOMContentLoaded', animateOnScroll);
+    window.addEventListener('scroll', animateOnScroll);
+  </script>
+</body>
+</html>
