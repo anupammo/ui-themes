@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Meta Title -->
+  <title>Services | CaptureX - Premium Fitness Programs & Training</title>
+
+  <!-- Meta Description -->
+  <meta name="description" content="Explore CaptureX's comprehensive fitness services including personal training, group classes, nutrition planning, and recovery therapy. Transform your body and mind.">
+
+  <!-- Meta Keywords -->
+  <meta name="keywords" content="CaptureX services, personal training, group fitness classes, nutrition planning, recovery therapy, strength training, cardio programs, fitness coaching">
+
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Services | CaptureX – Transform Your Body & Mind" />
+  <meta property="og:description" content="Discover our full suite of fitness services designed to help you achieve your goals. From personal training to nutrition planning, we've got you covered." />
+  <meta property="og:type" content="website" />
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300;400;500;600;700&family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+  
+  <style>
+    :root {
+      --red: #ff0000;
+      --black: #000000;
+      --white: #ffffff;
+    }
+    
+    body {
+      font-family: 'Nunito', sans-serif;
+      overflow-x: hidden;
+      background-color: var(--black);
+      color: var(--white);
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Teko', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .navbar {
+      background-color: rgba(0,0,0,0.9);
+      border-bottom: 2px solid var(--red);
+    }
+    
+    .navbar-brand {
+      font-family: 'Teko', sans-serif;
+      font-size: 2.2rem;
+      letter-spacing: 1px;
+    }
+    
+    .navbar-brand span {
+      color: var(--red);
+    }
+    
+    .nav-link {
+      font-family: 'Teko', sans-serif;
+      font-size: 1.4rem;
+      letter-spacing: 1px;
+      margin: 0 10px;
+      position: relative;
+    }
+    
+    .nav-link:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: var(--red);
+      transition: width 0.3s;
+    }
+    
+    .nav-link:hover:after {
+      width: 100%;
+    }
+    
+    .btn-capturex {
+      background-color: var(--red);
+      color: var(--white);
+      border-radius: 0;
+      padding: 10px 25px;
+      font-family: 'Teko', sans-serif;
+      font-size: 1.4rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: all 0.3s;
+      border: none;
+    }
+    
+    .btn-capturex:hover {
+      background-color: #cc0000;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(255,0,0,0.3);
+    }
+    
+    .services-hero {
+      height: 60vh;
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+    
+    .section-title {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 40px;
+      font-size: 3rem;
+    }
+    
+    .section-title:after {
+      content: '';
+      position: absolute;
+      width: 60%;
+      height: 4px;
+      background: var(--red);
+      bottom: -10px;
+      left: 0;
+    }
+    
+    .services-section {
+      padding: 100px 0;
+      background-color: var(--black);
+    }
+    
+    .service-card {
+      background-color: #111;
+      border: 1px solid #333;
+      border-radius: 0;
+      padding: 40px;
+      height: 100%;
+      transition: all 0.3s;
+      margin-bottom: 30px;
+    }
+    
+    .service-card:hover {
+      transform: translateY(-10px);
+      border-color: var(--red);
+    }
+    
+    .service-icon {
+      font-size: 3rem;
+      color: var(--red);
+      margin-bottom: 20px;
+    }
+    
+    .service-features {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    
+    .service-features li {
+      padding: 8px 0;
+      border-bottom: 1px solid #333;
+    }
+    
+    .service-features li:last-child {
+      border-bottom: none;
+    }
+    
+    .service-features li:before {
+      content: '✓';
+      color: var(--red);
+      margin-right: 10px;
+      font-weight: bold;
+    }
+    
+    .custom-section {
+      background: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1540497077202-7c8a3999166f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-attachment: fixed;
+      padding: 100px 0;
+    }
+    
+    .cta-section {
+      padding: 100px 0;
+      background-color: var(--black);
+    }
+    
+    .cta-content {
+      background: linear-gradient(to right, rgba(0,0,0,0.9), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+      padding: 60px;
+      border: 2px solid var(--red);
+    }
+    
+    .pricing-section {
+      padding: 100px 0;
+      background-color: var(--black);
+    }
+    
+    .pricing-card {
+      background-color: #111;
+      border: 1px solid #333;
+      border-radius: 0;
+      padding: 40px;
+      text-align: center;
+      height: 100%;
+      transition: all 0.3s;
+    }
+    
+    .pricing-card:hover {
+      transform: scale(1.03);
+      border-color: var(--red);
+    }
+    
+    .pricing-header {
+      border-bottom: 1px solid #333;
+      padding-bottom: 20px;
+      margin-bottom: 20px;
+    }
+    
+    .price {
+      font-size: 3.5rem;
+      font-family: 'Teko', sans-serif;
+      color: var(--red);
+      margin: 20px 0;
+    }
+    
+    .pricing-features {
+      list-style-type: none;
+      padding-left: 0;
+      margin-bottom: 30px;
+    }
+    
+    .pricing-features li {
+      padding: 10px 0;
+      border-bottom: 1px solid #333;
+    }
+    
+    .pricing-features li:last-child {
+      border-bottom: none;
+    }
+    
+    .footer {
+      background-color: #111;
+      padding: 60px 0 30px;
+      border-top: 2px solid var(--red);
+    }
+    
+    .footer h5 {
+      color: var(--red);
+      font-size: 1.8rem;
+      margin-bottom: 25px;
+    }
+    
+    .social-icon {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      background-color: #222;
+      color: var(--white);
+      border-radius: 50%;
+      text-align: center;
+      line-height: 40px;
+      margin-right: 10px;
+      transition: all 0.3s;
+    }
+    
+    .social-icon:hover {
+      background-color: var(--red);
+      transform: translateY(-5px);
+    }
+    
+    .copyright {
+      border-top: 1px solid #333;
+      padding-top: 20px;
+      margin-top: 40px;
+    }
+    
+    /* Animation classes */
+    .scroll-animation {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease-out;
+    }
+    
+    .scroll-animation.appear {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 992px) {
+      .section-title {
+        font-size: 2.5rem;
+      }
+      
+      .services-hero {
+        height: 50vh;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .section-title {
+        font-size: 2.2rem;
+      }
+      
+      .services-hero {
+        height: 40vh;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">CAPTURE<span>X</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="services.html">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="portfolio.html">Results</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact-us.html">Contact</a>
+          </li>
+          <li class="nav-item ms-lg-3">
+            <a class="btn btn-capturex" href="contact-us.html">Join Now</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="services-hero">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto text-center">
+          <h1 class="display-1">Our Services</h1>
+          <p class="lead mt-4">At <strong class="text-red">CaptureX</strong>, we offer more than workouts — we provide comprehensive solutions to transform your body and mind.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="services-section">
+    <div class="container">
+      <div class="row justify-content-center mb-5">
+        <div class="col-lg-8 text-center">
+          <h2 class="section-title">Transformative Fitness Solutions</h2>
+          <p class="lead">Our comprehensive services are designed to meet every fitness need and help you achieve your personal best.</p>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-lg-6 scroll-animation">
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="bi bi-person-arms-up"></i>
+            </div>
+            <h3>Personal Training</h3>
+            <p>One-on-one coaching with certified trainers who create customized programs based on your goals, fitness level, and lifestyle. Whether you're just starting or training for competition, we'll push you to achieve more than you thought possible.</p>
+            
+            <h4 class="mt-4 mb-3 text-red">Program Includes:</h4>
+            <ul class="service-features">
+              <li>Customized workout plans tailored to your goals</li>
+              <li>Nutrition guidance and meal planning</li>
+              <li>Progress tracking and regular assessments</li>
+              <li>Goal setting and accountability</li>
+              <li>Injury prevention and corrective exercise</li>
+            </ul>
+            
+            <div class="mt-4">
+              <a href="contact-us.html" class="btn btn-capturex">Learn More</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-6 scroll-animation">
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="bi bi-people"></i>
+            </div>
+            <h3>Group Fitness Classes</h3>
+            <p>Join our energetic community in professionally led group classes designed to challenge, motivate, and transform. From high-intensity workouts to mindful movement, our diverse class schedule has something for every fitness level.</p>
+            
+            <h4 class="mt-4 mb-3 text-red">Class Types:</h4>
+            <ul class="service-features">
+              <li>HIIT (High-Intensity Interval Training)</li>
+              <li>Cycling with immersive technology</li>
+              <li>Strength & Conditioning with barbells</li>
+              <li>Yoga, Pilates & Mobility</li>
+              <li>Boxing & Functional Training</li>
+              <li>Dance Fitness & Zumba</li>
+            </ul>
+            
+            <div class="mt-4">
+              <a href="contact-us.html" class="btn btn-capturex">View Schedule</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-6 scroll-animation">
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="bi bi-egg-fried"></i>
+            </div>
+            <h3>Nutrition Planning</h3>
+            <p>Transform your body from the inside out with our comprehensive nutrition services. Our registered dietitians create personalized meal plans that fuel your workouts, accelerate recovery, and help you achieve sustainable results.</p>
+            
+            <h4 class="mt-4 mb-3 text-red">Services Include:</h4>
+            <ul class="service-features">
+              <li>Personalized meal plans based on your goals</li>
+              <li>Macronutrient and calorie guidance</li>
+              <li>Supplement recommendations</li>
+              <li>Grocery shopping guidance</li>
+              <li>Regular progress assessments</li>
+              <li>Nutrition workshops and seminars</li>
+            </ul>
+            
+            <div class="mt-4">
+              <a href="contact-us.html" class="btn btn-capturex">Get Started</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-6 scroll-animation">
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="bi bi-heart-pulse"></i>
+            </div>
+            <h3>Recovery & Therapy</h3>
+            <p>Maximize your results and prevent injuries with our advanced recovery services. From sports massage to cryotherapy, we help your body heal, recharge, and perform at its peak.</p>
+            
+            <h4 class="mt-4 mb-3 text-red">Recovery Options:</h4>
+            <ul class="service-features">
+              <li>Sports Massage & Deep Tissue Therapy</li>
+              <li>Cryotherapy & Infrared Sauna</li>
+              <li>Compression Therapy</li>
+              <li>Stretching & Mobility Sessions</li>
+              <li>Injury Rehabilitation</li>
+              <li>Hydration & Supplement Guidance</li>
+            </ul>
+            
+            <div class="mt-4">
+              <a href="contact-us.html" class="btn btn-capturex">Book Session</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section class="pricing-section">
+    <div class="container">
+      <div class="row justify-content-center mb-5">
+        <div class="col-lg-8 text-center">
+          <h2 class="section-title">Service Packages</h2>
+          <p class="lead">Flexible options to match your goals and budget</p>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-4 mb-4 scroll-animation">
+          <div class="pricing-card">
+            <div class="pricing-header">
+              <h3>Basic Training</h3>
+              <div class="price">$199<span>/month</span></div>
+              <p>Perfect for beginners</p>
+            </div>
+            <ul class="pricing-features">
+              <li>8 Personal Training Sessions</li>
+              <li>Unlimited Group Classes</li>
+              <li>Initial Fitness Assessment</li>
+              <li>Basic Nutrition Guidance</li>
+              <li>Gym Access 24/7</li>
+            </ul>
+            <a href="contact-us.html" class="btn btn-capturex w-100">Get Started</a>
+          </div>
+        </div>
+        
+        <div class="col-md-4 mb-4 scroll-animation">
+          <div class="pricing-card">
+            <div class="position-absolute top-0 end-0 m-3">
+              <span class="badge bg-red px-3 py-2">POPULAR</span>
+            </div>
+            <div class="pricing-header">
+              <h3>Elite Transformation</h3>
+              <div class="price">$399<span>/month</span></div>
+              <p>Our most popular package</p>
+            </div>
+            <ul class="pricing-features">
+              <li>16 Personal Training Sessions</li>
+              <li>Unlimited Group Classes</li>
+              <li>Comprehensive Nutrition Plan</li>
+              <li>Bi-weekly Progress Assessments</li>
+              <li>4 Recovery Therapy Sessions</li>
+              <li>Supplement Guidance</li>
+            </ul>
+            <a href="contact-us.html" class="btn btn-capturex w-100 pulse-animation">Get Started</a>
+          </div>
+        </div>
+        
+        <div class="col-md-4 mb-4 scroll-animation">
+          <div class="pricing-card">
+            <div class="pricing-header">
+              <h3>Premium Performance</h3>
+              <div class="price">$599<span>/month</span></div>
+              <p>For serious athletes</p>
+            </div>
+            <ul class="pricing-features">
+              <li>Unlimited Personal Training</li>
+              <li>Unlimited Group Classes</li>
+              <li>Customized Nutrition Plan</li>
+              <li>Weekly Progress Assessments</li>
+              <li>8 Recovery Therapy Sessions</li>
+              <li>Competition Preparation</li>
+              <li>Priority Scheduling</li>
+            </ul>
+            <a href="contact-us.html" class="btn btn-capturex w-100">Get Started</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Custom Packages Section -->
+  <section class="custom-section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <div class="row align-items-center">
+            <div class="col-lg-6 scroll-animation">
+              <h2 class="section-title">Need Something Tailored?</h2>
+              <p>We understand that every fitness journey is unique. That's why we offer completely customized packages designed specifically for your goals, schedule, and preferences.</p>
+              
+              <div class="mt-5">
+                <h3 class="text-red">Custom Package Options:</h3>
+                <ul class="service-features">
+                  <li>Corporate Wellness Programs</li>
+                  <li>Specialized Athlete Training</li>
+                  <li>Online Coaching & Virtual Training</li>
+                  <li>Couples & Family Packages</li>
+                  <li>Short-Term Transformation Challenges</li>
+                  <li>Event-Specific Training (marathons, competitions)</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="col-lg-6 scroll-animation">
+              <div class="bg-dark p-4 p-lg-5">
+                <h3 class="text-center mb-4">Build Your Custom Plan</h3>
+                <p class="text-center">Tell us about your fitness goals and preferences, and we'll create a personalized package just for you.</p>
+                
+                <div class="mt-4">
+                  <a href="contact-us.html" class="btn btn-capturex w-100">Request Consultation</a>
+                </div>
+                
+                <div class="mt-4 text-center">
+                  <p class="mb-0">Or call us directly: <strong class="text-red">(555) 123-4567</strong></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <div class="cta-content">
+            <div class="row align-items-center">
+              <div class="col-lg-8">
+                <h2 class="mb-4">Start Your Transformation Journey</h2>
+                <p class="lead mb-4">Ready to become the strongest version of yourself? Join our community today and experience the CaptureX difference. Special offer for new members: Get 50% off your first month with any annual membership.</p>
+                <div class="d-flex flex-wrap gap-3">
+                  <a href="contact-us.html" class="btn btn-capturex btn-lg">Join Now</a>
+                  <a href="contact-us.html" class="btn btn-outline-light btn-lg">Schedule a Tour</a>
+                </div>
+              </div>
+              <div class="col-lg-4 text-center mt-4 mt-lg-0">
+                <div class="bg-dark p-4 d-inline-block">
+                  <h4 class="text-red">NEW MEMBERS</h4>
+                  <h2 class="text-white">50% OFF</h2>
+                  <p class="mb-0">First Month</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 mb-5 mb-lg-0">
+          <h5>CAPTURE<span class="text-red">X</span></h5>
+          <p class="mb-4">Strong Body, Strong Mind. Transforming lives through fitness since 2015.</p>
+          <div class="d-flex">
+            <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="bi bi-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="bi bi-youtube"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-4 mb-5 mb-md-0">
+          <h5>Quick Links</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="index.html" class="text-white text-decoration-none">Home</a></li>
+            <li class="mb-2"><a href="about.html" class="text-white text-decoration-none">About Us</a></li>
+            <li class="mb-2"><a href="services.html" class="text-white text-decoration-none">Services</a></li>
+            <li class="mb-2"><a href="portfolio.html" class="text-white text-decoration-none">Results</a></li>
+            <li class="mb-2"><a href="contact-us.html" class="text-white text-decoration-none">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-4 mb-5 mb-md-0">
+          <h5>Services</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="#" class="text-white text-decoration-none">Personal Training</a></li>
+            <li class="mb-2"><a href="#" class="text-white text-decoration-none">Group Classes</a></li>
+            <li class="mb-2"><a href="#" class="text-white text-decoration-none">Nutrition Planning</a></li>
+            <li class="mb-2"><a href="#" class="text-white text-decoration-none">Recovery Therapy</a></li>
+            <li class="mb-2"><a href="#" class="text-white text-decoration-none">Corporate Wellness</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-4">
+          <h5>Contact Us</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><i class="bi bi-geo-alt text-red me-2"></i> 123 Fitness Street, NY 10001</li>
+            <li class="mb-2"><i class="bi bi-telephone text-red me-2"></i> (555) 123-4567</li>
+            <li class="mb-2"><i class="bi bi-envelope text-red me-2"></i> info@capturex.com</li>
+            <li class="mb-2"><i class="bi bi-clock text-red me-2"></i> Open 24/7</li>
+          </ul>
+        </div>
+      </div>
+      <div class="row text-center copyright">
+        <div class="col-12">
+          <p class="mb-0">&copy; 2025 CaptureX Fitness. All Rights Reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    // Scroll animation
+    document.addEventListener('DOMContentLoaded', function() {
+      const scrollElements = document.querySelectorAll('.scroll-animation');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('appear');
+          }
+        });
+      }, {
+        threshold: 0.1
+      });
+      
+      scrollElements.forEach(element => {
+        observer.observe(element);
+      });
+      
+      // Sticky navbar background
+      window.addEventListener('scroll', function() {
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 50) {
+          navbar.style.backgroundColor = 'rgba(0,0,0,0.95)';
+        } else {
+          navbar.style.backgroundColor = 'rgba(0,0,0,0.9)';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
