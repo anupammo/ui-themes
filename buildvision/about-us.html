@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us | BuildVision – Structures With Purpose</title>
+  <meta name="description" content="BuildVision is an architectural design and renovation firm committed to building spaces with impact. Discover our vision, values, and team.">
+  <meta name="keywords" content="BuildVision about us, architecture firm, renovation experts, construction design team, purposeful buildings, sustainable architecture, our story">
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="About Us | BuildVision" />
+  <meta property="og:description" content="Learn more about BuildVision's purpose-driven approach to building design and renovation. Innovative architecture for modern living." />
+  <meta property="og:type" content="website" />
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Serif+Pro:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+  
+  <style>
+    :root {
+      --concrete-gray: #a9a9a9;
+      --buildvision-yellow: #ffcc00;
+      --buildvision-black: #000000;
+      --light-gray: #f5f5f5;
+    }
+    
+    body {
+      font-family: 'Source Serif Pro', serif;
+      color: var(--buildvision-black);
+      overflow-x: hidden;
+    }
+    
+    h1, h2, h3, h4, h5, .navbar-brand, .btn {
+      font-family: 'Bebas Neue', sans-serif;
+      letter-spacing: 1px;
+    }
+    
+    .about-hero {
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      padding-top: 76px;
+    }
+    
+    .section-title {
+      position: relative;
+      padding-bottom: 15px;
+      margin-bottom: 30px;
+    }
+    
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 80px;
+      height: 4px;
+      background: var(--buildvision-yellow);
+    }
+    
+    .nav-link {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.2rem;
+      letter-spacing: 1px;
+      position: relative;
+    }
+    
+    .nav-link:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--buildvision-yellow);
+      transition: width 0.3s ease;
+    }
+    
+    .nav-link:hover:after {
+      width: 100%;
+    }
+    
+    .btn-primary {
+      background: var(--buildvision-yellow);
+      border: none;
+      color: var(--buildvision-black);
+      font-weight: bold;
+      padding: 12px 30px;
+      border-radius: 0;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-primary:hover {
+      background: #e6b800;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    
+    .value-card {
+      transition: all 0.3s ease;
+      height: 100%;
+      border: none;
+      border-radius: 0;
+      overflow: hidden;
+      background: var(--light-gray);
+      padding: 30px;
+    }
+    
+    .value-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    }
+    
+    .value-icon {
+      font-size: 2.5rem;
+      color: var(--buildvision-yellow);
+      margin-bottom: 20px;
+    }
+    
+    .team-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 0;
+      margin-bottom: 30px;
+      height: 400px;
+      background: var(--concrete-gray);
+    }
+    
+    .team-img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .team-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px;
+      background: rgba(0,0,0,0.7);
+      color: white;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+    }
+    
+    .team-card:hover .team-overlay {
+      transform: translateY(0);
+    }
+    
+    .team-card:hover .team-img {
+      transform: scale(1.1);
+    }
+    
+    .timeline {
+      position: relative;
+      padding-left: 30px;
+      margin-top: 50px;
+    }
+    
+    .timeline:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--buildvision-yellow);
+    }
+    
+    .timeline-item {
+      position: relative;
+      margin-bottom: 50px;
+      padding-left: 30px;
+    }
+    
+    .timeline-item:before {
+      content: '';
+      position: absolute;
+      left: -38px;
+      top: 10px;
+      width: 20px;
+      height: 20px;
+      border: 4px solid var(--buildvision-yellow);
+      background: white;
+      border-radius: 50%;
+    }
+    
+    .timeline-year {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem;
+      color: var(--buildvision-yellow);
+      margin-bottom: 10px;
+    }
+    
+    .clients-section {
+      background: var(--light-gray);
+      padding: 80px 0;
+    }
+    
+    .client-logo {
+      filter: grayscale(100%);
+      opacity: 0.6;
+      transition: all 0.3s ease;
+      max-height: 60px;
+      max-width: 150px;
+    }
+    
+    .client-logo:hover {
+      filter: grayscale(0);
+      opacity: 1;
+      transform: scale(1.1);
+    }
+    
+    .cta-section {
+      background: var(--buildvision-black);
+      color: white;
+      padding: 80px 0;
+    }
+    
+    footer {
+      background: var(--buildvision-black);
+      color: white;
+      padding: 60px 0 20px;
+    }
+    
+    .footer-title {
+      position: relative;
+      padding-bottom: 15px;
+      margin-bottom: 20px;
+    }
+    
+    .footer-title:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background: var(--buildvision-yellow);
+    }
+    
+    .social-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.1);
+      color: white;
+      border-radius: 50%;
+      margin-right: 10px;
+      transition: all 0.3s ease;
+    }
+    
+    .social-icon:hover {
+      background: var(--buildvision-yellow);
+      color: var(--buildvision-black);
+      transform: translateY(-5px);
+    }
+    
+    .footer-links a {
+      color: var(--concrete-gray);
+      text-decoration: none;
+      margin-bottom: 10px;
+      display: block;
+      transition: all 0.3s ease;
+    }
+    
+    .footer-links a:hover {
+      color: var(--buildvision-yellow);
+      padding-left: 5px;
+    }
+    
+    .copyright {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 20px;
+      margin-top: 40px;
+      color: var(--concrete-gray);
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <span class="h2">BuildVision</span>
+        <small class="d-block text-yellow" style="color: var(--buildvision-yellow); line-height: 1;">Structures With Purpose</small>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="about-us.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="services.html">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="projects.html">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact-us.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- Hero Section -->
+  <section class="about-hero text-white">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <h1 class="display-2 mb-3">About BuildVision</h1>
+          <h2 class="display-4 mb-4" style="color: var(--buildvision-yellow);">Structures With Purpose</h2>
+          <p class="lead">Building more than spaces — we build purpose through thoughtful design and construction.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- About Intro -->
+  <section class="py-5">
+    <div class="container py-5">
+      <div class="row">
+        <div class="col-lg-10 mx-auto text-center">
+          <h2 class="section-title">Our Philosophy</h2>
+          <p class="lead"><strong>BuildVision</strong> is more than a name — it's a mindset. We are a multidisciplinary design and construction firm focused on delivering architectural excellence that balances form, function, and human impact. From bold new builds to revitalized renovations, everything we create is rooted in intention and built for longevity.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Mission Section -->
+  <section class="py-5 bg-light">
+    <div class="container py-5">
+      <div class="row align-items-center">
+        <div class="col-lg-6 mb-5 mb-lg-0">
+          <img src="https://images.unsplash.com/photo-1448630360428-65456885c650?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Architectural Vision" class="img-fluid shadow">
+        </div>
+        <div class="col-lg-6">
+          <h2 class="section-title">Our Mission</h2>
+          <p>We design and deliver purposeful spaces that blend aesthetic innovation with environmental and structural integrity — creating environments that reflect both identity and utility.</p>
+          <div class="mt-5">
+            <h3 class="mb-3">Our Journey</h3>
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="timeline-year">2000</div>
+                <h4>Foundation</h4>
+                <p>BuildVision was founded with a vision to create meaningful architecture that serves both people and communities.</p>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-year">2010</div>
+                <h4>Expansion</h4>
+                <p>Grew to a team of 20 professionals and completed our 100th project, earning industry recognition.</p>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-year">2020</div>
+                <h4>Sustainability Focus</h4>
+                <p>Committed to sustainable practices, achieving LEED certification for all new projects.</p>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-year">2025</div>
+                <h4>Present Day</h4>
+                <p>Continuing to innovate with a team of 50+ professionals and projects across 3 continents.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Values Section -->
+  <section class="py-5">
+    <div class="container py-5">
+      <div class="row mb-5">
+        <div class="col-12 text-center">
+          <h2 class="section-title">Our Core Values</h2>
+          <p class="lead">The principles that guide every project we undertake</p>
+        </div>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3">
+          <div class="value-card">
+            <i class="bi bi-shield-check value-icon"></i>
+            <h3>Integrity</h3>
+            <p>We uphold transparency, honesty, and craftsmanship in every phase of our projects.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="value-card">
+            <i class="bi bi-people value-icon"></i>
+            <h3>Collaboration</h3>
+            <p>We work closely with clients and partners to turn shared visions into exceptional spaces.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="value-card">
+            <i class="bi bi-tree value-icon"></i>
+            <h3>Sustainability</h3>
+            <p>Our designs incorporate eco-conscious solutions that respect nature and future generations.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="value-card">
+            <i class="bi bi-lightbulb value-icon"></i>
+            <h3>Innovation</h3>
+            <p>We embrace modern tools to enhance creativity and efficiency in all we do.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Who We Serve -->
+  <section class="py-5 bg-light">
+    <div class="container py-5">
+      <div class="row">
+        <div class="col-lg-8 mx-auto text-center">
+          <h2 class="section-title">Who We Build For</h2>
+          <p class="lead mb-5">We serve clients who value thoughtful, durable, and expressive architecture:</p>
+        </div>
+      </div>
+      <div class="row text-center">
+        <div class="col-md-3 mb-4">
+          <i class="bi bi-house-door" style="font-size: 3rem; color: var(--buildvision-yellow);"></i>
+          <h4 class="mt-3">Homeowners</h4>
+          <p>Creating dream homes that reflect personality and lifestyle</p>
+        </div>
+        <div class="col-md-3 mb-4">
+          <i class="bi bi-building" style="font-size: 3rem; color: var(--buildvision-yellow);"></i>
+          <h4 class="mt-3">Business Owners</h4>
+          <p>Designing spaces that enhance productivity and brand identity</p>
+        </div>
+        <div class="col-md-3 mb-4">
+          <i class="bi bi-grid-3x3" style="font-size: 3rem; color: var(--buildvision-yellow);"></i>
+          <h4 class="mt-3">Developers</h4>
+          <p>Delivering visionary projects with market-leading design</p>
+        </div>
+        <div class="col-md-3 mb-4">
+          <i class="bi bi-bank" style="font-size: 3rem; color: var(--buildvision-yellow);"></i>
+          <h4 class="mt-3">Public Sector</h4>
+          <p>Creating community spaces that serve and inspire</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Team Section -->
+  <section class="py-5">
+    <div class="container py-5">
+      <div class="row mb-5">
+        <div class="col-12 text-center">
+          <h2 class="section-title">Meet Our Leadership Team</h2>
+          <p class="lead">Architects, engineers, and visionaries who build with purpose</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="team-card">
+            <img src="https://images.unsplash.com/photo-1546820389-44d77e1f3b31?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Founder" class="team-img">
+            <div class="team-overlay">
+              <h3 class="text-white">Sarah Mitchell</h3>
+              <p class="text-light">Founder & Lead Architect</p>
+              <p class="text-light small">25+ years experience, M.Arch Harvard</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="team-card">
+            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Design Director" class="team-img">
+            <div class="team-overlay">
+              <h3 class="text-white">James Rodriguez</h3>
+              <p class="text-light">Design Director</p>
+              <p class="text-light small">Specialized in sustainable design</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="team-card">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Operations" class="team-img">
+            <div class="team-overlay">
+              <h3 class="text-white">Emily Chen</h3>
+              <p class="text-light">Operations Director</p>
+              <p class="text-light small">Project management expert</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-4">
+        <a href="#" class="btn btn-outline-dark">View Full Team</a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Clients Section -->
+  <section class="clients-section">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-12 text-center">
+          <h2 class="section-title">Trusted By Industry Leaders</h2>
+        </div>
+      </div>
+      <div class="row align-items-center justify-content-center g-4">
+        <div class="col-6 col-md-3 col-lg-2 text-center">
+          <img src="https://via.placeholder.com/150x60?text=Urban+Living" alt="Client Logo" class="img-fluid client-logo">
+        </div>
+        <div class="col-6 col-md-3 col-lg-2 text-center">
+          <img src="https://via.placeholder.com/150x60?text=Green+Build" alt="Client Logo" class="img-fluid client-logo">
+        </div>
+        <div class="col-6 col-md-3 col-lg-2 text-center">
+          <img src="https://via.placeholder.com/150x60?text=Future+Spaces" alt="Client Logo" class="img-fluid client-logo">
+        </div>
+        <div class="col-6 col-md-3 col-lg-2 text-center">
+          <img src="https://via.placeholder.com/150x60?text=Horizon+Inc" alt="Client Logo" class="img-fluid client-logo">
+        </div>
+        <div class="col-6 col-md-3 col-lg-2 text-center">
+          <img src="https://via.placeholder.com/150x60?text=Metro+Dev" alt="Client Logo" class="img-fluid client-logo">
+        </div>
+        <div class="col-6 col-md-3 col-lg-2 text-center">
+          <img src="https://via.placeholder.com/150x60?text=City+Works" alt="Client Logo" class="img-fluid client-logo">
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container text-center">
+      <h2 class="text-white mb-4">Let's Bring Your Vision to Life</h2>
+      <p class="lead text-white mb-5">Interested in working with BuildVision? Reach out to discuss your project with our team.</p>
+      <div class="d-flex justify-content-center gap-3">
+        <a href="contact-us.html" class="btn btn-primary btn-lg">Contact Us</a>
+        <a href="services.html" class="btn btn-outline-light btn-lg">Our Services</a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 mb-4 mb-lg-0">
+          <h4 class="footer-title">BuildVision</h4>
+          <p>Structures With Purpose. Building Dreams, One Brick at a Time.</p>
+          <div class="mt-4">
+            <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="bi bi-linkedin"></i></a>
+            <a href="#" class="social-icon"><i class="bi bi-twitter"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-4 mb-4 mb-lg-0">
+          <h4 class="footer-title">Quick Links</h4>
+          <div class="row">
+            <div class="col-6 footer-links">
+              <a href="index.html">Home</a>
+              <a href="about-us.html">About Us</a>
+              <a href="services.html">Services</a>
+              <a href="projects.html">Projects</a>
+            </div>
+            <div class="col-6 footer-links">
+              <a href="contact-us.html">Contact</a>
+              <a href="#">Careers</a>
+              <a href="#">Blog</a>
+              <a href="#">Privacy Policy</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <h4 class="footer-title">Contact Us</h4>
+          <ul class="list-unstyled">
+            <li class="mb-2"><i class="bi bi-geo-alt me-2"></i> 123 Architectural Way, Design District</li>
+            <li class="mb-2"><i class="bi bi-telephone me-2"></i> (555) 123-4567</li>
+            <li class="mb-2"><i class="bi bi-envelope me-2"></i> info@buildvision.com</li>
+            <li class="mb-2"><i class="bi bi-clock me-2"></i> Mon-Fri: 9AM - 6PM</li>
+          </ul>
+        </div>
+      </div>
+      <div class="row copyright">
+        <div class="col-12 text-center">
+          <p>&copy; 2025 BuildVision Architecture & Construction. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
