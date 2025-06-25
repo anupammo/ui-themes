@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services | BuildVision – Architecture & Renovation Solutions</title>
+  <meta name="description" content="Explore BuildVision’s architectural services, including custom building design and high-impact renovation. We create spaces that last with purpose.">
+  <meta name="keywords" content="BuildVision services, building design, home renovation, commercial architecture, space planning, sustainable construction, architectural firm, renovation company">
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Services | BuildVision" />
+  <meta property="og:description" content="Discover expert building design and renovation services from BuildVision. We craft structures with meaning, impact, and longevity." />
+  <meta property="og:type" content="website" />
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Serif+Pro:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+  
+  <style>
+    :root {
+      --concrete-gray: #a9a9a9;
+      --buildvision-yellow: #ffcc00;
+      --buildvision-black: #000000;
+      --light-gray: #f5f5f5;
+    }
+    
+    body {
+      font-family: 'Source Serif Pro', serif;
+      color: var(--buildvision-black);
+      overflow-x: hidden;
+    }
+    
+    h1, h2, h3, h4, h5, .navbar-brand, .btn {
+      font-family: 'Bebas Neue', sans-serif;
+      letter-spacing: 1px;
+    }
+    
+    .services-hero {
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      padding-top: 76px;
+    }
+    
+    .section-title {
+      position: relative;
+      padding-bottom: 15px;
+      margin-bottom: 30px;
+    }
+    
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 80px;
+      height: 4px;
+      background: var(--buildvision-yellow);
+    }
+    
+    .nav-link {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.2rem;
+      letter-spacing: 1px;
+      position: relative;
+    }
+    
+    .nav-link:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--buildvision-yellow);
+      transition: width 0.3s ease;
+    }
+    
+    .nav-link:hover:after {
+      width: 100%;
+    }
+    
+    .btn-primary {
+      background: var(--buildvision-yellow);
+      border: none;
+      color: var(--buildvision-black);
+      font-weight: bold;
+      padding: 12px 30px;
+      border-radius: 0;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-primary:hover {
+      background: #e6b800;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    
+    .service-card {
+      transition: all 0.3s ease;
+      height: 100%;
+      border: none;
+      border-radius: 0;
+      overflow: hidden;
+      background: white;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+      padding: 40px;
+      border-top: 4px solid var(--buildvision-yellow);
+    }
+    
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+    
+    .service-icon {
+      font-size: 3rem;
+      color: var(--buildvision-yellow);
+      margin-bottom: 20px;
+    }
+    
+    .feature-list li {
+      margin-bottom: 15px;
+      position: relative;
+      padding-left: 35px;
+    }
+    
+    .feature-list li:before {
+      content: '\f00c';
+      font-family: 'bootstrap-icons';
+      color: var(--buildvision-yellow);
+      position: absolute;
+      left: 0;
+      top: 5px;
+      font-size: 1.2rem;
+    }
+    
+    .process-container {
+      position: relative;
+      padding-left: 30px;
+      margin-top: 50px;
+    }
+    
+    .process-container:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--buildvision-yellow);
+    }
+    
+    .process-item {
+      position: relative;
+      margin-bottom: 50px;
+      padding-left: 30px;
+    }
+    
+    .process-item:before {
+      content: '';
+      position: absolute;
+      left: -38px;
+      top: 10px;
+      width: 20px;
+      height: 20px;
+      border: 4px solid var(--buildvision-yellow);
+      background: white;
+      border-radius: 50%;
+    }
+    
+    .process-number {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.5rem;
+      color: var(--buildvision-yellow);
+      margin-bottom: 10px;
+    }
+    
+    .stats-section {
+      background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover fixed;
+      padding: 100px 0;
+      color: white;
+    }
+    
+    .stat-number {
+      font-size: 3.5rem;
+      font-weight: bold;
+      color: var(--buildvision-yellow);
+      margin-bottom: 10px;
+    }
+    
+    .benefits-section {
+      background: var(--light-gray);
+      padding: 80px 0;
+    }
+    
+    .benefit-card {
+      background: white;
+      padding: 30px;
+      border-radius: 0;
+      height: 100%;
+      border-top: 3px solid var(--buildvision-yellow);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    }
+    
+    .benefit-icon {
+      font-size: 2rem;
+      color: var(--buildvision-yellow);
+      margin-bottom: 20px;
+    }
+    
+    .cta-section {
+      background: var(--buildvision-black);
+      color: white;
+      padding: 80px 0;
+    }
+    
+    footer {
+      background: var(--buildvision-black);
+      color: white;
+      padding: 60px 0 20px;
+    }
+    
+    .footer-title {
+      position: relative;
+      padding-bottom: 15px;
+      margin-bottom: 20px;
+    }
+    
+    .footer-title:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background: var(--buildvision-yellow);
+    }
+    
+    .social-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.1);
+      color: white;
+      border-radius: 50%;
+      margin-right: 10px;
+      transition: all 0.3s ease;
+    }
+    
+    .social-icon:hover {
+      background: var(--buildvision-yellow);
+      color: var(--buildvision-black);
+      transform: translateY(-5px);
+    }
+    
+    .footer-links a {
+      color: var(--concrete-gray);
+      text-decoration: none;
+      margin-bottom: 10px;
+      display: block;
+      transition: all 0.3s ease;
+    }
+    
+    .footer-links a:hover {
+      color: var(--buildvision-yellow);
+      padding-left: 5px;
+    }
+    
+    .copyright {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 20px;
+      margin-top: 40px;
+      color: var(--concrete-gray);
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <span class="h2">BuildVision</span>
+        <small class="d-block text-yellow" style="color: var(--buildvision-yellow); line-height: 1;">Structures With Purpose</small>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about-us.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="services.html">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="projects.html">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact-us.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- Hero Section -->
+  <section class="services-hero text-white">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <h1 class="display-2 mb-3">Our Services</h1>
+          <h2 class="display-4 mb-4" style="color: var(--buildvision-yellow);">Purposeful Design & Craftsmanship</h2>
+          <p class="lead">At <strong>BuildVision</strong>, every project begins with a goal — and ends with a space that fulfills it. Whether you're envisioning a brand-new building or breathing life into an existing structure, our services are crafted to blend beauty with practicality, and intention with innovation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Main Services -->
+  <section class="py-5">
+    <div class="container py-5">
+      <div class="row g-5">
+        <!-- Building Design Service -->
+        <div class="col-lg-6">
+          <div class="service-card">
+            <i class="bi bi-building service-icon"></i>
+            <h2 class="section-title">Building Design</h2>
+            <p>From ground-up structures to multi-use developments, our design process fuses creative vision with technical precision. We collaborate closely with clients to ensure each space is not only beautiful, but also efficient, compliant, and future-ready.</p>
+            <ul class="feature-list list-unstyled mt-4">
+              <li>Custom residential & commercial building designs</li>
+              <li>Site planning, zoning review & permit-ready documentation</li>
+              <li>3D modeling & conceptual visualization</li>
+              <li>Sustainable materials & energy-efficient layouts</li>
+            </ul>
+            <a href="services/building-design.html" class="btn btn-outline-dark mt-4">Learn More About Building Design</a>
+          </div>
+        </div>
+        
+        <!-- Renovation Service -->
+        <div class="col-lg-6">
+          <div class="service-card">
+            <i class="bi bi-house-gear service-icon"></i>
+            <h2 class="section-title">Renovation</h2>
+            <p>Redefine what's possible with expert renovation and space transformation. Our team updates, reimagines, and modernizes spaces while preserving the elements that matter most.</p>
+            <ul class="feature-list list-unstyled mt-4">
+              <li>Full interior & exterior renovations</li>
+              <li>Heritage restorations & adaptive reuse</li>
+              <li>Layout restructuring & spatial optimization</li>
+              <li>Lighting, flooring, facade & energy upgrades</li>
+            </ul>
+            <a href="services/renovation.html" class="btn btn-outline-dark mt-4">Explore Renovation Services</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Stats Section -->
+  <section class="stats-section text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 col-6 mb-4">
+          <div class="stat-number">98%</div>
+          <div class="h5">Client Satisfaction</div>
+        </div>
+        <div class="col-md-3 col-6 mb-4">
+          <div class="stat-number">250+</div>
+          <div class="h5">Projects Completed</div>
+        </div>
+        <div class="col-md-3 col-6 mb-4">
+          <div class="stat-number">40+</div>
+          <div class="h5">Industry Awards</div>
+        </div>
+        <div class="col-md-3 col-6 mb-4">
+          <div class="stat-number">25</div>
+          <div class="h5">Years Experience</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Our Approach -->
+  <section class="py-5">
+    <div class="container py-5">
+      <div class="row">
+        <div class="col-lg-6 mb-5 mb-lg-0">
+          <img src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Design Process" class="img-fluid shadow">
+        </div>
+        <div class="col-lg-6">
+          <h2 class="section-title">Our Approach</h2>
+          <p>Every project follows a refined, collaborative process:</p>
+          
+          <div class="process-container">
+            <div class="process-item">
+              <div class="process-number">01</div>
+              <h3>Discovery</h3>
+              <p>We learn about your needs, space, and vision through in-depth consultations and site analysis.</p>
+            </div>
+            <div class="process-item">
+              <div class="process-number">02</div>
+              <h3>Design</h3>
+              <p>Concepts become working plans aligned with regulations and goals through iterative refinement.</p>
+            </div>
+            <div class="process-item">
+              <div class="process-number">03</div>
+              <h3>Delivery</h3>
+              <p>Execution, oversight, and quality control until the last fixture is placed, ensuring perfection.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Benefits Section -->
+  <section class="benefits-section">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-12 text-center">
+          <h2 class="section-title">Why Choose BuildVision</h2>
+          <p class="lead">The benefits of working with our architectural team</p>
+        </div>
+      </div>
+      
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="benefit-card">
+            <i class="bi bi-lightbulb benefit-icon"></i>
+            <h3>Creative Solutions</h3>
+            <p>We approach each project with fresh eyes, developing innovative solutions that transform challenges into opportunities.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="benefit-card">
+            <i class="bi bi-tree benefit-icon"></i>
+            <h3>Sustainable Focus</h3>
+            <p>Environmental responsibility is at our core. We prioritize eco-friendly materials and energy-efficient designs.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="benefit-card">
+            <i class="bi bi-calendar-check benefit-icon"></i>
+            <h3>Project Management</h3>
+            <p>From concept to completion, we manage every detail to ensure projects stay on time and on budget.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="benefit-card">
+            <i class="bi bi-people benefit-icon"></i>
+            <h3>Client Collaboration</h3>
+            <p>We believe in partnership. Your input is valued at every stage of the design and construction process.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="benefit-card">
+            <i class="bi bi-bricks benefit-icon"></i>
+            <h3>Quality Craftsmanship</h3>
+            <p>We work with skilled artisans and contractors who share our commitment to exceptional quality.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="benefit-card">
+            <i class="bi bi-shield-check benefit-icon"></i>
+            <h3>Regulatory Expertise</h3>
+            <p>Our team navigates zoning laws and building codes efficiently, preventing costly delays.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container text-center">
+      <h2 class="text-white mb-4">Let's Design with Purpose</h2>
+      <p class="lead text-white mb-5">Have a project in mind? Get in touch to start planning your next purposeful space.</p>
+      <a href="contact-us.html" class="btn btn-primary btn-lg">Start Your Project</a>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 mb-4 mb-lg-0">
+          <h4 class="footer-title">BuildVision</h4>
+          <p>Structures With Purpose. Building Dreams, One Brick at a Time.</p>
+          <div class="mt-4">
+            <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="bi bi-linkedin"></i></a>
+            <a href="#" class="social-icon"><i class="bi bi-twitter"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-4 mb-4 mb-lg-0">
+          <h4 class="footer-title">Quick Links</h4>
+          <div class="row">
+            <div class="col-6 footer-links">
+              <a href="index.html">Home</a>
+              <a href="about-us.html">About Us</a>
+              <a href="services.html">Services</a>
+              <a href="projects.html">Projects</a>
+            </div>
+            <div class="col-6 footer-links">
+              <a href="contact-us.html">Contact</a>
+              <a href="#">Careers</a>
+              <a href="#">Blog</a>
+              <a href="#">Privacy Policy</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <h4 class="footer-title">Contact Us</h4>
+          <ul class="list-unstyled">
+            <li class="mb-2"><i class="bi bi-geo-alt me-2"></i> 123 Architectural Way, Design District</li>
+            <li class="mb-2"><i class="bi bi-telephone me-2"></i> (555) 123-4567</li>
+            <li class="mb-2"><i class="bi bi-envelope me-2"></i> info@buildvision.com</li>
+            <li class="mb-2"><i class="bi bi-clock me-2"></i> Mon-Fri: 9AM - 6PM</li>
+          </ul>
+        </div>
+      </div>
+      <div class="row copyright">
+        <div class="col-12 text-center">
+          <p>&copy; 2025 BuildVision Architecture & Construction. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    // Simple animation for stats counter
+    document.addEventListener('DOMContentLoaded', function() {
+      const statElements = document.querySelectorAll('.stat-number');
+      
+      statElements.forEach(stat => {
+        const target = +stat.innerText.replace('%', '');
+        const duration = 2000;
+        const increment = target / (duration / 16);
+        let current = 0;
+        
+        const updateStat = () => {
+          current += increment;
+          if (current < target) {
+            stat.innerText = Math.ceil(current) + (stat.innerText.includes('%') ? '%' : '');
+            requestAnimationFrame(updateStat);
+          } else {
+            stat.innerText = target + (stat.innerText.includes('%') ? '%' : '');
+          }
+        };
+        
+        // Only animate when element is in viewport
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              updateStat();
+              observer.unobserve(stat);
+            }
+          });
+        }, { threshold: 0.5 });
+        
+        observer.observe(stat);
+      });
+    });
+  </script>
+</body>
+</html>
