@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservations | TasteBites - Book Your Table Today</title>
+    
+    <!-- Meta Description -->
+    <meta name="description" content="Reserve your table at TasteBites today for a delightful dining experience. Quick and easy booking available for casual meals and special occasions.">
+    
+    <!-- Keywords -->
+    <meta name="keywords" content="TasteBites reservations, book a table, dining experience, restaurant booking, dinner plans, event dining, restaurant reservation form">
+    
+    <!-- Robots Meta Tag -->
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Reservations | TasteBites - Book Your Table Today">
+    <meta property="og:description" content="Secure your reservation at TasteBites now! Enjoy delicious meals, refreshing drinks, and warm ambiance. Reserve your table for a memorable experience.">
+    <meta property="og:type" content="website">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <style>
+        :root {
+            --rustic-brown: #8b4513;
+            --cream: #fff8dc;
+            --olive: #808000;
+            --light-olive: #a8a84d;
+            --dark-brown: #5a2d0c;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--cream);
+            color: #333;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, .navbar-brand, .display-title {
+            font-family: 'Great Vibes', cursive;
+            color: var(--rustic-brown);
+        }
+        
+        .btn-primary {
+            background-color: var(--rustic-brown);
+            border-color: var(--dark-brown);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--dark-brown);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .btn-outline-primary {
+            color: var(--rustic-brown);
+            border-color: var(--rustic-brown);
+        }
+        
+        .btn-outline-primary:hover {
+            background-color: var(--rustic-brown);
+            color: white;
+        }
+        
+        .section {
+            padding: 5rem 0;
+        }
+        
+        .reservation-hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.pexels.com/photos/1484516/pexels-photo-1484516.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+            background-size: cover;
+            background-position: center;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .navbar {
+            background-color: rgba(139, 69, 19, 0.95) !important;
+            transition: all 0.5s ease;
+        }
+        
+        .navbar.scrolled {
+            background-color: rgba(139, 69, 19, 0.95) !important;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-brand {
+            font-size: 2rem;
+            color: var(--cream) !important;
+        }
+        
+        .nav-link {
+            color: rgba(255, 248, 220, 0.85) !important;
+            font-weight: 600;
+            margin: 0 10px;
+            position: relative;
+        }
+        
+        .nav-link:hover {
+            color: white !important;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--cream);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .display-title {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .reservation-intro {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .steps-container {
+            background: white;
+            border-radius: 10px;
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            margin-bottom: 3rem;
+        }
+        
+        .step-card {
+            text-align: center;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .step-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: var(--rustic-brown);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        
+        .reservation-form {
+            background: white;
+            border-radius: 10px;
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            margin-bottom: 3rem;
+        }
+        
+        .form-control, .form-select {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 12px 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus, .form-select:focus {
+            border-color: var(--rustic-brown);
+            box-shadow: 0 0 0 0.25rem rgba(139, 69, 19, 0.25);
+        }
+        
+        .event-section {
+            background: linear-gradient(rgba(139, 69, 19, 0.05), rgba(139, 69, 19, 0.05)), url('https://images.pexels.com/photos/2373520/pexels-photo-2373520.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            padding: 4rem 2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .help-section {
+            background: white;
+            border-radius: 10px;
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+        
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background-color: var(--rustic-brown);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+        }
+        
+        .contact-icon i {
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        .footer {
+            background-color: var(--rustic-brown);
+            color: var(--cream);
+            padding: 3rem 0;
+        }
+        
+        .footer a {
+            color: var(--cream);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .display-title {
+                font-size: 3rem;
+            }
+            
+            .section {
+                padding: 3rem 0;
+            }
+            
+            .reservation-hero {
+                height: 50vh;
+            }
+            
+            .steps-container, .reservation-form, .help-section {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">TasteBites</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="reservations.html">Reservations</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact-us.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="reservation-hero">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-10 col-lg-8">
+                    <h1 class="display-title">Reserve Your Table</h1>
+                    <p class="lead">Experience TasteBites in Style</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Introduction -->
+    <section class="section">
+        <div class="container">
+            <div class="reservation-intro">
+                <p class="lead">Looking for a <strong>fantastic dining experience</strong>? Whether it's a <strong>casual dinner, family gathering, or special celebration</strong>, TasteBites offers a <strong>cozy ambiance and a delectable menu</strong>. Secure your table today and <strong>Savor The Flavor</strong>.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Make a Reservation -->
+    <section class="section">
+        <div class="container">
+            <div class="steps-container">
+                <h2 class="text-center mb-5">How to Make a Reservation</h2>
+                
+                <div class="row">
+                    <div class="col-md-3 mb-4 mb-md-0">
+                        <div class="step-card">
+                            <div class="step-number">1</div>
+                            <h4>Choose Date & Time</h4>
+                            <p>Select your preferred <strong>date and time</strong> for your dining experience.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-3 mb-4 mb-md-0">
+                        <div class="step-card">
+                            <div class="step-number">2</div>
+                            <h4>Select Party Size</h4>
+                            <p>Choose the <strong>number of guests</strong> for your reservation.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-3 mb-4 mb-md-0">
+                        <div class="step-card">
+                            <div class="step-number">3</div>
+                            <h4>Provide Details</h4>
+                            <p>Fill in your <strong>contact information</strong> and any special requests.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-3">
+                        <div class="step-card">
+                            <div class="step-number">4</div>
+                            <h4>Confirm & Enjoy</h4>
+                            <p>Receive <strong>instant confirmation</strong> and look forward to your visit!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reservation Form -->
+    <section class="section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="reservation-form">
+                        <h2 class="text-center mb-4">Quick Reservation Form</h2>
+                        
+                        <form id="reservationForm">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="name" class="form-label">Full Name</label>
+                                    <input type="text" class="form-control" id="name" placeholder="Your full name" required>
+                                </div>
+                                
+                                <div class="col-md-6 mb-3">
+                                    <label for="email" class="form-label">Email Address</label>
+                                    <input type="email" class="form-control" id="email" placeholder="your.email@example.com" required>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="phone" class="form-label">Phone Number</label>
+                                    <input type="tel" class="form-control" id="phone" placeholder="(555) 123-4567" required>
+                                </div>
+                                
+                                <div class="col-md-6 mb-3">
+                                    <label for="guests" class="form-label">Number of Guests</label>
+                                    <select class="form-select" id="guests" required>
+                                        <option value="" disabled selected>Select number</option>
+                                        <option value="1">1 person</option>
+                                        <option value="2">2 people</option>
+                                        <option value="3">3 people</option>
+                                        <option value="4">4 people</option>
+                                        <option value="5">5 people</option>
+                                        <option value="6">6 people</option>
+                                        <option value="7">7 people</option>
+                                        <option value="8">8 people</option>
+                                        <option value="9">9+ people (Special Event)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="date" class="form-label">Preferred Date</label>
+                                    <input type="date" class="form-control" id="date" required>
+                                </div>
+                                
+                                <div class="col-md-6 mb-3">
+                                    <label for="time" class="form-label">Preferred Time</label>
+                                    <select class="form-select" id="time" required>
+                                        <option value="" disabled selected>Select time</option>
+                                        <option value="11:00">11:00 AM</option>
+                                        <option value="11:30">11:30 AM</option>
+                                        <option value="12:00">12:00 PM</option>
+                                        <option value="12:30">12:30 PM</option>
+                                        <option value="13:00">1:00 PM</option>
+                                        <option value="13:30">1:30 PM</option>
+                                        <option value="17:00">5:00 PM</option>
+                                        <option value="17:30">5:30 PM</option>
+                                        <option value="18:00">6:00 PM</option>
+                                        <option value="18:30">6:30 PM</option>
+                                        <option value="19:00">7:00 PM</option>
+                                        <option value="19:30">7:30 PM</option>
+                                        <option value="20:00">8:00 PM</option>
+                                        <option value="20:30">8:30 PM</option>
+                                        <option value="21:00">9:00 PM</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label for="special" class="form-label">Special Requests</label>
+                                <textarea class="form-control" id="special" rows="3" placeholder="Dietary restrictions, celebrations, or seating preferences"></textarea>
+                            </div>
+                            
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary btn-lg">Reserve Now</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Events Section -->
+    <section class="section">
+        <div class="container">
+            <div class="event-section">
+                <h2>Planning a Special Event?</h2>
+                <p class="lead max-w-800 mx-auto">For <strong>large parties, corporate dinners, or private events</strong>, TasteBites offers <strong>customized group dining experiences</strong>. Contact us for <strong>special arrangements and exclusive seating</strong>.</p>
+                <a href="contact-us.html" class="btn btn-outline-light mt-3">Get in Touch for Event Bookings</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Help Section -->
+    <section class="section">
+        <div class="container">
+            <div class="help-section">
+                <h2 class="mb-4">Need Help with Your Reservation?</h2>
+                <p class="lead mb-5 max-w-800 mx-auto">Have questions or need adjustments to your booking? Our team is here to assist. <strong>Reach out to us anytime</strong>.</p>
+                
+                <div class="row">
+                    <div class="col-md-4 mb-4 mb-md-0">
+                        <div class="contact-icon">
+                            <i class="bi bi-envelope"></i>
+                        </div>
+                        <h4>Email Us</h4>
+                        <p><a href="mailto:support@tastebites.com">support@tastebites.com</a></p>
+                    </div>
+                    
+                    <div class="col-md-4 mb-4 mb-md-0">
+                        <div class="contact-icon">
+                            <i class="bi bi-telephone"></i>
+                        </div>
+                        <h4>Call Us</h4>
+                        <p>+1 (555) 678-1234</p>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="contact-icon">
+                            <i class="bi bi-globe"></i>
+                        </div>
+                        <h4>Visit Us</h4>
+                        <p><a href="https://www.tastebites.com">www.tastebites.com</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h3 class="mb-3">TasteBites</h3>
+                    <p class="mb-4">Savor the tradition of exceptional cuisine in a warm, inviting atmosphere where every meal tells a story.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h4 class="mb-3">Quick Links</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html">Home</a></li>
+                        <li class="mb-2"><a href="menu.html">Our Menu</a></li>
+                        <li class="mb-2"><a href="gallery.html">Gallery</a></li>
+                        <li class="mb-2"><a href="reservations.html">Reservations</a></li>
+                        <li class="mb-2"><a href="contact-us.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-4">
+                    <h4 class="mb-3">Opening Hours</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">Monday - Thursday: 11:00 AM - 10:00 PM</li>
+                        <li class="mb-2">Friday - Saturday: 11:00 AM - 11:00 PM</li>
+                        <li class="mb-2">Sunday: 10:00 AM - 9:00 PM</li>
+                        <li class="mb-2">Brunch: Saturday & Sunday 10:00 AM - 2:00 PM</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <hr class="mt-4 mb-4" style="border-color: rgba(255,255,255,0.1);">
+            
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2025 TasteBites. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="mb-0">Designed with <i class="bi bi-heart-fill text-danger"></i> for food lovers</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Set min date for reservation (today)
+        const today = new Date();
+        const formattedDate = today.toISOString().split('T')[0];
+        document.getElementById('date').min = formattedDate;
+        
+        // Set default date to tomorrow
+        const tomorrow = new Date(today);
+        tomorrow.setDate(today.getDate() + 1);
+        const formattedTomorrow = tomorrow.toISOString().split('T')[0];
+        document.getElementById('date').value = formattedTomorrow;
+        
+        // Form submission handling
+        document.getElementById('reservationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const guests = document.getElementById('guests').value;
+            const date = document.getElementById('date').value;
+            const time = document.getElementById('time').value;
+            
+            // Format the date for display
+            const dateObj = new Date(date);
+            const formattedDate = dateObj.toLocaleDateString('en-US', { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            });
+            
+            // Format the time for display
+            const timeOptions = { hour: 'numeric', minute: 'numeric', hour12: true };
+            const formattedTime = new Date(`2000-01-01T${time}:00`).toLocaleTimeString('en-US', timeOptions);
+            
+            // Show success message with reservation details
+            alert(`Thank you, ${name}! Your reservation for ${guests} people on ${formattedDate} at ${formattedTime} has been confirmed. A confirmation email has been sent to ${email}.`);
+            
+            // Reset the form
+            this.reset();
+            document.getElementById('date').value = formattedTomorrow;
+        });
+    </script>
+</body>
+</html>
