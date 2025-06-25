@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Meta Title -->
+  <title>Results | CaptureX - Fitness Transformations & Success Stories</title>
+
+  <!-- Meta Description -->
+  <meta name="description" content="Explore real fitness transformations at CaptureX. See before/after photos, facility highlights, and class experiences that showcase our members' incredible journeys.">
+
+  <!-- Meta Keywords -->
+  <meta name="keywords" content="CaptureX results, fitness transformations, gym success stories, before and after, workout classes, gym facilities, personal training results">
+
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Results | CaptureX Fitness" />
+  <meta property="og:description" content="Witness the incredible transformations achieved at CaptureX. Real people, real results, real inspiration." />
+  <meta property="og:type" content="website" />
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300;400;500;600;700&family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+  
+  <style>
+    :root {
+      --red: #ff0000;
+      --black: #000000;
+      --white: #ffffff;
+    }
+    
+    body {
+      font-family: 'Nunito', sans-serif;
+      overflow-x: hidden;
+      background-color: var(--black);
+      color: var(--white);
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Teko', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .navbar {
+      background-color: rgba(0,0,0,0.9);
+      border-bottom: 2px solid var(--red);
+    }
+    
+    .navbar-brand {
+      font-family: 'Teko', sans-serif;
+      font-size: 2.2rem;
+      letter-spacing: 1px;
+    }
+    
+    .navbar-brand span {
+      color: var(--red);
+    }
+    
+    .nav-link {
+      font-family: 'Teko', sans-serif;
+      font-size: 1.4rem;
+      letter-spacing: 1px;
+      margin: 0 10px;
+      position: relative;
+    }
+    
+    .nav-link:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: var(--red);
+      transition: width 0.3s;
+    }
+    
+    .nav-link:hover:after {
+      width: 100%;
+    }
+    
+    .btn-capturex {
+      background-color: var(--red);
+      color: var(--white);
+      border-radius: 0;
+      padding: 10px 25px;
+      font-family: 'Teko', sans-serif;
+      font-size: 1.4rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: all 0.3s;
+      border: none;
+    }
+    
+    .btn-capturex:hover {
+      background-color: #cc0000;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(255,0,0,0.3);
+    }
+    
+    .portfolio-hero {
+      height: 70vh;
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+    
+    .section-title {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 40px;
+      font-size: 3rem;
+    }
+    
+    .section-title:after {
+      content: '';
+      position: absolute;
+      width: 60%;
+      height: 4px;
+      background: var(--red);
+      bottom: -10px;
+      left: 0;
+    }
+    
+    .portfolio-section {
+      padding: 100px 0;
+      background-color: var(--black);
+    }
+    
+    .portfolio-header {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 60px;
+    }
+    
+    .portfolio-categories {
+      background-color: #111;
+      padding: 30px;
+      margin-bottom: 50px;
+      border: 1px solid #333;
+    }
+    
+    .category-card {
+      background-color: #111;
+      border: 1px solid #333;
+      border-radius: 0;
+      padding: 30px;
+      height: 100%;
+      transition: all 0.3s;
+      text-align: center;
+    }
+    
+    .category-card:hover {
+      transform: translateY(-10px);
+      border-color: var(--red);
+    }
+    
+    .category-icon {
+      font-size: 3rem;
+      color: var(--red);
+      margin-bottom: 20px;
+    }
+    
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+      margin-top: 40px;
+    }
+    
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      height: 300px;
+      border: 1px solid #333;
+      cursor: pointer;
+    }
+    
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+    
+    .gallery-item:hover img {
+      transform: scale(1.1);
+    }
+    
+    .gallery-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+      padding: 20px;
+      transform: translateY(100%);
+      transition: transform 0.3s;
+    }
+    
+    .gallery-item:hover .gallery-overlay {
+      transform: translateY(0);
+    }
+    
+    .testimonial-section {
+      background: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1540497077202-7c8a3999166f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-attachment: fixed;
+      padding: 100px 0;
+    }
+    
+    .testimonial-card {
+      background-color: rgba(0,0,0,0.7);
+      padding: 30px;
+      border-left: 4px solid var(--red);
+    }
+    
+    .testimonial-img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--red);
+    }
+    
+    .cta-section {
+      padding: 100px 0;
+      background-color: var(--black);
+    }
+    
+    .cta-content {
+      background: linear-gradient(to right, rgba(0,0,0,0.9), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+      padding: 60px;
+      border: 2px solid var(--red);
+    }
+    
+    .footer {
+      background-color: #111;
+      padding: 60px 0 30px;
+      border-top: 2px solid var(--red);
+    }
+    
+    .footer h5 {
+      color: var(--red);
+      font-size: 1.8rem;
+      margin-bottom: 25px;
+    }
+    
+    .social-icon {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      background-color: #222;
+      color: var(--white);
+      border-radius: 50%;
+      text-align: center;
+      line-height: 40px;
+      margin-right: 10px;
+      transition: all 0.3s;
+    }
+    
+    .social-icon:hover {
+      background-color: var(--red);
+      transform: translateY(-5px);
+    }
+    
+    .copyright {
+      border-top: 1px solid #333;
+      padding-top: 20px;
+      margin-top: 40px;
+    }
+    
+    /* Animation classes */
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    
+    .pulse-animation {
+      animation: pulse 2s infinite;
+    }
+    
+    .scroll-animation {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease-out;
+    }
+    
+    .scroll-animation.appear {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* Modal styles */
+    .modal-content {
+      background-color: #111;
+      color: var(--white);
+      border: 1px solid var(--red);
+      border-radius: 0;
+    }
+    
+    .modal-header {
+      border-bottom: 1px solid #333;
+    }
+    
+    .btn-close {
+      filter: invert(1);
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 992px) {
+      .section-title {
+        font-size: 2.5rem;
+      }
+      
+      .portfolio-hero {
+        height: 60vh;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .section-title {
+        font-size: 2.2rem;
+      }
+      
+      .portfolio-hero {
+        height: 50vh;
+      }
+      
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">CAPTURE<span>X</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="services.html">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="portfolio.html">Results</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact-us.html">Contact</a>
+          </li>
+          <li class="nav-item ms-lg-3">
+            <a class="btn btn-capturex" href="contact-us.html">Join Now</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="portfolio-hero">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto text-center">
+          <h1 class="display-1">Real Results</h1>
+          <h2 class="text-red">Transformations That Inspire</h2>
+          <p class="lead mt-4">At <strong>CaptureX</strong>, we don't just promise results - we deliver them. See the incredible journeys of our members who transformed their bodies and lives.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section class="portfolio-section">
+    <div class="container">
+      <div class="portfolio-header scroll-animation">
+        <h2 class="section-title">Our Success Stories</h2>
+        <p>Every transformation tells a story of dedication, perseverance, and triumph. These are not just physical changes - they're life-changing journeys that started with a single step at CaptureX.</p>
+      </div>
+      
+      <div class="portfolio-categories">
+        <div class="row">
+          <div class="col-md-6 col-lg-3 mb-4 scroll-animation">
+            <div class="category-card">
+              <div class="category-icon">
+                <i class="bi bi-arrow-repeat"></i>
+              </div>
+              <h3>Body Transformations</h3>
+              <p>See incredible before and after results from our members</p>
+              <a href="#transformations" class="btn btn-sm btn-outline-light mt-3">View Gallery</a>
+            </div>
+          </div>
+          
+          <div class="col-md-6 col-lg-3 mb-4 scroll-animation">
+            <div class="category-card">
+              <div class="category-icon">
+                <i class="bi bi-building"></i>
+              </div>
+              <h3>Our Facility</h3>
+              <p>Explore our state-of-the-art training environment</p>
+              <a href="#facility" class="btn btn-sm btn-outline-light mt-3">View Gallery</a>
+            </div>
+          </div>
+          
+          <div class="col-md-6 col-lg-3 mb-4 scroll-animation">
+            <div class="category-card">
+              <div class="category-icon">
+                <i class="bi bi-people"></i>
+              </div>
+              <h3>Group Classes</h3>
+              <p>High-energy workouts that build strength and community</p>
+              <a href="#classes" class="btn btn-sm btn-outline-light mt-3">View Gallery</a>
+            </div>
+          </div>
+          
+          <div class="col-md-6 col-lg-3 mb-4 scroll-animation">
+            <div class="category-card">
+              <div class="category-icon">
+                <i class="bi bi-trophy"></i>
+              </div>
+              <h3>Achievements</h3>
+              <p>Competitions, milestones, and personal victories</p>
+              <a href="#achievements" class="btn btn-sm btn-outline-light mt-3">View Gallery</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Transformations Gallery -->
+      <div id="transformations" class="mb-100 scroll-animation">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <h3 class="mb-0"><i class="bi bi-arrow-repeat me-2 text-red"></i> Body Transformations</h3>
+          <a href="#" class="btn btn-outline-light">View All</a>
+        </div>
+        <div class="gallery-grid">
+          <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#galleryModal" data-img="https://images.unsplash.com/photo-1534367507877-0edd93bd013b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" data-title="Mark's 6-Month Transformation" data-desc="Lost 45 lbs and gained muscle definition">
+            <img src="https://images.unsplash.com/photo-1534367507877-0edd93bd013b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Fitness Transformation">
+            <div class="gallery-overlay">
+              <h5>Mark's Journey</h5>
+              <p>6 Months • Lost 45 lbs</p>
+            </div>
+          </div>
+          
+          <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#galleryModal" data-img="https://images.unsplash.com/photo-1549060279-7e168fce7090?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" data-title="Sarah's Strength Journey" data-desc="Gained 15 lbs of muscle in 9 months">
+            <img src="https://images.unsplash.com/photo-1549060279-7e168fce7090?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Fitness Transformation">
+            <div class="gallery-overlay">
+              <h5>Sarah's Strength</h5>
+              <p>9 Months • Gained 15 lbs Muscle</p>
+            </div>
+          </div>
+          
+          <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#galleryModal" data-img="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" data-title="David's Weight Loss" data-desc="Dropped 60 lbs in 5 months with our program">
+            <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Fitness Transformation">
+            <div class="gallery-overlay">
+              <h5>David's Weight Loss</h5>
+              <p>5 Months • Lost 60 lbs</p>
+            </div>
+          </div>
+          
+          <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#galleryModal" data-img="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" data-title="Lisa's Post-Pregnancy Transformation" data-desc="Regained strength and confidence after pregnancy">
+            <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Fitness Transformation">
+            <div class="gallery-overlay">
+              <h5>Lisa's Journey</h5>
+              <p>8 Months • Post-Pregnancy</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Facility Gallery -->
+      <div id="facility" class="mb-100 scroll-animation">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <h3 class="mb-0"><i class="bi bi-building me-2 text-red"></i> Our World-Class Facility</h3>
+          <a href="#" class="btn btn-outline-light">View All</a>
+        </div>
+        <div class="gallery-grid">
+          <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#galleryModal" data-img="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" data-title="Strength Training Zone" data-desc="Olympic platforms and free weights area">
+            <img src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Gym Facility">
+            <div class="gallery-overlay">
+              <h5>Strength Zone</h5>
+              <p>Olympic Platforms & Free Weights</p>
+            </div>
+          </div>
+          
+          <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#galleryModal" data-img="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" data-title="Cardio Theater" data-desc="State-of-the-art cardio equipment with entertainment">
+            <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Gym Facility">
+            <div class="gallery-overlay">
+              <h5>Cardio Theater</h5>
+              <p>30+ Machines with Entertainment</p>
+            </div>
+          </div>
+          
+          <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#galleryModal" data-img="https://images.unsplash.com/photo-1593079831268-3381b0db4a77?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" data-title="Functional Training Area" data-desc="Versatile space for dynamic workouts">
+            <img src="https://images.unsplash.com/photo-1593079831268-3381b0db4a77?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Gym Facility">
+            <div class="gallery-overlay">
+              <h5>Functional Training</h5>
+              <p>Dynamic Workout Space</p>
+            </div>
+          </div>
+          
+          <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#galleryModal" data-img="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" data-title="Recovery Lounge" data-desc="Hydrotherapy and massage for muscle recovery">
+            <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Gym Facility">
+            <div class="gallery-overlay">
+              <h5>Recovery Lounge</h5>
+              <p>Hydrotherapy & Massage</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Classes Gallery -->
+      <div id="classes" class="mb-100 scroll-animation">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <h3 class="mb-0"><i class="bi bi-people me-2 text-red"></i> Group Fitness Classes</h3>
+          <a href="#" class="btn btn-outline-light">View Schedule</a>
+        </div>
+        <div class="gallery-grid">
+          <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#galleryModal" data-img="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" data-title="HIIT Blast Class" data-desc="High-intensity interval training for maximum calorie burn">
+            <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Group Class">
+            <div class="gallery-overlay">
+              <h5>HIIT Blast</h5>
+              <p>High-Intensity Interval Training</p>
+            </div>
+          </div>
+          
+          <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#galleryModal" data-img="https://images.unsplash.com/photo-1518611012118-696072aa579a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" data-title="Cycling Studio" data-desc="Immersive cycling experience with leaderboards">
+            <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Group Class">
+            <div class="gallery-overlay">
+              <h5>Cycling Studio</h5>
+              <p>Immersive Ride Experience</p>
+            </div>
+          </div>
+          
+          <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#galleryModal" data-img="https://images.unsplash.com/photo-1549060279-7e168fce7090?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" data-title="Strength & Conditioning" data-desc="Group strength training with barbells and kettlebells">
+            <img src="https://images.unsplash.com/photo-1549060279-7e168fce7090?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Group Class">
+            <div class="gallery-overlay">
+              <h5>Strength & Conditioning</h5>
+              <p>Barbells & Kettlebells</p>
+            </div>
+          </div>
+          
+          <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#galleryModal" data-img="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" data-title="Yoga & Mobility" data-desc="Improve flexibility and reduce stress">
+            <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Group Class">
+            <div class="gallery-overlay">
+              <h5>Yoga & Mobility</h5>
+              <p>Flexibility & Stress Relief</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Achievements Gallery -->
+      <div id="achievements" class="scroll-animation">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <h3 class="mb-0"><i class="bi bi-trophy me-2 text-red"></i> Member Achievements</h3>
+          <a href="#" class="btn btn-outline-light">View All</a>
+        </div>
+        <div class="gallery-grid">
+          <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#galleryModal" data-img="https://images.unsplash.com/photo-1519505907962-0a6cb0167c73?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" data-title="Powerlifting Competition" data-desc="Our members competing at regional championships">
+            <img src="https://images.unsplash.com/photo-1519505907962-0a6cb0167c73?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Achievements">
+            <div class="gallery-overlay">
+              <h5>Powerlifting Comp</h5>
+              <p>Regional Championships</p>
+            </div>
+          </div>
+          
+          <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#galleryModal" data-img="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" data-title="Marathon Finishers" data-desc="Celebrating members who completed their first marathon">
+            <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Achievements">
+            <div class="gallery-overlay">
+              <h5>Marathon Finishers</h5>
+              <p>First Marathon Accomplished</p>
+            </div>
+          </div>
+          
+          <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#galleryModal" data-img="https://images.unsplash.com/photo-1599058917212-d750089bc07e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" data-title="Transformation Challenge Winners" data-desc="Celebrating our 12-week challenge champions">
+            <img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Achievements">
+            <div class="gallery-overlay">
+              <h5>Challenge Winners</h5>
+              <p>12-Week Transformation</p>
+            </div>
+          </div>
+          
+          <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#galleryModal" data-img="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" data-title="Member of the Month" data-desc="Recognizing outstanding dedication and progress">
+            <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Achievements">
+            <div class="gallery-overlay">
+              <h5>Member of the Month</h5>
+              <p>Recognizing Dedication</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonial-section">
+    <div class="container">
+      <div class="row justify-content-center mb-5">
+        <div class="col-lg-8 text-center">
+          <h2 class="section-title">Success Stories</h2>
+          <p class="lead">Hear from our members who transformed their lives</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 mb-4 scroll-animation">
+          <div class="testimonial-card">
+            <div class="d-flex align-items-center mb-4">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Member" class="testimonial-img me-3">
+              <div>
+                <h5 class="mb-0">Michael Thompson</h5>
+                <small>Lost 50 lbs in 6 months</small>
+              </div>
+            </div>
+            <p class="mb-0">"Before joining CaptureX, I struggled with my weight for years. The trainers created a personalized plan that worked with my busy schedule. The community support kept me motivated when I wanted to quit. I've not only transformed my body but gained confidence in every area of my life."</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4 scroll-animation">
+          <div class="testimonial-card">
+            <div class="d-flex align-items-center mb-4">
+              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Member" class="testimonial-img me-3">
+              <div>
+                <h5 class="mb-0">Sarah Johnson</h5>
+                <small>First marathon at 42</small>
+              </div>
+            </div>
+            <p class="mb-0">"I never thought I could run a mile, let alone a marathon. The coaches at CaptureX believed in me before I believed in myself. Their training program gradually built my endurance while preventing injuries. Crossing that finish line was one of the proudest moments of my life!"</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4 scroll-animation">
+          <div class="testimonial-card">
+            <div class="d-flex align-items-center mb-4">
+              <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Member" class="testimonial-img me-3">
+              <div>
+                <h5 class="mb-0">David Chen</h5>
+                <small>Competitive powerlifter</small>
+              </div>
+            </div>
+            <p class="mb-0">"As an athlete, I needed a gym that could challenge me. CaptureX has world-class equipment and trainers who understand performance training at the highest level. With their programming guidance, I've added 100 lbs to my total in just 8 months and qualified for nationals."</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <div class="cta-content">
+            <div class="row align-items-center">
+              <div class="col-lg-8">
+                <h2 class="mb-4">Start Your Transformation Today</h2>
+                <p class="lead mb-4">Inspired by what you see? Your transformation story begins now. Join our community of fitness enthusiasts and take the first step toward a stronger, healthier you.</p>
+                <a href="contact-us.html" class="btn btn-capturex btn-lg">Join Now</a>
+              </div>
+              <div class="col-lg-4 text-center mt-4 mt-lg-0">
+                <div class="bg-dark p-4 d-inline-block">
+                  <h4 class="text-red">SPECIAL OFFER</h4>
+                  <h2 class="text-white">7 DAYS FREE</h2>
+                  <p class="mb-0">No commitment</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 mb-5 mb-lg-0">
+          <h5>CAPTURE<span class="text-red">X</span></h5>
+          <p class="mb-4">Strong Body, Strong Mind. Transforming lives through fitness since 2015.</p>
+          <div class="d-flex">
+            <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="bi bi-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="bi bi-youtube"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-4 mb-5 mb-md-0">
+          <h5>Quick Links</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="index.html" class="text-white text-decoration-none">Home</a></li>
+            <li class="mb-2"><a href="about.html" class="text-white text-decoration-none">About Us</a></li>
+            <li class="mb-2"><a href="services.html" class="text-white text-decoration-none">Services</a></li>
+            <li class="mb-2"><a href="portfolio.html" class="text-white text-decoration-none">Results</a></li>
+            <li class="mb-2"><a href="contact-us.html" class="text-white text-decoration-none">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-4 mb-5 mb-md-0">
+          <h5>Services</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="#" class="text-white text-decoration-none">Personal Training</a></li>
+            <li class="mb-2"><a href="#" class="text-white text-decoration-none">Group Classes</a></li>
+            <li class="mb-2"><a href="#" class="text-white text-decoration-none">Nutrition Planning</a></li>
+            <li class="mb-2"><a href="#" class="text-white text-decoration-none">Recovery Therapy</a></li>
+            <li class="mb-2"><a href="#" class="text-white text-decoration-none">Corporate Wellness</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-4">
+          <h5>Contact Us</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><i class="bi bi-geo-alt text-red me-2"></i> 123 Fitness Street, NY 10001</li>
+            <li class="mb-2"><i class="bi bi-telephone text-red me-2"></i> (555) 123-4567</li>
+            <li class="mb-2"><i class="bi bi-envelope text-red me-2"></i> info@capturex.com</li>
+            <li class="mb-2"><i class="bi bi-clock text-red me-2"></i> Open 24/7</li>
+          </ul>
+        </div>
+      </div>
+      <div class="row text-center copyright">
+        <div class="col-12">
+          <p class="mb-0">&copy; 2025 CaptureX Fitness. All Rights Reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Gallery Modal -->
+  <div class="modal fade" id="galleryModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalTitle">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body text-center">
+          <img src="" alt="" id="modalImage" class="img-fluid mb-3">
+          <p id="modalDescription" class="mb-0"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    // Scroll animation
+    document.addEventListener('DOMContentLoaded', function() {
+      const scrollElements = document.querySelectorAll('.scroll-animation');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('appear');
+          }
+        });
+      }, {
+        threshold: 0.1
+      });
+      
+      scrollElements.forEach(element => {
+        observer.observe(element);
+      });
+      
+      // Sticky navbar background
+      window.addEventListener('scroll', function() {
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 50) {
+          navbar.style.backgroundColor = 'rgba(0,0,0,0.95)';
+        } else {
+          navbar.style.backgroundColor = 'rgba(0,0,0,0.9)';
+        }
+      });
+      
+      // Gallery modal functionality
+      const galleryModal = document.getElementById('galleryModal');
+      if (galleryModal) {
+        galleryModal.addEventListener('show.bs.modal', function(event) {
+          const button = event.relatedTarget;
+          const imgSrc = button.getAttribute('data-img');
+          const title = button.getAttribute('data-title');
+          const description = button.getAttribute('data-desc');
+          
+          const modalTitle = galleryModal.querySelector('.modal-title');
+          const modalImage = galleryModal.querySelector('#modalImage');
+          const modalDescription = galleryModal.querySelector('#modalDescription');
+          
+          modalTitle.textContent = title;
+          modalImage.src = imgSrc;
+          modalImage.alt = title;
+          modalDescription.textContent = description;
+        });
+      }
+    });
+  </script>
+</body>
+</html>
