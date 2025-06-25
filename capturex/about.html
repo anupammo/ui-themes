@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Meta Title -->
+  <title>About Us | CaptureX - Strong Body, Strong Mind</title>
+
+  <!-- Meta Description -->
+  <meta name="description" content="Discover the story behind CaptureX — a premium fitness center dedicated to transforming bodies and minds through expert training and community support.">
+
+  <!-- Meta Keywords -->
+  <meta name="keywords" content="CaptureX about us, fitness team, gym story, fitness philosophy, personal trainers, gym journey, fitness transformation">
+
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="About | CaptureX Fitness" />
+  <meta property="og:description" content="Learn about the team and philosophy behind CaptureX. We don't just train bodies — we transform lives and build strong minds." />
+  <meta property="og:type" content="website" />
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300;400;500;600;700&family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+  
+  <style>
+    :root {
+      --red: #ff0000;
+      --black: #000000;
+      --white: #ffffff;
+    }
+    
+    body {
+      font-family: 'Nunito', sans-serif;
+      overflow-x: hidden;
+      background-color: var(--black);
+      color: var(--white);
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Teko', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .navbar {
+      background-color: rgba(0,0,0,0.9);
+      border-bottom: 2px solid var(--red);
+    }
+    
+    .navbar-brand {
+      font-family: 'Teko', sans-serif;
+      font-size: 2.2rem;
+      letter-spacing: 1px;
+    }
+    
+    .navbar-brand span {
+      color: var(--red);
+    }
+    
+    .nav-link {
+      font-family: 'Teko', sans-serif;
+      font-size: 1.4rem;
+      letter-spacing: 1px;
+      margin: 0 10px;
+      position: relative;
+    }
+    
+    .nav-link:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: var(--red);
+      transition: width 0.3s;
+    }
+    
+    .nav-link:hover:after {
+      width: 100%;
+    }
+    
+    .btn-capturex {
+      background-color: var(--red);
+      color: var(--white);
+      border-radius: 0;
+      padding: 10px 25px;
+      font-family: 'Teko', sans-serif;
+      font-size: 1.4rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: all 0.3s;
+      border: none;
+    }
+    
+    .btn-capturex:hover {
+      background-color: #cc0000;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(255,0,0,0.3);
+    }
+    
+    .about-hero {
+      height: 70vh;
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+    
+    .section-title {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 40px;
+      font-size: 3rem;
+    }
+    
+    .section-title:after {
+      content: '';
+      position: absolute;
+      width: 60%;
+      height: 4px;
+      background: var(--red);
+      bottom: -10px;
+      left: 0;
+    }
+    
+    .about-section {
+      padding: 100px 0;
+    }
+    
+    .philosophy-section {
+      background: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1540497077202-7c8a3999166f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-attachment: fixed;
+    }
+    
+    .team-section {
+      background-color: var(--black);
+    }
+    
+    .team-card {
+      background-color: #111;
+      border: 1px solid #333;
+      border-radius: 0;
+      padding: 30px;
+      height: 100%;
+      transition: all 0.3s;
+      text-align: center;
+    }
+    
+    .team-card:hover {
+      transform: translateY(-10px);
+      border-color: var(--red);
+    }
+    
+    .team-img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--red);
+      margin: 0 auto 20px;
+    }
+    
+    .services-section {
+      background: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1519505907962-0a6cb0167c73?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+    }
+    
+    .service-item {
+      display: flex;
+      margin-bottom: 30px;
+      align-items: center;
+    }
+    
+    .service-icon {
+      font-size: 2.5rem;
+      color: var(--red);
+      margin-right: 20px;
+      min-width: 60px;
+    }
+    
+    .cta-section {
+      padding: 100px 0;
+      background-color: var(--black);
+    }
+    
+    .cta-content {
+      background: linear-gradient(to right, rgba(0,0,0,0.9), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+      padding: 60px;
+      border: 2px solid var(--red);
+    }
+    
+    .footer {
+      background-color: #111;
+      padding: 60px 0 30px;
+      border-top: 2px solid var(--red);
+    }
+    
+    .footer h5 {
+      color: var(--red);
+      font-size: 1.8rem;
+      margin-bottom: 25px;
+    }
+    
+    .social-icon {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      background-color: #222;
+      color: var(--white);
+      border-radius: 50%;
+      text-align: center;
+      line-height: 40px;
+      margin-right: 10px;
+      transition: all 0.3s;
+    }
+    
+    .social-icon:hover {
+      background-color: var(--red);
+      transform: translateY(-5px);
+    }
+    
+    .copyright {
+      border-top: 1px solid #333;
+      padding-top: 20px;
+      margin-top: 40px;
+    }
+    
+    /* Animation classes */
+    .scroll-animation {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease-out;
+    }
+    
+    .scroll-animation.appear {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 992px) {
+      .section-title {
+        font-size: 2.5rem;
+      }
+      
+      .about-hero {
+        height: 60vh;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .section-title {
+        font-size: 2.2rem;
+      }
+      
+      .about-hero {
+        height: 50vh;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">CAPTURE<span>X</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="services.html">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="portfolio.html">Results</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact-us.html">Contact</a>
+          </li>
+          <li class="nav-item ms-lg-3">
+            <a class="btn btn-capturex" href="contact-us.html">Join Now</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="about-hero">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto text-center">
+          <h1 class="display-1">Who We Are</h1>
+          <p class="lead mt-4">At <strong class="text-red">CaptureX</strong>, we believe fitness is more than exercise — it's a journey to transform both body and mind.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about-section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <div class="mb-5 scroll-animation">
+            <p class="lead">Founded in 2015 by fitness enthusiasts with a shared passion for transformation, CaptureX has grown from a small training studio into a premier fitness destination. Our journey began with a simple mission: to create a space where people could push their limits and discover their true potential.</p>
+            
+            <p>What started as a single location with a handful of dedicated trainers has evolved into a thriving fitness community with state-of-the-art facilities and a team of industry-leading professionals. But our core values remain unchanged: excellence, integrity, and a relentless commitment to our members' success.</p>
+          </div>
+          
+          <div class="row align-items-center mt-5">
+            <div class="col-lg-6 mb-5 mb-lg-0 scroll-animation">
+              <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="CaptureX Facility" class="img-fluid">
+            </div>
+            <div class="col-lg-6 scroll-animation">
+              <h2 class="section-title">Our Facility</h2>
+              <p>Our 25,000 square foot flagship location features:</p>
+              <ul class="list-unstyled">
+                <li class="mb-2"><i class="bi bi-check-circle text-red me-2"></i> Olympic-grade strength training equipment</li>
+                <li class="mb-2"><i class="bi bi-check-circle text-red me-2"></i> Dedicated functional training zones</li>
+                <li class="mb-2"><i class="bi bi-check-circle text-red me-2"></i> State-of-the-art cardio theater</li>
+                <li class="mb-2"><i class="bi bi-check-circle text-red me-2"></i> Group fitness studios with immersive technology</li>
+                <li class="mb-2"><i class="bi bi-check-circle text-red me-2"></i> Premium recovery lounge with hydrotherapy</li>
+                <li class="mb-2"><i class="bi bi-check-circle text-red me-2"></i> Nutrition bar and supplement shop</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Philosophy Section -->
+  <section class="philosophy-section py-100">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center scroll-animation">
+          <h2 class="section-title">Our Philosophy</h2>
+          <p class="lead mb-5">At CaptureX, we believe that true fitness transformation requires a holistic approach that strengthens both body and mind.</p>
+        </div>
+      </div>
+      
+      <div class="row mt-4">
+        <div class="col-md-4 mb-4 scroll-animation">
+          <div class="bg-dark p-4 h-100">
+            <h3 class="text-red">Mind-Body Connection</h3>
+            <p>We teach that physical strength begins with mental fortitude. Our programs build resilience that extends beyond the gym into every aspect of life.</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4 scroll-animation">
+          <div class="bg-dark p-4 h-100">
+            <h3 class="text-red">Personalized Progress</h3>
+            <p>There's no one-size-fits-all approach to fitness. We create customized programs that align with your unique goals, abilities, and lifestyle.</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4 scroll-animation">
+          <div class="bg-dark p-4 h-100">
+            <h3 class="text-red">Community Strength</h3>
+            <p>Your journey is powered by a supportive community. We foster connections that motivate, inspire, and hold each other accountable.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row mt-5 justify-content-center scroll-animation">
+        <div class="col-lg-10">
+          <div class="bg-dark p-4 p-lg-5">
+            <blockquote class="blockquote text-center">
+              <h3 class="mb-4">"Strength doesn't come from what you can do. It comes from overcoming the things you once thought you couldn't."</h3>
+              <footer class="blockquote-footer mt-3 text-white">Rikki Rogers, <cite title="Source Title">CaptureX Founder</cite></footer>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="team-section py-100">
+    <div class="container">
+      <div class="row justify-content-center mb-5">
+        <div class="col-lg-8 text-center">
+          <h2 class="section-title">Our Expert Team</h2>
+          <p class="lead">Meet the professionals dedicated to your transformation</p>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-6 col-lg-3 mb-4 scroll-animation">
+          <div class="team-card">
+            <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Alex Morgan" class="team-img">
+            <h3>Alex Morgan</h3>
+            <p class="text-red">Founder & Head Coach</p>
+            <p>20+ years in strength conditioning. NASM certified.</p>
+          </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-3 mb-4 scroll-animation">
+          <div class="team-card">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Marcus Chen" class="team-img">
+            <h3>Marcus Chen</h3>
+            <p class="text-red">Performance Director</p>
+            <p>Specializes in athletic performance and injury prevention.</p>
+          </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-3 mb-4 scroll-animation">
+          <div class="team-card">
+            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Jasmine Reed" class="team-img">
+            <h3>Jasmine Reed</h3>
+            <p class="text-red">Nutrition Specialist</p>
+            <p>Registered dietitian with sports nutrition certification.</p>
+          </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-3 mb-4 scroll-animation">
+          <div class="team-card">
+            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="David Park" class="team-img">
+            <h3>David Park</h3>
+            <p class="text-red">Group Fitness Lead</p>
+            <p>ACE certified with expertise in HIIT and functional training.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row justify-content-center mt-5 scroll-animation">
+        <div class="col-lg-10">
+          <div class="bg-dark p-4 p-lg-5">
+            <div class="row align-items-center">
+              <div class="col-md-8">
+                <h3>Join Our Team</h3>
+                <p>Passionate about fitness and helping others? We're always looking for talented trainers and staff who share our vision.</p>
+              </div>
+              <div class="col-md-4 text-md-end mt-3 mt-md-0">
+                <a href="contact-us.html" class="btn btn-capturex">Career Opportunities</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="services-section py-100">
+    <div class="container">
+      <div class="row justify-content-center mb-5">
+        <div class="col-lg-8 text-center scroll-animation">
+          <h2 class="section-title">Our Approach</h2>
+          <p class="lead">How we help you achieve lasting transformation</p>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-lg-6 scroll-animation">
+          <div class="service-item">
+            <div class="service-icon">
+              <i class="bi bi-person-bounding-box"></i>
+            </div>
+            <div>
+              <h3>Personalized Training</h3>
+              <p>Every member receives a customized fitness assessment and program tailored to their specific goals, fitness level, and lifestyle.</p>
+            </div>
+          </div>
+          
+          <div class="service-item">
+            <div class="service-icon">
+              <i class="bi bi-graph-up-arrow"></i>
+            </div>
+            <div>
+              <h3>Progress Tracking</h3>
+              <p>Advanced technology monitors your performance and progress, allowing for real-time adjustments to your program.</p>
+            </div>
+          </div>
+          
+          <div class="service-item">
+            <div class="service-icon">
+              <i class="bi bi-heart-pulse"></i>
+            </div>
+            <div>
+              <h3>Holistic Wellness</h3>
+              <p>Our approach integrates physical training with nutrition guidance, recovery techniques, and mental resilience training.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-6 scroll-animation">
+          <div class="service-item">
+            <div class="service-icon">
+              <i class="bi bi-people"></i>
+            </div>
+            <div>
+              <h3>Community Support</h3>
+              <p>Join group challenges, member events, and a supportive network that keeps you motivated and accountable.</p>
+            </div>
+          </div>
+          
+          <div class="service-item">
+            <div class="service-icon">
+              <i class="bi bi-badge-4k"></i>
+            </div>
+            <div>
+              <h3>Cutting-Edge Facilities</h3>
+              <p>Train with the latest equipment in a spacious, inspiring environment designed for optimal performance.</p>
+            </div>
+          </div>
+          
+          <div class="service-item">
+            <div class="service-icon">
+              <i class="bi bi-calendar-check"></i>
+            </div>
+            <div>
+              <h3>Flexible Scheduling</h3>
+              <p>With 24/7 access and classes throughout the day, we make fitness fit your schedule, not the other way around.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <div class="cta-content">
+            <div class="row align-items-center">
+              <div class="col-lg-8">
+                <h2 class="mb-4">Start Your Transformation Journey</h2>
+                <p class="lead mb-4">Ready to become the strongest version of yourself? Join our community today and experience the CaptureX difference.</p>
+                <div class="d-flex flex-wrap gap-3">
+                  <a href="contact-us.html" class="btn btn-capturex btn-lg">Join Now</a>
+                  <a href="contact-us.html" class="btn btn-outline-light btn-lg">Schedule a Tour</a>
+                </div>
+              </div>
+              <div class="col-lg-4 text-center mt-4 mt-lg-0">
+                <div class="bg-dark p-4 d-inline-block">
+                  <h4 class="text-red">NEW MEMBERS</h4>
+                  <h2 class="text-white">7 DAYS FREE</h2>
+                  <p class="mb-0">No commitment</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 mb-5 mb-lg-0">
+          <h5>CAPTURE<span class="text-red">X</span></h5>
+          <p class="mb-4">Strong Body, Strong Mind. Transforming lives through fitness since 2015.</p>
+          <div class="d-flex">
+            <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="bi bi-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="bi bi-youtube"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-4 mb-5 mb-md-0">
+          <h5>Quick Links</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="index.html" class="text-white text-decoration-none">Home</a></li>
+            <li class="mb-2"><a href="about.html" class="text-white text-decoration-none">About Us</a></li>
+            <li class="mb-2"><a href="services.html" class="text-white text-decoration-none">Services</a></li>
+            <li class="mb-2"><a href="portfolio.html" class="text-white text-decoration-none">Results</a></li>
+            <li class="mb-2"><a href="contact-us.html" class="text-white text-decoration-none">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-4 mb-5 mb-md-0">
+          <h5>Services</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="#" class="text-white text-decoration-none">Personal Training</a></li>
+            <li class="mb-2"><a href="#" class="text-white text-decoration-none">Group Classes</a></li>
+            <li class="mb-2"><a href="#" class="text-white text-decoration-none">Nutrition Planning</a></li>
+            <li class="mb-2"><a href="#" class="text-white text-decoration-none">Recovery Therapy</a></li>
+            <li class="mb-2"><a href="#" class="text-white text-decoration-none">Corporate Wellness</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-4">
+          <h5>Contact Us</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><i class="bi bi-geo-alt text-red me-2"></i> 123 Fitness Street, NY 10001</li>
+            <li class="mb-2"><i class="bi bi-telephone text-red me-2"></i> (555) 123-4567</li>
+            <li class="mb-2"><i class="bi bi-envelope text-red me-2"></i> info@capturex.com</li>
+            <li class="mb-2"><i class="bi bi-clock text-red me-2"></i> Open 24/7</li>
+          </ul>
+        </div>
+      </div>
+      <div class="row text-center copyright">
+        <div class="col-12">
+          <p class="mb-0">&copy; 2025 CaptureX Fitness. All Rights Reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    // Scroll animation
+    document.addEventListener('DOMContentLoaded', function() {
+      const scrollElements = document.querySelectorAll('.scroll-animation');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('appear');
+          }
+        });
+      }, {
+        threshold: 0.1
+      });
+      
+      scrollElements.forEach(element => {
+        observer.observe(element);
+      });
+      
+      // Sticky navbar background
+      window.addEventListener('scroll', function() {
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 50) {
+          navbar.style.backgroundColor = 'rgba(0,0,0,0.95)';
+        } else {
+          navbar.style.backgroundColor = 'rgba(0,0,0,0.9)';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
