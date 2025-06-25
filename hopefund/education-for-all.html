@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Education for All | HopeFund – Unlocking Every Child’s Potential</title>
+
+  <meta name="description" content="HopeFund’s education initiatives provide learning access, supplies, and mentorship to underserved children, helping build a future of opportunity.">
+
+  <meta name="keywords" content="HopeFund education, schooling for poor, children literacy, education access, NGO school support, learning kits for kids, student mentorship program, teach underprivileged">
+
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Education for All | HopeFund" />
+  <meta property="og:description" content="We believe education is the foundation of equity. HopeFund supports children and youth through inclusive learning programs, supplies, and mentorship." />
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+  
+  <style>
+    :root {
+      --deep-green: #006400;
+      --warm-beige: #f5f5dc;
+      --pure-white: #ffffff;
+      --light-green: #e6f4e6;
+    }
+    
+    body {
+      font-family: 'Lato', sans-serif;
+      color: #333;
+      line-height: 1.6;
+      background-color: var(--pure-white);
+    }
+    
+    h1, h2, h3, h4, h5 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      color: var(--deep-green);
+    }
+    
+    .navbar {
+      background-color: var(--deep-green);
+      padding: 20px 0;
+    }
+    
+    .navbar-brand {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1.8rem;
+      color: var(--warm-beige) !important;
+    }
+    
+    .navbar-nav .nav-link {
+      color: rgba(245, 245, 220, 0.85) !important;
+      font-weight: 500;
+      padding: 0.5rem 1.2rem;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    
+    .navbar-nav .nav-link:hover {
+      color: var(--pure-white) !important;
+    }
+    
+    .navbar-nav .nav-link:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: var(--warm-beige);
+      transition: all 0.3s ease;
+    }
+    
+    .navbar-nav .nav-link:hover:after {
+      width: 70%;
+      left: 15%;
+    }
+    
+    .btn-primary {
+      background-color: var(--deep-green);
+      border-color: var(--deep-green);
+      padding: 12px 28px;
+      border-radius: 30px;
+      font-weight: 700;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-primary:hover {
+      background-color: #004d00;
+      border-color: #004d00;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    
+    .btn-outline-primary {
+      color: var(--deep-green);
+      border-color: var(--deep-green);
+      padding: 12px 28px;
+      border-radius: 30px;
+      font-weight: 700;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-outline-primary:hover {
+      background-color: var(--deep-green);
+      color: var(--pure-white);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    
+    .hero-section {
+      background: linear-gradient(rgba(0, 100, 0, 0.7), rgba(0, 100, 0, 0.7)), 
+                  url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      color: var(--pure-white);
+      padding: 100px 0;
+      text-align: center;
+    }
+    
+    .hero-content h1 {
+      color: var(--pure-white);
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+    
+    .hero-content p {
+      font-size: 1.3rem;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      color: rgba(255,255,255,0.9);
+    }
+    
+    .section-title {
+      position: relative;
+      padding-bottom: 20px;
+      margin-bottom: 40px;
+    }
+    
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background-color: var(--deep-green);
+    }
+    
+    .intro-section {
+      padding: 100px 0;
+      background-color: var(--warm-beige);
+    }
+    
+    .program-section {
+      padding: 100px 0;
+      background-color: var(--pure-white);
+    }
+    
+    .program-card {
+      background-color: var(--light-green);
+      border-radius: 15px;
+      padding: 30px;
+      height: 100%;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+    
+    .program-card:hover {
+      transform: translateY(-10px);
+      border-color: var(--deep-green);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+    }
+    
+    .program-icon {
+      font-size: 2.5rem;
+      color: var(--deep-green);
+      margin-bottom: 20px;
+    }
+    
+    .impact-section {
+      padding: 100px 0;
+      background-color: var(--warm-beige);
+    }
+    
+    .impact-stat {
+      text-align: center;
+      padding: 30px;
+      background-color: var(--pure-white);
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      height: 100%;
+    }
+    
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--deep-green);
+      margin-bottom: 10px;
+    }
+    
+    .story-section {
+      padding: 100px 0;
+      background: linear-gradient(rgba(0, 100, 0, 0.9), rgba(0, 100, 0, 0.9)), 
+                  url('https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+      color: var(--pure-white);
+    }
+    
+    .story-card {
+      background-color: rgba(255,255,255,0.1);
+      border-radius: 15px;
+      padding: 30px;
+      height: 100%;
+      transition: all 0.3s ease;
+    }
+    
+    .story-card:hover {
+      background-color: rgba(255,255,255,0.15);
+      transform: translateY(-5px);
+    }
+    
+    .cta-section {
+      padding: 100px 0;
+      background-color: var(--pure-white);
+    }
+    
+    .cta-card {
+      background-color: var(--warm-beige);
+      border-radius: 15px;
+      padding: 50px;
+      text-align: center;
+    }
+    
+    .footer {
+      background-color: var(--deep-green);
+      color: var(--warm-beige);
+      padding: 60px 0 30px;
+    }
+    
+    .footer-title {
+      color: var(--pure-white);
+      margin-bottom: 25px;
+      font-weight: 700;
+    }
+    
+    .footer-links a {
+      color: rgba(245, 245, 220, 0.8);
+      text-decoration: none;
+      display: block;
+      margin-bottom: 12px;
+      transition: all 0.3s ease;
+    }
+    
+    .footer-links a:hover {
+      color: var(--pure-white);
+      padding-left: 5px;
+    }
+    
+    .social-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 45px;
+      height: 45px;
+      background-color: rgba(245, 245, 220, 0.1);
+      color: var(--warm-beige);
+      border-radius: 50%;
+      margin-right: 12px;
+      transition: all 0.3s ease;
+    }
+    
+    .social-icon:hover {
+      background-color: var(--warm-beige);
+      color: var(--deep-green);
+      transform: translateY(-5px);
+    }
+    
+    .copyright {
+      border-top: 1px solid rgba(245, 245, 220, 0.2);
+      padding-top: 20px;
+      margin-top: 40px;
+      text-align: center;
+      color: rgba(245, 245, 220, 0.6);
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 992px) {
+      .hero-content h1 {
+        font-size: 2.8rem;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .hero-content h1 {
+        font-size: 2.4rem;
+      }
+      
+      .hero-content p {
+        font-size: 1.1rem;
+      }
+      
+      .navbar-brand {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">HopeFund</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about-us.html">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="causes.html">Causes</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="programsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Programs
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="programsDropdown">
+              <li><a class="dropdown-item" href="healthcare-support.html">Healthcare Support</a></li>
+              <li><a class="dropdown-item active" href="education-for-all.html">Education for All</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="volunteer.html">Volunteer</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact-us.html">Contact Us</a>
+          </li>
+          <li class="nav-item ms-lg-3">
+            <a class="btn btn-outline-light" href="donate.html">Donate Now</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="hero-content">
+            <h1>Education for All</h1>
+            <p>Unlocking every child's potential through access to quality education</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Intro Section -->
+  <section class="intro-section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center">
+          <p class="lead fs-4">Education is the key to breaking cycles of poverty and unlocking opportunity. Yet for millions of children, access remains out of reach. At <strong>HopeFund</strong>, we're changing that — one child, one classroom, one future at a time.</p>
+          <div class="mt-5 bg-white p-4 rounded-3 shadow-sm">
+            <h3 class="mb-0">We believe education is the foundation of equity and the pathway to a brighter future.</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Programs Section -->
+  <section class="program-section">
+    <div class="container">
+      <div class="row justify-content-center mb-5">
+        <div class="col-lg-8 text-center">
+          <h2 class="section-title">Programs We Run</h2>
+          <p class="lead">Comprehensive initiatives to support education at every level</p>
+        </div>
+      </div>
+      
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3">
+          <div class="program-card">
+            <div class="program-icon">
+              <i class="bi bi-backpack"></i>
+            </div>
+            <h4>Learning Kits</h4>
+            <p>Providing school bags, books, uniforms, and stationery to ensure students have the essentials for learning.</p>
+            <ul class="list-group list-group-flush mt-3">
+              <li class="list-group-item ps-0 border-0"><i class="bi bi-check-circle-fill text-success me-2"></i> Annual supply kits</li>
+              <li class="list-group-item ps-0 border-0"><i class="bi bi-check-circle-fill text-success me-2"></i> Uniform distribution</li>
+              <li class="list-group-item ps-0 border-0"><i class="bi bi-check-circle-fill text-success me-2"></i> Digital learning tools</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-3">
+          <div class="program-card">
+            <div class="program-icon">
+              <i class="bi bi-door-open"></i>
+            </div>
+            <h4>Back-to-School Campaigns</h4>
+            <p>Enrollment drives in high-dropout areas to ensure every child has access to education.</p>
+            <ul class="list-group list-group-flush mt-3">
+              <li class="list-group-item ps-0 border-0"><i class="bi bi-check-circle-fill text-success me-2"></i> Community outreach</li>
+              <li class="list-group-item ps-0 border-0"><i class="bi bi-check-circle-fill text-success me-2"></i> Parent engagement</li>
+              <li class="list-group-item ps-0 border-0"><i class="bi bi-check-circle-fill text-success me-2"></i> Scholarship programs</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-3">
+          <div class="program-card">
+            <div class="program-icon">
+              <i class="bi bi-laptop"></i>
+            </div>
+            <h4>Community Learning Hubs</h4>
+            <p>Establishing safe spaces for learning with digital literacy training and resources.</p>
+            <ul class="list-group list-group-flush mt-3">
+              <li class="list-group-item ps-0 border-0"><i class="bi bi-check-circle-fill text-success me-2"></i> After-school programs</li>
+              <li class="list-group-item ps-0 border-0"><i class="bi bi-check-circle-fill text-success me-2"></i> Computer labs</li>
+              <li class="list-group-item ps-0 border-0"><i class="bi bi-check-circle-fill text-success me-2"></i> STEM workshops</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-3">
+          <div class="program-card">
+            <div class="program-icon">
+              <i class="bi bi-people"></i>
+            </div>
+            <h4>Mentorship Program</h4>
+            <p>Connecting students with trained volunteers for academic support and guidance.</p>
+            <ul class="list-group list-group-flush mt-3">
+              <li class="list-group-item ps-0 border-0"><i class="bi bi-check-circle-fill text-success me-2"></i> One-on-one tutoring</li>
+              <li class="list-group-item ps-0 border-0"><i class="bi bi-check-circle-fill text-success me-2"></i> Career counseling</li>
+              <li class="list-group-item ps-0 border-0"><i class="bi bi-check-circle-fill text-success me-2"></i> Life skills training</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Impact Section -->
+  <section class="impact-section">
+    <div class="container">
+      <div class="row justify-content-center mb-5">
+        <div class="col-lg-8 text-center">
+          <h2 class="section-title">Impact in Action</h2>
+          <p class="lead">Measuring our progress in transforming lives through education</p>
+        </div>
+      </div>
+      
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="impact-stat">
+            <div class="stat-number">12,000+</div>
+            <h4>Students Supported</h4>
+            <p>Children who have joined or returned to school through our programs</p>
+          </div>
+        </div>
+        
+        <div class="col-md-4">
+          <div class="impact-stat">
+            <div class="stat-number">48%</div>
+            <h4>Dropout Reduction</h4>
+            <p>Decrease in school dropout rates in communities we serve</p>
+          </div>
+        </div>
+        
+        <div class="col-md-4">
+          <div class="impact-stat">
+            <div class="stat-number">85</div>
+            <h4>Learning Centers</h4>
+            <p>Community hubs established for after-school learning</p>
+          </div>
+        </div>
+        
+        <div class="col-md-4">
+          <div class="impact-stat">
+            <div class="stat-number">350+</div>
+            <h4>Trained Volunteers</h4>
+            <p>Dedicated individuals providing mentorship and tutoring</p>
+          </div>
+        </div>
+        
+        <div class="col-md-4">
+          <div class="impact-stat">
+            <div class="stat-number">92%</div>
+            <h4>Graduation Rate</h4>
+            <p>Of students in our programs complete secondary education</p>
+          </div>
+        </div>
+        
+        <div class="col-md-4">
+          <div class="impact-stat">
+            <div class="stat-number">25</div>
+            <h4>Communities Served</h4>
+            <p>Across rural and urban areas in our regions of operation</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Success Stories -->
+  <section class="story-section">
+    <div class="container">
+      <div class="row justify-content-center mb-5">
+        <div class="col-lg-8 text-center">
+          <h2 class="section-title">Success Stories</h2>
+          <p class="lead">Real lives transformed through education</p>
+        </div>
+      </div>
+      
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="story-card">
+            <div class="mb-4">
+              <i class="bi bi-quote display-4 opacity-25"></i>
+            </div>
+            <p>"Because of HopeFund's scholarship program, I became the first in my family to attend university. Now I'm studying to become a doctor."</p>
+            <div class="d-flex align-items-center mt-4">
+              <div class="bg-white rounded-circle" style="width: 50px; height: 50px;"></div>
+              <div class="ms-3">
+                <h5 class="mb-0">Priya Sharma</h5>
+                <p class="mb-0 small">Medical Student</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-4">
+          <div class="story-card">
+            <div class="mb-4">
+              <i class="bi bi-quote display-4 opacity-25"></i>
+            </div>
+            <p>"The mentorship program helped me discover my passion for technology. I now work as a software engineer and mentor students myself."</p>
+            <div class="d-flex align-items-center mt-4">
+              <div class="bg-white rounded-circle" style="width: 50px; height: 50px;"></div>
+              <div class="ms-3">
+                <h5 class="mb-0">Rahul Kumar</h5>
+                <p class="mb-0 small">Software Engineer</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-4">
+          <div class="story-card">
+            <div class="mb-4">
+              <i class="bi bi-quote display-4 opacity-25"></i>
+            </div>
+            <p>"After dropping out at 14, HopeFund helped me return to school. I completed my education and now teach at our community learning center."</p>
+            <div class="d-flex align-items-center mt-4">
+              <div class="bg-white rounded-circle" style="width: 50px; height: 50px;"></div>
+              <div class="ms-3">
+                <h5 class="mb-0">Anjali Patel</h5>
+                <p class="mb-0 small">Community Teacher</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="cta-card">
+            <h2 class="section-title">Be a Catalyst for Learning</h2>
+            <p class="lead mb-4">Join us in creating educational opportunities for every child. Every pencil, every lesson counts.</p>
+            <div class="d-flex flex-wrap justify-content-center gap-3">
+              <a href="donate.html" class="btn btn-primary">Sponsor a Student</a>
+              <a href="volunteer.html" class="btn btn-outline-primary">Join as Volunteer</a>
+              <a href="contact-us.html" class="btn btn-outline-primary">Fund a Classroom</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-4">
+          <h3 class="footer-title">HopeFund</h3>
+          <p class="mb-4">Empowering communities through healthcare and education initiatives since 2017. Together, we're building a future full of hope.</p>
+          <div class="d-flex">
+            <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="social-icon"><i class="bi bi-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+        
+        <div class="col-lg-2 col-md-4">
+          <h5 class="footer-title">Quick Links</h5>
+          <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="about-us.html">About Us</a>
+            <a href="causes.html">Our Causes</a>
+            <a href="healthcare-support.html">Healthcare</a>
+            <a href="education-for-all.html">Education</a>
+          </div>
+        </div>
+        
+        <div class="col-lg-2 col-md-4">
+          <h5 class="footer-title">Get Involved</h5>
+          <div class="footer-links">
+            <a href="donate.html">Donate</a>
+            <a href="volunteer.html">Volunteer</a>
+            <a href="contact-us.html">Partner With Us</a>
+            <a href="contact-us.html">Careers</a>
+            <a href="#">Fundraise</a>
+          </div>
+        </div>
+        
+        <div class="col-lg-4 col-md-4">
+          <h5 class="footer-title">Contact Us</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><i class="bi bi-geo-alt me-2"></i> 123 Hope Street, Community Center, City 10001</li>
+            <li class="mb-2"><i class="bi bi-telephone me-2"></i> +1 (555) 123-4567</li>
+            <li class="mb-2"><i class="bi bi-envelope me-2"></i> info@hopefund.org</li>
+          </ul>
+          <form class="mt-3">
+            <div class="input-group">
+              <input type="email" class="form-control" placeholder="Your Email" aria-label="Your Email">
+              <button class="btn btn-light" type="button">Subscribe</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      
+      <div class="copyright">
+        <p class="mb-0">&copy; 2025 HopeFund. All Rights Reserved. | Empowering Lives, Together.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
