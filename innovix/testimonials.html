@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Innovix Testimonials | What Our Clients Say</title>
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+  
+  <style>
+    :root {
+      --electric-blue: #007acc;
+      --neon-green: #39ff14;
+      --white: #ffffff;
+      --dark-bg: #0a0e17;
+    }
+    
+    body {
+      font-family: 'Source Sans Pro', sans-serif;
+      background-color: var(--dark-bg);
+      color: var(--white);
+      overflow-x: hidden;
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(0, 122, 204, 0.1) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(57, 255, 20, 0.1) 0%, transparent 20%);
+      background-attachment: fixed;
+    }
+    
+    h1, h2, h3, h4, h5, .navbar-brand {
+      font-family: 'Anton', sans-serif;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    
+    /* Custom futuristic navbar */
+    .navbar {
+      background: rgba(10, 14, 23, 0.9);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(0, 122, 204, 0.3);
+      padding: 15px 0;
+    }
+    
+    .navbar-brand {
+      font-size: 1.8rem;
+      color: var(--neon-green) !important;
+      position: relative;
+    }
+    
+    .navbar-brand span {
+      color: var(--white);
+    }
+    
+    .navbar-brand::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--electric-blue), var(--neon-green));
+    }
+    
+    .nav-link {
+      color: rgba(255, 255, 255, 0.8) !important;
+      font-weight: 600;
+      margin: 0 10px;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    
+    .nav-link:hover {
+      color: var(--neon-green) !important;
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--neon-green);
+      transition: width 0.3s ease;
+    }
+    
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, var(--electric-blue), #005a9c);
+      border: none;
+      border-radius: 30px;
+      padding: 12px 30px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 15px rgba(0, 122, 204, 0.4);
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 20px rgba(0, 122, 204, 0.6);
+    }
+    
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--neon-green);
+      color: var(--neon-green);
+      border-radius: 30px;
+      padding: 10px 25px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-outline:hover {
+      background: var(--neon-green);
+      color: var(--dark-bg);
+      box-shadow: 0 0 20px rgba(57, 255, 20, 0.5);
+    }
+    
+    /* Hero Section */
+    .hero {
+      padding: 150px 0 100px;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 25px;
+      line-height: 1.1;
+      background: linear-gradient(to right, var(--white), var(--neon-green));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .hero p {
+      font-size: 1.2rem;
+      line-height: 1.7;
+      max-width: 700px;
+      margin: 0 auto 40px;
+      color: rgba(255, 255, 255, 0.8);
+    }
+    
+    .glow {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(0, 122, 204, 0.4), transparent 70%);
+      border-radius: 50%;
+      filter: blur(60px);
+      z-index: -1;
+    }
+    
+    .glow-1 {
+      top: 20%;
+      left: -100px;
+    }
+    
+    .glow-2 {
+      bottom: 10%;
+      right: -100px;
+      background: radial-gradient(circle, rgba(57, 255, 20, 0.3), transparent 70%);
+    }
+    
+    /* Sections */
+    .section {
+      padding: 80px 0;
+      position: relative;
+    }
+    
+    .section-title {
+      margin-bottom: 50px;
+      text-align: center;
+    }
+    
+    .section-title h2 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      background: linear-gradient(to right, var(--electric-blue), var(--neon-green));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .section-title p {
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto;
+      color: rgba(255, 255, 255, 0.7);
+    }
+    
+    /* Testimonials */
+    .testimonial-card {
+      background: rgba(20, 25, 40, 0.6);
+      border: 1px solid rgba(0, 122, 204, 0.2);
+      border-radius: 15px;
+      padding: 30px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+      height: 100%;
+    }
+    
+    .testimonial-card:hover {
+      transform: translateY(-10px);
+      border-color: var(--neon-green);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+    
+    .testimonial-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 5px;
+      height: 100%;
+      background: linear-gradient(to bottom, var(--electric-blue), var(--neon-green));
+    }
+    
+    .rating {
+      color: var(--neon-green);
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      letter-spacing: 3px;
+    }
+    
+    .testimonial-content {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 20px;
+      position: relative;
+      padding-left: 30px;
+    }
+    
+    .testimonial-content::before {
+      content: '"';
+      position: absolute;
+      left: 0;
+      top: -15px;
+      font-size: 4rem;
+      color: rgba(57, 255, 20, 0.2);
+      font-family: serif;
+      line-height: 1;
+    }
+    
+    .client-info {
+      display: flex;
+      align-items: center;
+      margin-top: 25px;
+    }
+    
+    .client-avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-right: 15px;
+      border: 2px solid var(--electric-blue);
+    }
+    
+    .client-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .client-details h4 {
+      font-size: 1.2rem;
+      margin-bottom: 5px;
+      color: var(--white);
+    }
+    
+    .client-details p {
+      color: var(--neon-green);
+      margin: 0;
+      font-size: 0.9rem;
+    }
+    
+    /* Testimonial Form */
+    .testimonial-form {
+      background: rgba(20, 25, 40, 0.6);
+      border: 1px solid rgba(0, 122, 204, 0.2);
+      border-radius: 15px;
+      padding: 40px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .form-group {
+      margin-bottom: 25px;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.9);
+    }
+    
+    .form-control {
+      background: rgba(30, 35, 50, 0.7);
+      border: 1px solid rgba(0, 122, 204, 0.3);
+      border-radius: 10px;
+      padding: 12px 15px;
+      color: var(--white);
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+    
+    .form-control:focus {
+      background: rgba(40, 45, 60, 0.8);
+      border-color: var(--neon-green);
+      box-shadow: 0 0 10px rgba(57, 255, 20, 0.3);
+      color: var(--white);
+      outline: none;
+    }
+    
+    textarea.form-control {
+      min-height: 150px;
+      resize: vertical;
+    }
+    
+    /* CTA Section */
+    .cta-section {
+      background: linear-gradient(135deg, rgba(0, 122, 204, 0.1), rgba(57, 255, 20, 0.05));
+      border-radius: 20px;
+      padding: 60px;
+      text-align: center;
+      border: 1px solid rgba(0, 122, 204, 0.3);
+      position: relative;
+      overflow: hidden;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    .cta-section h2 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+    }
+    
+    .cta-section p {
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto 30px;
+      color: rgba(255, 255, 255, 0.8);
+    }
+    
+    .contact-info {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 30px;
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.1rem;
+    }
+    
+    .contact-icon {
+      color: var(--neon-green);
+      font-size: 1.5rem;
+    }
+    
+    /* Footer */
+    .footer {
+      background: rgba(5, 10, 20, 0.9);
+      padding: 80px 0 40px;
+      border-top: 1px solid rgba(0, 122, 204, 0.2);
+    }
+    
+    .footer h4 {
+      font-size: 1.3rem;
+      margin-bottom: 25px;
+      color: var(--neon-green);
+      position: relative;
+      padding-bottom: 10px;
+    }
+    
+    .footer h4::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background: var(--neon-green);
+    }
+    
+    .footer-links li {
+      margin-bottom: 12px;
+      list-style: none;
+    }
+    
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+    
+    .footer-links a:hover {
+      color: var(--neon-green);
+      transform: translateX(5px);
+    }
+    
+    .footer-contact p {
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+    }
+    
+    .footer-contact i {
+      color: var(--neon-green);
+      margin-right: 10px;
+      font-size: 1.2rem;
+    }
+    
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--white);
+      font-size: 1.2rem;
+      margin-right: 15px;
+      transition: all 0.3s ease;
+    }
+    
+    .social-links a:hover {
+      background: var(--neon-green);
+      color: var(--dark-bg);
+      transform: translateY(-5px);
+    }
+    
+    .copyright {
+      text-align: center;
+      padding-top: 40px;
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.9rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      margin-top: 50px;
+    }
+    
+    /* Animations */
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+    
+    .floating {
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    /* Responsive */
+    @media (max-width: 992px) {
+      .hero h1 {
+        font-size: 3rem;
+      }
+      
+      .hero {
+        padding: 120px 0 80px;
+      }
+      
+      .section {
+        padding: 60px 0;
+      }
+      
+      .cta-section {
+        padding: 40px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .section-title h2 {
+        font-size: 2rem;
+      }
+      
+      .testimonial-form {
+        padding: 30px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Innov<span>ix</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="features.html">Features</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="testimonials.html">Testimonials</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact-us.html">Contact</a>
+          </li>
+        </ul>
+        <div class="ms-lg-3 mt-3 mt-lg-0">
+          <a href="contact-us.html" class="btn btn-primary">Get Started</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+    <div class="container">
+      <h1>Real Results. Real Feedback.</h1>
+      <p>At <strong>Innovix</strong>, nothing means more than our clients' success. Explore firsthand stories from organizations who've grown, scaled, and transformed their operations using our intelligent technology platform.</p>
+    </div>
+  </section>
+
+  <!-- Enterprise Testimonials -->
+  <section class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Enterprise Confidence</h2>
+        <p>Leading organizations trust Innovix for their digital transformation</p>
+      </div>
+      
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="testimonial-card floating">
+            <div class="rating">⭐️⭐️⭐️⭐️⭐️</div>
+            <h3>“We Scaled Without Slowing Down”</h3>
+            <div class="testimonial-content">
+              Innovix helped us consolidate our scattered tech stack into a single, scalable system. The efficiency gains were immediate.
+            </div>
+            <div class="client-info">
+              <div class="client-avatar">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80" alt="Karen M.">
+              </div>
+              <div class="client-details">
+                <h4>Karen M.</h4>
+                <p>Director of IT, Global Logistics Corp</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-6">
+          <div class="testimonial-card floating">
+            <div class="rating">⭐️⭐️⭐️⭐️⭐️</div>
+            <h3>“Built for What's Next”</h3>
+            <div class="testimonial-content">
+              What stood out was how easily we could evolve our setup as our product line expanded. Innovix truly grows with you.
+            </div>
+            <div class="client-info">
+              <div class="client-avatar">
+                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=200&q=80" alt="Michael R.">
+              </div>
+              <div class="client-details">
+                <h4>Michael R.</h4>
+                <p>VP of Operations, Horizon Consumer Group</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Startup Testimonials -->
+  <section class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Loved by Startups & Scaling Teams</h2>
+        <p>Innovators choose Innovix to accelerate their growth</p>
+      </div>
+      
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="testimonial-card floating">
+            <div class="rating">⭐️⭐️⭐️⭐️⭐️</div>
+            <h3>“It Just Works—Beautifully”</h3>
+            <div class="testimonial-content">
+              We needed to move fast, and Innovix gave us the tools to do that—without hiring a dev team. Their low-code interface is a game changer.
+            </div>
+            <div class="client-info">
+              <div class="client-avatar">
+                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80" alt="Rina B.">
+              </div>
+              <div class="client-details">
+                <h4>Rina B.</h4>
+                <p>Co-Founder, SmartReach AI</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-6">
+          <div class="testimonial-card floating">
+            <div class="rating">⭐️⭐️⭐️⭐️⭐️</div>
+            <h3>“Support That Goes Beyond Tickets”</h3>
+            <div class="testimonial-content">
+              From onboarding to scaling, Innovix has been more like a partner than a platform. Always one step ahead of our needs.
+            </div>
+            <div class="client-info">
+              <div class="client-avatar">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80" alt="Dwayne P.">
+              </div>
+              <div class="client-details">
+                <h4>Dwayne P.</h4>
+                <p>CTO, FluxEdge Health</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Additional Testimonials -->
+  <section class="section">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="testimonial-card">
+            <div class="rating">⭐️⭐️⭐️⭐️⭐️</div>
+            <div class="testimonial-content">
+              The analytics module alone has saved us countless hours in reporting. Innovix delivers exactly what it promises.
+            </div>
+            <div class="client-info">
+              <div class="client-details">
+                <h4>Sarah T.</h4>
+                <p>Data Director, TechGrowth Inc</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-4">
+          <div class="testimonial-card">
+            <div class="rating">⭐️⭐️⭐️⭐️⭐️</div>
+            <div class="testimonial-content">
+              We reduced operational costs by 35% in the first quarter after implementing Innovix. The ROI speaks for itself.
+            </div>
+            <div class="client-info">
+              <div class="client-details">
+                <h4>James K.</h4>
+                <p>CFO, Enterprise Solutions Ltd</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-4">
+          <div class="testimonial-card">
+            <div class="rating">⭐️⭐️⭐️⭐️⭐️</div>
+            <div class="testimonial-content">
+              The scalability of Innovix allowed us to handle a 300% increase in users without any performance issues.
+            </div>
+            <div class="client-info">
+              <div class="client-details">
+                <h4>Priya S.</h4>
+                <p>Head of Engineering, ScaleTech</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonial Form -->
+  <section class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Have You Worked With Innovix?</h2>
+        <p>Share your success story and join our growing community of innovators</p>
+      </div>
+      
+      <div class="testimonial-form">
+        <form action="submit_testimonial.php" method="post">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" class="form-control" placeholder="Your name" required>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="company">Company Name</label>
+                <input type="text" id="company" name="company" class="form-control" placeholder="Company name" required>
+              </div>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="testimonial">Your Feedback</label>
+            <textarea id="testimonial" name="testimonial" class="form-control" placeholder="Share your experience with Innovix" required></textarea>
+          </div>
+          
+          <button type="submit" class="btn btn-primary w-100">Submit Testimonial</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section">
+    <div class="container">
+      <div class="cta-section">
+        <h2>Let's Build Your Success Story</h2>
+        <p>Talk to our team today and see how Innovix can help your organization evolve.</p>
+        
+        <div class="contact-info">
+          <div class="contact-item">
+            <i class="bi bi-envelope contact-icon"></i>
+            <a href="mailto:hello@innovix.com">hello@innovix.com</a>
+          </div>
+          <div class="contact-item">
+            <i class="bi bi-telephone contact-icon"></i>
+            <span>+1 (800) 456-7890</span>
+          </div>
+          <div class="contact-item">
+            <i class="bi bi-globe contact-icon"></i>
+            <a href="https://www.innovix.com">www.innovix.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 mb-5 mb-lg-0">
+          <a class="navbar-brand mb-4" href="index.html">Innov<span>ix</span></a>
+          <p class="mb-4" style="color: rgba(255, 255, 255, 0.7);">Innovate. Disrupt. Scale. We deliver next-generation technology solutions tailored for innovation, growth, and scalability.</p>
+          <div class="social-links">
+            <a href="#"><i class="bi bi-facebook"></i></a>
+            <a href="#"><i class="bi bi-twitter"></i></a>
+            <a href="#"><i class="bi bi-linkedin"></i></a>
+            <a href="#"><i class="bi bi-instagram"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-4 mb-5 mb-md-0">
+          <h4>Quick Links</h4>
+          <ul class="footer-links p-0">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="features.html">Features</a></li>
+            <li><a href="testimonials.html">Testimonials</a></li>
+            <li><a href="contact-us.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-4 mb-5 mb-md-0">
+          <h4>Our Solutions</h4>
+          <ul class="footer-links p-0">
+            <li><a href="#">AI-Powered Platforms</a></li>
+            <li><a href="#">Cloud Solutions</a></li>
+            <li><a href="#">Custom Software</a></li>
+            <li><a href="#">Data Analytics</a></li>
+            <li><a href="#">Cybersecurity</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-4">
+          <h4>Contact Us</h4>
+          <div class="footer-contact">
+            <p><i class="bi bi-geo-alt"></i> 123 Tech Avenue, San Francisco, CA</p>
+            <p><i class="bi bi-envelope"></i> <a href="mailto:hello@innovix.com">hello@innovix.com</a></p>
+            <p><i class="bi bi-telephone"></i> +1 (800) 456-7890</p>
+            <p><i class="bi bi-globe"></i> <a href="https://www.innovix.com">www.innovix.com</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2025 Innovix Technologies. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- Custom JS -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Add animation delays to floating elements
+      const floatingElements = document.querySelectorAll('.floating');
+      floatingElements.forEach((el, index) => {
+        el.style.animationDelay = `${index * 0.2}s`;
+      });
+      
+      // Form submission handling
+      const form = document.querySelector('form');
+      if(form) {
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          alert('Thank you for sharing your Innovix experience! Your testimonial has been submitted.');
+          form.reset();
+        });
+      }
+    });
+  </script>
+</body>
+</html>
