@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hair Styling | GlowSpa – Cuts, Color & Occasion Glam</title>
+  <meta name="description" content="GlowSpa offers expert hair styling services including cuts, coloring, treatments, and bridal glam. Step into confidence with shine, shape, and style.">
+  <meta name="keywords" content="GlowSpa hair, haircuts, women hairstyling, men grooming, hair color, bridal hairstyle, highlights, keratin treatment, blow dry, salon stylist, redefine elegance">
+  <meta name="robots" content="index, follow" />
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+  
+  <style>
+    :root {
+      --rose-pink: #ff007f;
+      --soft-gold: #ffd700;
+      --white: #ffffff;
+      --light-pink: #fff0f7;
+      --gold-gradient: linear-gradient(135deg, #ffd700 0%, #f9d56e 100%);
+      --pink-gradient: linear-gradient(135deg, #ff007f 0%, #ff66b3 100%);
+    }
+    
+    body {
+      font-family: 'Raleway', sans-serif;
+      color: #333;
+      background-color: #fffdfe;
+      overflow-x: hidden;
+    }
+    
+    h1, h2, h3, h4, h5, .navbar-brand {
+      font-family: 'Cinzel', serif;
+      font-weight: 600;
+    }
+    
+    /* Custom Navbar */
+    .navbar {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+      padding: 15px 0;
+      transition: all 0.3s ease;
+    }
+    
+    .navbar-brand {
+      color: var(--rose-pink);
+      font-size: 28px;
+      letter-spacing: 1px;
+    }
+    
+    .navbar-nav .nav-link {
+      color: #555;
+      font-weight: 500;
+      margin: 0 10px;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    
+    .navbar-nav .nav-link:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--rose-pink);
+      transition: width 0.3s ease;
+    }
+    
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link.active {
+      color: var(--rose-pink);
+    }
+    
+    .navbar-nav .nav-link:hover:after,
+    .navbar-nav .nav-link.active:after {
+      width: 100%;
+    }
+    
+    .btn-glow {
+      background: var(--gold-gradient);
+      color: #333;
+      border: none;
+      border-radius: 30px;
+      padding: 12px 28px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s ease;
+      box-shadow: 0 4px 15px rgba(255, 0, 127, 0.2);
+    }
+    
+    .btn-glow:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(255, 0, 127, 0.3);
+      color: #333;
+    }
+    
+    /* Hero Section */
+    .hair-hero {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(255, 240, 247, 0.85) 100%), url('https://images.unsplash.com/photo-1599351430140-c70f0250bd70?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+      height: 60vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    
+    .hair-hero:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, rgba(255, 0, 127, 0.05) 0%, rgba(255, 215, 0, 0.05) 100%);
+      z-index: 0;
+    }
+    
+    .hair-hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .hair-hero h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #222;
+    }
+    
+    .slogan {
+      color: var(--rose-pink);
+      font-style: italic;
+      letter-spacing: 2px;
+      display: block;
+      margin-top: 10px;
+      font-weight: 500;
+    }
+    
+    /* Hair Content */
+    .hair-content {
+      padding: 100px 0;
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+      position: relative;
+    }
+    
+    .section-title h2 {
+      font-size: 2.5rem;
+      color: #222;
+      margin-bottom: 15px;
+    }
+    
+    .section-title:after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 3px;
+      background: var(--gold-gradient);
+      margin: 15px auto;
+    }
+    
+    .intro-text {
+      max-width: 800px;
+      margin: 0 auto 60px;
+      text-align: center;
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+    
+    /* Services Section */
+    .services-section {
+      margin: 80px 0;
+    }
+    
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+    
+    .service-card {
+      background: white;
+      border-radius: 15px;
+      padding: 40px 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      transition: all 0.4s ease;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(255, 0, 127, 0.1);
+    }
+    
+    .service-icon {
+      width: 80px;
+      height: 80px;
+      background: var(--gold-gradient);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 25px;
+      font-size: 30px;
+      color: white;
+    }
+    
+    .service-card h3 {
+      color: var(--rose-pink);
+      margin-bottom: 15px;
+    }
+    
+    .service-list {
+      list-style: none;
+      padding: 0;
+      text-align: left;
+      margin-top: 20px;
+    }
+    
+    .service-list li {
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    
+    .service-list li:last-child {
+      border-bottom: none;
+    }
+    
+    .service-list li i {
+      color: var(--rose-pink);
+      margin-top: 5px;
+    }
+    
+    /* Benefits Section */
+    .benefits-section {
+      background: linear-gradient(135deg, rgba(255, 240, 247, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);
+      border-radius: 20px;
+      padding: 60px;
+      margin: 80px 0;
+    }
+    
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+    
+    .benefit-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      background: white;
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+    }
+    
+    .benefit-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(255, 0, 127, 0.1);
+    }
+    
+    .benefit-icon {
+      min-width: 50px;
+      height: 50px;
+      background: var(--rose-pink);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      color: white;
+    }
+    
+    .benefit-text h3 {
+      color: var(--rose-pink);
+      margin-bottom: 10px;
+    }
+    
+    /* Gallery Preview */
+    .gallery-preview {
+      margin: 80px 0;
+    }
+    
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    
+    .gallery-item {
+      height: 300px;
+      border-radius: 15px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+    
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+    
+    .gallery-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 60%);
+      display: flex;
+      align-items: flex-end;
+      padding: 20px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+    
+    .gallery-overlay h4 {
+      color: white;
+      margin: 0;
+    }
+    
+    /* Call to Action */
+    .hair-cta {
+      padding: 100px 0;
+      background: linear-gradient(135deg, var(--rose-pink) 0%, #e60073 100%);
+      color: white;
+      text-align: center;
+    }
+    
+    .hair-cta h2 {
+      font-size: 2.8rem;
+      margin-bottom: 25px;
+      color: white;
+    }
+    
+    .hair-cta p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 40px;
+      opacity: 0.9;
+    }
+    
+    .btn-light {
+      background: white;
+      color: var(--rose-pink);
+      border-radius: 30px;
+      padding: 12px 35px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-light:hover {
+      background: var(--soft-gold);
+      color: #333;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Footer */
+    footer {
+      background: #111;
+      color: #aaa;
+      padding: 70px 0 0;
+    }
+    
+    .footer-logo {
+      font-family: 'Cinzel', serif;
+      font-size: 28px;
+      color: white;
+      margin-bottom: 20px;
+      display: block;
+    }
+    
+    .footer-logo span {
+      color: var(--rose-pink);
+    }
+    
+    .footer-title {
+      color: white;
+      font-size: 1.2rem;
+      margin-bottom: 25px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+    
+    .footer-title:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background: var(--rose-pink);
+    }
+    
+    .footer-links li {
+      margin-bottom: 12px;
+      list-style: none;
+    }
+    
+    .footer-links a {
+      color: #aaa;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .footer-links a:hover {
+      color: var(--rose-pink);
+      padding-left: 5px;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 15px;
+    }
+    
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #222;
+      color: white;
+      transition: all 0.3s ease;
+    }
+    
+    .social-links a:hover {
+      background: var(--rose-pink);
+      transform: translateY(-3px);
+    }
+    
+    .copyright {
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 50px;
+      border-top: 1px solid #333;
+    }
+    
+    /* Responsive Adjustments */
+    @media (max-width: 992px) {
+      .hair-hero h1 {
+        font-size: 3rem;
+      }
+      
+      .benefits-section {
+        padding: 40px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .hair-hero {
+        height: 50vh;
+      }
+      
+      .hair-hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .section-title h2 {
+        font-size: 2rem;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .hair-hero h1 {
+        font-size: 2rem;
+      }
+      
+      .hair-cta h2 {
+        font-size: 2.2rem;
+      }
+      
+      .benefits-section {
+        padding: 30px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Glow<span style="color: var(--soft-gold);">Spa</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about-us.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact-us.html">Contact</a></li>
+        </ul>
+        <div class="ms-lg-3 mt-3 mt-lg-0">
+          <a href="contact-us.html" class="btn btn-glow">Book Now</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hair-hero">
+    <div class="container">
+      <div class="hair-hero-content">
+        <h1>Hair Styling</h1>
+        <p class="lead">Crafting elegance from root to tip</p>
+        <span class="slogan">Redefining Elegance</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hair Content -->
+  <section class="hair-content">
+    <div class="container">
+      <div class="intro-text">
+        <p>Your hair tells your story — and we're here to help you write it with polish and personality. At <strong>GlowSpa</strong>, our stylists combine artistry with technique to deliver styles that frame, flatter, and empower.</p>
+      </div>
+      
+      <!-- Services Section -->
+      <div class="section-title">
+        <h2>Our Hair Services Include</h2>
+        <p>Expert styling for every hair type and occasion</p>
+      </div>
+      
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="bi bi-scissors"></i>
+          </div>
+          <h3>Precision Haircuts</h3>
+          <p>Tailored cuts for women, men and children that enhance your features and lifestyle.</p>
+          <ul class="service-list">
+            <li><i class="bi bi-check-circle"></i> Women's precision cuts</li>
+            <li><i class="bi bi-check-circle"></i> Men's grooming</li>
+            <li><i class="bi bi-check-circle"></i> Children's styling</li>
+            <li><i class="bi bi-check-circle"></i> Bang trims & shaping</li>
+          </ul>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="bi bi-palette"></i>
+          </div>
+          <h3>Creative Coloring</h3>
+          <p>From natural tones to vibrant transformations, we create color that expresses you.</p>
+          <ul class="service-list">
+            <li><i class="bi bi-check-circle"></i> Full color & highlights</li>
+            <li><i class="bi bi-check-circle"></i> Balayage & ombré</li>
+            <li><i class="bi bi-check-circle"></i> Root touch-ups</li>
+            <li><i class="bi bi-check-circle"></i> Color correction</li>
+          </ul>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="bi bi-magic"></i>
+          </div>
+          <h3>Treatment & Care</h3>
+          <p>Restore health and vitality to your hair with our premium treatments.</p>
+          <ul class="service-list">
+            <li><i class="bi bi-check-circle"></i> Keratin smoothing</li>
+            <li><i class="bi bi-check-circle"></i> Deep conditioning</li>
+            <li><i class="bi bi-check-circle"></i> Scalp treatments</li>
+            <li><i class="bi bi-check-circle"></i> Damage repair</li>
+          </ul>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="bi bi-stars"></i>
+          </div>
+          <h3>Special Occasion</h3>
+          <p>Bridal and event styling that makes you feel extraordinary.</p>
+          <ul class="service-list">
+            <li><i class="bi bi-check-circle"></i> Bridal styling</li>
+            <li><i class="bi bi-check-circle"></i> Updos & formal styles</li>
+            <li><i class="bi bi-check-circle"></i> Veil placement</li>
+            <li><i class="bi bi-check-circle"></i> Trial sessions</li>
+          </ul>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="bi bi-wind"></i>
+          </div>
+          <h3>Blowout & Styling</h3>
+          <p>Professional styling for volume, shine, and lasting perfection.</p>
+          <ul class="service-list">
+            <li><i class="bi bi-check-circle"></i> Blow dry & styling</li>
+            <li><i class="bi bi-check-circle"></i> Curling & waving</li>
+            <li><i class="bi bi-check-circle"></i> Straightening</li>
+            <li><i class="bi bi-check-circle"></i> Braiding techniques</li>
+          </ul>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="bi bi-flower1"></i>
+          </div>
+          <h3>Extensions & More</h3>
+          <p>Enhance your natural beauty with our extension services.</p>
+          <ul class="service-list">
+            <li><i class="bi bi-check-circle"></i> Hair extensions</li>
+            <li><i class="bi bi-check-circle"></i> Tape-in & clip-in</li>
+            <li><i class="bi bi-check-circle"></i> Custom coloring</li>
+            <li><i class="bi bi-check-circle"></i> Maintenance</li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Benefits Section -->
+      <div class="benefits-section">
+        <div class="section-title">
+          <h2>Why Glow With Us?</h2>
+          <p>The GlowSpa difference in hair care and styling</p>
+        </div>
+        
+        <div class="benefits-grid">
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <i class="bi bi-shield-check"></i>
+            </div>
+            <div class="benefit-text">
+              <h3>Premium Haircare Products</h3>
+              <p>We use only color-safe, sulfate-free professional products that nourish and protect your hair.</p>
+            </div>
+          </div>
+          
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <i class="bi bi-chat-dots"></i>
+            </div>
+            <div class="benefit-text">
+              <h3>Personalized Consultations</h3>
+              <p>Custom style consultations to design cuts and transformations that build confidence.</p>
+            </div>
+          </div>
+          
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <i class="bi bi-award"></i>
+            </div>
+            <div class="benefit-text">
+              <h3>Expert Stylists</h3>
+              <p>Our professionals are trained in global trends and classic finishes with continuous education.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Gallery Preview -->
+      <div class="gallery-preview">
+        <div class="section-title">
+          <h2>Hair Transformations</h2>
+          <p>See our recent work and styling achievements</p>
+        </div>
+        
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1595475884562-073c30d45670?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Blonde Transformation">
+            <div class="gallery-overlay">
+              <h4>Blonde Transformation</h4>
+            </div>
+          </div>
+          
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1559599101-f09722fb4948?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Style Makeover">
+            <div class="gallery-overlay">
+              <h4>Style Makeover</h4>
+            </div>
+          </div>
+          
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Bridal Updo">
+            <div class="gallery-overlay">
+              <h4>Bridal Updo</h4>
+            </div>
+          </div>
+          
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1534297635766-0e6f7b060bd0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Color Correction">
+            <div class="gallery-overlay">
+              <h4>Color Correction</h4>
+            </div>
+          </div>
+        </div>
+        
+        <div class="text-center mt-4">
+          <a href="gallery.html" class="btn btn-glow">View Full Gallery</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="hair-cta">
+    <div class="container">
+      <h2>Ready for Your Transformation?</h2>
+      <p>Book your hair appointment now — elegance starts at the root.</p>
+      <a href="contact-us.html" class="btn btn-light">Book Your Appointment</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 mb-5 mb-lg-0">
+          <a href="index.html" class="footer-logo">Glow<span>Spa</span></a>
+          <p class="mb-4">Redefining elegance through luxurious beauty and wellness experiences. Our expert team is dedicated to helping you look and feel your absolute best.</p>
+          <div class="social-links">
+            <a href="#"><i class="bi bi-facebook"></i></a>
+            <a href="#"><i class="bi bi-instagram"></i></a>
+            <a href="#"><i class="bi bi-pinterest"></i></a>
+            <a href="#"><i class="bi bi-twitter"></i></a>
+          </div>
+        </div>
+        
+        <div class="col-lg-4 col-md-6 mb-5 mb-md-0">
+          <h4 class="footer-title">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about-us.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact-us.html">Contact Us</a></li>
+          </ul>
+        </div>
+        
+        <div class="col-lg-4 col-md-6">
+          <h4 class="footer-title">Contact Us</h4>
+          <ul class="footer-links">
+            <li><i class="bi bi-geo-alt me-2"></i> 123 Elegance Avenue, Luxe City</li>
+            <li><i class="bi bi-telephone me-2"></i> (123) 456-7890</li>
+            <li><i class="bi bi-envelope me-2"></i> info@glowspa.com</li>
+            <li><i class="bi bi-clock me-2"></i> Mon-Sat: 9AM - 8PM, Sun: 10AM - 5PM</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="copyright">
+        <p>&copy; 2025 GlowSpa. All Rights Reserved. Redefining Elegance.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    // Simple animation for navbar on scroll
+    window.addEventListener('scroll', function() {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.style.padding = '10px 0';
+        navbar.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
+      } else {
+        navbar.style.padding = '15px 0';
+        navbar.style.boxShadow = '0 2px 15px rgba(0, 0, 0, 0.05)';
+      }
+    });
+    
+    // Service card hover effect
+    const serviceCards = document.querySelectorAll('.service-card');
+    serviceCards.forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        card.style.transform = 'translateY(-10px)';
+        card.style.boxShadow = '0 15px 40px rgba(255, 0, 127, 0.1)';
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'translateY(0)';
+        card.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.05)';
+      });
+    });
+  </script>
+</body>
+</html>
