@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects | CareerCraft – Showcase Your Brilliance</title>
+  <meta name="description" content="Explore my portfolio of projects—from web applications and creative builds to open-source contributions. Clean code meets purposeful design.">
+  <meta name="keywords" content="CareerCraft projects, portfolio work, developer portfolio, creative projects, case studies, software builds, web design, open source contribution">
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Projects | CareerCraft Portfolio" />
+  <meta property="og:description" content="View a curated selection of my personal and professional projects — highlighting skills, creativity, and problem-solving in action." />
+  <meta property="og:type" content="website" />
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Josefin+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+  
+  <style>
+    :root {
+      --charcoal: #333333;
+      --soft-blue: #87ceeb;
+      --white: #ffffff;
+    }
+    
+    body {
+      font-family: 'Josefin Sans', sans-serif;
+      color: var(--charcoal);
+      line-height: 1.8;
+      overflow-x: hidden;
+      background-color: #fafcff;
+    }
+    
+    h1, h2, h3, h4, h5 {
+      font-family: 'Lora', serif;
+      font-weight: 600;
+    }
+    
+    .navbar {
+      background-color: var(--white);
+      box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+      padding: 1.5rem 0;
+    }
+    
+    .navbar-brand {
+      font-family: 'Lora', serif;
+      font-weight: 700;
+      color: var(--charcoal);
+      font-size: 1.8rem;
+    }
+    
+    .navbar-brand span {
+      color: var(--soft-blue);
+    }
+    
+    .nav-link {
+      color: var(--charcoal);
+      font-weight: 500;
+      margin: 0 0.8rem;
+      position: relative;
+      padding: 0.5rem 0 !important;
+    }
+    
+    .nav-link:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--soft-blue);
+      transition: width 0.3s ease;
+    }
+    
+    .nav-link:hover:after,
+    .nav-link.active:after {
+      width: 100%;
+    }
+    
+    .projects-hero {
+      padding: 8rem 0 5rem;
+      background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(245,250,255,0.95) 100%);
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    
+    .projects-hero:before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, var(--soft-blue) 0%, transparent 70%);
+      opacity: 0.1;
+      z-index: -1;
+    }
+    
+    .project-card {
+      border: none;
+      border-radius: 20px;
+      overflow: hidden;
+      transition: all 0.4s ease;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      height: 100%;
+      background: white;
+    }
+    
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(135, 206, 235, 0.2);
+    }
+    
+    .project-img {
+      height: 250px;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .project-card:hover .project-img {
+      transform: scale(1.05);
+    }
+    
+    .project-content {
+      padding: 2rem;
+    }
+    
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 1rem 0;
+    }
+    
+    .tech-tag {
+      background: rgba(135, 206, 235, 0.1);
+      color: var(--soft-blue);
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+    
+    .section-title {
+      position: relative;
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+    
+    .section-title:after {
+      content: "";
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: var(--soft-blue);
+      border-radius: 2px;
+    }
+    
+    .contribution-item {
+      display: flex;
+      align-items: flex-start;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+      transition: all 0.3s ease;
+    }
+    
+    .contribution-item:hover {
+      transform: translateX(10px);
+      box-shadow: 0 10px 30px rgba(135, 206, 235, 0.15);
+    }
+    
+    .contribution-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: rgba(135, 206, 235, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 1.5rem;
+      flex-shrink: 0;
+    }
+    
+    .contribution-icon i {
+      font-size: 1.3rem;
+      color: var(--soft-blue);
+    }
+    
+    .cta-box {
+      background: linear-gradient(135deg, var(--charcoal) 0%, #2a2a2a 100%);
+      border-radius: 20px;
+      padding: 4rem;
+      color: white;
+      text-align: center;
+      margin-top: 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .cta-box:before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(135,206,235,0.1) 0%, transparent 70%);
+      z-index: 0;
+    }
+    
+    .btn-primary {
+      background-color: var(--soft-blue);
+      border: none;
+      padding: 0.8rem 2.5rem;
+      font-weight: 600;
+      border-radius: 30px;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-primary:hover {
+      background-color: var(--charcoal);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    
+    .btn-outline {
+      background-color: transparent;
+      border: 2px solid var(--soft-blue);
+      color: var(--soft-blue);
+      padding: 0.8rem 2.5rem;
+      font-weight: 600;
+      border-radius: 30px;
+      margin-left: 1rem;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-outline:hover {
+      background-color: var(--soft-blue);
+      color: var(--white);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    
+    section {
+      padding: 6rem 0;
+    }
+    
+    .footer {
+      background-color: var(--charcoal);
+      color: var(--white);
+      padding: 3rem 0 2rem;
+    }
+    
+    .social-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      color: var(--white);
+      margin: 0 0.5rem;
+      transition: all 0.3s ease;
+    }
+    
+    .social-icon:hover {
+      background: var(--soft-blue);
+      transform: translateY(-3px);
+    }
+    
+    /* Animations */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    
+    .fade-in.appear {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .float {
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0px); }
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 992px) {
+      .projects-hero {
+        padding: 7rem 0 4rem;
+      }
+      
+      .projects-hero h1 {
+        font-size: 2.8rem;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .projects-hero {
+        padding: 6rem 0 3rem;
+      }
+      
+      .projects-hero h1 {
+        font-size: 2.3rem;
+      }
+      
+      section {
+        padding: 4rem 0;
+      }
+      
+      .btn-outline {
+        margin-left: 0;
+        margin-top: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Career<span>Craft</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about-me.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="services.html">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="projects.html">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="blog.html">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact-us.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="projects-hero">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <h1 class="fade-in">Projects That Bring Ideas to Life</h1>
+          <p class="lead fade-in">Here's a curated collection of what I've built, collaborated on, or contributed to. Each project represents a learning moment, a creative spark, or a technical breakthrough — all woven into the story I'm proud to call my work.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Projects -->
+  <section>
+    <div class="container">
+      <h2 class="section-title fade-in">Featured Projects</h2>
+      <div class="row g-4">
+        <!-- Project 1 -->
+        <div class="col-md-6 col-lg-4 fade-in">
+          <div class="project-card">
+            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="project-img" alt="PortfolioPro Template">
+            <div class="project-content">
+              <h3>PortfolioPro – Personal Website Template</h3>
+              <p>A fully responsive website template designed for job seekers and creatives looking to launch their portfolio quickly.</p>
+              <div class="tech-stack">
+                <span class="tech-tag">HTML</span>
+                <span class="tech-tag">CSS</span>
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">Bootstrap</span>
+              </div>
+              <a href="https://github.com/your-username/portfoliopro" target="_blank" class="btn btn-outline w-100">View on GitHub</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project 2 -->
+        <div class="col-md-6 col-lg-4 fade-in">
+          <div class="project-card">
+            <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="project-img" alt="TaskNest App">
+            <div class="project-content">
+              <h3>TaskNest – Productivity App</h3>
+              <p>A simple, fast, and intuitive task management application with drag-and-drop reordering and real-time sync.</p>
+              <div class="tech-stack">
+                <span class="tech-tag">React.js</span>
+                <span class="tech-tag">Firebase</span>
+                <span class="tech-tag">Tailwind CSS</span>
+              </div>
+              <a href="https://tasknest.web.app" target="_blank" class="btn btn-primary w-100">Live Demo</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project 3 -->
+        <div class="col-md-6 col-lg-4 fade-in">
+          <div class="project-card">
+            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="project-img" alt="DevBlog CMS">
+            <div class="project-content">
+              <h3>DevBlog CMS – Lightweight Content Platform</h3>
+              <p>A custom-built content management system for technical bloggers with markdown support and syntax highlighting.</p>
+              <div class="tech-stack">
+                <span class="tech-tag">Node.js</span>
+                <span class="tech-tag">Express</span>
+                <span class="tech-tag">MongoDB</span>
+                <span class="tech-tag">EJS</span>
+              </div>
+              <a href="https://github.com/your-username/devblog-cms" target="_blank" class="btn btn-outline w-100">View Source Code</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Additional Project 1 -->
+        <div class="col-md-6 col-lg-4 fade-in">
+          <div class="project-card">
+            <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="project-img" alt="Finance Dashboard">
+            <div class="project-content">
+              <h3>FinTrack – Personal Finance Dashboard</h3>
+              <p>Interactive dashboard for tracking expenses, investments, and financial goals with data visualization.</p>
+              <div class="tech-stack">
+                <span class="tech-tag">Vue.js</span>
+                <span class="tech-tag">D3.js</span>
+                <span class="tech-tag">Node.js</span>
+              </div>
+              <a href="#" class="btn btn-outline w-100">Case Study</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Additional Project 2 -->
+        <div class="col-md-6 col-lg-4 fade-in">
+          <div class="project-card">
+            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="project-img" alt="E-Learning Platform">
+            <div class="project-content">
+              <h3>LearnPath – E-Learning Platform</h3>
+              <p>Custom learning management system with course creation tools, progress tracking, and quizzes.</p>
+              <div class="tech-stack">
+                <span class="tech-tag">Laravel</span>
+                <span class="tech-tag">Vue.js</span>
+                <span class="tech-tag">MySQL</span>
+              </div>
+              <a href="#" class="btn btn-primary w-100">Live Demo</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Additional Project 3 -->
+        <div class="col-md-6 col-lg-4 fade-in">
+          <div class="project-card">
+            <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="project-img" alt="UI Component Library">
+            <div class="project-content">
+              <h3>Nexus UI – Component Library</h3>
+              <p>Design system and reusable component library for building consistent web applications faster.</p>
+              <div class="tech-stack">
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">Storybook</span>
+                <span class="tech-tag">Styled Components</span>
+              </div>
+              <a href="#" class="btn btn-outline w-100">Documentation</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Open Source Contributions -->
+  <section style="background-color: #f8fafc;">
+    <div class="container">
+      <h2 class="section-title fade-in">Open Source & Community Contributions</h2>
+      
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="contribution-item fade-in">
+            <div class="contribution-icon">
+              <i class="bi bi-tools"></i>
+            </div>
+            <div>
+              <h4 class="mb-1">UI contributor to Hyper Terminal</h4>
+              <p class="mb-0">Added dark accessibility theme and improved hover states for better user experience.</p>
+              <a href="https://github.com/vercel/hyper" target="_blank" class="btn btn-link p-0 mt-2">View Project</a>
+            </div>
+          </div>
+          
+          <div class="contribution-item fade-in">
+            <div class="contribution-icon">
+              <i class="bi bi-journal-text"></i>
+            </div>
+            <div>
+              <h4 class="mb-1">Technical Writer at Dev.to</h4>
+              <p class="mb-0">Published multiple articles explaining async/await, REST vs GraphQL, and CSS Grid concepts.</p>
+              <a href="https://dev.to/your-username" target="_blank" class="btn btn-link p-0 mt-2">View Profile</a>
+            </div>
+          </div>
+          
+          <div class="contribution-item fade-in">
+            <div class="contribution-icon">
+              <i class="bi bi-bug"></i>
+            </div>
+            <div>
+              <h4 class="mb-1">Bug Fixes & Documentation</h4>
+              <p class="mb-0">Contributed fixes and documentation updates for React and Tailwind CSS repositories.</p>
+              <a href="https://github.com/facebook/react" target="_blank" class="btn btn-link p-0 mt-2">React</a>
+              <a href="https://github.com/tailwindlabs/tailwindcss" target="_blank" class="btn btn-link p-0 mt-2">Tailwind CSS</a>
+            </div>
+          </div>
+          
+          <div class="contribution-item fade-in">
+            <div class="contribution-icon">
+              <i class="bi bi-code-square"></i>
+            </div>
+            <div>
+              <h4 class="mb-1">Open Source Component Library</h4>
+              <p class="mb-0">Created and maintain a collection of accessible UI components for Vue.js developers.</p>
+              <a href="#" class="btn btn-link p-0 mt-2">GitHub Repository</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section>
+    <div class="container">
+      <div class="cta-box position-relative fade-in">
+        <h2>Building Forward</h2>
+        <p class="lead mb-4">I'm always exploring new concepts and collaborations — from AI-powered interfaces to minimalist design systems. If you're curious, creative, or coding something cool, let's connect.</p>
+        <a href="contact-us.html" class="btn btn-primary">Get in Touch</a>
+        <a href="services.html" class="btn btn-outline">View Services</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6 mb-4 mb-md-0">
+          <h3 class="mb-3">Career<span style="color: var(--soft-blue);">Craft</span></h3>
+          <p class="mb-0">Showcasing brilliance through professional storytelling and exceptional work.</p>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <div class="social-links">
+            <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="social-icon"><i class="bi bi-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="bi bi-linkedin"></i></a>
+            <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="bi bi-github"></i></a>
+          </div>
+        </div>
+      </div>
+      <hr class="my-4" style="border-color: rgba(255,255,255,0.1);">
+      <div class="row">
+        <div class="col-md-6 mb-3 mb-md-0">
+          <p class="mb-0">&copy; 2025 CareerCraft. All rights reserved.</p>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <ul class="list-inline mb-0">
+            <li class="list-inline-item"><a href="about-me.html" class="text-white">About</a></li>
+            <li class="list-inline-item"><a href="services.html" class="text-white">Services</a></li>
+            <li class="list-inline-item"><a href="projects.html" class="text-white">Projects</a></li>
+            <li class="list-inline-item"><a href="blog.html" class="text-white">Blog</a></li>
+            <li class="list-inline-item"><a href="contact-us.html" class="text-white">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- Custom JS for animations -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Fade-in animation on scroll
+      const fadeElements = document.querySelectorAll('.fade-in');
+      
+      const fadeInOnScroll = function() {
+        fadeElements.forEach(element => {
+          const elementTop = element.getBoundingClientRect().top;
+          const elementVisible = 150;
+          
+          if (elementTop < window.innerHeight - elementVisible) {
+            element.classList.add('appear');
+          }
+        });
+      };
+      
+      // Initial check
+      fadeInOnScroll();
+      
+      // Check on scroll
+      window.addEventListener('scroll', fadeInOnScroll);
+    });
+  </script>
+</body>
+</html>
