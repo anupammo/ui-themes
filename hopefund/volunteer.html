@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Volunteer | HopeFund – Be the Change on the Ground</title>
+
+  <meta name="description" content="Volunteer with HopeFund to support healthcare drives, education programs, or community projects. Use your time and skills to make real impact.">
+
+  <meta name="keywords" content="HopeFund volunteer, NGO volunteer programs, social service opportunity, community outreach, education volunteer, medical camp volunteer, nonprofit work, make impact">
+
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Volunteer with HopeFund | Make a Difference" />
+  <meta property="og:description" content="Looking to give back? Join HopeFund’s team of passionate volunteers and bring help where it's needed most." />
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+  
+  <style>
+    :root {
+      --deep-green: #006400;
+      --warm-beige: #f5f5dc;
+      --pure-white: #ffffff;
+      --light-green: #e6f4e6;
+    }
+    
+    body {
+      font-family: 'Lato', sans-serif;
+      color: #333;
+      line-height: 1.6;
+      background-color: var(--pure-white);
+    }
+    
+    h1, h2, h3, h4, h5 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      color: var(--deep-green);
+    }
+    
+    .navbar {
+      background-color: var(--deep-green);
+      padding: 20px 0;
+    }
+    
+    .navbar-brand {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1.8rem;
+      color: var(--warm-beige) !important;
+    }
+    
+    .navbar-nav .nav-link {
+      color: rgba(245, 245, 220, 0.85) !important;
+      font-weight: 500;
+      padding: 0.5rem 1.2rem;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    
+    .navbar-nav .nav-link:hover {
+      color: var(--pure-white) !important;
+    }
+    
+    .navbar-nav .nav-link:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: var(--warm-beige);
+      transition: all 0.3s ease;
+    }
+    
+    .navbar-nav .nav-link:hover:after {
+      width: 70%;
+      left: 15%;
+    }
+    
+    .btn-primary {
+      background-color: var(--deep-green);
+      border-color: var(--deep-green);
+      padding: 12px 28px;
+      border-radius: 30px;
+      font-weight: 700;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-primary:hover {
+      background-color: #004d00;
+      border-color: #004d00;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    
+    .btn-outline-primary {
+      color: var(--deep-green);
+      border-color: var(--deep-green);
+      padding: 12px 28px;
+      border-radius: 30px;
+      font-weight: 700;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-outline-primary:hover {
+      background-color: var(--deep-green);
+      color: var(--pure-white);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    
+    .hero-section {
+      background: linear-gradient(rgba(0, 100, 0, 0.7), rgba(0, 100, 0, 0.7)), 
+                  url('https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      color: var(--pure-white);
+      padding: 100px 0;
+      text-align: center;
+    }
+    
+    .hero-content h1 {
+      color: var(--pure-white);
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+    
+    .hero-content p {
+      font-size: 1.3rem;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      color: rgba(255,255,255,0.9);
+    }
+    
+    .section-title {
+      position: relative;
+      padding-bottom: 20px;
+      margin-bottom: 40px;
+    }
+    
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background-color: var(--deep-green);
+    }
+    
+    .intro-section {
+      padding: 100px 0;
+      background-color: var(--warm-beige);
+    }
+    
+    .opportunities-section {
+      padding: 100px 0;
+      background-color: var(--pure-white);
+    }
+    
+    .opportunity-card {
+      background-color: var(--light-green);
+      border-radius: 15px;
+      padding: 30px;
+      height: 100%;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+    
+    .opportunity-card:hover {
+      transform: translateY(-10px);
+      border-color: var(--deep-green);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+    }
+    
+    .opportunity-icon {
+      font-size: 2.5rem;
+      color: var(--deep-green);
+      margin-bottom: 20px;
+    }
+    
+    .volunteer-section {
+      padding: 100px 0;
+      background-color: var(--warm-beige);
+    }
+    
+    .volunteer-card {
+      background-color: var(--pure-white);
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      height: 100%;
+      text-align: center;
+    }
+    
+    .volunteer-img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 20px;
+      border: 3px solid var(--deep-green);
+    }
+    
+    .form-section {
+      padding: 100px 0;
+      background-color: var(--pure-white);
+    }
+    
+    .form-card {
+      background-color: var(--warm-beige);
+      border-radius: 15px;
+      padding: 40px;
+    }
+    
+    .form-card .form-control {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 12px 15px;
+      margin-bottom: 20px;
+      transition: all 0.3s ease;
+    }
+    
+    .form-card .form-control:focus {
+      border-color: var(--deep-green);
+      box-shadow: 0 0 0 0.25rem rgba(0, 100, 0, 0.1);
+    }
+    
+    .form-card textarea {
+      min-height: 150px;
+    }
+    
+    .benefits-section {
+      padding: 100px 0;
+      background: linear-gradient(rgba(0, 100, 0, 0.9), rgba(0, 100, 0, 0.9)), 
+                  url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+      color: var(--pure-white);
+    }
+    
+    .benefit-card {
+      background-color: rgba(255,255,255,0.1);
+      border-radius: 15px;
+      padding: 30px;
+      height: 100%;
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+    
+    .benefit-card:hover {
+      background-color: rgba(255,255,255,0.15);
+      transform: translateY(-5px);
+    }
+    
+    .benefit-icon {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: var(--warm-beige);
+    }
+    
+    .footer {
+      background-color: var(--deep-green);
+      color: var(--warm-beige);
+      padding: 60px 0 30px;
+    }
+    
+    .footer-title {
+      color: var(--pure-white);
+      margin-bottom: 25px;
+      font-weight: 700;
+    }
+    
+    .footer-links a {
+      color: rgba(245, 245, 220, 0.8);
+      text-decoration: none;
+      display: block;
+      margin-bottom: 12px;
+      transition: all 0.3s ease;
+    }
+    
+    .footer-links a:hover {
+      color: var(--pure-white);
+      padding-left: 5px;
+    }
+    
+    .social-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 45px;
+      height: 45px;
+      background-color: rgba(245, 245, 220, 0.1);
+      color: var(--warm-beige);
+      border-radius: 50%;
+      margin-right: 12px;
+      transition: all 0.3s ease;
+    }
+    
+    .social-icon:hover {
+      background-color: var(--warm-beige);
+      color: var(--deep-green);
+      transform: translateY(-5px);
+    }
+    
+    .copyright {
+      border-top: 1px solid rgba(245, 245, 220, 0.2);
+      padding-top: 20px;
+      margin-top: 40px;
+      text-align: center;
+      color: rgba(245, 245, 220, 0.6);
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 992px) {
+      .hero-content h1 {
+        font-size: 2.8rem;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .hero-content h1 {
+        font-size: 2.4rem;
+      }
+      
+      .hero-content p {
+        font-size: 1.1rem;
+      }
+      
+      .navbar-brand {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">HopeFund</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about-us.html">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="causes.html">Causes</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="programsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Programs
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="programsDropdown">
+              <li><a class="dropdown-item" href="healthcare-support.html">Healthcare Support</a></li>
+              <li><a class="dropdown-item" href="education-for-all.html">Education for All</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="volunteer.html">Volunteer</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact-us.html">Contact Us</a>
+          </li>
+          <li class="nav-item ms-lg-3">
+            <a class="btn btn-outline-light" href="donate.html">Donate Now</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="hero-content">
+            <h1>Be the Difference</h1>
+            <p>Join our team of passionate volunteers and bring help where it's needed most</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Intro Section -->
+  <section class="intro-section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center">
+          <p class="lead fs-4">When you volunteer with <strong>HopeFund</strong>, you don't just show up — you stand up. For dignity, for equity, for progress. Whether in a remote village or an urban classroom, your time and talent become the engine of transformation.</p>
+          <div class="mt-5 bg-white p-4 rounded-3 shadow-sm">
+            <h3 class="mb-0">Because when you give your time, you give your heart — and that changes everything.</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Opportunities Section -->
+  <section class="opportunities-section">
+    <div class="container">
+      <div class="row justify-content-center mb-5">
+        <div class="col-lg-8 text-center">
+          <h2 class="section-title">Volunteer Opportunities</h2>
+          <p class="lead">Find the perfect way to contribute your time and talents</p>
+        </div>
+      </div>
+      
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3">
+          <div class="opportunity-card">
+            <div class="opportunity-icon">
+              <i class="bi bi-heart-pulse"></i>
+            </div>
+            <h4>Medical Support</h4>
+            <p>Assist in mobile clinics, health camps, and awareness campaigns.</p>
+            <ul class="list-group list-group-flush mt-3">
+              <li class="list-group-item ps-0 border-0"><i class="bi bi-check-circle-fill text-success me-2"></i> Camp assistance</li>
+              <li class="list-group-item ps-0 border-0"><i class="bi bi-check-circle-fill text-success me-2"></i> Health awareness drives</li>
+              <li class="list-group-item ps-0 border-0"><i class="bi bi-check-circle-fill text-success me-2"></i> Patient support</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-3">
+          <div class="opportunity-card">
+            <div class="opportunity-icon">
+              <i class="bi bi-journal-bookmark"></i>
+            </div>
+            <h4>Education</h4>
+            <p>Help children learn through mentoring, tutoring, and outreach.</p>
+            <ul class="list-group list-group-flush mt-3">
+              <li class="list-group-item ps-0 border-0"><i class="bi bi-check-circle-fill text-success me-2"></i> Mentoring students</li>
+              <li class="list-group-item ps-0 border-0"><i class="bi bi-check-circle-fill text-success me-2"></i> Tutoring programs</li>
+              <li class="list-group-item ps-0 border-0"><i class="bi bi-check-circle-fill text-success me-2"></i> School enrollment outreach</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-3">
+          <div class="opportunity-card">
+            <div class="opportunity-icon">
+              <i class="bi bi-box-seam"></i>
+            </div>
+            <h4>Logistics</h4>
+            <p>Support our operations through packing and distribution.</p>
+            <ul class="list-group list-group-flush mt-3">
+              <li class="list-group-item ps-0 border-0"><i class="bi bi-check-circle-fill text-success me-2"></i> Kit packing</li>
+              <li class="list-group-item ps-0 border-0"><i class="bi bi-check-circle-fill text-success me-2"></i> Relief distribution</li>
+              <li class="list-group-item ps-0 border-0"><i class="bi bi-check-circle-fill text-success me-2"></i> Supply management</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-3">
+          <div class="opportunity-card">
+            <div class="opportunity-icon">
+              <i class="bi bi-megaphone"></i>
+            </div>
+            <h4>Content & Advocacy</h4>
+            <p>Help spread our message through creative and communication skills.</p>
+            <ul class="list-group list-group-flush mt-3">
+              <li class="list-group-item ps-0 border-0"><i class="bi bi-check-circle-fill text-success me-2"></i> Photography/videography</li>
+              <li class="list-group-item ps-0 border-0"><i class="bi bi-check-circle-fill text-success me-2"></i> Social media management</li>
+              <li class="list-group-item ps-0 border-0"><i class="bi bi-check-circle-fill text-success me-2"></i> Fundraising support</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who Can Volunteer -->
+  <section class="volunteer-section">
+    <div class="container">
+      <div class="row justify-content-center mb-5">
+        <div class="col-lg-8 text-center">
+          <h2 class="section-title">Who Can Volunteer</h2>
+          <p class="lead">We welcome volunteers from all walks of life</p>
+        </div>
+      </div>
+      
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="volunteer-card">
+            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" class="volunteer-img" alt="Students">
+            <h4>Students</h4>
+            <p>Gain valuable experience while making a difference. Perfect for service hours or internships.</p>
+          </div>
+        </div>
+        
+        <div class="col-md-4">
+          <div class="volunteer-card">
+            <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" class="volunteer-img" alt="Professionals">
+            <h4>Professionals</h4>
+            <p>Share your expertise and skills to empower communities and create lasting impact.</p>
+          </div>
+        </div>
+        
+        <div class="col-md-4">
+          <div class="volunteer-card">
+            <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" class="volunteer-img" alt="Groups">
+            <h4>Groups</h4>
+            <p>Corporate teams, community organizations, and families - volunteer together and strengthen bonds.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row mt-5">
+        <div class="col-lg-8 mx-auto">
+          <div class="bg-white p-4 rounded-3 shadow-sm text-center">
+            <p class="lead mb-0">We welcome individuals who bring commitment, compassion, and curiosity. No prior experience needed — just a willingness to serve.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section class="benefits-section">
+    <div class="container">
+      <div class="row justify-content-center mb-5">
+        <div class="col-lg-8 text-center">
+          <h2 class="section-title">Why Volunteer With Us</h2>
+          <p class="lead">Experience the rewards of making a real difference</p>
+        </div>
+      </div>
+      
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <i class="bi bi-people"></i>
+            </div>
+            <h4>Community</h4>
+            <p>Join a network of passionate individuals working towards a common goal.</p>
+          </div>
+        </div>
+        
+        <div class="col-md-4">
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <i class="bi bi-lightbulb"></i>
+            </div>
+            <h4>Growth</h4>
+            <p>Develop new skills and gain valuable experience in the social sector.</p>
+          </div>
+        </div>
+        
+        <div class="col-md-4">
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <i class="bi bi-heart"></i>
+            </div>
+            <h4>Impact</h4>
+            <p>See the direct results of your efforts in transforming lives.</p>
+          </div>
+        </div>
+        
+        <div class="col-md-4">
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <i class="bi bi-calendar-check"></i>
+            </div>
+            <h4>Flexibility</h4>
+            <p>Volunteer on your schedule with opportunities that fit your availability.</p>
+          </div>
+        </div>
+        
+        <div class="col-md-4">
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <i class="bi bi-globe"></i>
+            </div>
+            <h4>Perspective</h4>
+            <p>Gain new insights and understanding of community needs and solutions.</p>
+          </div>
+        </div>
+        
+        <div class="col-md-4">
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <i class="bi bi-award"></i>
+            </div>
+            <h4>Recognition</h4>
+            <p>Receive certificates and references for your valuable contribution.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Form Section -->
+  <section class="form-section" id="volunteer-form">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="form-card">
+            <h2 class="section-title text-center">Join Our Volunteer Team</h2>
+            <p class="text-center mb-4">Complete this form and our volunteer coordinator will contact you with opportunities</p>
+            
+            <form>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="mb-3">
+                    <label for="firstName" class="form-label">First Name</label>
+                    <input type="text" class="form-control" id="firstName" required>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="mb-3">
+                    <label for="lastName" class="form-label">Last Name</label>
+                    <input type="text" class="form-control" id="lastName" required>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="mb-3">
+                <label for="email" class="form-label">Email Address</label>
+                <input type="email" class="form-control" id="email" required>
+              </div>
+              
+              <div class="mb-3">
+                <label for="phone" class="form-label">Phone Number</label>
+                <input type="tel" class="form-control" id="phone">
+              </div>
+              
+              <div class="mb-3">
+                <label for="location" class="form-label">Location</label>
+                <input type="text" class="form-control" id="location" placeholder="City, State">
+              </div>
+              
+              <div class="mb-4">
+                <label class="form-label">Areas of Interest</label>
+                <div class="d-flex flex-wrap gap-2">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="medical">
+                    <label class="form-check-label" for="medical">Medical Support</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="education">
+                    <label class="form-check-label" for="education">Education</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="logistics">
+                    <label class="form-check-label" for="logistics">Logistics</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="content">
+                    <label class="form-check-label" for="content">Content & Advocacy</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="other">
+                    <label class="form-check-label" for="other">Other</label>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="mb-4">
+                <label for="availability" class="form-label">Availability</label>
+                <select class="form-select" id="availability">
+                  <option selected>Select your availability</option>
+                  <option>Weekdays</option>
+                  <option>Weekends</option>
+                  <option>Occasional/Events</option>
+                  <option>Full-time (temporary)</option>
+                  <option>Flexible</option>
+                </select>
+              </div>
+              
+              <div class="mb-4">
+                <label for="skills" class="form-label">Skills & Experience</label>
+                <textarea class="form-control" id="skills" placeholder="Briefly describe your skills, experience, or any special qualifications"></textarea>
+              </div>
+              
+              <div class="mb-4">
+                <label for="motivation" class="form-label">Why do you want to volunteer with HopeFund?</label>
+                <textarea class="form-control" id="motivation"></textarea>
+              </div>
+              
+              <div class="form-check mb-4">
+                <input class="form-check-input" type="checkbox" id="terms" required>
+                <label class="form-check-label" for="terms">
+                  I agree to the <a href="#">terms and conditions</a> and understand that this is a volunteer position.
+                </label>
+              </div>
+              
+              <button type="submit" class="btn btn-primary w-100">Submit Volunteer Application</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-4">
+          <h3 class="footer-title">HopeFund</h3>
+          <p class="mb-4">Empowering communities through healthcare and education initiatives since 2017. Together, we're building a future full of hope.</p>
+          <div class="d-flex">
+            <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="social-icon"><i class="bi bi-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+        
+        <div class="col-lg-2 col-md-4">
+          <h5 class="footer-title">Quick Links</h5>
+          <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="about-us.html">About Us</a>
+            <a href="causes.html">Our Causes</a>
+            <a href="healthcare-support.html">Healthcare</a>
+            <a href="education-for-all.html">Education</a>
+          </div>
+        </div>
+        
+        <div class="col-lg-2 col-md-4">
+          <h5 class="footer-title">Get Involved</h5>
+          <div class="footer-links">
+            <a href="donate.html">Donate</a>
+            <a href="volunteer.html">Volunteer</a>
+            <a href="contact-us.html">Partner With Us</a>
+            <a href="contact-us.html">Careers</a>
+            <a href="#">Fundraise</a>
+          </div>
+        </div>
+        
+        <div class="col-lg-4 col-md-4">
+          <h5 class="footer-title">Contact Us</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><i class="bi bi-geo-alt me-2"></i> 123 Hope Street, Community Center, City 10001</li>
+            <li class="mb-2"><i class="bi bi-telephone me-2"></i> +1 (555) 123-4567</li>
+            <li class="mb-2"><i class="bi bi-envelope me-2"></i> info@hopefund.org</li>
+          </ul>
+          <form class="mt-3">
+            <div class="input-group">
+              <input type="email" class="form-control" placeholder="Your Email" aria-label="Your Email">
+              <button class="btn btn-light" type="button">Subscribe</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      
+      <div class="copyright">
+        <p class="mb-0">&copy; 2025 HopeFund. All Rights Reserved. | Empowering Lives, Together.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
