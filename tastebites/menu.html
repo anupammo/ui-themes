@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu | TasteBites - Savor The Flavor</title>
+    
+    <!-- Meta Description -->
+    <meta name="description" content="Explore the TasteBites menu, featuring gourmet starters, delicious main courses, indulgent desserts, and handcrafted drinks.">
+    
+    <!-- Keywords -->
+    <meta name="keywords" content="TasteBites menu, starters, main course, desserts, drinks, restaurant specials, gourmet dishes">
+    
+    <!-- Robots Meta Tag -->
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Menu | TasteBites - Savor The Flavor">
+    <meta property="og:description" content="Savor the finest flavors with TasteBites. Browse our menu for gourmet starters, delicious main courses, indulgent desserts, and refreshing drinks.">
+    <meta property="og:type" content="website">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <style>
+        :root {
+            --rustic-brown: #8b4513;
+            --cream: #fff8dc;
+            --olive: #808000;
+            --light-olive: #a8a84d;
+            --dark-brown: #5a2d0c;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--cream);
+            color: #333;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, .navbar-brand, .display-title {
+            font-family: 'Great Vibes', cursive;
+            color: var(--rustic-brown);
+        }
+        
+        .btn-primary {
+            background-color: var(--rustic-brown);
+            border-color: var(--dark-brown);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--dark-brown);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .btn-outline-primary {
+            color: var(--rustic-brown);
+            border-color: var(--rustic-brown);
+        }
+        
+        .btn-outline-primary:hover {
+            background-color: var(--rustic-brown);
+            color: white;
+        }
+        
+        .section {
+            padding: 5rem 0;
+        }
+        
+        .menu-hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+            background-size: cover;
+            background-position: center;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .navbar {
+            background-color: rgba(139, 69, 19, 0.95) !important;
+            transition: all 0.5s ease;
+        }
+        
+        .navbar.scrolled {
+            background-color: rgba(139, 69, 19, 0.95) !important;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-brand {
+            font-size: 2rem;
+            color: var(--cream) !important;
+        }
+        
+        .nav-link {
+            color: rgba(255, 248, 220, 0.85) !important;
+            font-weight: 600;
+            margin: 0 10px;
+            position: relative;
+        }
+        
+        .nav-link:hover {
+            color: white !important;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--cream);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .display-title {
+            font-size: 4.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .menu-intro {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .menu-category {
+            position: relative;
+            margin-bottom: 4rem;
+        }
+        
+        .menu-category-title {
+            position: relative;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        
+        .menu-category-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--rustic-brown);
+        }
+        
+        .menu-item {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        
+        .menu-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+        
+        .menu-item-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+        
+        .menu-item-content {
+            padding: 1.5rem;
+        }
+        
+        .menu-item-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 1.8rem;
+            color: var(--rustic-brown);
+            margin-bottom: 0.5rem;
+        }
+        
+        .menu-item-price {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: var(--rustic-brown);
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+        
+        .special-badge {
+            position: absolute;
+            top: 1.5rem;
+            left: 1.5rem;
+            background: var(--olive);
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            z-index: 10;
+        }
+        
+        .drink-category {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+        }
+        
+        .drink-item {
+            padding: 1rem 0;
+            border-bottom: 1px dashed #eee;
+        }
+        
+        .drink-item:last-child {
+            border-bottom: none;
+        }
+        
+        .experience-section {
+            background: linear-gradient(rgba(139, 69, 19, 0.9), rgba(128, 128, 0, 0.9)), url('https://images.pexels.com/photos/3186654/pexels-photo-3186654.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            border-radius: 10px;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        
+        .footer {
+            background-color: var(--rustic-brown);
+            color: var(--cream);
+            padding: 3rem 0;
+        }
+        
+        .footer a {
+            color: var(--cream);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        .menu-tabs {
+            margin-bottom: 3rem;
+            border-bottom: 1px solid #eee;
+            justify-content: center;
+        }
+        
+        .menu-tabs .nav-link {
+            color: var(--rustic-brown) !important;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            margin: 0 5px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .menu-tabs .nav-link.active {
+            background-color: var(--rustic-brown);
+            color: white !important;
+        }
+        
+        .menu-tabs .nav-link:hover:not(.active) {
+            background-color: rgba(139, 69, 19, 0.1);
+        }
+        
+        @media (max-width: 768px) {
+            .display-title {
+                font-size: 3rem;
+            }
+            
+            .section {
+                padding: 3rem 0;
+            }
+            
+            .menu-hero {
+                height: 50vh;
+            }
+            
+            .menu-item-img {
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">TasteBites</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="menu.html">Menu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="reservations.html">Reservations</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact-us.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="menu-hero">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-10 col-lg-8">
+                    <h1 class="display-title">TasteBites Menu</h1>
+                    <p class="lead">Savor The Flavor</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Introduction -->
+    <section class="section">
+        <div class="container">
+            <div class="menu-intro">
+                <p class="lead">At <strong>TasteBites</strong>, we craft each dish with <strong>fresh, high-quality ingredients</strong> to bring you the <strong>ultimate dining experience</strong>. Whether you're looking for light bites, hearty meals, or a sweet treat, our menu has something for everyone.</p>
+            </div>
+            
+            <!-- Menu Navigation Tabs -->
+            <ul class="nav menu-tabs" id="menuTabs">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#starters">Starters</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#mains">Main Course</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#desserts">Desserts</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#drinks">Drinks</a>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Starters Section -->
+    <section class="section bg-light" id="starters">
+        <div class="container">
+            <div class="menu-category">
+                <h2 class="menu-category-title">Starters: Kickstart Your Culinary Journey</h2>
+                
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="menu-item">
+                            <div class="position-relative">
+                                <img src="https://images.pexels.com/photos/1251208/pexels-photo-1251208.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Classic Bruschetta" class="menu-item-img">
+                                <div class="menu-item-price">$9.95</div>
+                            </div>
+                            <div class="menu-item-content">
+                                <h3 class="menu-item-title">Classic Bruschetta</h3>
+                                <p>Fresh tomatoes, basil, and balsamic glaze on toasted artisan bread.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="menu-item">
+                            <div class="position-relative">
+                                <img src="https://images.pexels.com/photos/3616956/pexels-photo-3616956.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Crispy Calamari" class="menu-item-img">
+                                <div class="menu-item-price">$12.95</div>
+                                <div class="special-badge">Chef's Pick</div>
+                            </div>
+                            <div class="menu-item-content">
+                                <h3 class="menu-item-title">Crispy Calamari</h3>
+                                <p>Golden-fried calamari rings served with zesty lemon aioli.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="menu-item">
+                            <div class="position-relative">
+                                <img src="https://images.pexels.com/photos/539451/pexels-photo-539451.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Gourmet Soup Selection" class="menu-item-img">
+                                <div class="menu-item-price">$8.95</div>
+                            </div>
+                            <div class="menu-item-content">
+                                <h3 class="menu-item-title">Gourmet Soup Selection</h3>
+                                <p>Choose from hearty tomato bisque, creamy mushroom soup, or spicy lentil broth.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="menu-item">
+                            <div class="position-relative">
+                                <img src="https://images.pexels.com/photos/769289/pexels-photo-769289.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Mushroom Crostini" class="menu-item-img">
+                                <div class="menu-item-price">$10.95</div>
+                            </div>
+                            <div class="menu-item-content">
+                                <h3 class="menu-item-title">Truffle Mushroom Crostini</h3>
+                                <p>Sautéed wild mushrooms with truffle oil on crispy crostini.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="menu-item">
+                            <div class="position-relative">
+                                <img src="https://images.pexels.com/photos/674574/pexels-photo-674574.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Caprese Salad" class="menu-item-img">
+                                <div class="menu-item-price">$11.95</div>
+                            </div>
+                            <div class="menu-item-content">
+                                <h3 class="menu-item-title">Caprese Salad</h3>
+                                <p>Fresh mozzarella, tomatoes, and basil drizzled with balsamic reduction.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="menu-item">
+                            <div class="position-relative">
+                                <img src="https://images.pexels.com/photos/718742/pexels-photo-718742.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Stuffed Mushrooms" class="menu-item-img">
+                                <div class="menu-item-price">$10.95</div>
+                            </div>
+                            <div class="menu-item-content">
+                                <h3 class="menu-item-title">Stuffed Mushrooms</h3>
+                                <p>Mushroom caps filled with herbed cream cheese and breadcrumbs.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Course Section -->
+    <section class="section" id="mains">
+        <div class="container">
+            <div class="menu-category">
+                <h2 class="menu-category-title">Main Course: Deliciously Crafted Entrees</h2>
+                
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="menu-item">
+                            <div class="position-relative">
+                                <img src="https://images.pexels.com/photos/699953/pexels-photo-699953.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Grilled Herb Chicken" class="menu-item-img">
+                                <div class="menu-item-price">$22.95</div>
+                                <div class="special-badge">Popular</div>
+                            </div>
+                            <div class="menu-item-content">
+                                <h3 class="menu-item-title">Grilled Herb Chicken</h3>
+                                <p>Marinated chicken breast, roasted vegetables, and garlic mashed potatoes.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="menu-item">
+                            <div class="position-relative">
+                                <img src="https://images.pexels.com/photos/1279330/pexels-photo-1279330.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Seafood Linguine" class="menu-item-img">
+                                <div class="menu-item-price">$26.95</div>
+                            </div>
+                            <div class="menu-item-content">
+                                <h3 class="menu-item-title">Seafood Linguine</h3>
+                                <p>Fresh prawns, mussels, and calamari tossed in a white wine sauce.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="menu-item">
+                            <div class="position-relative">
+                                <img src="https://images.pexels.com/photos/2474661/pexels-photo-2474661.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Vegetarian Risotto" class="menu-item-img">
+                                <div class="menu-item-price">$19.95</div>
+                            </div>
+                            <div class="menu-item-content">
+                                <h3 class="menu-item-title">Vegetarian Risotto</h3>
+                                <p>Creamy arborio rice with sautéed mushrooms, spinach, and parmesan.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="menu-item">
+                            <div class="position-relative">
+                                <img src="https://images.pexels.com/photos/1624487/pexels-photo-1624487.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Grilled Salmon" class="menu-item-img">
+                                <div class="menu-item-price">$24.95</div>
+                                <div class="special-badge">Chef's Pick</div>
+                            </div>
+                            <div class="menu-item-content">
+                                <h3 class="menu-item-title">Grilled Salmon</h3>
+                                <p>Wild-caught salmon with lemon-dill sauce and seasonal vegetables.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="menu-item">
+                            <div class="position-relative">
+                                <img src="https://images.pexels.com/photos/410648/pexels-photo-410648.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Filet Mignon" class="menu-item-img">
+                                <div class="menu-item-price">$32.95</div>
+                            </div>
+                            <div class="menu-item-content">
+                                <h3 class="menu-item-title">Filet Mignon</h3>
+                                <p>8oz premium beef tenderloin with red wine reduction and truffle mashed potatoes.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="menu-item">
+                            <div class="position-relative">
+                                <img src="https://images.pexels.com/photos/718742/pexels-photo-718742.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Eggplant Parmesan" class="menu-item-img">
+                                <div class="menu-item-price">$18.95</div>
+                            </div>
+                            <div class="menu-item-content">
+                                <h3 class="menu-item-title">Eggplant Parmesan</h3>
+                                <p>Breaded eggplant layered with mozzarella and marinara sauce.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Desserts Section -->
+    <section class="section bg-light" id="desserts">
+        <div class="container">
+            <div class="menu-category">
+                <h2 class="menu-category-title">Desserts: Indulgence at Its Finest</h2>
+                
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="menu-item">
+                            <div class="position-relative">
+                                <img src="https://images.pexels.com/photos/3026804/pexels-photo-3026804.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Molten Chocolate Lava Cake" class="menu-item-img">
+                                <div class="menu-item-price">$9.95</div>
+                                <div class="special-badge">Popular</div>
+                            </div>
+                            <div class="menu-item-content">
+                                <h3 class="menu-item-title">Molten Chocolate Lava Cake</h3>
+                                <p>Rich chocolate cake with a gooey center, served with vanilla ice cream.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="menu-item">
+                            <div class="position-relative">
+                                <img src="https://images.pexels.com/photos/132694/pexels-photo-132694.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Classic Cheesecake" class="menu-item-img">
+                                <div class="menu-item-price">$8.95</div>
+                            </div>
+                            <div class="menu-item-content">
+                                <h3 class="menu-item-title">Classic Cheesecake</h3>
+                                <p>Velvety cheesecake topped with fresh berry compote.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="menu-item">
+                            <div class="position-relative">
+                                <img src="https://images.pexels.com/photos/2067396/pexels-photo-2067396.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Crème Brûlée" class="menu-item-img">
+                                <div class="menu-item-price">$8.95</div>
+                            </div>
+                            <div class="menu-item-content">
+                                <h3 class="menu-item-title">Crème Brûlée</h3>
+                                <p>Silky custard with a perfectly caramelized sugar crust.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="menu-item">
+                            <div class="position-relative">
+                                <img src="https://images.pexels.com/photos/410999/pexels-photo-410999.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Tiramisu" class="menu-item-img">
+                                <div class="menu-item-price">$9.95</div>
+                            </div>
+                            <div class="menu-item-content">
+                                <h3 class="menu-item-title">Tiramisu</h3>
+                                <p>Classic Italian dessert with espresso-soaked ladyfingers and mascarpone.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="menu-item">
+                            <div class="position-relative">
+                                <img src="https://images.pexels.com/photos/132197/pexels-photo-132197.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Fruit Tart" class="menu-item-img">
+                                <div class="menu-item-price">$8.95</div>
+                                <div class="special-badge">Seasonal</div>
+                            </div>
+                            <div class="menu-item-content">
+                                <h3 class="menu-item-title">Seasonal Fruit Tart</h3>
+                                <p>Buttery pastry filled with vanilla custard and topped with fresh fruits.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="menu-item">
+                            <div class="position-relative">
+                                <img src="https://images.pexels.com/photos/2955820/pexels-photo-2955820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Chocolate Mousse" class="menu-item-img">
+                                <div class="menu-item-price">$8.95</div>
+                            </div>
+                            <div class="menu-item-content">
+                                <h3 class="menu-item-title">Chocolate Mousse</h3>
+                                <p>Rich dark chocolate mousse topped with whipped cream.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Drinks Section -->
+    <section class="section" id="drinks">
+        <div class="container">
+            <div class="menu-category">
+                <h2 class="menu-category-title">Drinks: Refresh & Unwind</h2>
+                
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="drink-category">
+                            <h3 class="mb-4">Signature Cocktails</h3>
+                            <p>Enjoy handcrafted cocktails made with premium spirits and fresh ingredients.</p>
+                            
+                            <div class="drink-item">
+                                <div class="d-flex justify-content-between">
+                                    <h4>TasteBites Mule</h4>
+                                    <span>$12.95</span>
+                                </div>
+                                <p>Premium vodka, ginger beer, lime juice, and fresh mint</p>
+                            </div>
+                            
+                            <div class="drink-item">
+                                <div class="d-flex justify-content-between">
+                                    <h4>Berry Mojito</h4>
+                                    <span>$13.95</span>
+                                </div>
+                                <p>White rum, mixed berries, mint, lime juice, and soda</p>
+                            </div>
+                            
+                            <div class="drink-item">
+                                <div class="d-flex justify-content-between">
+                                    <h4>Olive Garden Martini</h4>
+                                    <span>$14.95</span>
+                                </div>
+                                <p>Gin, dry vermouth, and a hint of olive brine</p>
+                            </div>
+                            
+                            <div class="drink-item">
+                                <div class="d-flex justify-content-between">
+                                    <h4>Rustic Old Fashioned</h4>
+                                    <span>$15.95</span>
+                                </div>
+                                <p>Bourbon, sugar, bitters, and an orange twist</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 mb-4">
+                        <div class="drink-category">
+                            <h3 class="mb-4">Freshly Brewed Coffees & Teas</h3>
+                            <p>Choose from rich espresso blends, herbal teas, and specialty lattes.</p>
+                            
+                            <div class="drink-item">
+                                <div class="d-flex justify-content-between">
+                                    <h4>Espresso</h4>
+                                    <span>$3.95</span>
+                                </div>
+                                <p>Rich and intense Italian-style espresso</p>
+                            </div>
+                            
+                            <div class="drink-item">
+                                <div class="d-flex justify-content-between">
+                                    <h4>Cappuccino</h4>
+                                    <span>$4.95</span>
+                                </div>
+                                <p>Espresso with steamed milk and foam</p>
+                            </div>
+                            
+                            <div class="drink-item">
+                                <div class="d-flex justify-content-between">
+                                    <h4>Herbal Tea Selection</h4>
+                                    <span>$4.50</span>
+                                </div>
+                                <p>Choose from chamomile, peppermint, or ginger</p>
+                            </div>
+                            
+                            <div class="drink-item">
+                                <div class="d-flex justify-content-between">
+                                    <h4>Vanilla Bean Latte</h4>
+                                    <span>$5.95</span>
+                                </div>
+                                <p>Espresso with steamed milk and vanilla bean syrup</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 mb-4">
+                        <div class="drink-category">
+                            <h3 class="mb-4">Mocktails & Smoothies</h3>
+                            <p>Delicious non-alcoholic mocktails and fruit smoothies bursting with flavor.</p>
+                            
+                            <div class="drink-item">
+                                <div class="d-flex justify-content-between">
+                                    <h4>Berry Bliss</h4>
+                                    <span>$7.95</span>
+                                </div>
+                                <p>Mixed berries, yogurt, and honey</p>
+                            </div>
+                            
+                            <div class="drink-item">
+                                <div class="d-flex justify-content-between">
+                                    <h4>Tropical Sunset</h4>
+                                    <span>$7.95</span>
+                                </div>
+                                <p>Pineapple, mango, orange juice, and coconut water</p>
+                            </div>
+                            
+                            <div class="drink-item">
+                                <div class="d-flex justify-content-between">
+                                    <h4>Virgin Mojito</h4>
+                                    <span>$6.95</span>
+                                </div>
+                                <p>Fresh mint, lime juice, sugar, and soda water</p>
+                            </div>
+                            
+                            <div class="drink-item">
+                                <div class="d-flex justify-content-between">
+                                    <h4>Green Detox</h4>
+                                    <span>$8.95</span>
+                                </div>
+                                <p>Spinach, kale, apple, cucumber, and lemon</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 mb-4">
+                        <div class="drink-category">
+                            <h3 class="mb-4">Wine Selection</h3>
+                            <p>Carefully curated wines to complement your meal.</p>
+                            
+                            <div class="drink-item">
+                                <div class="d-flex justify-content-between">
+                                    <h4>House Red (Glass)</h4>
+                                    <span>$9.95</span>
+                                </div>
+                                <p>Medium-bodied Cabernet Sauvignon</p>
+                            </div>
+                            
+                            <div class="drink-item">
+                                <div class="d-flex justify-content-between">
+                                    <h4>House White (Glass)</h4>
+                                    <span>$9.95</span>
+                                </div>
+                                <p>Crisp and refreshing Sauvignon Blanc</p>
+                            </div>
+                            
+                            <div class="drink-item">
+                                <div class="d-flex justify-content-between">
+                                    <h4>Prosecco (Bottle)</h4>
+                                    <span>$38.95</span>
+                                </div>
+                                <p>Italian sparkling wine</p>
+                            </div>
+                            
+                            <div class="drink-item">
+                                <div class="d-flex justify-content-between">
+                                    <h4>Pinot Noir (Bottle)</h4>
+                                    <span>$45.95</span>
+                                </div>
+                                <p>Elegant and complex red wine</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="section">
+        <div class="container">
+            <div class="experience-section">
+                <h2>Join Us for an Unforgettable Dining Experience</h2>
+                <p class="lead mb-4">Discover <strong>expertly crafted dishes and refreshing beverages</strong> at <strong>TasteBites</strong>. Reserve your table now and experience the <strong>best in gourmet dining</strong>.</p>
+                <a href="reservations.html" class="btn btn-light btn-lg px-5">Make a Reservation</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h3 class="mb-3">TasteBites</h3>
+                    <p class="mb-4">Savor the tradition of exceptional cuisine in a warm, inviting atmosphere where every meal tells a story.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h4 class="mb-3">Quick Links</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html">Home</a></li>
+                        <li class="mb-2"><a href="menu.html">Our Menu</a></li>
+                        <li class="mb-2"><a href="gallery.html">Gallery</a></li>
+                        <li class="mb-2"><a href="reservations.html">Reservations</a></li>
+                        <li class="mb-2"><a href="contact-us.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-4">
+                    <h4 class="mb-3">Opening Hours</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">Monday - Thursday: 11:00 AM - 10:00 PM</li>
+                        <li class="mb-2">Friday - Saturday: 11:00 AM - 11:00 PM</li>
+                        <li class="mb-2">Sunday: 10:00 AM - 9:00 PM</li>
+                        <li class="mb-2">Brunch: Saturday & Sunday 10:00 AM - 2:00 PM</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <hr class="mt-4 mb-4" style="border-color: rgba(255,255,255,0.1);">
+            
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2025 TasteBites. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="mb-0">Designed with <i class="bi bi-heart-fill text-danger"></i> for food lovers</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Tab functionality
+        const triggerTabList = document.querySelectorAll('#menuTabs a')
+        triggerTabList.forEach(triggerEl => {
+            const tabTrigger = new bootstrap.Tab(triggerEl)
+            
+            triggerEl.addEventListener('click', event => {
+                event.preventDefault()
+                tabTrigger.show()
+            })
+        });
+        
+        // Menu item hover effect
+        document.querySelectorAll('.menu-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px)';
+                this.style.boxShadow = '0 15px 40px rgba(0,0,0,0.1)';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+                this.style.boxShadow = '0 10px 30px rgba(0,0,0,0.05)';
+            });
+        });
+    </script>
+</body>
+</html>
