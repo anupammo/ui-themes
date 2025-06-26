@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | FixItPro – Reach Out for Reliable Help</title>
+  <meta name="description" content="Have questions about a service or booking? Contact FixItPro by phone, email, or message — our team is here to help you fix it right.">
+  <meta name="keywords" content="FixItPro contact, get in touch, home service support, call technician, repair service help, service center contact, schedule plumber electrician">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+  
+  <style>
+    :root {
+      --deep-blue: #001f3f;
+      --bright-orange: #ff7300;
+      --white: #ffffff;
+      --light-gray: #f8f9fa;
+      --medium-gray: #e9ecef;
+    }
+    
+    body {
+      font-family: 'Roboto', sans-serif;
+      color: #333;
+      line-height: 1.6;
+      background-color: #f5f7fa;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Work Sans', sans-serif;
+      font-weight: 700;
+    }
+    
+    .bg-deep-blue {
+      background-color: var(--deep-blue);
+    }
+    
+    .bg-bright-orange {
+      background-color: var(--bright-orange);
+    }
+    
+    .text-bright-orange {
+      color: var(--bright-orange);
+    }
+    
+    .btn-primary {
+      background-color: var(--bright-orange);
+      border-color: var(--bright-orange);
+      padding: 12px 28px;
+      font-weight: 600;
+      border-radius: 30px;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-primary:hover {
+      background-color: #e06500;
+      border-color: #e06500;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(255, 115, 0, 0.3);
+    }
+    
+    .btn-outline-primary {
+      color: var(--bright-orange);
+      border-color: var(--bright-orange);
+      border-radius: 30px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-outline-primary:hover {
+      background-color: var(--bright-orange);
+      color: var(--white);
+      transform: translateY(-3px);
+    }
+    
+    .hero-section {
+      background: linear-gradient(rgba(0, 31, 63, 0.85), rgba(0, 31, 63, 0.9)), url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1800&q=80');
+      background-size: cover;
+      background-position: center;
+      padding: 120px 0 80px;
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .contact-card {
+      background: var(--white);
+      border-radius: 15px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    
+    .contact-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+    }
+    
+    .contact-header {
+      background: var(--deep-blue);
+      color: var(--white);
+      padding: 25px;
+      text-align: center;
+      border-bottom: 4px solid var(--bright-orange);
+    }
+    
+    .contact-body {
+      padding: 30px;
+    }
+    
+    .form-control, .form-select {
+      border: 2px solid #e1e5eb;
+      border-radius: 10px;
+      padding: 12px 15px;
+      transition: all 0.3s ease;
+    }
+    
+    .form-control:focus, .form-select:focus {
+      border-color: var(--bright-orange);
+      box-shadow: 0 0 0 0.25rem rgba(255, 115, 0, 0.2);
+    }
+    
+    .form-label {
+      font-weight: 500;
+      margin-bottom: 8px;
+      color: var(--deep-blue);
+    }
+    
+    .info-card {
+      background: var(--white);
+      border-radius: 15px;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+      padding: 30px;
+      height: 100%;
+      transition: all 0.3s ease;
+      border-top: 4px solid var(--bright-orange);
+    }
+    
+    .info-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    }
+    
+    .info-icon {
+      font-size: 2.5rem;
+      color: var(--bright-orange);
+      margin-bottom: 20px;
+      background: rgba(255, 115, 0, 0.1);
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .contact-map {
+      border-radius: 15px;
+      overflow: hidden;
+      height: 100%;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+    
+    .contact-map:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+    
+    .contact-map iframe {
+      width: 100%;
+      height: 300px;
+      border: none;
+    }
+    
+    .trust-badge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      background: rgba(0, 31, 63, 0.05);
+      padding: 15px 25px;
+      border-radius: 50px;
+      margin: 20px 0;
+      max-width: 100%;
+      transition: all 0.3s ease;
+    }
+    
+    .trust-badge:hover {
+      background: rgba(0, 31, 63, 0.1);
+      transform: translateY(-3px);
+    }
+    
+    .trust-icon {
+      font-size: 1.8rem;
+      color: var(--bright-orange);
+    }
+    
+    .footer {
+      background-color: #00152e;
+      color: var(--white);
+      padding-top: 60px;
+    }
+    
+    .footer a {
+      color: #a0c1e3;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    
+    .footer a:hover {
+      color: var(--bright-orange);
+    }
+    
+    .social-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: rgba(255,255,255,0.1);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 10px;
+      transition: all 0.3s ease;
+    }
+    
+    .social-icon:hover {
+      background-color: var(--bright-orange);
+      transform: translateY(-5px);
+    }
+    
+    .navbar {
+      padding: 15px 0;
+      transition: all 0.4s ease;
+      background: var(--deep-blue);
+    }
+    
+    .navbar.scrolled {
+      padding: 8px 0;
+      background: rgba(0, 31, 63, 0.95);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .navbar-brand {
+      font-family: 'Work Sans', sans-serif;
+      font-weight: 700;
+      font-size: 1.8rem;
+    }
+    
+    .slogan {
+      font-size: 1.2rem;
+      font-weight: 300;
+      letter-spacing: 1px;
+      opacity: 0.9;
+      position: relative;
+      display: inline-block;
+      padding-left: 20px;
+    }
+    
+    .slogan::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 10px;
+      height: 10px;
+      background: var(--bright-orange);
+      border-radius: 50%;
+    }
+    
+    .nav-link {
+      font-family: 'Work Sans', sans-serif;
+      font-weight: 500;
+      position: relative;
+      padding: 8px 15px !important;
+      transition: all 0.3s ease;
+      color: rgba(255, 255, 255, 0.85);
+    }
+    
+    .nav-link:hover, .nav-link.active {
+      color: var(--white);
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background: var(--bright-orange);
+      bottom: 0;
+      left: 15px;
+      transition: width 0.3s;
+    }
+    
+    .nav-link:hover::after, .nav-link.active::after {
+      width: calc(100% - 30px);
+    }
+    
+    .section-title {
+      position: relative;
+      margin-bottom: 30px;
+      padding-bottom: 15px;
+    }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      width: 80px;
+      height: 4px;
+      background: var(--bright-orange);
+      bottom: 0;
+      left: 0;
+      border-radius: 2px;
+    }
+    
+    .contact-image {
+      border-radius: 12px;
+      height: 100%;
+      object-fit: cover;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+    
+    .contact-image:hover {
+      transform: scale(1.02);
+    }
+    
+    .hours-list {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .hours-list li {
+      padding: 10px 0;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      justify-content: space-between;
+    }
+    
+    .hours-list li:last-child {
+      border-bottom: none;
+    }
+    
+    .hours-list .day {
+      font-weight: 500;
+      color: var(--deep-blue);
+    }
+    
+    .hours-list .time {
+      color: #666;
+    }
+    
+    .contact-info-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    
+    .contact-info-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: rgba(255, 115, 0, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 15px;
+      flex-shrink: 0;
+      font-size: 1.5rem;
+      color: var(--bright-orange);
+    }
+    
+    .contact-info-text {
+      flex: 1;
+    }
+    
+    .contact-info-text h5 {
+      margin-bottom: 5px;
+      color: var(--deep-blue);
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <span>FixIt</span><span class="text-bright-orange">Pro</span>
+      </a>
+      <div class="slogan d-none d-md-block">Reliable Fixes, Right on Time.</div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="services.html">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="plumbing.html">Plumbing</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="electrical.html">Electrical</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="handyman.html">Handyman</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="booking.html">Booking</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="contact-us.html">Contact</a>
+          </li>
+        </ul>
+        <div class="ms-lg-3 mt-3 mt-lg-0">
+          <a href="tel:+18005551234" class="btn btn-outline-light">Call: (800) 555-1234</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center">
+          <h1 class="display-4 fw-bold mb-3">Get in Touch with FixItPro</h1>
+          <p class="lead mb-4">Need help choosing the right service? Want to reschedule or ask a question? Our team is just a call or message away — friendly, fast, and ready to assist.</p>
+          <div class="d-flex justify-content-center gap-3">
+            <a href="#contact-form" class="btn btn-primary">Send a Message</a>
+            <a href="tel:+18005551234" class="btn btn-outline-light">Call Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="py-5">
+    <div class="container py-5">
+      <div class="row g-5">
+        <div class="col-lg-7">
+          <div class="contact-card">
+            <div class="contact-header">
+              <h3 class="mb-0"><i class="bi bi-chat-dots me-2"></i> Send Us a Message</h3>
+            </div>
+            <div class="contact-body">
+              <form id="contact-form" action="submit_contact.php" method="post">
+                <div class="row">
+                  <div class="col-md-6 mb-4">
+                    <label for="name" class="form-label">Full Name</label>
+                    <input type="text" id="name" name="name" class="form-control" placeholder="John Smith" required>
+                  </div>
+                  <div class="col-md-6 mb-4">
+                    <label for="email" class="form-label">Email Address</label>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="john@example.com" required>
+                  </div>
+                </div>
+                
+                <div class="mb-4">
+                  <label for="subject" class="form-label">Subject</label>
+                  <input type="text" id="subject" name="subject" class="form-control" placeholder="What can we help with?" required>
+                </div>
+                
+                <div class="mb-4">
+                  <label for="message" class="form-label">Your Message</label>
+                  <textarea id="message" name="message" class="form-control" rows="5" placeholder="Please describe your inquiry..." required></textarea>
+                </div>
+                
+                <div class="mb-4">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="agreement" required>
+                    <label class="form-check-label" for="agreement">
+                      I agree to the <a href="#">privacy policy</a> and consent to contact.
+                    </label>
+                  </div>
+                </div>
+                
+                <div class="d-grid">
+                  <button type="submit" class="btn btn-primary btn-lg py-3">
+                    <i class="bi bi-send me-2"></i> Send Message
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-5">
+          <div class="info-card">
+            <div class="text-center mb-5">
+              <div class="info-icon mx-auto">
+                <i class="bi bi-headset"></i>
+              </div>
+              <h3 class="section-title text-center">Quick Support</h3>
+            </div>
+            
+            <div class="contact-info-item">
+              <div class="contact-info-icon">
+                <i class="bi bi-envelope"></i>
+              </div>
+              <div class="contact-info-text">
+                <h5>Email Us</h5>
+                <p class="mb-0"><a href="mailto:support@fixitpro.com">support@fixitpro.com</a></p>
+                <small>Response within 1 business day</small>
+              </div>
+            </div>
+            
+            <div class="contact-info-item">
+              <div class="contact-info-icon">
+                <i class="bi bi-telephone"></i>
+              </div>
+              <div class="contact-info-text">
+                <h5>Call Us</h5>
+                <p class="mb-0"><a href="tel:+18005551234">(800) 555-1234</a></p>
+                <small>Available during business hours</small>
+              </div>
+            </div>
+            
+            <div class="contact-info-item">
+              <div class="contact-info-icon">
+                <i class="bi bi-clock"></i>
+              </div>
+              <div class="contact-info-text">
+                <h5>Office Hours</h5>
+                <p class="mb-0">Monday - Saturday</p>
+                <p class="mb-0">8:00 AM – 8:00 PM</p>
+              </div>
+            </div>
+            
+            <div class="text-center mt-5">
+              <div class="trust-badge">
+                <i class="bi bi-patch-check-fill trust-icon"></i>
+                <div>24/7 Emergency Service Available</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Area & Map Section -->
+  <section class="py-5 bg-light">
+    <div class="container py-5">
+      <div class="row justify-content-center mb-5">
+        <div class="col-lg-8 text-center">
+          <h2 class="section-title mx-auto">Our Service Area</h2>
+          <p class="lead">We proudly serve homes across the metro region and select suburbs. Ask us if we're in your neighborhood!</p>
+        </div>
+      </div>
+      
+      <div class="row g-5">
+        <div class="col-lg-6">
+          <div class="contact-map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387193.3059445135!2d-74.25986613799748!3d40.69714941774136!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2s!4v1655216780934!5m2!1sen!2s" allowfullscreen="" loading="lazy"></iframe>
+          </div>
+        </div>
+        
+        <div class="col-lg-6">
+          <div class="h-100">
+            <h3 class="section-title">Cities We Serve</h3>
+            <p>Our certified technicians are available throughout the metropolitan area and surrounding communities:</p>
+            
+            <div class="row mt-4">
+              <div class="col-md-6">
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item d-flex align-items-center">
+                    <i class="bi bi-geo-alt text-bright-orange me-2"></i> New York City
+                  </li>
+                  <li class="list-group-item d-flex align-items-center">
+                    <i class="bi bi-geo-alt text-bright-orange me-2"></i> Brooklyn
+                  </li>
+                  <li class="list-group-item d-flex align-items-center">
+                    <i class="bi bi-geo-alt text-bright-orange me-2"></i> Queens
+                  </li>
+                  <li class="list-group-item d-flex align-items-center">
+                    <i class="bi bi-geo-alt text-bright-orange me-2"></i> Bronx
+                  </li>
+                  <li class="list-group-item d-flex align-items-center">
+                    <i class="bi bi-geo-alt text-bright-orange me-2"></i> Staten Island
+                  </li>
+                </ul>
+              </div>
+              <div class="col-md-6">
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item d-flex align-items-center">
+                    <i class="bi bi-geo-alt text-bright-orange me-2"></i> Jersey City
+                  </li>
+                  <li class="list-group-item d-flex align-items-center">
+                    <i class="bi bi-geo-alt text-bright-orange me-2"></i> Newark
+                  </li>
+                  <li class="list-group-item d-flex align-items-center">
+                    <i class="bi bi-geo-alt text-bright-orange me-2"></i> White Plains
+                  </li>
+                  <li class="list-group-item d-flex align-items-center">
+                    <i class="bi bi-geo-alt text-bright-orange me-2"></i> Yonkers
+                  </li>
+                  <li class="list-group-item d-flex align-items-center">
+                    <i class="bi bi-geo-alt text-bright-orange me-2"></i> New Rochelle
+                  </li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="mt-5">
+              <h4 class="mb-4">Not in our service area?</h4>
+              <p>We're expanding! Contact us to see if we're coming to your neighborhood soon, or to recommend a new service area.</p>
+              <a href="#contact-form" class="btn btn-outline-primary">Suggest an Area</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="py-5">
+    <div class="container py-5">
+      <div class="row justify-content-center mb-5">
+        <div class="col-lg-8 text-center">
+          <h2 class="section-title mx-auto">Frequently Asked Questions</h2>
+          <p class="lead">Quick answers to common questions about our services</p>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-lg-10 mx-auto">
+          <div class="accordion" id="faqAccordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  How quickly can I get service?
+                </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  We offer same-day service for most repairs and urgent situations. For non-emergency services, we typically schedule appointments within 24-48 hours. You can check real-time availability when you book online.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  Are your technicians licensed and insured?
+                </button>
+              </h2>
+              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  Yes, all FixItPro technicians are fully licensed, background-checked, and insured. We carry comprehensive liability insurance and workers' compensation coverage to protect your home and our team.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  What payment methods do you accept?
+                </button>
+              </h2>
+              <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  We accept all major credit cards (Visa, Mastercard, American Express, Discover), checks, and cash. Payment is due upon completion of the service. We also offer financing options for larger projects.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingFour">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                  Do you offer warranties on your work?
+                </button>
+              </h2>
+              <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  Yes, we stand behind our work with a 1-year labor warranty on all repairs. Parts and materials come with manufacturer warranties. Our satisfaction guarantee ensures we'll return to fix any issues at no additional cost.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingFive">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                  What if I need to cancel or reschedule my appointment?
+                </button>
+              </h2>
+              <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  You can cancel or reschedule your appointment anytime up to 4 hours before your scheduled time at no charge. Simply log in to your account or call our support team. For cancellations with less than 4 hours notice, a $50 fee may apply.
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="text-center mt-5">
+            <p>Still have questions? <a href="#contact-form">Contact us directly</a> and we'll be happy to help!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-5 bg-deep-blue text-white">
+    <div class="container py-5">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center">
+          <h2 class="mb-4">Ready to Get Your Fix?</h2>
+          <p class="lead mb-5">Whether you need an emergency repair or scheduled maintenance, FixItPro is here to help with reliable, professional service.</p>
+          <div class="d-flex justify-content-center gap-3 flex-wrap">
+            <a href="booking.html" class="btn btn-primary btn-lg">Book Service Online</a>
+            <a href="tel:+18005551234" class="btn btn-outline-light btn-lg">Call Now: (800) 555-1234</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container pt-5 pb-4">
+      <div class="row g-5">
+        <div class="col-md-6 col-lg-4">
+          <h3 class="text-white mb-4">FixIt<span class="text-bright-orange">Pro</span></h3>
+          <p class="mb-4">Professional home repair services you can trust. Serving homeowners with reliable solutions since 2010.</p>
+          <div class="d-flex">
+            <a href="#" class="social-icon me-2"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="social-icon me-2"><i class="bi bi-twitter"></i></a>
+            <a href="#" class="social-icon me-2"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-2">
+          <h5 class="text-white mb-4">Quick Links</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="index.html">Home</a></li>
+            <li class="mb-2"><a href="services.html">Services</a></li>
+            <li class="mb-2"><a href="plumbing.html">Plumbing</a></li>
+            <li class="mb-2"><a href="electrical.html">Electrical</a></li>
+            <li><a href="handyman.html">Handyman</a></li>
+          </ul>
+        </div>
+        
+        <div class="col-md-6 col-lg-3">
+          <h5 class="text-white mb-4">Contact Us</h5>
+          <ul class="list-unstyled">
+            <li class="mb-3"><i class="bi bi-geo-alt me-2"></i> 123 Repair Street, Service City</li>
+            <li class="mb-3"><i class="bi bi-telephone me-2"></i> (800) 555-1234</li>
+            <li class="mb-3"><i class="bi bi-envelope me-2"></i> info@fixitpro.com</li>
+            <li><i class="bi bi-clock me-2"></i> Mon-Sat: 8AM - 8PM, Sun: Emergency Only</li>
+          </ul>
+        </div>
+        
+        <div class="col-md-6 col-lg-3">
+          <h5 class="text-white mb-4">Business Hours</h5>
+          <ul class="hours-list">
+            <li>
+              <span class="day">Monday - Friday</span>
+              <span class="time">8:00 AM - 8:00 PM</span>
+            </li>
+            <li>
+              <span class="day">Saturday</span>
+              <span class="time">9:00 AM - 6:00 PM</span>
+            </li>
+            <li>
+              <span class="day">Sunday</span>
+              <span class="time">Emergency Only</span>
+            </li>
+            <li>
+              <span class="day">24/7 Emergency</span>
+              <span class="time">Available</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <hr class="mt-5 mb-4 border-secondary">
+      
+      <div class="row">
+        <div class="col-md-6 mb-3 mb-md-0">
+          <p class="mb-0">&copy; 2025 FixItPro. All rights reserved.</p>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <p class="mb-0">Designed with <i class="bi bi-heart-fill text-bright-orange"></i> for homeowners</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    // Add scroll effect to navbar
+    window.addEventListener('scroll', function() {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+    
+    // Form submission handling
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // In a real application, this would submit to the server
+      // Here we'll just show a success message
+      alert('Thank you for your message! We will get back to you soon.');
+      this.reset();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>
