@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horizon Realty Virtual Tours | Explore Properties in 360°</title>
+    <meta name="description" content="Take a virtual tour of Horizon Realty’s residential and commercial properties. Explore homes in 360° and experience real estate like never before.">
+    <meta name="keywords" content="virtual real estate tours, Horizon Realty 360°, interactive home tours, property walkthroughs, online house viewing, real estate virtual experience">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Horizon Realty Virtual Tours | Explore Properties in 360°">
+    <meta property="og:description" content="Experience stunning homes and commercial properties with Horizon Realty’s virtual tours. Navigate real estate listings with immersive 360° views.">
+    <meta property="og:type" content="website">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    
+    <style>
+        :root {
+            --brick-red: #b22222;
+            --warm-beige: #f5deb3;
+            --white: #ffffff;
+            --dark-gray: #333;
+            --light-gray: #f8f9fa;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+            line-height: 1.7;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+        
+        .hero-virtual {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1560448204-603b3fc33ddc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            color: var(--white);
+            position: relative;
+        }
+        
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95) !important;
+            padding: 1.2rem 0;
+            transition: all 0.3s;
+        }
+        
+        .navbar-brand {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--brick-red) !important;
+            font-size: 1.8rem;
+        }
+        
+        .navbar-brand span {
+            color: var(--dark-gray);
+        }
+        
+        .nav-link {
+            color: var(--dark-gray) !important;
+            font-weight: 500;
+            margin: 0 0.8rem;
+            position: relative;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--brick-red);
+            transition: width 0.3s;
+        }
+        
+        .nav-link:hover:after, .nav-link.active:after {
+            width: 100%;
+        }
+        
+        .btn-primary {
+            background-color: var(--brick-red);
+            border-color: var(--brick-red);
+            padding: 0.8rem 2rem;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary:hover {
+            background-color: #9b1d1d;
+            border-color: #9b1d1d;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(178, 34, 34, 0.2);
+        }
+        
+        .btn-outline-primary {
+            color: var(--brick-red);
+            border-color: var(--brick-red);
+            padding: 0.8rem 2rem;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .btn-outline-primary:hover {
+            background-color: var(--brick-red);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+        
+        .section {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 2.5rem;
+            color: var(--dark-gray);
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background: var(--brick-red);
+            bottom: -15px;
+            left: 0;
+        }
+        
+        .section-title.text-center:after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .intro-section {
+            background-color: var(--white);
+        }
+        
+        .benefits-section {
+            background-color: var(--light-gray);
+        }
+        
+        .tours-section {
+            background-color: var(--white);
+        }
+        
+        .cta-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+        }
+        
+        .benefit-card {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 2rem;
+            height: 100%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .benefit-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--warm-beige);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .benefit-icon i {
+            font-size: 1.8rem;
+            color: var(--brick-red);
+        }
+        
+        .tour-card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            background: var(--white);
+            height: 100%;
+        }
+        
+        .tour-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .tour-img {
+            height: 250px;
+            width: 100%;
+            object-fit: cover;
+            position: relative;
+        }
+        
+        .tour-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .tour-card:hover .tour-overlay {
+            opacity: 1;
+        }
+        
+        .play-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--brick-red);
+            font-size: 1.8rem;
+        }
+        
+        .tour-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--brick-red);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            z-index: 10;
+        }
+        
+        .tour-content {
+            padding: 1.5rem;
+        }
+        
+        .tour-price {
+            color: var(--brick-red);
+            font-weight: 700;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .tour-features {
+            display: flex;
+            gap: 15px;
+            margin-top: 1rem;
+        }
+        
+        .tour-features span {
+            display: flex;
+            align-items: center;
+        }
+        
+        .tour-features i {
+            margin-right: 5px;
+            color: var(--brick-red);
+        }
+        
+        .vr-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--warm-beige);
+            border-radius: 50%;
+            color: var(--brick-red);
+            margin-right: 10px;
+        }
+        
+        footer {
+            background: var(--dark-gray);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer-title {
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-title:after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 2px;
+            background: var(--brick-red);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--white);
+            margin-right: 10px;
+            transition: all 0.3s;
+        }
+        
+        .social-icon:hover {
+            background: var(--brick-red);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 1.5rem 0;
+            margin-top: 3rem;
+        }
+        
+        /* Animation effects */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+        
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+        
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+        
+        /* VR experience section */
+        .vr-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1516545595035-b494dd0161e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 5rem 0;
+            position: relative;
+        }
+        
+        .vr-badge {
+            background: var(--brick-red);
+            color: white;
+            padding: 0.3rem 1.5rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero-virtual {
+                height: 60vh;
+            }
+            
+            .hero-virtual h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section {
+                padding: 3rem 0;
+            }
+            
+            .navbar {
+                padding: 1rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Horizon<span>Realty</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Properties</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Agents</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Testimonials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Virtual Tours</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+                <div class="ms-3">
+                    <button class="btn btn-outline-primary">Sign In</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-virtual">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="hero-content">
+                        <h1 class="display-3 fw-bold animate">Explore Properties in 360°</h1>
+                        <p class="lead my-4 animate delay-1">Immersive virtual tours from Horizon Realty</p>
+                        <div class="animate delay-2">
+                            <a href="#tours" class="btn btn-primary btn-lg me-3">Start Exploring</a>
+                            <a href="#benefits" class="btn btn-outline-light btn-lg">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section class="intro-section section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <h2 class="section-title">Experience Properties Like Never Before</h2>
+                    <p>At <strong>Horizon Realty</strong>, we bring properties to life with <strong>interactive virtual tours</strong>. Whether you're buying, investing, or exploring your dream home, our <strong>360° experiences</strong> allow you to <strong>walk through listings from anywhere</strong>.</p>
+                    <p>Our cutting-edge technology provides a realistic sense of space, layout, and design, helping you make informed decisions without leaving your home.</p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="position-relative">
+                        <div class="ratio ratio-16x9">
+                            <iframe src="https://www.youtube.com/embed/5qap5aO4i9A" title="Virtual Tour Example" allowfullscreen></iframe>
+                        </div>
+                        <div class="position-absolute top-0 start-0 bg-brick-red text-white p-3 rounded shadow animate" style="transform: translate(-20px, -20px);">
+                            <h4 class="mb-0">360° Experience</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section section" id="benefits">
+        <div class="container">
+            <h2 class="section-title text-center">Discover Properties Like Never Before</h2>
+            <p class="text-center mb-5">Why choose virtual tours for your property search</p>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="benefit-card animate">
+                        <div class="benefit-icon">
+                            <i class="bi bi-phone"></i>
+                        </div>
+                        <h3>360° Home Walkthroughs</h3>
+                        <p>Take a <strong>complete visual tour</strong> of <strong>residential homes and commercial spaces</strong>, all from your device.</p>
+                        <div class="mt-4">
+                            <span class="vr-icon"><i class="bi bi-phone"></i></span>
+                            <span class="vr-icon"><i class="bi bi-tablet"></i></span>
+                            <span class="vr-icon"><i class="bi bi-laptop"></i></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="benefit-card animate delay-1">
+                        <div class="benefit-icon">
+                            <i class="bi bi-layers"></i>
+                        </div>
+                        <h3>Interactive Floor Plans & Details</h3>
+                        <p>Access <strong>detailed layouts, amenities, and location insights</strong> as you explore properties virtually.</p>
+                        <div class="mt-4">
+                            <span class="vr-icon"><i class="bi bi-rulers"></i></span>
+                            <span class="vr-icon"><i class="bi bi-info-circle"></i></span>
+                            <span class="vr-icon"><i class="bi bi-geo-alt"></i></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="benefit-card animate delay-2">
+                        <div class="benefit-icon">
+                            <i class="bi bi-clock"></i>
+                        </div>
+                        <h3>Convenience Without Travel</h3>
+                        <p>Save time with <strong>high-quality video tours</strong>—no need for in-person visits until you're ready.</p>
+                        <div class="mt-4">
+                            <span class="vr-icon"><i class="bi bi-stopwatch"></i></span>
+                            <span class="vr-icon"><i class="bi bi-house-check"></i></span>
+                            <span class="vr-icon"><i class="bi bi-calendar-check"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VR Experience Section -->
+    <section class="vr-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <span class="vr-badge">NEW TECHNOLOGY</span>
+                    <h2 class="text-white">Immersive VR Experience</h2>
+                    <p class="lead mb-4">For the most realistic property exploration, try our virtual reality tours with a VR headset.</p>
+                    <p>Experience properties as if you were physically there with our cutting-edge VR technology. Walk through rooms, look around freely, and get a true sense of space and layout.</p>
+                    <div class="mt-4">
+                        <a href="#" class="btn btn-primary me-3">View VR Tours</a>
+                        <a href="#" class="btn btn-outline-light">Learn About VR</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <img src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="VR Headset" class="img-fluid rounded" style="max-height: 400px;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tours Section -->
+    <section class="tours-section section" id="tours">
+        <div class="container">
+            <h2 class="section-title text-center">Explore Our Top Virtual Listings</h2>
+            <p class="text-center mb-5">Featured properties with immersive virtual tours</p>
+            
+            <div class="row mb-5">
+                <div class="col-md-4 mb-4">
+                    <div class="category-card text-center p-4 animate">
+                        <div class="benefit-icon mx-auto">
+                            <i class="bi bi-house-heart"></i>
+                        </div>
+                        <h3>Luxury Residential Homes</h3>
+                        <p>Tour <strong>modern residences, high-end apartments, and exclusive villas</strong> with seamless virtual experiences.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="category-card text-center p-4 animate delay-1">
+                        <div class="benefit-icon mx-auto">
+                            <i class="bi bi-building"></i>
+                        </div>
+                        <h3>Prime Commercial Properties</h3>
+                        <p>Walk through <strong>office spaces, retail outlets, and investment real estate</strong> with full panoramic views.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="category-card text-center p-4 animate delay-2">
+                        <div class="benefit-icon mx-auto">
+                            <i class="bi bi-building-add"></i>
+                        </div>
+                        <h3>Upcoming Developments</h3>
+                        <p>Get an early <strong>virtual sneak peek</strong> at <strong>new projects, condos, and commercial hubs</strong> before listings go public.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="tour-card animate">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Luxury Villa" class="tour-img">
+                            <span class="tour-badge">Luxury Home</span>
+                            <div class="tour-overlay">
+                                <div class="play-icon">
+                                    <i class="bi bi-play-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tour-content">
+                            <h3>Modern Luxury Villa</h3>
+                            <p class="text-muted mb-2"><i class="bi bi-geo-alt me-1"></i> Beverly Hills, CA</p>
+                            <p class="tour-price">$1,850,000</p>
+                            <p>Stunning contemporary villa with panoramic views and smart home features.</p>
+                            <div class="tour-features">
+                                <span><i class="bi bi-house-door"></i> 5 Beds</span>
+                                <span><i class="bi bi-bath"></i> 4 Baths</span>
+                                <span><i class="bi bi-arrows-fullscreen"></i> 3,800 sq ft</span>
+                            </div>
+                            <div class="d-grid mt-4">
+                                <a href="#" class="btn btn-outline-primary">Start Virtual Tour</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 mb-4">
+                    <div class="tour-card animate delay-1">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1560448204-603b3fc33ddc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Waterfront Home" class="tour-img">
+                            <span class="tour-badge">Waterfront</span>
+                            <div class="tour-overlay">
+                                <div class="play-icon">
+                                    <i class="bi bi-play-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tour-content">
+                            <h3>Waterfront Residence</h3>
+                            <p class="text-muted mb-2"><i class="bi bi-geo-alt me-1"></i> Miami, FL</p>
+                            <p class="tour-price">$2,250,000</p>
+                            <p>Exclusive waterfront property with private dock and panoramic ocean views.</p>
+                            <div class="tour-features">
+                                <span><i class="bi bi-house-door"></i> 4 Beds</span>
+                                <span><i class="bi bi-bath"></i> 3.5 Baths</span>
+                                <span><i class="bi bi-water"></i> Waterfront</span>
+                            </div>
+                            <div class="d-grid mt-4">
+                                <a href="#" class="btn btn-outline-primary">Start Virtual Tour</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 mb-4">
+                    <div class="tour-card animate delay-2">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Office Space" class="tour-img">
+                            <span class="tour-badge">Commercial</span>
+                            <div class="tour-overlay">
+                                <div class="play-icon">
+                                    <i class="bi bi-play-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tour-content">
+                            <h3>Premium Office Space</h3>
+                            <p class="text-muted mb-2"><i class="bi bi-geo-alt me-1"></i> New York, NY</p>
+                            <p class="tour-price">$3,500,000</p>
+                            <p>Class A office space in prestigious downtown tower with modern amenities.</p>
+                            <div class="tour-features">
+                                <span><i class="bi bi-building"></i> 8,500 sq ft</span>
+                                <span><i class="bi bi-people"></i> 40 Offices</span>
+                                <span><i class="bi bi-geo"></i> Prime Location</span>
+                            </div>
+                            <div class="d-grid mt-4">
+                                <a href="#" class="btn btn-outline-primary">Start Virtual Tour</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 mb-4">
+                    <div class="tour-card animate delay-3">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="New Development" class="tour-img">
+                            <span class="tour-badge">New Development</span>
+                            <div class="tour-overlay">
+                                <div class="play-icon">
+                                    <i class="bi bi-play-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tour-content">
+                            <h3>Urban Heights Condos</h3>
+                            <p class="text-muted mb-2"><i class="bi bi-geo-alt me-1"></i> Chicago, IL</p>
+                            <p class="tour-price">Starting at $650,000</p>
+                            <p>Exclusive new development with luxury amenities and city skyline views.</p>
+                            <div class="tour-features">
+                                <span><i class="bi bi-building"></i> 1-3 Beds</span>
+                                <span><i class="bi bi-stars"></i> Luxury Finishes</span>
+                                <span><i class="bi bi-building-check"></i> Rooftop Terrace</span>
+                            </div>
+                            <div class="d-grid mt-4">
+                                <a href="#" class="btn btn-outline-primary">Start Virtual Tour</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 mb-4">
+                    <div class="tour-card animate">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Family Home" class="tour-img">
+                            <span class="tour-badge">Family Home</span>
+                            <div class="tour-overlay">
+                                <div class="play-icon">
+                                    <i class="bi bi-play-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tour-content">
+                            <h3>Suburban Family Residence</h3>
+                            <p class="text-muted mb-2"><i class="bi bi-geo-alt me-1"></i> Fairfield, CT</p>
+                            <p class="tour-price">$750,000</p>
+                            <p>Beautiful family home in a quiet neighborhood with spacious backyard.</p>
+                            <div class="tour-features">
+                                <span><i class="bi bi-house-door"></i> 4 Beds</span>
+                                <span><i class="bi bi-bath"></i> 3 Baths</span>
+                                <span><i class="bi bi-tree"></i> Large Yard</span>
+                            </div>
+                            <div class="d-grid mt-4">
+                                <a href="#" class="btn btn-outline-primary">Start Virtual Tour</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 mb-4">
+                    <div class="tour-card animate delay-1">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Retail Space" class="tour-img">
+                            <span class="tour-badge">Retail Space</span>
+                            <div class="tour-overlay">
+                                <div class="play-icon">
+                                    <i class="bi bi-play-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tour-content">
+                            <h3>High Street Retail Outlet</h3>
+                            <p class="text-muted mb-2"><i class="bi bi-geo-alt me-1"></i> San Francisco, CA</p>
+                            <p class="tour-price">$1,950,000</p>
+                            <p>Prime retail space in bustling shopping district with high foot traffic.</p>
+                            <div class="tour-features">
+                                <span><i class="bi bi-shop"></i> 3,200 sq ft</span>
+                                <span><i class="bi bi-people"></i> High Traffic</span>
+                                <span><i class="bi bi-geo"></i> Downtown</span>
+                            </div>
+                            <div class="d-grid mt-4">
+                                <a href="#" class="btn btn-outline-primary">Start Virtual Tour</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-4">
+                <a href="#" class="btn btn-primary">View All Virtual Tours</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="mb-4">Experience Real Estate in a New Way</h2>
+                    <p class="lead mb-5">Ready to find your perfect property? <strong>Take a virtual tour and explore real estate anytime, anywhere</strong> with <strong>Horizon Realty</strong>.</p>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <div class="bg-white p-4 rounded shadow">
+                                <i class="bi bi-envelope fs-1 text-brick-red mb-3"></i>
+                                <h4>Email Us</h4>
+                                <p class="mb-0"><a href="mailto:support@horizonrealty.com">support@horizonrealty.com</a></p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="bg-white p-4 rounded shadow">
+                                <i class="bi bi-telephone fs-1 text-brick-red mb-3"></i>
+                                <h4>Call Us</h4>
+                                <p class="mb-0">+1 (555) 456-7890</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <a href="#" class="btn btn-light btn-lg me-3">Schedule Consultation</a>
+                        <a href="#" class="btn btn-outline-light btn-lg">Browse Properties</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <h4 class="footer-title">Horizon Realty</h4>
+                    <p>Your trusted partner in finding the perfect property. We combine market expertise with innovative technology to deliver exceptional real estate experiences.</p>
+                    <div class="mt-4">
+                        <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-white-50">Home</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-white-50">Properties</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-white-50">Virtual Tours</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-white-50">Our Agents</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-white-50">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-4">
+                    <h4 class="footer-title">Connect With Us</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-3"><i class="bi bi-geo-alt me-2"></i> 456 Horizon Avenue, New York, NY 10001</li>
+                        <li class="mb-3"><i class="bi bi-telephone me-2"></i> +1 (555) 456-7890</li>
+                        <li class="mb-3"><i class="bi bi-envelope me-2"></i> support@horizonrealty.com</li>
+                        <li class="mb-3"><i class="bi bi-clock me-2"></i> Mon-Fri: 9am - 6pm</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright text-center mt-5">
+                <p class="mb-0">&copy; 2025 Horizon Realty. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom Script -->
+    <script>
+        // Navbar effect on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-sm');
+                navbar.style.padding = '0.8rem 0';
+            } else {
+                navbar.classList.remove('shadow-sm');
+                navbar.style.padding = '1.2rem 0';
+            }
+        });
+        
+        // Animation on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+            
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+            
+            document.querySelectorAll('.benefit-card, .tour-card, .category-card').forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>
