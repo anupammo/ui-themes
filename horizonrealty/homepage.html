@@ -6,20 +6,12 @@
     <title>ShopifyPro Realty | Find Your Perfect Space - Premier Property Experts</title>
     <meta name="description" content="Discover your perfect space with ShopifyPro. Browse top-rated residential and commercial properties with expert real estate guidance.">
     <meta name="keywords" content="ShopifyPro, real estate listings, buy home, commercial properties, property investment, virtual tours">
-    <meta name="robots" content="index, follow">
-    <meta property="og:title" content="ShopifyPro Realty | Find Your Perfect Space - Premier Property Experts">
-    <meta property="og:description" content="Browse premium residential and commercial properties with ShopifyPro. Find expert real estate guidance today.">
-    <meta property="og:type" content="website">
-    
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-    
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-    
     <style>
         :root {
             --brick-red: #b22222;
@@ -33,6 +25,7 @@
             font-family: 'Roboto', sans-serif;
             color: #333;
             line-height: 1.7;
+            overflow-x: hidden;
         }
         
         h1, h2, h3, h4, h5 {
@@ -49,12 +42,14 @@
             display: flex;
             align-items: center;
             color: var(--white);
+            position: relative;
         }
         
         .navbar {
             background-color: rgba(255, 255, 255, 0.95) !important;
             padding: 1.2rem 0;
             transition: all 0.3s;
+            z-index: 1000;
         }
         
         .navbar-brand {
@@ -73,6 +68,7 @@
             font-weight: 500;
             margin: 0 0.8rem;
             position: relative;
+            transition: color 0.3s;
         }
         
         .nav-link:after {
@@ -86,8 +82,12 @@
             transition: width 0.3s;
         }
         
-        .nav-link:hover:after {
+        .nav-link:hover:after, .nav-link.active:after {
             width: 100%;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: var(--brick-red) !important;
         }
         
         .btn-primary {
@@ -161,6 +161,7 @@
             background-size: cover;
             background-position: center;
             color: var(--white);
+            position: relative;
         }
         
         .property-card {
@@ -306,6 +307,7 @@
         
         .animate {
             animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
         }
         
         .delay-1 {
@@ -320,6 +322,48 @@
             animation-delay: 0.6s;
         }
         
+        /* Stats counter */
+        .stats-counter {
+            background-color: var(--brick-red);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: -80px;
+            position: relative;
+            z-index: 10;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 0.5rem;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        /* Property search form */
+        .search-form {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            margin-top: -100px;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .form-control:focus {
+            border-color: var(--brick-red);
+            box-shadow: 0 0 0 0.25rem rgba(178, 34, 34, 0.25);
+        }
+        
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .hero-content h1 {
@@ -332,6 +376,14 @@
             
             .navbar {
                 padding: 1rem 0;
+            }
+            
+            .stats-counter {
+                margin-top: 2rem;
+            }
+            
+            .search-form {
+                margin-top: 2rem;
             }
         }
     </style>
@@ -390,6 +442,74 @@
         </div>
     </section>
 
+    <!-- Property Search Form -->
+    <div class="container">
+        <div class="search-form">
+            <form>
+                <div class="row g-3">
+                    <div class="col-md-4">
+                        <label class="form-label">Property Type</label>
+                        <select class="form-select">
+                            <option selected>Any Type</option>
+                            <option>Residential</option>
+                            <option>Commercial</option>
+                            <option>Luxury Homes</option>
+                            <option>Apartments</option>
+                            <option>Offices</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label">Location</label>
+                        <input type="text" class="form-control" placeholder="Enter city or zip code">
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label">Price Range</label>
+                        <select class="form-select">
+                            <option selected>Any Price</option>
+                            <option>Under $300,000</option>
+                            <option>$300,000 - $500,000</option>
+                            <option>$500,000 - $1,000,000</option>
+                            <option>Over $1,000,000</option>
+                        </select>
+                    </div>
+                    <div class="col-md-12 text-center mt-4">
+                        <button type="submit" class="btn btn-primary btn-lg px-5">Search Properties</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Stats Counter -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="stats-counter animate">
+                    <span class="stat-number" id="counter1">0</span>
+                    <span class="stat-label">Properties Sold</span>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stats-counter animate delay-1">
+                    <span class="stat-number" id="counter2">0</span>
+                    <span class="stat-label">Happy Clients</span>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stats-counter animate delay-2">
+                    <span class="stat-number" id="counter3">0</span>
+                    <span class="stat-label">Expert Agents</span>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stats-counter animate delay-3">
+                    <span class="stat-number" id="counter4">0</span>
+                    <span class="stat-label">Cities Covered</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Introduction Section -->
     <section class="intro-section section">
         <div class="container">
@@ -422,17 +542,23 @@
             <p class="text-center mb-5">Discover our curated selection of premium properties tailored to your lifestyle and investment goals.</p>
             
             <div class="row">
-                <div class="col-lg-6 mb-4">
+                <div class="col-lg-4 mb-4">
                     <div class="property-card">
                         <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1050&q=80" alt="Luxury Home" class="property-img">
                         <div class="p-4">
-                            <h3>Premium Residential Homes</h3>
-                            <p class="property-price">$850,000 - $2.5M</p>
-                            <p>Find <strong>luxury homes, family residences, and apartments</strong> tailored to your lifestyle. Each property is carefully selected for quality, location, and unique features.</p>
+                            <div class="d-flex justify-content-between align-items-start">
+                                <div>
+                                    <h3>Luxury Waterfront Villa</h3>
+                                    <p class="text-muted mb-1"><i class="bi bi-geo-alt me-1"></i> Miami, FL</p>
+                                </div>
+                                <span class="badge bg-warm-beige text-dark">New</span>
+                            </div>
+                            <p class="property-price mt-2">$1,250,000</p>
+                            <p>Stunning waterfront property with panoramic ocean views, modern architecture, and private beach access.</p>
                             <div class="d-flex justify-content-between align-items-center mt-4">
                                 <div>
-                                    <span class="me-3"><i class="bi bi-house-door me-1"></i> 4-6 Beds</span>
-                                    <span><i class="bi bi-bath me-1"></i> 3-5 Baths</span>
+                                    <span class="me-3"><i class="bi bi-house-door me-1"></i> 5 Beds</span>
+                                    <span><i class="bi bi-bath me-1"></i> 4 Baths</span>
                                 </div>
                                 <a href="#" class="btn btn-sm btn-outline-primary">View Details</a>
                             </div>
@@ -440,17 +566,47 @@
                     </div>
                 </div>
                 
-                <div class="col-lg-6 mb-4">
+                <div class="col-lg-4 mb-4">
                     <div class="property-card">
                         <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=1050&q=80" alt="Commercial Building" class="property-img">
                         <div class="p-4">
-                            <h3>High-Value Commercial Properties</h3>
-                            <p class="property-price">$1.2M - $8.5M</p>
-                            <p>Invest in <strong>office spaces, retail outlets, and commercial real estate</strong> for long-term growth. Strategic locations with high ROI potential.</p>
+                            <div class="d-flex justify-content-between align-items-start">
+                                <div>
+                                    <h3>Downtown Office Space</h3>
+                                    <p class="text-muted mb-1"><i class="bi bi-geo-alt me-1"></i> New York, NY</p>
+                                </div>
+                                <span class="badge bg-brick-red text-white">Hot Deal</span>
+                            </div>
+                            <p class="property-price mt-2">$3,750,000</p>
+                            <p>Premium commercial space in the heart of Manhattan with modern amenities and high visibility.</p>
                             <div class="d-flex justify-content-between align-items-center mt-4">
                                 <div>
-                                    <span class="me-3"><i class="bi bi-building me-1"></i> Offices</span>
-                                    <span><i class="bi bi-shop me-1"></i> Retail</span>
+                                    <span class="me-3"><i class="bi bi-building me-1"></i> 8,500 sq ft</span>
+                                    <span><i class="bi bi-people me-1"></i> 40 Offices</span>
+                                </div>
+                                <a href="#" class="btn btn-sm btn-outline-primary">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 mb-4">
+                    <div class="property-card">
+                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1050&q=80" alt="Modern Apartment" class="property-img">
+                        <div class="p-4">
+                            <div class="d-flex justify-content-between align-items-start">
+                                <div>
+                                    <h3>Modern City Apartment</h3>
+                                    <p class="text-muted mb-1"><i class="bi bi-geo-alt me-1"></i> San Francisco, CA</p>
+                                </div>
+                                <span class="badge bg-brick-red text-white">Featured</span>
+                            </div>
+                            <p class="property-price mt-2">$850,000</p>
+                            <p>Luxury apartment in a high-rise building with panoramic city views and premium amenities.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-4">
+                                <div>
+                                    <span class="me-3"><i class="bi bi-house-door me-1"></i> 3 Beds</span>
+                                    <span><i class="bi bi-bath me-1"></i> 2 Baths</span>
                                 </div>
                                 <a href="#" class="btn btn-sm btn-outline-primary">View Details</a>
                             </div>
@@ -530,6 +686,13 @@
                             <div>
                                 <h5 class="mb-0">Michael Johnson</h5>
                                 <p class="text-muted mb-0">Home Buyer</p>
+                                <div class="text-warning">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -543,6 +706,13 @@
                             <div>
                                 <h5 class="mb-0">Sarah Williams</h5>
                                 <p class="text-muted mb-0">Property Investor</p>
+                                <div class="text-warning">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -556,6 +726,13 @@
                             <div>
                                 <h5 class="mb-0">David Chen</h5>
                                 <p class="text-muted mb-0">First-time Buyer</p>
+                                <div class="text-warning">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-half"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -658,9 +835,40 @@
                 });
             }, observerOptions);
             
-            document.querySelectorAll('.property-card, .benefit-card, .testimonial-card').forEach(card => {
-                observer.observe(card);
+            document.querySelectorAll('.animate').forEach(element => {
+                observer.observe(element);
             });
+            
+            // Counter animation
+            function animateCounter(id, start, end, duration) {
+                let obj = document.getElementById(id);
+                let range = end - start;
+                let current = start;
+                let increment = end > start ? 1 : -1;
+                let stepTime = Math.abs(Math.floor(duration / range));
+                let timer = setInterval(function() {
+                    current += increment;
+                    obj.innerHTML = current;
+                    if (current == end) {
+                        clearInterval(timer);
+                    }
+                }, stepTime);
+            }
+            
+            // Initialize counters when they come into view
+            const counterObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounter("counter1", 0, 1250, 2000);
+                        animateCounter("counter2", 0, 3200, 2000);
+                        animateCounter("counter3", 0, 75, 1500);
+                        animateCounter("counter4", 0, 28, 1500);
+                        counterObserver.disconnect();
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            counterObserver.observe(document.querySelector('.stats-counter'));
         });
     </script>
 </body>
