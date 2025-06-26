@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services | FixItPro – Home Repairs Done Right</title>
+  <meta name="description" content="Explore FixItPro’s trusted home services: expert plumbing, licensed electrical work, and versatile handyman solutions. Book a reliable fix today.">
+  <meta name="keywords" content="FixItPro services, home repair, plumbing electrician handyman, professional home maintenance, fix water leak, install ceiling fan, wall mounting, emergency repair">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+  
+  <style>
+    :root {
+      --deep-blue: #001f3f;
+      --bright-orange: #ff7300;
+      --white: #ffffff;
+      --light-gray: #f8f9fa;
+      --medium-gray: #e9ecef;
+    }
+    
+    body {
+      font-family: 'Roboto', sans-serif;
+      color: #333;
+      line-height: 1.6;
+      background-color: #f5f7fa;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Work Sans', sans-serif;
+      font-weight: 700;
+    }
+    
+    .bg-deep-blue {
+      background-color: var(--deep-blue);
+    }
+    
+    .bg-bright-orange {
+      background-color: var(--bright-orange);
+    }
+    
+    .text-bright-orange {
+      color: var(--bright-orange);
+    }
+    
+    .btn-primary {
+      background-color: var(--bright-orange);
+      border-color: var(--bright-orange);
+      padding: 12px 28px;
+      font-weight: 600;
+      border-radius: 30px;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-primary:hover {
+      background-color: #e06500;
+      border-color: #e06500;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(255, 115, 0, 0.3);
+    }
+    
+    .btn-outline-primary {
+      color: var(--bright-orange);
+      border-color: var(--bright-orange);
+      border-radius: 30px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-outline-primary:hover {
+      background-color: var(--bright-orange);
+      color: var(--white);
+      transform: translateY(-3px);
+    }
+    
+    .hero-section {
+      background: linear-gradient(rgba(0, 31, 63, 0.85), rgba(0, 31, 63, 0.9)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1800&q=80');
+      background-size: cover;
+      background-position: center;
+      padding: 140px 0 80px;
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .service-card {
+      background: var(--white);
+      border-radius: 15px;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+      transition: all 0.3s ease;
+      height: 100%;
+      border-top: 4px solid var(--bright-orange);
+    }
+    
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+    
+    .service-icon {
+      font-size: 2.8rem;
+      color: var(--bright-orange);
+      background: rgba(255, 115, 0, 0.1);
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      transition: all 0.3s ease;
+    }
+    
+    .service-card:hover .service-icon {
+      background: var(--bright-orange);
+      color: var(--white);
+      transform: rotate(10deg);
+    }
+    
+    .service-image {
+      height: 200px;
+      object-fit: cover;
+      width: 100%;
+      border-radius: 15px 15px 0 0;
+    }
+    
+    .benefit-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+    
+    .benefit-icon {
+      font-size: 1.5rem;
+      color: var(--bright-orange);
+      background: rgba(255, 115, 0, 0.1);
+      min-width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: all 0.3s ease;
+    }
+    
+    .benefit-item:hover .benefit-icon {
+      background: var(--bright-orange);
+      color: var(--white);
+      transform: scale(1.1);
+    }
+    
+    .cta-section {
+      background: linear-gradient(135deg, rgba(0, 31, 63, 0.9) 0%, rgba(0, 31, 63, 0.95) 100%), url('https://images.unsplash.com/photo-1556911220-ef412ae179a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1800&q=80');
+      background-size: cover;
+      background-position: center;
+      padding: 80px 0;
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .footer {
+      background-color: #00152e;
+      color: var(--white);
+      padding-top: 60px;
+    }
+    
+    .footer a {
+      color: #a0c1e3;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    
+    .footer a:hover {
+      color: var(--bright-orange);
+    }
+    
+    .social-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: rgba(255,255,255,0.1);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 10px;
+      transition: all 0.3s ease;
+    }
+    
+    .social-icon:hover {
+      background-color: var(--bright-orange);
+      transform: translateY(-5px);
+    }
+    
+    .navbar {
+      padding: 15px 0;
+      transition: all 0.4s ease;
+      background: var(--deep-blue);
+    }
+    
+    .navbar.scrolled {
+      padding: 8px 0;
+      background: rgba(0, 31, 63, 0.95);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .navbar-brand {
+      font-family: 'Work Sans', sans-serif;
+      font-weight: 700;
+      font-size: 1.8rem;
+    }
+    
+    .slogan {
+      font-size: 1.2rem;
+      font-weight: 300;
+      letter-spacing: 1px;
+      opacity: 0.9;
+      position: relative;
+      display: inline-block;
+      padding-left: 20px;
+    }
+    
+    .slogan::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 10px;
+      height: 10px;
+      background: var(--bright-orange);
+      border-radius: 50%;
+    }
+    
+    .nav-link {
+      font-family: 'Work Sans', sans-serif;
+      font-weight: 500;
+      position: relative;
+      padding: 8px 15px !important;
+      transition: all 0.3s ease;
+      color: rgba(255, 255, 255, 0.85);
+    }
+    
+    .nav-link:hover, .nav-link.active {
+      color: var(--white);
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background: var(--bright-orange);
+      bottom: 0;
+      left: 15px;
+      transition: width 0.3s;
+    }
+    
+    .nav-link:hover::after, .nav-link.active::after {
+      width: calc(100% - 30px);
+    }
+    
+    .section-title {
+      position: relative;
+      margin-bottom: 50px;
+      text-align: center;
+    }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      width: 80px;
+      height: 4px;
+      background: var(--bright-orange);
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+    
+    .service-list {
+      list-style: none;
+      padding-left: 0;
+    }
+    
+    .service-list li {
+      padding-left: 30px;
+      position: relative;
+      margin-bottom: 15px;
+    }
+    
+    .service-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--bright-orange);
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+    
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+    }
+    
+    .service-highlight {
+      background: rgba(255, 115, 0, 0.05);
+      border-radius: 15px;
+      padding: 25px;
+      transition: all 0.3s ease;
+      height: 100%;
+    }
+    
+    .service-highlight:hover {
+      transform: translateY(-5px);
+      background: rgba(255, 115, 0, 0.08);
+    }
+    
+    .trust-badge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 15px 25px;
+      border-radius: 50px;
+      margin: 20px 0;
+      max-width: 350px;
+      transition: all 0.3s ease;
+    }
+    
+    .trust-badge:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-3px);
+    }
+    
+    .trust-icon {
+      font-size: 2rem;
+      color: var(--bright-orange);
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <span>FixIt</span><span class="text-bright-orange">Pro</span>
+      </a>
+      <div class="slogan d-none d-md-block">Reliable Fixes, Right on Time.</div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="services.html">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="plumbing.html">Plumbing</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="electrical.html">Electrical</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="handyman.html">Handyman</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="booking.html">Booking</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact-us.html">Contact</a>
+          </li>
+        </ul>
+        <div class="ms-lg-3 mt-3 mt-lg-0">
+          <a href="tel:+18005551234" class="btn btn-outline-light">Call: (800) 555-1234</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center">
+          <h1 class="display-3 fw-bold mb-3">Our Professional Home Services</h1>
+          <p class="slogan mb-4">Home Repairs Done Right</p>
+          <p class="lead mb-4">When something breaks, leaks, flickers, or squeaks — <strong>FixItPro</strong> is just a click away. We offer professional home services performed by vetted experts who respect your time, budget, and home.</p>
+          <div class="d-flex justify-content-center gap-3">
+            <a href="#services" class="btn btn-primary">Explore Services</a>
+            <a href="booking.html" class="btn btn-outline-light">Book a Service</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="py-5">
+    <div class="container py-5">
+      <div class="row justify-content-center mb-5">
+        <div class="col-lg-8 text-center">
+          <h2 class="section-title">Our Comprehensive Home Services</h2>
+          <p class="lead">Expert solutions for all your home repair and maintenance needs</p>
+        </div>
+      </div>
+      
+      <div class="row g-5">
+        <div class="col-lg-4">
+          <div class="service-card">
+            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Plumbing Services" class="service-image">
+            <div class="card-body p-4 text-center">
+              <div class="service-icon">
+                <i class="bi bi-droplet"></i>
+              </div>
+              <h3 class="h3 mb-3">Plumbing Services</h3>
+              <p class="mb-4">Clogged sink? Leaky pipe? We fix it all — clean, fast, and guaranteed.</p>
+              <ul class="service-list text-start mb-4">
+                <li>Leak detection & repair</li>
+                <li>Drain cleaning & unclogging</li>
+                <li>Water heater installation</li>
+                <li>Bathroom & kitchen plumbing</li>
+                <li>Emergency pipe repairs</li>
+              </ul>
+              <a href="plumbing.html" class="btn btn-outline-primary me-2">Learn More</a>
+              <a href="booking.html" class="btn btn-primary">Book Now</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-4">
+          <div class="service-card">
+            <img src="https://images.unsplash.com/photo-1590959651373-a3db0f38a961?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Electrical Services" class="service-image">
+            <div class="card-body p-4 text-center">
+              <div class="service-icon">
+                <i class="bi bi-lightning-charge"></i>
+              </div>
+              <h3 class="h3 mb-3">Electrical Services</h3>
+              <p class="mb-4">From wiring to switchboards and lights, our electricians light it up — safely.</p>
+              <ul class="service-list text-start mb-4">
+                <li>Switchboard upgrades & repairs</li>
+                <li>Lighting installation & repair</li>
+                <li>Outlet & switch installation</li>
+                <li>Ceiling fan installation</li>
+                <li>Electrical safety inspections</li>
+              </ul>
+              <a href="electrical.html" class="btn btn-outline-primary me-2">Learn More</a>
+              <a href="booking.html" class="btn btn-primary">Book Now</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-4">
+          <div class="service-card">
+            <img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Handyman Services" class="service-image">
+            <div class="card-body p-4 text-center">
+              <div class="service-icon">
+                <i class="bi bi-tools"></i>
+              </div>
+              <h3 class="h3 mb-3">Handyman Services</h3>
+              <p class="mb-4">Need a picture frame mounted or a door fixed? Our general repair team has you covered.</p>
+              <ul class="service-list text-start mb-4">
+                <li>Furniture assembly</li>
+                <li>Wall mounting (TVs, shelves)</li>
+                <li>Door & window repairs</li>
+                <li>Minor carpentry & repairs</li>
+                <li>Paint touch-ups & drywall</li>
+              </ul>
+              <a href="handyman.html" class="btn btn-outline-primary me-2">Learn More</a>
+              <a href="booking.html" class="btn btn-primary">Book Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us Section -->
+  <section class="py-5 bg-light">
+    <div class="container py-5">
+      <div class="row justify-content-center mb-5">
+        <div class="col-lg-8 text-center">
+          <h2 class="section-title">Why Choose FixItPro?</h2>
+          <p class="lead">Our commitment to excellence sets us apart in home services</p>
+        </div>
+      </div>
+      
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3">
+          <div class="service-highlight text-center">
+            <div class="benefit-icon mx-auto mb-3">
+              <i class="bi bi-clock"></i>
+            </div>
+            <h4 class="h5 mb-3">On-Time Guarantee</h4>
+            <p class="mb-0">We arrive when promised or your service is on us. No waiting around for hours.</p>
+          </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-3">
+          <div class="service-highlight text-center">
+            <div class="benefit-icon mx-auto mb-3">
+              <i class="bi bi-people"></i>
+            </div>
+            <h4 class="h5 mb-3">Certified Experts</h4>
+            <p class="mb-0">All technicians are licensed, background-checked, and continuously trained.</p>
+          </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-3">
+          <div class="service-highlight text-center">
+            <div class="benefit-icon mx-auto mb-3">
+              <i class="bi bi-cash-coin"></i>
+            </div>
+            <h4 class="h5 mb-3">Transparent Pricing</h4>
+            <p class="mb-0">No hidden fees - you'll know the cost before we start any work.</p>
+          </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-3">
+          <div class="service-highlight text-center">
+            <div class="benefit-icon mx-auto mb-3">
+              <i class="bi bi-patch-check"></i>
+            </div>
+            <h4 class="h5 mb-3">Satisfaction Guarantee</h4>
+            <p class="mb-0">We stand behind our work with a 100% satisfaction guarantee.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Additional Services Section -->
+  <section class="py-5">
+    <div class="container py-5">
+      <div class="row justify-content-center mb-5">
+        <div class="col-lg-8 text-center">
+          <h2 class="section-title">Specialized Home Solutions</h2>
+          <p class="lead">Beyond our core services, we offer specialized solutions for your home</p>
+        </div>
+      </div>
+      
+      <div class="service-grid">
+        <div class="service-highlight">
+          <div class="d-flex align-items-start mb-3">
+            <div class="benefit-icon me-3 flex-shrink-0">
+              <i class="bi bi-thermometer-sun"></i>
+            </div>
+            <div>
+              <h4 class="h5 mb-1">HVAC Services</h4>
+              <p class="mb-0">Heating and cooling system maintenance, repair, and installation.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="service-highlight">
+          <div class="d-flex align-items-start mb-3">
+            <div class="benefit-icon me-3 flex-shrink-0">
+              <i class="bi bi-house-door"></i>
+            </div>
+            <div>
+              <h4 class="h5 mb-1">Appliance Repair</h4>
+              <p class="mb-0">Expert repair for washers, dryers, refrigerators, and other appliances.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="service-highlight">
+          <div class="d-flex align-items-start mb-3">
+            <div class="benefit-icon me-3 flex-shrink-0">
+              <i class="bi bi-lock"></i>
+            </div>
+            <div>
+              <h4 class="h5 mb-1">Smart Home Installation</h4>
+              <p class="mb-0">Installation of smart locks, thermostats, lighting, and security systems.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="service-highlight">
+          <div class="d-flex align-items-start mb-3">
+            <div class="benefit-icon me-3 flex-shrink-0">
+              <i class="bi bi-palette"></i>
+            </div>
+            <div>
+              <h4 class="h5 mb-1">Painting Services</h4>
+              <p class="mb-0">Interior and exterior painting for rooms, trim, and home exteriors.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="service-highlight">
+          <div class="d-flex align-items-start mb-3">
+            <div class="benefit-icon me-3 flex-shrink-0">
+              <i class="bi bi-tree"></i>
+            </div>
+            <div>
+              <h4 class="h5 mb-1">Outdoor Services</h4>
+              <p class="mb-0">Deck repairs, fence installation, gutter cleaning, and outdoor lighting.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="service-highlight">
+          <div class="d-flex align-items-start mb-3">
+            <div class="benefit-icon me-3 flex-shrink-0">
+              <i class="bi bi-tools"></i>
+            </div>
+            <div>
+              <h4 class="h5 mb-1">Preventative Maintenance</h4>
+              <p class="mb-0">Home maintenance packages to prevent problems before they start.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-center mt-5">
+        <p class="lead">Don't see what you need? <a href="contact-us.html">Contact us</a> for custom solutions!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section class="py-5 bg-deep-blue text-white">
+    <div class="container py-5">
+      <div class="row justify-content-center mb-5">
+        <div class="col-lg-8 text-center">
+          <h2 class="section-title">How FixItPro Works</h2>
+          <p class="lead">Simple, hassle-free service from booking to completion</p>
+        </div>
+      </div>
+      
+      <div class="row g-4 text-center">
+        <div class="col-md-4">
+          <div class="p-4">
+            <div class="bg-bright-orange rounded-circle p-4 d-inline-flex mb-4">
+              <i class="bi bi-calendar-check" style="font-size: 2rem;"></i>
+            </div>
+            <h3 class="h4 mb-3">1. Book Your Service</h3>
+            <p>Schedule online or by phone in minutes. Choose a time that works for you.</p>
+          </div>
+        </div>
+        
+        <div class="col-md-4">
+          <div class="p-4">
+            <div class="bg-bright-orange rounded-circle p-4 d-inline-flex mb-4">
+              <i class="bi bi-person-check" style="font-size: 2rem;"></i>
+            </div>
+            <h3 class="h4 mb-3">2. Expert Arrives</h3>
+            <p>A certified technician arrives on time, equipped to handle your job.</p>
+          </div>
+        </div>
+        
+        <div class="col-md-4">
+          <div class="p-4">
+            <div class="bg-bright-orange rounded-circle p-4 d-inline-flex mb-4">
+              <i class="bi bi-check-circle" style="font-size: 2rem;"></i>
+            </div>
+            <h3 class="h4 mb-3">3. Job Completed</h3>
+            <p>We fix the issue efficiently and ensure your complete satisfaction.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-center mt-5">
+        <div class="trust-badge mx-auto">
+          <i class="bi bi-patch-check-fill trust-icon"></i>
+          <div>Licensed & Insured Professionals | 100% Satisfaction Guaranteed</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center">
+          <h2 class="mb-4">Ready to Get Your Fix?</h2>
+          <p class="lead mb-5">Explore your service category or book your fix in minutes. It's that easy with FixItPro.</p>
+          <a href="booking.html" class="btn btn-primary btn-lg me-3">Book a Service</a>
+          <a href="tel:+18005551234" class="btn btn-outline-light btn-lg">Call Now: (800) 555-1234</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container pt-5 pb-4">
+      <div class="row g-5">
+        <div class="col-md-6 col-lg-4">
+          <h3 class="text-white mb-4">FixIt<span class="text-bright-orange">Pro</span></h3>
+          <p class="mb-4">Professional home repair services you can trust. Serving homeowners with reliable solutions since 2010.</p>
+          <div class="d-flex">
+            <a href="#" class="social-icon me-2"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="social-icon me-2"><i class="bi bi-twitter"></i></a>
+            <a href="#" class="social-icon me-2"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-2">
+          <h5 class="text-white mb-4">Quick Links</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="index.html">Home</a></li>
+            <li class="mb-2"><a href="services.html">Services</a></li>
+            <li class="mb-2"><a href="plumbing.html">Plumbing</a></li>
+            <li class="mb-2"><a href="electrical.html">Electrical</a></li>
+            <li><a href="handyman.html">Handyman</a></li>
+          </ul>
+        </div>
+        
+        <div class="col-md-6 col-lg-3">
+          <h5 class="text-white mb-4">Contact Us</h5>
+          <ul class="list-unstyled">
+            <li class="mb-3"><i class="bi bi-geo-alt me-2"></i> 123 Repair Street, Service City</li>
+            <li class="mb-3"><i class="bi bi-telephone me-2"></i> (800) 555-1234</li>
+            <li class="mb-3"><i class="bi bi-envelope me-2"></i> info@fixitpro.com</li>
+            <li><i class="bi bi-clock me-2"></i> Mon-Sat: 8AM - 8PM</li>
+          </ul>
+        </div>
+        
+        <div class="col-md-6 col-lg-3">
+          <h5 class="text-white mb-4">Business Hours</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2">Monday - Friday: 8am - 8pm</li>
+            <li class="mb-2">Saturday: 9am - 6pm</li>
+            <li class="mb-2">Sunday: Emergency Only</li>
+            <li>24/7 Emergency Service Available</li>
+          </ul>
+        </div>
+      </div>
+      
+      <hr class="mt-5 mb-4 border-secondary">
+      
+      <div class="row">
+        <div class="col-md-6 mb-3 mb-md-0">
+          <p class="mb-0">&copy; 2025 FixItPro. All rights reserved.</p>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <p class="mb-0">Designed with <i class="bi bi-heart-fill text-bright-orange"></i> for homeowners</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    // Add scroll effect to navbar
+    window.addEventListener('scroll', function() {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+  </script>
+</body>
+</html>
