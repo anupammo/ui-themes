@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us | GlowSpa – Book Beauty, Ask a Question, Say Hello</title>
+  <meta name="description" content="Reach out to GlowSpa for bookings, consultations, or product inquiries. Let’s talk beauty, self-care, and everything elegance.">
+  <meta name="keywords" content="GlowSpa contact, salon booking, appointment request, beauty consultation, luxury spa inquiry, call salon, email GlowSpa, redefine elegance, beauty support">
+  <meta name="robots" content="index, follow" />
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+  
+  <style>
+    :root {
+      --rose-pink: #ff007f;
+      --soft-gold: #ffd700;
+      --white: #ffffff;
+      --light-pink: #fff0f7;
+      --gold-gradient: linear-gradient(135deg, #ffd700 0%, #f9d56e 100%);
+      --pink-gradient: linear-gradient(135deg, #ff007f 0%, #ff66b3 100%);
+    }
+    
+    body {
+      font-family: 'Raleway', sans-serif;
+      color: #333;
+      background-color: #fffdfe;
+      overflow-x: hidden;
+    }
+    
+    h1, h2, h3, h4, h5, .navbar-brand {
+      font-family: 'Cinzel', serif;
+      font-weight: 600;
+    }
+    
+    /* Custom Navbar */
+    .navbar {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+      padding: 15px 0;
+      transition: all 0.3s ease;
+    }
+    
+    .navbar-brand {
+      color: var(--rose-pink);
+      font-size: 28px;
+      letter-spacing: 1px;
+    }
+    
+    .navbar-nav .nav-link {
+      color: #555;
+      font-weight: 500;
+      margin: 0 10px;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    
+    .navbar-nav .nav-link:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--rose-pink);
+      transition: width 0.3s ease;
+    }
+    
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link.active {
+      color: var(--rose-pink);
+    }
+    
+    .navbar-nav .nav-link:hover:after,
+    .navbar-nav .nav-link.active:after {
+      width: 100%;
+    }
+    
+    .btn-glow {
+      background: var(--gold-gradient);
+      color: #333;
+      border: none;
+      border-radius: 30px;
+      padding: 12px 28px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s ease;
+      box-shadow: 0 4px 15px rgba(255, 0, 127, 0.2);
+    }
+    
+    .btn-glow:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(255, 0, 127, 0.3);
+      color: #333;
+    }
+    
+    /* Hero Section */
+    .contact-hero {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(255, 240, 247, 0.85) 100%), url('https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+      height: 50vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    
+    .contact-hero:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, rgba(255, 0, 127, 0.05) 0%, rgba(255, 215, 0, 0.05) 100%);
+      z-index: 0;
+    }
+    
+    .contact-hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .contact-hero h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #222;
+    }
+    
+    .slogan {
+      color: var(--rose-pink);
+      font-style: italic;
+      letter-spacing: 2px;
+      display: block;
+      margin-top: 10px;
+      font-weight: 500;
+    }
+    
+    /* Contact Content */
+    .contact-content {
+      padding: 100px 0;
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+      position: relative;
+    }
+    
+    .section-title h2 {
+      font-size: 2.5rem;
+      color: #222;
+      margin-bottom: 15px;
+    }
+    
+    .section-title:after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 3px;
+      background: var(--gold-gradient);
+      margin: 15px auto;
+    }
+    
+    .contact-container {
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+    }
+    
+    .contact-info {
+      background: linear-gradient(135deg, var(--rose-pink) 0%, #e60073 100%);
+      color: white;
+      padding: 50px;
+      height: 100%;
+    }
+    
+    .contact-info h2 {
+      color: white;
+      margin-bottom: 30px;
+      position: relative;
+    }
+    
+    .contact-info h2:after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 60px;
+      height: 2px;
+      background: var(--soft-gold);
+    }
+    
+    .contact-detail {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+    
+    .contact-icon {
+      min-width: 40px;
+      height: 40px;
+      background: var(--soft-gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--rose-pink);
+      font-size: 18px;
+    }
+    
+    .contact-text p {
+      margin-bottom: 0;
+      font-size: 1.05rem;
+    }
+    
+    .hours-list {
+      list-style: none;
+      padding: 0;
+      margin-top: 20px;
+    }
+    
+    .hours-list li {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .hours-list li:last-child {
+      border-bottom: none;
+    }
+    
+    /* Contact Form */
+    .contact-form {
+      padding: 50px;
+    }
+    
+    .form-group {
+      margin-bottom: 25px;
+    }
+    
+    .form-label {
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #444;
+    }
+    
+    .form-control, .form-select {
+      border: 1px solid #e0e0e0;
+      border-radius: 10px;
+      padding: 12px 15px;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+    
+    .form-control:focus, .form-select:focus {
+      border-color: var(--rose-pink);
+      box-shadow: 0 0 0 3px rgba(255, 0, 127, 0.1);
+    }
+    
+    .form-control::placeholder {
+      color: #aaa;
+    }
+    
+    textarea.form-control {
+      min-height: 150px;
+      resize: vertical;
+    }
+    
+    .btn-pink {
+      background: var(--pink-gradient);
+      color: white;
+      border: none;
+      border-radius: 30px;
+      padding: 12px 30px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.4s ease;
+      width: 100%;
+      box-shadow: 0 4px 15px rgba(255, 0, 127, 0.3);
+    }
+    
+    .btn-pink:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(255, 0, 127, 0.4);
+      color: white;
+    }
+    
+    /* Social Section */
+    .social-section {
+      padding: 80px 0;
+      background: linear-gradient(135deg, rgba(255, 240, 247, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);
+    }
+    
+    .social-card {
+      background: white;
+      border-radius: 15px;
+      padding: 40px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      text-align: center;
+      transition: all 0.4s ease;
+    }
+    
+    .social-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(255, 0, 127, 0.1);
+    }
+    
+    .social-icon {
+      width: 80px;
+      height: 80px;
+      background: var(--gold-gradient);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 25px;
+      font-size: 30px;
+      color: white;
+    }
+    
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 25px;
+    }
+    
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background: var(--rose-pink);
+      color: white;
+      font-size: 20px;
+      transition: all 0.3s ease;
+    }
+    
+    .social-links a:hover {
+      background: var(--soft-gold);
+      color: #333;
+      transform: translateY(-5px);
+    }
+    
+    /* Map Section */
+    .map-section {
+      padding: 0 0 100px;
+    }
+    
+    .map-container {
+      height: 450px;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+    }
+    
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    
+    /* Footer */
+    footer {
+      background: #111;
+      color: #aaa;
+      padding: 70px 0 0;
+    }
+    
+    .footer-logo {
+      font-family: 'Cinzel', serif;
+      font-size: 28px;
+      color: white;
+      margin-bottom: 20px;
+      display: block;
+    }
+    
+    .footer-logo span {
+      color: var(--rose-pink);
+    }
+    
+    .footer-title {
+      color: white;
+      font-size: 1.2rem;
+      margin-bottom: 25px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+    
+    .footer-title:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background: var(--rose-pink);
+    }
+    
+    .footer-links li {
+      margin-bottom: 12px;
+      list-style: none;
+    }
+    
+    .footer-links a {
+      color: #aaa;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .footer-links a:hover {
+      color: var(--rose-pink);
+      padding-left: 5px;
+    }
+    
+    .copyright {
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 50px;
+      border-top: 1px solid #333;
+    }
+    
+    /* Responsive Adjustments */
+    @media (max-width: 992px) {
+      .contact-hero h1 {
+        font-size: 3rem;
+      }
+      
+      .contact-info {
+        padding: 30px;
+      }
+      
+      .contact-form {
+        padding: 30px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .contact-hero {
+        height: 40vh;
+      }
+      
+      .contact-hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .section-title h2 {
+        font-size: 2rem;
+      }
+      
+      .map-container {
+        height: 350px;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .contact-hero h1 {
+        font-size: 2rem;
+      }
+      
+      .contact-info, .contact-form {
+        padding: 25px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Glow<span style="color: var(--soft-gold);">Spa</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about-us.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link active" href="contact-us.html">Contact</a></li>
+        </ul>
+        <div class="ms-lg-3 mt-3 mt-lg-0">
+          <a href="contact-us.html" class="btn btn-glow">Book Now</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="contact-hero">
+    <div class="container">
+      <div class="contact-hero-content">
+        <h1>Let's Connect and Glow</h1>
+        <p class="lead">Begin your journey to elegance with a simple message</p>
+        <span class="slogan">Redefining Elegance</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Content -->
+  <section class="contact-content">
+    <div class="container">
+      <div class="section-title">
+        <h2>Get in Touch</h2>
+        <p>We'd love to hear from you - book appointments, ask questions, or just say hello</p>
+      </div>
+      
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="contact-info">
+            <h2>Visit Us</h2>
+            
+            <div class="contact-detail">
+              <div class="contact-icon">
+                <i class="bi bi-envelope"></i>
+              </div>
+              <div class="contact-text">
+                <p><strong>Email:</strong> <a href="mailto:hello@glowspa.com" style="color: white; text-decoration: underline;">hello@glowspa.com</a></p>
+              </div>
+            </div>
+            
+            <div class="contact-detail">
+              <div class="contact-icon">
+                <i class="bi bi-telephone"></i>
+              </div>
+              <div class="contact-text">
+                <p><strong>Phone:</strong> +1 (555) 321-7890</p>
+              </div>
+            </div>
+            
+            <div class="contact-detail">
+              <div class="contact-icon">
+                <i class="bi bi-geo-alt"></i>
+              </div>
+              <div class="contact-text">
+                <p><strong>Location:</strong> 52 Velvet Avenue, Serenity Plaza, NY 10018</p>
+              </div>
+            </div>
+            
+            <h3 class="mt-5">Salon Hours</h3>
+            <ul class="hours-list">
+              <li><span>Monday - Friday:</span> <span>9:00 AM - 8:00 PM</span></li>
+              <li><span>Saturday:</span> <span>9:00 AM - 8:00 PM</span></li>
+              <li><span>Sunday:</span> <span>10:00 AM - 5:00 PM</span></li>
+            </ul>
+            
+            <p class="mt-4">Whether you're booking your next appointment, exploring our service menu, or just looking for style inspiration — the <strong>GlowSpa</strong> team is here for it. Elegant experiences begin with a simple message.</p>
+          </div>
+        </div>
+        
+        <div class="col-lg-6">
+          <div class="contact-form">
+            <h2>Send Us a Message</h2>
+            <form action="submit_contact.php" method="post">
+              <div class="form-group">
+                <label for="name" class="form-label">Full Name</label>
+                <input type="text" id="name" name="name" class="form-control" placeholder="Your full name" required />
+              </div>
+              
+              <div class="form-group">
+                <label for="email" class="form-label">Email Address</label>
+                <input type="email" id="email" name="email" class="form-control" placeholder="Your email address" required />
+              </div>
+              
+              <div class="form-group">
+                <label for="service" class="form-label">Service Inquiry</label>
+                <select id="service" name="service" class="form-select">
+                  <option value="">Select a service</option>
+                  <option value="hair">Hair Styling</option>
+                  <option value="spa">Spa Treatments</option>
+                  <option value="bridal">Bridal Consultation</option>
+                  <option value="other">Other Inquiry</option>
+                </select>
+              </div>
+              
+              <div class="form-group">
+                <label for="message" class="form-label">Message</label>
+                <textarea id="message" name="message" class="form-control" placeholder="How can we help you?" rows="5" required></textarea>
+              </div>
+              
+              <button type="submit" class="btn btn-pink mt-3">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Section -->
+  <section class="social-section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Follow the Glow</h2>
+        <p>Connect with us on social media for inspiration, offers, and beauty tips</p>
+      </div>
+      
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="social-card">
+            <div class="social-icon">
+              <i class="bi bi-chat-heart"></i>
+            </div>
+            <h3>Join Our Beauty Community</h3>
+            <p>Follow us for daily inspiration, exclusive offers, behind-the-scenes glimpses, and expert beauty tips from our team.</p>
+            
+            <div class="social-links">
+              <a href="https://instagram.com/glowspa"><i class="bi bi-instagram"></i></a>
+              <a href="https://facebook.com/glowspa"><i class="bi bi-facebook"></i></a>
+              <a href="https://pinterest.com/glowspa"><i class="bi bi-pinterest"></i></a>
+              <a href="#"><i class="bi bi-tiktok"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Map Section -->
+  <section class="map-section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Find Our Sanctuary</h2>
+        <p>Visit us at our luxurious location in Serenity Plaza</p>
+      </div>
+      
+      <div class="map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193595.15830869428!2d-74.11976397304603!3d40.69766374874431!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2s!4v1658947893453!5m2!1sen!2s" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 mb-5 mb-lg-0">
+          <a href="index.html" class="footer-logo">Glow<span>Spa</span></a>
+          <p class="mb-4">Redefining elegance through luxurious beauty and wellness experiences. Our expert team is dedicated to helping you look and feel your absolute best.</p>
+          <div class="social-links">
+            <a href="#"><i class="bi bi-facebook"></i></a>
+            <a href="#"><i class="bi bi-instagram"></i></a>
+            <a href="#"><i class="bi bi-pinterest"></i></a>
+            <a href="#"><i class="bi bi-twitter"></i></a>
+          </div>
+        </div>
+        
+        <div class="col-lg-4 col-md-6 mb-5 mb-md-0">
+          <h4 class="footer-title">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about-us.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact-us.html">Contact Us</a></li>
+          </ul>
+        </div>
+        
+        <div class="col-lg-4 col-md-6">
+          <h4 class="footer-title">Contact Us</h4>
+          <ul class="footer-links">
+            <li><i class="bi bi-geo-alt me-2"></i> 52 Velvet Avenue, Serenity Plaza, NY 10018</li>
+            <li><i class="bi bi-telephone me-2"></i> +1 (555) 321-7890</li>
+            <li><i class="bi bi-envelope me-2"></i> hello@glowspa.com</li>
+            <li><i class="bi bi-clock me-2"></i> Mon-Sat: 9AM - 8PM, Sun: 10AM - 5PM</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="copyright">
+        <p>&copy; 2025 GlowSpa. All Rights Reserved. Redefining Elegance.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    // Simple animation for navbar on scroll
+    window.addEventListener('scroll', function() {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.style.padding = '10px 0';
+        navbar.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
+      } else {
+        navbar.style.padding = '15px 0';
+        navbar.style.boxShadow = '0 2px 15px rgba(0, 0, 0, 0.05)';
+      }
+    });
+    
+    // Form validation and enhancement
+    const contactForm = document.querySelector('form');
+    if (contactForm) {
+      contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Simple validation
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+        
+        if (name && email && message) {
+          // In a real implementation, you would submit the form here
+          // For demo purposes, we'll show a success message
+          alert('Thank you for your message! We will get back to you soon.');
+          contactForm.reset();
+        } else {
+          alert('Please fill in all required fields.');
+        }
+      });
+    }
+  </script>
+</body>
+</html>
