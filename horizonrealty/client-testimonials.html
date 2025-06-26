@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horizon Realty Testimonials | Real Client Reviews & Success Stories</title>
+    <meta name="description" content="Hear from satisfied Horizon Realty clients. Read real estate success stories, trusted reviews, and home-buying experiences.">
+    <meta name="keywords" content="real estate testimonials, Horizon Realty reviews, home buyer experiences, client feedback, real estate success stories, property investments">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Horizon Realty Testimonials | Real Client Reviews & Success Stories">
+    <meta property="og:description" content="Read inspiring success stories from Horizon Realty clients. Trusted real estate experts helping buyers and investors find their dream properties.">
+    <meta property="og:type" content="website">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    
+    <style>
+        :root {
+            --brick-red: #b22222;
+            --warm-beige: #f5deb3;
+            --white: #ffffff;
+            --dark-gray: #333;
+            --light-gray: #f8f9fa;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+            line-height: 1.7;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+        
+        .hero-testimonials {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            color: var(--white);
+            position: relative;
+        }
+        
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95) !important;
+            padding: 1.2rem 0;
+            transition: all 0.3s;
+        }
+        
+        .navbar-brand {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--brick-red) !important;
+            font-size: 1.8rem;
+        }
+        
+        .navbar-brand span {
+            color: var(--dark-gray);
+        }
+        
+        .nav-link {
+            color: var(--dark-gray) !important;
+            font-weight: 500;
+            margin: 0 0.8rem;
+            position: relative;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--brick-red);
+            transition: width 0.3s;
+        }
+        
+        .nav-link:hover:after, .nav-link.active:after {
+            width: 100%;
+        }
+        
+        .btn-primary {
+            background-color: var(--brick-red);
+            border-color: var(--brick-red);
+            padding: 0.8rem 2rem;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary:hover {
+            background-color: #9b1d1d;
+            border-color: #9b1d1d;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(178, 34, 34, 0.2);
+        }
+        
+        .btn-outline-primary {
+            color: var(--brick-red);
+            border-color: var(--brick-red);
+            padding: 0.8rem 2rem;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .btn-outline-primary:hover {
+            background-color: var(--brick-red);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+        
+        .section {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 2.5rem;
+            color: var(--dark-gray);
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background: var(--brick-red);
+            bottom: -15px;
+            left: 0;
+        }
+        
+        .section-title.text-center:after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .intro-section {
+            background-color: var(--white);
+        }
+        
+        .testimonials-section {
+            background-color: var(--light-gray);
+        }
+        
+        .why-section {
+            background-color: var(--white);
+        }
+        
+        .form-section {
+            background-color: var(--light-gray);
+        }
+        
+        .cta-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+        }
+        
+        .testimonial-card {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            height: 100%;
+            position: relative;
+            margin-bottom: 2rem;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .testimonial-card:before {
+            content: """;
+            font-family: 'Playfair Display', serif;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 6rem;
+            color: var(--warm-beige);
+            opacity: 0.3;
+            line-height: 1;
+        }
+        
+        .stars {
+            color: #FFD700;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .client-info {
+            display: flex;
+            align-items: center;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(0,0,0,0.1);
+        }
+        
+        .client-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--warm-beige);
+            margin-right: 1rem;
+        }
+        
+        .category-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--brick-red);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+        
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+        
+        .benefit-icon {
+            background: var(--warm-beige);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+        
+        .benefit-icon i {
+            color: var(--brick-red);
+            font-size: 1.5rem;
+        }
+        
+        .review-form {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-control, .form-select {
+            padding: 0.8rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s;
+        }
+        
+        .form-control:focus, .form-select:focus {
+            border-color: var(--brick-red);
+            box-shadow: 0 0 0 0.25rem rgba(178, 34, 34, 0.25);
+        }
+        
+        footer {
+            background: var(--dark-gray);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer-title {
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-title:after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 2px;
+            background: var(--brick-red);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--white);
+            margin-right: 10px;
+            transition: all 0.3s;
+        }
+        
+        .social-icon:hover {
+            background: var(--brick-red);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 1.5rem 0;
+            margin-top: 3rem;
+        }
+        
+        /* Animation effects */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+        
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+        
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero-testimonials {
+                height: 50vh;
+            }
+            
+            .hero-testimonials h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section {
+                padding: 3rem 0;
+            }
+            
+            .navbar {
+                padding: 1rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Horizon<span>Realty</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Properties</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Agents</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Testimonials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+                <div class="ms-3">
+                    <button class="btn btn-outline-primary">Sign In</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-testimonials">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="hero-content">
+                        <h1 class="display-3 fw-bold animate">What Our Clients Say</h1>
+                        <p class="lead my-4 animate delay-1">Real stories from satisfied Horizon Realty clients</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section class="intro-section section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto text-center">
+                    <h2 class="section-title">Client Testimonials</h2>
+                    <p class="lead">At <strong>Horizon Realty</strong>, we take pride in helping <strong>home buyers, property investors, and commercial clients</strong> achieve their real estate goals. Read <strong>verified testimonials</strong> from satisfied customers who found their dream homes and business spaces with us.</p>
+                    <div class="d-flex justify-content-center gap-3 mt-4">
+                        <a href="#home-buyers" class="btn btn-primary">Home Buyer Stories</a>
+                        <a href="#commercial" class="btn btn-outline-primary">Commercial Clients</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Home Buyer Testimonials -->
+    <section class="testimonials-section section" id="home-buyers">
+        <div class="container">
+            <h2 class="section-title text-center">Finding the Perfect Home: Buyer Testimonials</h2>
+            <p class="text-center mb-5">Hear from home buyers who found their dream properties with Horizon Realty</p>
+            
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="testimonial-card animate">
+                        <span class="category-badge">First-Time Buyer</span>
+                        <div class="stars">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <h3>"Horizon Realty Made Home Buying Stress-Free!"</h3>
+                        <p class="mb-0">"From our first meeting to closing the deal, Horizon Realty was exceptional. Their team found us the perfect home in a fantastic neighborhood!"</p>
+                        <div class="client-info">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Emily & James Carter" class="client-img">
+                            <div>
+                                <h5 class="mb-0">Emily & James Carter</h5>
+                                <p class="text-muted mb-0">First-Time Homebuyers</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mb-4">
+                    <div class="testimonial-card animate delay-1">
+                        <span class="category-badge">Property Investor</span>
+                        <div class="stars">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <h3>"Expert Guidance for Real Estate Investments"</h3>
+                        <p class="mb-0">"Their market insights and negotiating skills helped us secure a great deal. We trust Horizon Realty for future property investments!"</p>
+                        <div class="client-info">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Daniel Roberts" class="client-img">
+                            <div>
+                                <h5 class="mb-0">Daniel Roberts</h5>
+                                <p class="text-muted mb-0">Property Investor</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mb-4">
+                    <div class="testimonial-card animate delay-2">
+                        <span class="category-badge">Family Home</span>
+                        <div class="stars">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <h3>"Beyond Our Expectations"</h3>
+                        <p class="mb-0">"We were relocating with two kids and needed the perfect family home. Horizon found us a property that exceeded all our expectations."</p>
+                        <div class="client-info">
+                            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="The Johnson Family" class="client-img">
+                            <div>
+                                <h5 class="mb-0">The Johnson Family</h5>
+                                <p class="text-muted mb-0">Relocating Family</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mb-4">
+                    <div class="testimonial-card animate delay-3">
+                        <span class="category-badge">Downsizing</span>
+                        <div class="stars">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-half"></i>
+                        </div>
+                        <h3>"Perfect Home for Retirement"</h3>
+                        <p class="mb-0">"As empty nesters, we needed to downsize. Horizon understood our needs and found us the perfect retirement home in a wonderful community."</p>
+                        <div class="client-info">
+                            <img src="https://images.unsplash.com/photo-1584308972272-9e4e7685e80f?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Robert & Susan Miller" class="client-img">
+                            <div>
+                                <h5 class="mb-0">Robert & Susan Miller</h5>
+                                <p class="text-muted mb-0">Retirees</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Commercial Testimonials -->
+    <section class="why-section section" id="commercial">
+        <div class="container">
+            <h2 class="section-title text-center">Helping Businesses Find Prime Locations</h2>
+            <p class="text-center mb-5">Success stories from our commercial clients</p>
+            
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="testimonial-card animate">
+                        <span class="category-badge">Retail Business</span>
+                        <div class="stars">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <h3>"Professional, Reliable, and Highly Recommended"</h3>
+                        <p class="mb-0">"Our business needed the perfect retail space, and Horizon Realty delivered. Their expertise made leasing simple and efficient!"</p>
+                        <div class="client-info">
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Sarah Lane" class="client-img">
+                            <div>
+                                <h5 class="mb-0">Sarah Lane</h5>
+                                <p class="text-muted mb-0">Business Owner</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mb-4">
+                    <div class="testimonial-card animate delay-1">
+                        <span class="category-badge">Office Space</span>
+                        <div class="stars">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <h3>"Expanding Our Offices Was Seamless"</h3>
+                        <p class="mb-0">"Horizon Realty helped us find modern office space that fit our company's growing needs. Highly professional and knowledgeable!"</p>
+                        <div class="client-info">
+                            <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Mark Stevens" class="client-img">
+                            <div>
+                                <h5 class="mb-0">Mark Stevens</h5>
+                                <p class="text-muted mb-0">CEO, Tech Solutions Inc.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mb-4">
+                    <div class="testimonial-card animate delay-2">
+                        <span class="category-badge">Restaurant</span>
+                        <div class="stars">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <h3>"Perfect Location for Our New Restaurant"</h3>
+                        <p class="mb-0">"Finding the right location was crucial for our new restaurant. Horizon understood our vision and found us the perfect spot in a high-traffic area."</p>
+                        <div class="client-info">
+                            <img src="https://images.unsplash.com/photo-1567532939604-b6b5b0e16019?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Carlos Mendez" class="client-img">
+                            <div>
+                                <h5 class="mb-0">Carlos Mendez</h5>
+                                <p class="text-muted mb-0">Restaurant Owner</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mb-4">
+                    <div class="testimonial-card animate delay-3">
+                        <span class="category-badge">Warehouse</span>
+                        <div class="stars">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-half"></i>
+                        </div>
+                        <h3>"Industrial Space That Met All Our Requirements"</h3>
+                        <p class="mb-0">"We needed specialized warehouse space with specific loading capabilities. Horizon found us exactly what we needed at a great price."</p>
+                        <div class="client-info">
+                            <img src="https://images.unsplash.com/photo-1556157382-97eda2f9e946?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Jennifer Kim" class="client-img">
+                            <div>
+                                <h5 class="mb-0">Jennifer Kim</h5>
+                                <p class="text-muted mb-0">Operations Director</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="testimonials-section section">
+        <div class="container">
+            <h2 class="section-title text-center">Why Buyers & Investors Choose Horizon Realty</h2>
+            <p class="text-center mb-5">The benefits of working with our expert team</p>
+            
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <div class="benefit-item animate">
+                                <div class="benefit-icon">
+                                    <i class="bi bi-shield-check"></i>
+                                </div>
+                                <div>
+                                    <h4>Trusted Experts</h4>
+                                    <p>Knowledgeable agents ensuring seamless transactions.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-4">
+                            <div class="benefit-item animate delay-1">
+                                <div class="benefit-icon">
+                                    <i class="bi bi-house"></i>
+                                </div>
+                                <div>
+                                    <h4>Wide Property Selection</h4>
+                                    <p>Residential and commercial listings that match client needs.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-4">
+                            <div class="benefit-item animate delay-2">
+                                <div class="benefit-icon">
+                                    <i class="bi bi-person"></i>
+                                </div>
+                                <div>
+                                    <h4>Personalized Assistance</h4>
+                                    <p>Tailored guidance based on budgets, preferences, and investment goals.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-4">
+                            <div class="benefit-item animate delay-3">
+                                <div class="benefit-icon">
+                                    <i class="bi bi-file-earmark-check"></i>
+                                </div>
+                                <div>
+                                    <h4>Smooth Closing Process</h4>
+                                    <p>Stress-free negotiations and paperwork handling.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center mt-5">
+                        <a href="#" class="btn btn-primary">Meet Our Agents</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Submit Testimonial Form -->
+    <section class="form-section section">
+        <div class="container">
+            <h2 class="section-title text-center">Share Your Experience</h2>
+            <p class="text-center mb-5">Have you worked with <strong>Horizon Realty</strong>? We'd love to hear about your <strong>home-buying journey or investment success story</strong>.</p>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="review-form">
+                        <form action="submit_review.php" method="post">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="name" class="form-label">Full Name:</label>
+                                    <input type="text" id="name" name="name" class="form-control" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="email" class="form-label">Email Address:</label>
+                                    <input type="email" id="email" name="email" class="form-control" required>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="property-type" class="form-label">Property Type:</label>
+                                <select id="property-type" name="property-type" class="form-select">
+                                    <option value="">Select property type</option>
+                                    <option value="residential">Residential Home</option>
+                                    <option value="commercial">Commercial Property</option>
+                                    <option value="investment">Investment Property</option>
+                                    <option value="land">Land</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="rating" class="form-label">Rating:</label>
+                                <div class="d-flex gap-2">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="rating" id="rating1" value="1">
+                                        <label class="form-check-label" for="rating1">1</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="rating" id="rating2" value="2">
+                                        <label class="form-check-label" for="rating2">2</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="rating" id="rating3" value="3">
+                                        <label class="form-check-label" for="rating3">3</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="rating" id="rating4" value="4">
+                                        <label class="form-check-label" for="rating4">4</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="rating" id="rating5" value="5" checked>
+                                        <label class="form-check-label" for="rating5">5</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label for="message" class="form-label">Your Testimonial:</label>
+                                <textarea id="message" name="message" rows="5" class="form-control" required></textarea>
+                            </div>
+                            
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary btn-lg px-5">Submit Your Review</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="mb-4">Ready to Start Your Real Estate Journey?</h2>
+                    <p class="lead mb-5">Connect with our expert agents today and experience the Horizon Realty difference</p>
+                    
+                    <h3 class="text-warm-beige mb-4">Connect with Horizon Realty</h3>
+                    <div class="d-flex flex-column flex-md-row justify-content-center gap-3 align-items-center mb-5">
+                        <div class="d-flex align-items-center mb-3 mb-md-0">
+                            <i class="bi bi-envelope fs-3 me-3 text-warm-beige"></i>
+                            <div>
+                                <p class="mb-0">Email</p>
+                                <h4 class="mb-0"><a href="mailto:support@horizonrealty.com" class="text-white">support@horizonrealty.com</a></h4>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center mb-3 mb-md-0">
+                            <i class="bi bi-telephone fs-3 me-3 text-warm-beige"></i>
+                            <div>
+                                <p class="mb-0">Phone</p>
+                                <h4 class="mb-0">+1 (555) 456-7890</h4>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <a href="#" class="btn btn-primary btn-lg me-3">Schedule Consultation</a>
+                        <a href="#" class="btn btn-outline-light btn-lg">Browse Properties</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <h4 class="footer-title">Horizon Realty</h4>
+                    <p>Your trusted partner in finding the perfect property. We combine market expertise with innovative technology to deliver exceptional real estate experiences.</p>
+                    <div class="mt-4">
+                        <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-white-50">Home</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-white-50">Featured Properties</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-white-50">Commercial Listings</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-white-50">Residential Listings</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-white-50">Our Agents</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-white-50">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-4">
+                    <h4 class="footer-title">Connect With Us</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-3"><i class="bi bi-geo-alt me-2"></i> 456 Horizon Avenue, New York, NY 10001</li>
+                        <li class="mb-3"><i class="bi bi-telephone me-2"></i> +1 (555) 456-7890</li>
+                        <li class="mb-3"><i class="bi bi-envelope me-2"></i> support@horizonrealty.com</li>
+                        <li class="mb-3"><i class="bi bi-clock me-2"></i> Mon-Fri: 9am - 6pm</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright text-center mt-5">
+                <p class="mb-0">&copy; 2025 Horizon Realty. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom Script -->
+    <script>
+        // Navbar effect on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-sm');
+                navbar.style.padding = '0.8rem 0';
+            } else {
+                navbar.classList.remove('shadow-sm');
+                navbar.style.padding = '1.2rem 0';
+            }
+        });
+        
+        // Animation on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+            
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+            
+            document.querySelectorAll('.testimonial-card, .benefit-item').forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>
