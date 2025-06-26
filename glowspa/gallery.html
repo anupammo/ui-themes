@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery | GlowSpa – See the Beauty, Feel the Glow</title>
+  <meta name="description" content="Browse the GlowSpa gallery featuring elegant hair transformations, rejuvenating spa moments, and behind-the-scenes glimpses of our serene studio.">
+  <meta name="keywords" content="GlowSpa gallery, hair makeover, spa experience photos, salon interior, before and after, beauty studio images, redefine elegance, premium salon visuals">
+  <meta name="robots" content="index, follow" />
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+  
+  <style>
+    :root {
+      --rose-pink: #ff007f;
+      --soft-gold: #ffd700;
+      --white: #ffffff;
+      --light-pink: #fff0f7;
+      --gold-gradient: linear-gradient(135deg, #ffd700 0%, #f9d56e 100%);
+      --pink-gradient: linear-gradient(135deg, #ff007f 0%, #ff66b3 100%);
+    }
+    
+    body {
+      font-family: 'Raleway', sans-serif;
+      color: #333;
+      background-color: #fffdfe;
+      overflow-x: hidden;
+    }
+    
+    h1, h2, h3, h4, h5, .navbar-brand {
+      font-family: 'Cinzel', serif;
+      font-weight: 600;
+    }
+    
+    /* Custom Navbar */
+    .navbar {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+      padding: 15px 0;
+      transition: all 0.3s ease;
+    }
+    
+    .navbar-brand {
+      color: var(--rose-pink);
+      font-size: 28px;
+      letter-spacing: 1px;
+    }
+    
+    .navbar-nav .nav-link {
+      color: #555;
+      font-weight: 500;
+      margin: 0 10px;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    
+    .navbar-nav .nav-link:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--rose-pink);
+      transition: width 0.3s ease;
+    }
+    
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link.active {
+      color: var(--rose-pink);
+    }
+    
+    .navbar-nav .nav-link:hover:after,
+    .navbar-nav .nav-link.active:after {
+      width: 100%;
+    }
+    
+    .btn-glow {
+      background: var(--gold-gradient);
+      color: #333;
+      border: none;
+      border-radius: 30px;
+      padding: 12px 28px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s ease;
+      box-shadow: 0 4px 15px rgba(255, 0, 127, 0.2);
+    }
+    
+    .btn-glow:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(255, 0, 127, 0.3);
+      color: #333;
+    }
+    
+    /* Hero Section */
+    .gallery-hero {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(255, 240, 247, 0.85) 100%), url('https://images.unsplash.com/photo-1562322140-8baeececf3df?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+      height: 60vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    
+    .gallery-hero:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, rgba(255, 0, 127, 0.05) 0%, rgba(255, 215, 0, 0.05) 100%);
+      z-index: 0;
+    }
+    
+    .gallery-hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .gallery-hero h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #222;
+    }
+    
+    .slogan {
+      color: var(--rose-pink);
+      font-style: italic;
+      letter-spacing: 2px;
+      display: block;
+      margin-top: 10px;
+      font-weight: 500;
+    }
+    
+    /* Gallery Content */
+    .gallery-content {
+      padding: 80px 0;
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+      position: relative;
+    }
+    
+    .section-title h2 {
+      font-size: 2.5rem;
+      color: #222;
+      margin-bottom: 15px;
+    }
+    
+    .section-title:after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 3px;
+      background: var(--gold-gradient);
+      margin: 15px auto;
+    }
+    
+    .gallery-intro {
+      max-width: 800px;
+      margin: 0 auto 60px;
+      text-align: center;
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+    
+    .features-section {
+      background: linear-gradient(135deg, rgba(255, 240, 247, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);
+      border-radius: 20px;
+      padding: 60px;
+      margin: 60px auto;
+      max-width: 900px;
+    }
+    
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+    
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+    }
+    
+    .feature-icon {
+      min-width: 60px;
+      height: 60px;
+      background: var(--gold-gradient);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      color: white;
+    }
+    
+    .feature-text h3 {
+      color: var(--rose-pink);
+      margin-bottom: 10px;
+      font-size: 1.3rem;
+    }
+    
+    /* Gallery Grid */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 25px;
+    }
+    
+    .gallery-item {
+      position: relative;
+      border-radius: 15px;
+      overflow: hidden;
+      height: 350px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      transition: all 0.4s ease;
+    }
+    
+    .gallery-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(255, 0, 127, 0.1);
+    }
+    
+    .gallery-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .gallery-item:hover .gallery-img {
+      transform: scale(1.05);
+    }
+    
+    .gallery-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 60%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 25px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+    
+    .gallery-overlay h3 {
+      color: white;
+      margin-bottom: 10px;
+    }
+    
+    .gallery-overlay p {
+      color: rgba(255, 255, 255, 0.8);
+      margin: 0;
+      font-size: 0.9rem;
+    }
+    
+    .gallery-category {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: var(--rose-pink);
+      color: white;
+      padding: 5px 15px;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+    
+    /* Call to Action */
+    .gallery-cta {
+      padding: 80px 0;
+      background: linear-gradient(135deg, var(--rose-pink) 0%, #e60073 100%);
+      color: white;
+      text-align: center;
+      margin-top: 50px;
+    }
+    
+    .gallery-cta h2 {
+      font-size: 2.5rem;
+      margin-bottom: 25px;
+      color: white;
+    }
+    
+    .gallery-cta p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 40px;
+      opacity: 0.9;
+    }
+    
+    .btn-light {
+      background: white;
+      color: var(--rose-pink);
+      border-radius: 30px;
+      padding: 12px 35px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-light:hover {
+      background: var(--soft-gold);
+      color: #333;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Footer */
+    footer {
+      background: #111;
+      color: #aaa;
+      padding: 70px 0 0;
+    }
+    
+    .footer-logo {
+      font-family: 'Cinzel', serif;
+      font-size: 28px;
+      color: white;
+      margin-bottom: 20px;
+      display: block;
+    }
+    
+    .footer-logo span {
+      color: var(--rose-pink);
+    }
+    
+    .footer-title {
+      color: white;
+      font-size: 1.2rem;
+      margin-bottom: 25px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+    
+    .footer-title:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background: var(--rose-pink);
+    }
+    
+    .footer-links li {
+      margin-bottom: 12px;
+      list-style: none;
+    }
+    
+    .footer-links a {
+      color: #aaa;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .footer-links a:hover {
+      color: var(--rose-pink);
+      padding-left: 5px;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 15px;
+    }
+    
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #222;
+      color: white;
+      transition: all 0.3s ease;
+    }
+    
+    .social-links a:hover {
+      background: var(--rose-pink);
+      transform: translateY(-3px);
+    }
+    
+    .copyright {
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 50px;
+      border-top: 1px solid #333;
+    }
+    
+    /* Responsive Adjustments */
+    @media (max-width: 992px) {
+      .gallery-hero h1 {
+        font-size: 3rem;
+      }
+      
+      .features-section {
+        padding: 40px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .gallery-hero {
+        height: 50vh;
+      }
+      
+      .gallery-hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .section-title h2 {
+        font-size: 2rem;
+      }
+      
+      .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .gallery-hero h1 {
+        font-size: 2rem;
+      }
+      
+      .gallery-cta h2 {
+        font-size: 2rem;
+      }
+      
+      .features-section {
+        padding: 30px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Glow<span style="color: var(--soft-gold);">Spa</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about-us.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link active" href="gallery.html">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact-us.html">Contact</a></li>
+        </ul>
+        <div class="ms-lg-3 mt-3 mt-lg-0">
+          <a href="contact-us.html" class="btn btn-glow">Book Now</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="gallery-hero">
+    <div class="container">
+      <div class="gallery-hero-content">
+        <h1>Gallery</h1>
+        <p class="lead">Witness the artistry and elegance of GlowSpa transformations</p>
+        <span class="slogan">Redefining Elegance</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Content -->
+  <section class="gallery-content">
+    <div class="container">
+      <div class="gallery-intro">
+        <p>They say beauty is best seen — and we believe it's best felt, too. Step into the world of <strong>GlowSpa</strong> through our curated gallery of elegant hair transformations, soothing spa rituals, and the artistry that defines us.</p>
+      </div>
+      
+      <div class="features-section">
+        <div class="section-title">
+          <h2>What You'll Find</h2>
+          <p>Explore the elements of beauty we capture at GlowSpa</p>
+        </div>
+        
+        <div class="features-grid">
+          <div class="feature-item">
+            <div class="feature-icon">
+              <i class="bi bi-stars"></i>
+            </div>
+            <div class="feature-text">
+              <h3>Before & After Transformations</h3>
+              <p>See the stunning results of our beauty and hair transformations that reveal your true elegance.</p>
+            </div>
+          </div>
+          
+          <div class="feature-item">
+            <div class="feature-icon">
+              <i class="bi bi-heart"></i>
+            </div>
+            <div class="feature-text">
+              <h3>Bridal & Occasion Hair</h3>
+              <p>Discover our exquisite bridal and special occasion styles crafted for your most important moments.</p>
+            </div>
+          </div>
+          
+          <div class="feature-item">
+            <div class="feature-icon">
+              <i class="bi bi-flower1"></i>
+            </div>
+            <div class="feature-text">
+              <h3>Spa Experiences</h3>
+              <p>Immerse yourself in our rejuvenating spa treatments and wellness rituals designed for renewal.</p>
+            </div>
+          </div>
+          
+          <div class="feature-item">
+            <div class="feature-icon">
+              <i class="bi bi-house-door"></i>
+            </div>
+            <div class="feature-text">
+              <h3>Studio Ambiance</h3>
+              <p>Experience our serene interiors designed to create the perfect environment for relaxation and beauty.</p>
+            </div>
+          </div>
+          
+          <div class="feature-item">
+            <div class="feature-icon">
+              <i class="bi bi-camera"></i>
+            </div>
+            <div class="feature-text">
+              <h3>Client Glow Moments</h3>
+              <p>Share in the joy and confidence of our clients as they experience their GlowSpa transformations.</p>
+            </div>
+          </div>
+        </div>
+        
+        <p class="text-center mt-5"><em>Every frame tells a story of self-care, trust, and transformation. Ready to become our next success story?</em> Visit our <a href="contact-us.html" style="color: var(--rose-pink); font-weight: 500;">Contact</a> page and let's begin your GlowSpa journey.</p>
+      </div>
+      
+      <div class="section-title">
+        <h2>Our Beauty Gallery</h2>
+        <p>Explore our collection of transformations and moments</p>
+      </div>
+      
+      <div class="gallery-grid">
+        <!-- Hair Transformations -->
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1595475884562-073c30d45670?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Hair Transformation" class="gallery-img">
+          <div class="gallery-category">Hair Transformation</div>
+          <div class="gallery-overlay">
+            <h3>Blonde Elegance</h3>
+            <p>Complete color transformation to golden blonde</p>
+          </div>
+        </div>
+        
+        <!-- Spa Treatment -->
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Spa Treatment" class="gallery-img">
+          <div class="gallery-category">Spa Experience</div>
+          <div class="gallery-overlay">
+            <h3>Rejuvenating Facial</h3>
+            <p>Signature hydration treatment for radiant skin</p>
+          </div>
+        </div>
+        
+        <!-- Bridal Styling -->
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Bridal Styling" class="gallery-img">
+          <div class="gallery-category">Bridal Styling</div>
+          <div class="gallery-overlay">
+            <h3>Classic Bridal Updo</h3>
+            <p>Elegant updo with delicate floral accents</p>
+          </div>
+        </div>
+        
+        <!-- Studio Interior -->
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1560448204-603b3fc33ddc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Salon Interior" class="gallery-img">
+          <div class="gallery-category">Studio Interior</div>
+          <div class="gallery-overlay">
+            <h3>Serenity Lounge</h3>
+            <p>Our tranquil relaxation space before treatments</p>
+          </div>
+        </div>
+        
+        <!-- Hair Styling -->
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1599351430140-c70f0250bd70?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Hair Styling" class="gallery-img">
+          <div class="gallery-category">Hair Styling</div>
+          <div class="gallery-overlay">
+            <h3>Balayage Artistry</h3>
+            <p>Hand-painted highlights for natural dimension</p>
+          </div>
+        </div>
+        
+        <!-- Client Moment -->
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Client Moment" class="gallery-img">
+          <div class="gallery-category">Client Glow Moment</div>
+          <div class="gallery-overlay">
+            <h3>Confident Transformation</h3>
+            <p>Client reveals her new look with joy</p>
+          </div>
+        </div>
+        
+        <!-- Before & After -->
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1559599101-f09722fb4948?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Before and After" class="gallery-img">
+          <div class="gallery-category">Before & After</div>
+          <div class="gallery-overlay">
+            <h3>Style Transformation</h3>
+            <p>From long to chic bob with dimensional color</p>
+          </div>
+        </div>
+        
+        <!-- Spa Relaxation -->
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Spa Relaxation" class="gallery-img">
+          <div class="gallery-category">Spa Experience</div>
+          <div class="gallery-overlay">
+            <h3>Aromatherapy Massage</h3>
+            <p>Customized massage for ultimate relaxation</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="gallery-cta">
+    <div class="container">
+      <h2>Ready for Your Transformation?</h2>
+      <p>Experience the GlowSpa difference and become part of our gallery of success stories.</p>
+      <a href="contact-us.html" class="btn btn-light">Book Your Appointment</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 mb-5 mb-lg-0">
+          <a href="index.html" class="footer-logo">Glow<span>Spa</span></a>
+          <p class="mb-4">Redefining elegance through luxurious beauty and wellness experiences. Our expert team is dedicated to helping you look and feel your absolute best.</p>
+          <div class="social-links">
+            <a href="#"><i class="bi bi-facebook"></i></a>
+            <a href="#"><i class="bi bi-instagram"></i></a>
+            <a href="#"><i class="bi bi-pinterest"></i></a>
+            <a href="#"><i class="bi bi-twitter"></i></a>
+          </div>
+        </div>
+        
+        <div class="col-lg-4 col-md-6 mb-5 mb-md-0">
+          <h4 class="footer-title">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about-us.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact-us.html">Contact Us</a></li>
+          </ul>
+        </div>
+        
+        <div class="col-lg-4 col-md-6">
+          <h4 class="footer-title">Contact Us</h4>
+          <ul class="footer-links">
+            <li><i class="bi bi-geo-alt me-2"></i> 123 Elegance Avenue, Luxe City</li>
+            <li><i class="bi bi-telephone me-2"></i> (123) 456-7890</li>
+            <li><i class="bi bi-envelope me-2"></i> info@glowspa.com</li>
+            <li><i class="bi bi-clock me-2"></i> Mon-Sat: 9AM - 8PM, Sun: 10AM - 5PM</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="copyright">
+        <p>&copy; 2025 GlowSpa. All Rights Reserved. Redefining Elegance.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    // Simple animation for navbar on scroll
+    window.addEventListener('scroll', function() {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.style.padding = '10px 0';
+        navbar.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
+      } else {
+        navbar.style.padding = '15px 0';
+        navbar.style.boxShadow = '0 2px 15px rgba(0, 0, 0, 0.05)';
+      }
+    });
+    
+    // Gallery hover effect enhancement
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    galleryItems.forEach(item => {
+      item.addEventListener('mouseenter', () => {
+        item.style.transform = 'translateY(-10px)';
+        item.style.boxShadow = '0 15px 40px rgba(255, 0, 127, 0.1)';
+      });
+      item.addEventListener('mouseleave', () => {
+        item.style.transform = 'translateY(0)';
+        item.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.05)';
+      });
+    });
+  </script>
+</body>
+</html>
