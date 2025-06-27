@@ -2,98 +2,614 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Template Hub</title>
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    
-    <!-- Bootstrap CSS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Template Hub</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #6441A5;
+            --accent-color: #60a5fa;
+            --light-bg: #f8fafc;
+            --dark-text: #1e293b;
+            --light-text: #64748b;
+            --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #f8f9fa;
-            color: #333;
+            background-color: var(--light-bg);
+            color: var(--dark-text);
         }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px 0;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: 0 0 30px 30px;
+            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.2);
+        }
+        
+        .header h1 {
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        
         .container {
-            max-width: 1100px;
+            max-width: 1200px;
+            padding-bottom: 50px;
         }
+        
         .card {
-            background: #ffffff;
-            border-radius: 8px;
-            transition: 0.3s;
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: var(--transition);
+            /* margin-bottom: 25px; */
+            height: 100%;
+            /* background: white; */
+            box-shadow: var(--card-shadow);
+            position: relative;
         }
-        .card:hover {
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        
+        .card-img-top {
+            height: 180px;
+            object-fit: cover;
+            transition: var(--transition);
         }
+        
+        .card-body {
+            padding: 20px;
+            position: relative;
+            z-index: 2;
+            /* background: white; */
+        }
+        
         .card-title {
-            font-size: 20px;
+            font-size: 1.25rem;
             font-weight: 600;
-            color: #007bff;
+            margin-bottom: 8px;
+            color: var(--dark-text);
         }
+        
+        .card-subtitle {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
         .card-text {
-            font-size: 14px;
-            color: #666;
+            font-size: 0.9rem;
+            color: var(--light-text);
         }
-        .btn-small {
-            font-size: 12px;
-            padding: 6px 10px;
-            border-radius: 5px;
+        
+        .btn-view {
+            background: var(--primary-color);
+            color: var(--light-bg);
+            text-transform: uppercase;
+            /* border: none; */
+            /* padding: 8px 24px; */
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+        
+        .btn-view:hover {
+            background: var(--secondary-color);
+            color: var(--light-bg);
+            transform: translateY(-2px);
+        }
+        
+        /* Hover Effects */
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .card:hover .card-img-top {
+            transform: scale(1.05);
+        }
+        
+        .card:hover .card-title {
+            color: var(--primary-color);
+        }
+        
+        /* Pagination */
+        .pagination-container {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .pagination .page-item .page-link {
+            border-radius: 8px;
+            margin: 0 5px;
+            border: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .pagination .page-item.active .page-link {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .pagination .page-item:not(.active) .page-link:hover {
+            background: #e2e8f0;
+        }
+        
+        /* Search and Filter */
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            position: relative;
+        }
+        
+        .search-container i {
+            position: absolute;
+            left: 15px;
+            top: 12px;
+            color: #94a3b8;
+        }
+        
+        .search-container input {
+            padding-left: 45px;
+            border-radius: 50px;
+            height: 45px;
+            border: 2px solid #e2e8f0;
+            transition: var(--transition);
+        }
+        
+        .search-container input:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+        }
+        
+        /* Category Filter */
+        .category-filter {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .category-btn {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 50px;
+            padding: 8px 20px;
+            font-size: 0.9rem;
+            color: var(--light-text);
+            transition: var(--transition);
+        }
+        
+        .category-btn:hover, .category-btn.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                padding: 20px 0;
+            }
+            
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .card {
+                margin-bottom: 20px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container mt-5">
-        <h2 class="text-center mb-4">Template Hub</h2>
-        <div class="row row-cols-1 row-cols-md-3 g-4">
-            <script>
-                const templates = [
-                    { name: "Corporate Business Hub", brand: "Vistra", slogan: "Empowering Enterprises", color: "#001f3f", link: "./vistra/" },
-                    { name: "Creative Agency Portfolio", brand: "Creatix", slogan: "Design Beyond Limits", color: "#6a0dad", link: "./creatix/" },
-                    { name: "E-commerce Storefront", brand: "ShopifyPro", slogan: "Your Digital Marketplace", color: "#ff9800", link: "./shopifypro/" },
-                    { name: "Health & Wellness Clinic", brand: "VitalCare", slogan: "Healing With Care", color: "#008080", link: "./vitalcare/" },
-                    { name: "Real Estate Showcase", brand: "Horizon Realty", slogan: "Find Your Dream Home", color: "#b22222", link: "./horizonrealty/" },
-                    { name: "Education & E-learning Platform", brand: "EduLift", slogan: "Learn, Grow, Succeed", color: "#00274d", link: "./edulift/" },
-                    { name: "Legal Advisory Firm", brand: "LexPoint", slogan: "Justice, Simplified", color: "#002147", link: "./lexpoint/" },
-                    { name: "Finance & Investment Consulting", brand: "Finovate", slogan: "Smart Wealth Solutions", color: "#014421", link: "./finovate/" },
-                    { name: "Restaurant & Café Experience", brand: "TasteBites", slogan: "Savor The Flavor", color: "#8b4513", link: "./tastebites/" },
-                    { name: "Event Planning & Management", brand: "Eventoria", slogan: "Memories, Perfectly Planned", color: "#800080", link: "./eventoria/" },
-                    { name: "Tech Startup Landing Page", brand: "Innovix", slogan: "Technology That Evolves", color: "#007acc", link: "./innovix/" },
-                    { name: "Personal Portfolio & Resume", brand: "CareerCraft", slogan: "Showcase Your Brilliance", color: "#333333", link: "./careercraft/" },
-                    { name: "Construction & Architecture Firm", brand: "BuildVision", slogan: "Structures With Purpose", color: "#000000", link: "./buildvision/" },
-                    { name: "Automobile Dealership & Services", brand: "AutoVibe", slogan: "Drive Your Passion", color: "#990000", link: "./autovibe/" },
-                    { name: "Travel & Tourism Agency", brand: "Globetrek", slogan: "Explore The World", color: "#008cba", link: "./globetrek/" },
-                    { name: "Photography & Videography Studio", brand: "CaptureX", slogan: "Moments That Matter", color: "#ffd700", link: "./capturex/" },
-                    { name: "Fitness & Gym Membership", brand: "FitPlus", slogan: "Stronger Every Day", color: "#ff0000", link: "./fitplus/" },
-                    { name: "Non-Profit & Charity Organization", brand: "HopeFund", slogan: "Change Starts Here", color: "#006400", link: "./hopefund/" },
-                    { name: "Beauty & Salon Services", brand: "GlowSpa", slogan: "Beauty, Redefined", color: "#ff007f", link: "./glowspa/" },
-                    { name: "Home Services & Repair", brand: "FixItPro", slogan: "Reliable Repairs, Anytime", color: "#001f3f", link: "./fixitpro/" }
-                ];
-
-                document.addEventListener("DOMContentLoaded", () => {
-                    const row = document.querySelector(".row");
-
-                    templates.forEach(template => {
-                        const col = document.createElement("div");
-                        col.className = "col";
-                        col.innerHTML = `
-                            <div class="card shadow-sm">
-                                <div class="card-body" style="border-left: 5px solid ${template.color};">
-                                    <h5 class="card-title" style="color:${template.color};">${template.brand}</h5>
-                                    <p class="card-text">${template.slogan}</p>
-                                    <a href="${template.link}" class="btn btn-small text-white mt-3" style="background:${template.color};">View</a>
-                                </div>
-                            </div>
-                        `;
-                        row.appendChild(col);
-                    });
-                });
-            </script>
+    <div class="header">
+        <div class="container">
+            <h1 class="mt-5">Professional Template Hub</h1>
+            <p>Browse our collection of professionally designed templates for every business need</p>
+        </div>
+    </div>
+    
+    <div class="container">
+        <!-- Search -->
+        <div class="search-container">
+            <i class="fas fa-search"></i>
+            <input type="text" class="form-control" id="searchInput" placeholder="Search templates...">
+        </div>
+        
+        <!-- Category Filter -->
+        <div class="category-filter">
+            <button class="category-btn active" data-category="all">All Templates</button>
+            <button class="category-btn" data-category="business">Business</button>
+            <button class="category-btn" data-category="creative">Creative</button>
+            <button class="category-btn" data-category="ecommerce">E-commerce</button>
+            <button class="category-btn" data-category="service">Services</button>
+        </div>
+        
+        <!-- Templates Grid -->
+        <div class="row" id="templatesGrid">
+            <!-- Cards will be generated by JavaScript -->
+        </div>
+        
+        <!-- Pagination -->
+        <div class="pagination-container">
+            <nav>
+                <ul class="pagination" id="pagination">
+                    <!-- Pagination will be generated by JavaScript -->
+                </ul>
+            </nav>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <div class="container">
+            <p>&copy; 2023 Professional Template Hub. All rights reserved.</p>
+            <p>Designed with <i class="fas fa-heart" style="color: #ff6b6b;"></i> for professionals</p>
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Template data
+        const templates = [
+            { 
+                name: "Corporate Business Hub", 
+                brand: "Vistra", 
+                slogan: "Empowering Enterprises", 
+                color: "#001f3f", 
+                link: "./vistra/",
+                category: "business",
+                img: "vistra.png"
+            },
+            { 
+                name: "Creative Agency Portfolio", 
+                brand: "Creatix", 
+                slogan: "Design Beyond Limits", 
+                color: "#6a0dad", 
+                link: "./creatix/",
+                category: "creative",
+                img: "creatix.png"
+            },
+            { 
+                name: "E-commerce Storefront", 
+                brand: "ShopifyPro", 
+                slogan: "Your Digital Marketplace", 
+                color: "#ff9800", 
+                link: "./shopifypro/",
+                category: "ecommerce",
+                img: "shopifypro.png"
+            },
+            { 
+                name: "Health & Wellness Clinic", 
+                brand: "VitalCare", 
+                slogan: "Healing With Care", 
+                color: "#008080", 
+                link: "./vitalcare/",
+                category: "service",
+                img: "vitalcare.png"
+            },
+            { 
+                name: "Real Estate Showcase", 
+                brand: "Horizon Realty", 
+                slogan: "Find Your Dream Home", 
+                color: "#b22222", 
+                link: "./horizonrealty/",
+                category: "business",
+                img: "horizonrealty.png"
+            },
+            { 
+                name: "Education & E-learning Platform", 
+                brand: "EduLift", 
+                slogan: "Learn, Grow, Succeed", 
+                color: "#00274d", 
+                link: "./edulift/",
+                category: "service",
+                img: "edulift.png"
+            },
+            { 
+                name: "Legal Advisory Firm", 
+                brand: "LexPoint", 
+                slogan: "Justice, Simplified", 
+                color: "#002147", 
+                link: "./lexpoint/",
+                category: "business",
+                img: "lexpoint.png"
+            },
+            { 
+                name: "Finance & Investment Consulting", 
+                brand: "Finovate", 
+                slogan: "Smart Wealth Solutions", 
+                color: "#014421", 
+                link: "./finovate/",
+                category: "business",
+                img: "finovate.png"
+            },
+            { 
+                name: "Restaurant & Café Experience", 
+                brand: "TasteBites", 
+                slogan: "Savor The Flavor", 
+                color: "#8b4513", 
+                link: "./tastebites/",
+                category: "service",
+                img: "tastebites.png"
+            },
+            { 
+                name: "Event Planning & Management", 
+                brand: "Eventoria", 
+                slogan: "Memories, Perfectly Planned", 
+                color: "#800080", 
+                link: "./eventoria/",
+                category: "service",
+                img: "eventoria.png"
+            },
+            { 
+                name: "Tech Startup Landing Page", 
+                brand: "Innovix", 
+                slogan: "Technology That Evolves", 
+                color: "#007acc", 
+                link: "./innovix/",
+                category: "creative",
+                img: "innovix.png"
+            },
+            { 
+                name: "Personal Portfolio & Resume", 
+                brand: "CareerCraft", 
+                slogan: "Showcase Your Brilliance", 
+                color: "#333333", 
+                link: "./careercraft/",
+                category: "creative",
+                img: "careercraft.png"
+            },
+            { 
+                name: "Construction & Architecture Firm", 
+                brand: "BuildVision", 
+                slogan: "Structures With Purpose", 
+                color: "#000000", 
+                link: "./buildvision/",
+                category: "business",
+                img: "buildvision.png"
+            },
+            { 
+                name: "Automobile Dealership & Services", 
+                brand: "AutoVibe", 
+                slogan: "Drive Your Passion", 
+                color: "#990000", 
+                link: "./autovibe/",
+                category: "service",
+                img: "autovibe.png"
+            },
+            { 
+                name: "Travel & Tourism Agency", 
+                brand: "Globetrek", 
+                slogan: "Explore The World", 
+                color: "#008cba", 
+                link: "./globetrek/",
+                category: "service",
+                img: "globetrek.png"
+            },
+            { 
+                name: "Photography & Videography Studio", 
+                brand: "CaptureX", 
+                slogan: "Moments That Matter", 
+                color: "#ffd700", 
+                link: "./capturex/",
+                category: "creative",
+                img: "capturex.png"
+            },
+            { 
+                name: "Fitness & Gym Membership", 
+                brand: "FitPlus", 
+                slogan: "Stronger Every Day", 
+                color: "#ff0000", 
+                link: "./fitplus/",
+                category: "service",
+                img: "fitplus.png"
+            },
+            { 
+                name: "Non-Profit & Charity Organization", 
+                brand: "HopeFund", 
+                slogan: "Change Starts Here", 
+                color: "#006400", 
+                link: "./hopefund/",
+                category: "service",
+                img: "hopefund.png"
+            },
+            { 
+                name: "Beauty & Salon Services", 
+                brand: "GlowSpa", 
+                slogan: "Beauty, Redefined", 
+                color: "#ff007f", 
+                link: "./glowspa/",
+                category: "service",
+                img: "glowspa.png"
+            },
+            { 
+                name: "Home Services & Repair", 
+                brand: "FixItPro", 
+                slogan: "Reliable Repairs, Anytime", 
+                color: "#001f3f", 
+                link: "./fixitpro/",
+                category: "service",
+                img: "fixitpro.png"
+            }
+        ];
+
+        // Pagination settings
+        const cardsPerPage = 4;
+        let currentPage = 1;
+        let filteredTemplates = [...templates];
+        
+        // Function to render templates
+        function renderTemplates(page = 1) {
+            const grid = document.getElementById('templatesGrid');
+            grid.innerHTML = '';
+            
+            const startIndex = (page - 1) * cardsPerPage;
+            const endIndex = startIndex + cardsPerPage;
+            const paginatedItems = filteredTemplates.slice(startIndex, endIndex);
+            
+            if (paginatedItems.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-12 text-center py-5">
+                        <i class="fas fa-search fa-3x mb-3" style="color: #cbd5e1;"></i>
+                        <h3>No templates found</h3>
+                        <p class="text-muted">Try adjusting your search or filter criteria</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            paginatedItems.forEach(template => {
+                const col = document.createElement('div');
+                col.className = 'col-md-6 col-12 my-3';
+                col.innerHTML = `
+                    <div class="card">
+                        <img src="./screenshots/${template.img}" class="card-img-top" alt="${template.name}">
+                        <div class="card-body">
+                            <h3 class="card-title">${template.name}</h3>
+                            <p class="card-text">${template.slogan}</p>
+                            <a href="${template.link}" class="btn btn-view">
+                                ${template.brand} <i class="fas fa-arrow-right ms-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(col);
+            });
+            
+            renderPagination();
+        }
+        
+        // Function to render pagination
+        function renderPagination() {
+            const totalPages = Math.ceil(filteredTemplates.length / cardsPerPage);
+            const pagination = document.getElementById('pagination');
+            pagination.innerHTML = '';
+            
+            // Previous button
+            const prevLi = document.createElement('li');
+            prevLi.className = `page-item ${currentPage === 1 ? 'disabled' : ''}`;
+            prevLi.innerHTML = `
+                <a class="page-link" href="#" aria-label="Previous" id="prevPage">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            `;
+            pagination.appendChild(prevLi);
+            
+            // Page numbers
+            for (let i = 1; i <= totalPages; i++) {
+                const li = document.createElement('li');
+                li.className = `page-item ${i === currentPage ? 'active' : ''}`;
+                li.innerHTML = `<a class="page-link" href="#" data-page="${i}">${i}</a>`;
+                pagination.appendChild(li);
+            }
+            
+            // Next button
+            const nextLi = document.createElement('li');
+            nextLi.className = `page-item ${currentPage === totalPages ? 'disabled' : ''}`;
+            nextLi.innerHTML = `
+                <a class="page-link" href="#" aria-label="Next" id="nextPage">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            `;
+            pagination.appendChild(nextLi);
+            
+            // Add event listeners
+            document.querySelectorAll('.page-link[data-page]').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    currentPage = parseInt(link.dataset.page);
+                    renderTemplates(currentPage);
+                });
+            });
+            
+            document.getElementById('prevPage')?.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (currentPage > 1) {
+                    currentPage--;
+                    renderTemplates(currentPage);
+                }
+            });
+            
+            document.getElementById('nextPage')?.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (currentPage < totalPages) {
+                    currentPage++;
+                    renderTemplates(currentPage);
+                }
+            });
+        }
+        
+        // Search functionality
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            
+            filteredTemplates = templates.filter(template => 
+                template.name.toLowerCase().includes(searchTerm) ||
+                template.brand.toLowerCase().includes(searchTerm) ||
+                template.slogan.toLowerCase().includes(searchTerm)
+            );
+            
+            currentPage = 1;
+            renderTemplates(currentPage);
+        });
+        
+        // Category filter
+        document.querySelectorAll('.category-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                document.querySelectorAll('.category-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                const category = button.dataset.category;
+                
+                if (category === 'all') {
+                    filteredTemplates = [...templates];
+                } else {
+                    filteredTemplates = templates.filter(template => 
+                        template.category === category
+                    );
+                }
+                
+                currentPage = 1;
+                renderTemplates(currentPage);
+            });
+        });
+        
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', () => {
+            renderTemplates(currentPage);
+        });
+    </script>
 </body>
 </html>
