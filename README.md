@@ -52,7 +52,7 @@ Whether you're targeting corporate clients, tech startups, or creative professio
 
 ## Themes
 
-### 1. Corporate Business Hub
+### 1. Corporate Business Hub | Vistra
 - **Slogan:** "Your Vision, Our Strategy."
 - **Color Scheme:**  
   - Navy Blue: `#001f3f`  
@@ -61,7 +61,7 @@ Whether you're targeting corporate clients, tech startups, or creative professio
 - **Google Fonts:** `Montserrat` (headers), `Lato` (body)
 - **Design Philosophy:** Clean, authoritative, and minimalist—emphasizing trust and professionalism.
 
-### 2. Creative Agency Portfolio
+### 2. Creative Agency Portfolio | Creatix
 - **Slogan:** "Design. Create. Inspire."
 - **Color Scheme:**  
   - Vibrant Purple: `#6a0dad`  
@@ -70,7 +70,7 @@ Whether you're targeting corporate clients, tech startups, or creative professio
 - **Google Fonts:** `Poppins` (headers), `Raleway` (body)
 - **Design Philosophy:** Playful yet sleek—focusing on bold visuals and interactive elements.
 
-### 3. E-commerce Storefront
+### 3. E-commerce Storefront | ShopifyPro
 - **Slogan:** "Shop Smart. Live Better."
 - **Color Scheme:**  
   - Orange: `#ff9800`  
@@ -79,7 +79,7 @@ Whether you're targeting corporate clients, tech startups, or creative professio
 - **Google Fonts:** `Oswald` (headers), `Open Sans` (body)
 - **Design Philosophy:** Clear call-to-action, product-centered layout, and seamless navigation.
 
-### 4. Health & Wellness Clinic
+### 4. Health & Wellness Clinic | VitalCare
 - **Slogan:** "Healing for a Better Life."
 - **Color Scheme:**  
   - Mint Green: `#98ff98`  
@@ -88,7 +88,7 @@ Whether you're targeting corporate clients, tech startups, or creative professio
 - **Google Fonts:** `Merriweather` (headers), `Nunito` (body)
 - **Design Philosophy:** Soft color gradients, friendly typography, and calming visuals.
 
-### 5. Real Estate Showcase
+### 5. Real Estate Showcase | HorizonRealty
 - **Slogan:** "Find Your Perfect Space."
 - **Color Scheme:**  
   - Brick Red: `#b22222`  
@@ -97,7 +97,7 @@ Whether you're targeting corporate clients, tech startups, or creative professio
 - **Google Fonts:** `Playfair Display` (headers), `Roboto` (body)
 - **Design Philosophy:** Large high-quality images, elegant structure, and strategic spacing.
 
-### 6. Education & E-learning Platform
+### 6. Education & E-learning Platform | EduLift
 - **Slogan:** "Learn Today, Lead Tomorrow."
 - **Color Scheme:**  
   - Deep Blue: `#00274d`  
@@ -106,7 +106,7 @@ Whether you're targeting corporate clients, tech startups, or creative professio
 - **Google Fonts:** `Source Serif Pro` (headers), `Inter` (body)
 - **Design Philosophy:** Simple navigation, strong readability, and engaging micro-interactions.
 
-### 7. Legal Advisory Firm
+### 7. Legal Advisory Firm | LexPoint
 - **Slogan:** "Justice Served Right."
 - **Color Scheme:**  
   - Dark Blue: `#002147`  
@@ -115,7 +115,7 @@ Whether you're targeting corporate clients, tech startups, or creative professio
 - **Google Fonts:** `Crimson Pro` (headers), `Noto Sans` (body)
 - **Design Philosophy:** Formal, trustworthy, and credibility-focused design.
 
-### 8. Finance & Investment Consulting
+### 8. Finance & Investment Consulting | Finovate
 - **Slogan:** "Building Wealth, Securely."
 - **Color Scheme:**  
   - Deep Green: `#014421`  
@@ -124,7 +124,7 @@ Whether you're targeting corporate clients, tech startups, or creative professio
 - **Google Fonts:** `Work Sans` (headers), `Libre Baskerville` (body)
 - **Design Philosophy:** Elegant simplicity, effective data visualization, and strong CTA buttons.
 
-### 9. Restaurant & Café Experience
+### 9. Restaurant & Café Experience | TasteBites
 - **Slogan:** "Taste the Tradition."
 - **Color Scheme:**  
   - Rustic Brown: `#8b4513`  
@@ -133,7 +133,7 @@ Whether you're targeting corporate clients, tech startups, or creative professio
 - **Google Fonts:** `Great Vibes` (headings), `Open Sans` (body)
 - **Design Philosophy:** High-quality food photography, smooth scrolling, and interactive menu systems.
 
-### 10. Event Planning & Management
+### 10. Event Planning & Management | Eventoria
 - **Slogan:** "Turning Dreams Into Reality."
 - **Color Scheme:**  
   - Royal Purple: `#800080`  
@@ -142,7 +142,7 @@ Whether you're targeting corporate clients, tech startups, or creative professio
 - **Google Fonts:** `Poppins` (headers), `Quicksand` (body)
 - **Design Philosophy:** Elegant layout, pronounced typography hierarchy, and engaging motion effects.
 
-### 11. Tech Startup Landing Page
+### 11. Tech Startup Landing Page | Innovix
 - **Slogan:** "Innovate. Disrupt. Scale."
 - **Color Scheme:**  
   - Electric Blue: `#007acc`  
@@ -151,7 +151,7 @@ Whether you're targeting corporate clients, tech startups, or creative professio
 - **Google Fonts:** `Anton` (headers), `Source Sans Pro` (body)
 - **Design Philosophy:** Futuristic design with bold contrasts and tech-driven UI elements.
 
-### 12. Personal Portfolio & Resume
+### 12. Personal Portfolio & Resume | CareerCraft
 - **Slogan:** "Your Work, Your Story."
 - **Color Scheme:**  
   - Charcoal Gray: `#333333`  
@@ -160,7 +160,7 @@ Whether you're targeting corporate clients, tech startups, or creative professio
 - **Google Fonts:** `Lora` (headers), `Josefin Sans` (body)
 - **Design Philosophy:** Minimalist layout, clear information hierarchy, and high readability.
 
-### 13. Construction & Architecture Firm
+### 13. Construction & Architecture Firm | BuildVision
 - **Slogan:** "Building Dreams, One Brick at a Time."
 - **Color Scheme:**  
   - Concrete Gray: `#a9a9a9`  
@@ -169,7 +169,7 @@ Whether you're targeting corporate clients, tech startups, or creative professio
 - **Google Fonts:** `Bebas Neue` (headers), `Source Serif Pro` (body)
 - **Design Philosophy:** Grid-based layouts, strong headlines, and visually reinforcing structure.
 
-### 14. Automobile Dealership & Services
+### 14. Automobile Dealership & Services | AutoVibe
 - **Slogan:** "Driven by Excellence."
 - **Color Scheme:**  
   - Metallic Silver: `#c0c0c0`  
@@ -178,7 +178,7 @@ Whether you're targeting corporate clients, tech startups, or creative professio
 - **Google Fonts:** `Oswald` (headers), `Lexend Deca` (body)
 - **Design Philosophy:** Sleek and modern styling that emphasizes bold visuals of vehicles.
 
-### 15. Travel & Tourism Agency
+### 15. Travel & Tourism Agency | GlobeTrek
 - **Slogan:** "Adventure Awaits."
 - **Color Scheme:**  
   - Ocean Blue: `#008cba`  
@@ -187,7 +187,7 @@ Whether you're targeting corporate clients, tech startups, or creative professio
 - **Google Fonts:** `Pacifico` (headers), `Nunito Sans` (body)
 - **Design Philosophy:** Vibrant and immersive imagery paired with intuitive booking flows.
 
-### 16. Photography & Videography Studio
+### 16. Photography & Videography Studio | CaptureX
 - **Slogan:** "Capturing Moments, Creating Memories."
 - **Color Scheme:**  
   - Dark Gray: `#222222`  
@@ -196,7 +196,7 @@ Whether you're targeting corporate clients, tech startups, or creative professio
 - **Google Fonts:** `Cormorant Garamond` (headers), `Poppins` (body)
 - **Design Philosophy:** Full-screen imagery, elegant typography, and smooth transitions for a cinematic feel.
 
-### 17. Fitness & Gym Membership
+### 17. Fitness & Gym Membership | FitPlus
 - **Slogan:** "Strong Body, Strong Mind."
 - **Color Scheme:**  
   - Fiery Red: `#ff0000`  
@@ -205,7 +205,7 @@ Whether you're targeting corporate clients, tech startups, or creative professio
 - **Google Fonts:** `Teko` (headers), `Nunito` (body)
 - **Design Philosophy:** Bold contrasts, dynamic visuals, and effective call-to-action buttons that drive engagement.
 
-### 18. Non-Profit & Charity Organization
+### 18. Non-Profit & Charity Organization | HopeFund
 - **Slogan:** "Empowering Lives, Together."
 - **Color Scheme:**  
   - Deep Green: `#006400`  
@@ -214,7 +214,7 @@ Whether you're targeting corporate clients, tech startups, or creative professio
 - **Google Fonts:** `Playfair Display` (headers), `Lato` (body)
 - **Design Philosophy:** Heartfelt storytelling combined with warm visuals and a strong focus on community engagement.
 
-### 19. Beauty & Salon Services
+### 19. Beauty & Salon Services | GlowSpa
 - **Slogan:** "Redefining Elegance."
 - **Color Scheme:**  
   - Rose Pink: `#ff007f`  
@@ -223,7 +223,7 @@ Whether you're targeting corporate clients, tech startups, or creative professio
 - **Google Fonts:** `Cinzel` (headers), `Raleway` (body)
 - **Design Philosophy:** A feminine aesthetic highlighted by smooth gradients and luxurious accents.
 
-### 20. Home Services & Repair
+### 20. Home Services & Repair | FixItPro
 - **Slogan:** "Reliable Fixes, Right on Time."
 - **Color Scheme:**  
   - Deep Blue: `#001f3f`  
